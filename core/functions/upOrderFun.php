@@ -1,5 +1,20 @@
 <?php
 
+$updateOrder = function ($dataToUpdateOrder, $orderId) use ($link, $sanatization) {
+
+    array_walk($dataToUpdateOrder, $sanatization);
+    $dataToUpString = '';
+    foreach ($dataToUpdateOrder as $index => $dataToUp) {
+
+        $dataToUpString .= "`$index` = '$dataToUp', ";
+    }
+    $dataToUpString = substr($dataToUpString, 0, strlen($dataToUpString) - 2);
+    $query =  "UPDATE `customerorder` SET {$dataToUpString} WHERE `order_id` = $orderId";
+    mysqli_query($link, $query);
+    return true;
+};
+
+
 if (isset($_POST['updateOrderBtn'])) {
 
     $dataToUpdateOrder = [];

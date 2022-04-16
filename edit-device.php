@@ -35,6 +35,7 @@ if (!isset($_SESSION['user_id'])) {
     <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/lib/helper.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
+    <?php require_once('widgets/darkModeFun.php'); ?>
 </head>
 
 <body>
@@ -59,7 +60,7 @@ if (!isset($_SESSION['user_id'])) {
                     </li>
 
                     <li class="label">Users</li>
-                    <li><a class="sidebar-sub-toggle"><i class="ti-user"></i> Admin <span class="badge badge-primary"><?php echo $userCount() ?></span> <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <li><a class="sidebar-sub-toggle"><i class="ti-user"></i> Admin <span class="badge badge-primary"><?php echo $getRowCount('users') ?></span> <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
                             <li><a href="admin-list.php">Admin List</a></li>
                             <li><a href="add-admin.php">Add Admin</a></li>
@@ -410,12 +411,17 @@ if (!isset($_SESSION['user_id'])) {
                                                     <label>Color Variant</label>
                                                     <input class="form-control" type="text" name="color" value="<?php echo $deviceQuery['color'] ?>" />
                                                 </div>
-
-                                            </div>
-                                            <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label>Device Resolution</label>
                                                     <input class="form-control" type="text" name="resolution" value="<?php echo $deviceQuery['resolution'] ?>" />
+                                                </div>
+
+                                            </div>
+                                            <div class="col-lg-4">
+
+                                                <div class="form-group">
+                                                    <label>Expense*</label>
+                                                    <input class="form-control" type="text" name="expense" value="<?php echo $deviceQuery['expense'] ?>" required />
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Price*</label>
@@ -424,6 +430,10 @@ if (!isset($_SESSION['user_id'])) {
                                                 <div class="form-group">
                                                     <label>Stock*</label>
                                                     <input class="form-control" type="text" name="stock" value="<?php echo $deviceQuery['stock'] ?>" required />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Total Sold</label>
+                                                    <input class="form-control" type="text" name="total_sold" value="<?php echo $deviceQuery['total_sold'] ?>" required />
                                                 </div>
 
                                                 <div class="form-group">

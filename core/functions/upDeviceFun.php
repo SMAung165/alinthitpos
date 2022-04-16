@@ -1,4 +1,18 @@
 <?php
+
+$updateDevice = function ($dataToUpdateDevice, $productId) use ($link, $sanatization) {
+    array_walk($dataToUpdateDevice, $sanatization);
+    $dataToUpString = '';
+    foreach ($dataToUpdateDevice as $index => $dataToUp) {
+
+        $dataToUpString .= "`$index` = '$dataToUp', ";
+    }
+    $dataToUpString = substr($dataToUpString, 0, strlen($dataToUpString) - 2);
+    $query =  "UPDATE `products` SET {$dataToUpString} WHERE `product_id` = $productId";
+    mysqli_query($link, $query);
+    return true;
+};
+
 if (isset($_POST['updateDeviceBtn'])) {
     $fileImagePath = '';
     if (empty($_FILES['file_image']['name'])) {
@@ -35,8 +49,10 @@ if (isset($_POST['updateDeviceBtn'])) {
         'specs' => $_POST['specs'],
         'color' => $_POST['color'],
         'resolution' => $_POST['resolution'],
+        'expense' => $_POST['expense'],
         'price' => $_POST['price'],
         'stock' => $_POST['stock'],
+        'total_sold' => $_POST['total_sold'],
         'image' => $fileImagePath,
     ];
     array_walk($dataToUpdateDevice, $sanatization);

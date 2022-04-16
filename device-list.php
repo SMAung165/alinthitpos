@@ -37,6 +37,7 @@ if (!isset($_SESSION['user_id'])) {
     <link href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet" />
     <link href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css" rel="stylesheet" />
     <link href="https://cdn.datatables.net/rowgroup/1.1.4/css/rowGroup.dataTables.min.css" rel="stylesheet" />
+    <?php require_once('widgets/darkModeFun.php'); ?>
 </head>
 
 <body>
@@ -62,7 +63,7 @@ if (!isset($_SESSION['user_id'])) {
                     </li>
 
                     <li class="label">Users</li>
-                    <li><a class="sidebar-sub-toggle"><i class="ti-user"></i> Admin <span class="badge badge-primary"><?php echo $userCount() ?></span> <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <li><a class="sidebar-sub-toggle"><i class="ti-user"></i> Admin <span class="badge badge-primary"><?php echo $getRowCount('users') ?></span> <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
                             <li><a href="admin-list.php">Admin List</a></li>
                             <li><a href="add-admin.php">Add Admin</a></li>
@@ -391,15 +392,32 @@ if (!isset($_SESSION['user_id'])) {
                                                     <th>Model</th>
                                                     <th>Brand</th>
                                                     <th>Color Variant</th>
-                                                    <th>Price (MMK)</th>
-                                                    <th>Stock</th>
+                                                    <th>Expense Per One (MMK)</th>
+                                                    <th>Price Per One (MMK)</th>
+                                                    <th>Stock Left</th>
                                                     <th>Total Sold</th>
+                                                    <th>Initial Stock</th>
                                                     <th>Profit</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php $listDevices('list') ?>
                                             </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>Device ID</th>
+                                                    <th>Name</th>
+                                                    <th>Model</th>
+                                                    <th>Brand</th>
+                                                    <th>Color Variant</th>
+                                                    <th>Expense Per One (MMK)</th>
+                                                    <th>Price Per One (MMK)</th>
+                                                    <th>Stock Left</th>
+                                                    <th>Total Sold</th>
+                                                    <th>Initial Stock</th>
+                                                    <th>Profit</th>
+                                                </tr>
+                                            </tfoot>
                                         </table>
                                     </div>
                                 </div>

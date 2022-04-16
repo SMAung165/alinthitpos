@@ -35,6 +35,7 @@ if (!isset($_SESSION['user_id'])) {
     <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/lib/helper.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
+    <?php require_once('widgets/darkModeFun.php'); ?>
 </head>
 
 <body>
@@ -59,7 +60,7 @@ if (!isset($_SESSION['user_id'])) {
                     </li>
 
                     <li class="label">Users</li>
-                    <li><a class="sidebar-sub-toggle"><i class="ti-user"></i> Admin <span class="badge badge-primary"><?php echo $userCount() ?></span> <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <li><a class="sidebar-sub-toggle"><i class="ti-user"></i> Admin <span class="badge badge-primary"><?php echo $getRowCount('users') ?></span> <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
                             <li><a href="admin-list.php">Admin List</a></li>
                             <li><a href="add-admin.php">Add Admin</a></li>

@@ -1,4 +1,15 @@
 <?php
+$insertIntoDatabaseUsers = function ($dataToInsert) use ($link, $sanatization) {
+
+    array_walk($dataToInsert, $sanatization);
+    $dataToInsert['password'] = md5($dataToInsert['password']);
+    $fieldNames = '`' . implode('`,`', array_keys($dataToInsert)) . '`';
+    $dataToInsert = '\'' . implode('\',\'', $dataToInsert) . '\'';
+    $query =  "INSERT INTO `users` ({$fieldNames}) VALUES ({$dataToInsert})";
+    mysqli_query($link, $query);
+    return true;
+};
+
 if (isset($_POST['registerBtn'])) {
 
     $isUsernameValid = $isEmailValid = $isPasswordValid  = 'invalid';
@@ -67,8 +78,8 @@ if (isset($_POST['registerBtn'])) {
             'active' => $_POST['active'],
         ];
 
-        $insertIntoDatabase =  $insertIntoDatabase($dataToInsert);
-        if ($insertIntoDatabase) {
+        $insertIntoDatabaseUsers =  $insertIntoDatabaseUsers($dataToInsert);
+        if ($insertIntoDatabaseUsers) {
             header("Location:{$_SERVER['PHP_SELF']}?inSuccess");
             exit();
         }

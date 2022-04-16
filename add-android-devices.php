@@ -2,6 +2,8 @@
 require_once('core/config/init.php');
 if (!isset($_SESSION['user_id'])) {
     header("location:page-login.php");
+} else {
+    require_once('core/functions/addDeviceFun.php');
 }
 ?>
 <!DOCTYPE html>
@@ -33,6 +35,7 @@ if (!isset($_SESSION['user_id'])) {
     <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/lib/helper.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
+    <?php require_once('widgets/darkModeFun.php'); ?>
 </head>
 
 <body>
@@ -59,7 +62,7 @@ if (!isset($_SESSION['user_id'])) {
                     </li>
 
                     <li class="label">Users</li>
-                    <li><a class="sidebar-sub-toggle"><i class="ti-user"></i> Admin <span class="badge badge-primary"><?php echo $userCount() ?></span> <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <li><a class="sidebar-sub-toggle"><i class="ti-user"></i> Admin <span class="badge badge-primary"><?php echo $getRowCount('users') ?></span> <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
                             <li><a href="admin-list.php">Admin List</a></li>
                             <li><a href="add-admin.php">Add Admin</a></li>
@@ -393,40 +396,56 @@ if (!isset($_SESSION['user_id'])) {
                                                     <input type="text" name="product_name" class="form-control" placeholder="" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Model No.*</label>
-                                                    <input id="example-email" class="form-control" type="text" name="product_model" placeholder="" required>
+                                                    <label>Model No.</label>
+                                                    <input id="example-email" class="form-control" type="text" name="product_model" placeholder="">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Brand*</label>
-                                                    <input id="example-email" class="form-control" type="text" name="product_brand" placeholder="" required>
+                                                    <label>Brand</label>
+                                                    <input id="example-email" class="form-control" type="text" name="product_brand" placeholder="">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Specifications*</label><textarea id="example-email" class="form-control" type="text" name="specs" style="height:178px" required>
+                                                    <label>Specifications</label><textarea id="example-email" class="form-control" type="text" name="specs" style="height:235px">
+Chipset:
 CPU:
 GPU:
 RAM:
 SIM:
 Android Version:
-UI Version:</textarea>
+UI Version:
+Camera:
+Battery:</textarea>
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Resolution</label>
                                                     <input class="form-control" type="text" name="resolution" value="">
                                                 </div>
-
-                                            </div>
-                                            <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label>Color Variant</label>
                                                     <input class="form-control" type="text" name="color" value="">
+                                                </div>
+
+                                            </div>
+                                            <div class="col-lg-4">
+
+                                                <div class="form-group">
+                                                    <label>Expense*</label>
+                                                    <input class="form-control" type="text" name="expense" value="" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Price*</label>
                                                     <input class="form-control" type="text" name="price" value="" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Stock*</label>
-                                                    <input class="form-control" type="text" name="stock" value="" required>
+                                                    <label>Initial Stock*</label>
+                                                    <input class="form-control" type="text" name="initial_stock" value="" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Stock Left</label>
+                                                    <input class="form-control" type="text" name="stock" value="">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Total Sold</label>
+                                                    <input class="form-control" type="text" name="total_sold" value="">
                                                 </div>
 
                                                 <div class="form-group">

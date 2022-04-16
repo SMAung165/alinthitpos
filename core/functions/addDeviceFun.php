@@ -1,8 +1,20 @@
 <?php
 
+$insertIntoDatabaseDevices = function ($dataToInsert) use ($link, $sanatization) {
+
+    array_walk($dataToInsert, $sanatization);
+    $fieldNames = '`' . implode('`,`', array_keys($dataToInsert)) . '`';
+    $dataToInsert = '\'' . implode('\',\'', $dataToInsert) . '\'';
+    $query =  "INSERT INTO `products` ({$fieldNames}) VALUES ({$dataToInsert})";
+    echo $query;
+    mysqli_query($link, $query);
+    return true;
+};
+
+
 if (isset($_POST['addDevicesBtn'])) {
 
-    $required_fileds = ['product_name', 'product_brand', 'product_model', 'specs', 'price', 'stock'];
+    $required_fileds = ['product_name', 'expense', 'price', 'initial_stock'];
 
     foreach ($_POST as $key => $value) {
         if (empty($value) and in_array($key, $required_fileds)) {
@@ -42,8 +54,11 @@ if (isset($_POST['addDevicesBtn'])) {
             'specs' => trim($_POST['specs'], " \n\r\t\v\x00"),
             'resolution' => $_POST['resolution'],
             'color' => $_POST['color'],
+            'expense' => $_POST['expense'],
             'price' => $_POST['price'],
+            'initial_stock' => $_POST['initial_stock'],
             'stock' => $_POST['stock'],
+            'total_sold' => $_POST['total_sold'],
             'image' => $fileImagePath,
             'entry_date' => $dateTime,
         ];

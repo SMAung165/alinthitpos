@@ -33,6 +33,7 @@ if (!isset($_SESSION['user_id'])) {
   <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
   <link href="assets/css/lib/helper.css" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet">
+  <?php require_once('widgets/darkModeFun.php'); ?>
 
 
 </head>
@@ -59,7 +60,7 @@ if (!isset($_SESSION['user_id'])) {
           </li>
 
           <li class="label">Users</li>
-          <li><a class="sidebar-sub-toggle"><i class="ti-user"></i> Admin <span class="badge badge-primary"><?php echo $userCount() ?></span> <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+          <li><a class="sidebar-sub-toggle"><i class="ti-user"></i> Admin <span class="badge badge-primary"><?php echo $getRowCount('users') ?></span> <span class="sidebar-collapse-icon ti-angle-down"></span></a>
             <ul>
               <li><a href="admin-list.php">Admin List</a></li>
               <li><a href="add-admin.php">Add Admin</a></li>
@@ -394,7 +395,7 @@ if (!isset($_SESSION['user_id'])) {
                           <div class="">
                             <span><b>Model : </b><?php echo $getOrderDetails['product_model'] ?></p></span>
                             <span><b>Brand : </b><?php echo $getOrderDetails['product_brand'] ?></p></span>
-                            <span><b>Price : </b><?php echo $getOrderDetails['price'] ?></p></span>
+                            <span><b>Price : </b><?php echo number_format($getOrderDetails['price'], 2) . ' MMK' ?></p></span>
                             <span><b>Color : </b><?php echo $getOrderDetails['color'] ?></p></span>
                           </div>
                           <form method="post" action="device-details.php">
@@ -461,9 +462,8 @@ if (!isset($_SESSION['user_id'])) {
                                 <div class="birthday-content">
                                   <span class="contact-title">Total Price:</span>
                                   <span class="birth-date"><?php
-                                                            $totalPrice = filter_var($getOrderDetails['price'], FILTER_SANITIZE_NUMBER_INT) * intval($getOrderDetails['quantity']);
-                                                            $totalPrice = (string)($totalPrice);
-                                                            echo (implode(',', str_split($totalPrice, 3)) . 'MMK');
+                                                            $totalPrice = number_format(($getOrderDetails['price'] * $getOrderDetails['quantity']), 2) . ' MMK';
+                                                            echo $totalPrice;
                                                             ?></span>
                                 </div>
                                 <div class="birthday-content">

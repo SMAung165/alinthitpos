@@ -1,4 +1,19 @@
 <?php
+
+$updateUser = function ($dataToUpdateUser, $userId) use ($link, $sanatization) {
+    array_walk($dataToUpdateUser, $sanatization);
+    $dataToUpString = '';
+    foreach ($dataToUpdateUser as $index => $dataToUp) {
+
+        $dataToUpString .= "`$index` = '$dataToUp', ";
+    }
+    $dataToUpString = substr($dataToUpString, 0, strlen($dataToUpString) - 2);
+    $query =  "UPDATE `users` SET {$dataToUpString} WHERE `user_id` = $userId";
+    mysqli_query($link, $query);
+    return true;
+};
+
+
 if (isset($_POST['updateUserBtn'])) {
     $fileImagePath = '';
     if (empty($_FILES['profile_image']['name'])) {
@@ -10,11 +25,11 @@ if (isset($_POST['updateUserBtn'])) {
         if (in_array($fileImageType, $allowedFileType)) {
             $generateImageName = substr(md5(time()), 0, 5);
             $generateImageName = $generateImageName . '.' . substr($fileImageType, 6, 10);
-            $fileImagePath = "assets/images/{$_POST['first_name']} {$_POST['last_name']}/{$generateImageName}";
+            $fileImagePath = "assets/images/avatar/{$_POST['first_name']} {$_POST['last_name']}/{$generateImageName}";
 
             //Checking if folder empty
-            if (!file_exists("assets/images/{$_POST['first_name']} {$_POST['last_name']}")) {
-                mkdir("assets/images/{$_POST['first_name']} {$_POST['last_name']}");
+            if (!file_exists("assets/images/avatar/{$_POST['first_name']} {$_POST['last_name']}")) {
+                mkdir("assets/images/avatar/{$_POST['first_name']} {$_POST['last_name']}");
             } else {
                 //Checking if the stored path in database is empty
                 if (!empty($sessionUserProfileImage)) {
