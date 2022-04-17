@@ -143,6 +143,8 @@ if (!isset($_SESSION['user_id'])) {
 </head>
 
 <body>
+
+  <?php require_once('widgets/darkModeSwitch.php'); ?>
   <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
     <div class="nano">
       <div class="nano-content">
@@ -569,6 +571,7 @@ if (!isset($_SESSION['user_id'])) {
 
     });
   </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
 </body>

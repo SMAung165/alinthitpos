@@ -34,9 +34,6 @@ $totalProfitCalc = function () use ($link) {
     echo ($totalProfit);
 };
 
-
-
-
 function success()
 {
     if (isset($_GET['inSuccess'])) {
@@ -47,5 +44,27 @@ function success()
     }
     if (isset($_GET['delSuccess'])) {
         echo "<span class='badge badge-success'>Successfully deleted!</span>";
+    }
+}
+
+
+$modeSwitch = function ($darkmodeVal, $userId) use ($link, $sanatization) {
+    $darkmodeVal = intval($sanatization($darkmodeVal));
+    $userId = intval($sanatization($userId));
+    echo $query =  "UPDATE `users` SET `dark_mode` = $darkmodeVal WHERE `user_id` = $userId";
+    mysqli_query($link, $query);
+    return true;
+};
+
+
+if (isset($_POST['modeSwitchBtn'])) {
+
+    $userId = $_POST['user_id'];
+    $darmodeVal = $_POST['dark_mode'];
+    $modeSwitch = $modeSwitch($darmodeVal, $userId);
+
+    if ($modeSwitch) {
+        header("Location:{$_SERVER['PHP_SELF']}");
+        exit();
     }
 }

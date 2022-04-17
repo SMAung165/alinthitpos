@@ -1,3 +1,50 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style type="text/css">
+    /* Darkmode Button */
+
+    .mode-switch-btn {
+
+        position: fixed;
+        top: 90%;
+        left: 98%;
+
+        transform: translateX(-100%);
+
+        z-index: 1;
+    }
+
+    .mode-switch-btn button {
+
+        width: 40px;
+        height: 40px;
+
+        background: #464646;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+
+        padding: 20px;
+        border: none;
+        border-radius: 50%;
+
+        cursor: pointer;
+
+    }
+
+    .mode-switch-btn button:hover {
+        background: #666666;
+    }
+
+    .mode-switch-btn button span {
+
+        font-size: 1rem;
+        line-height: 40px;
+    }
+</style>
+
 <?php
 if ($sessionUserDarkMode == 1) { ?>
     <style type='text/css'>
@@ -53,6 +100,11 @@ if ($sessionUserDarkMode == 1) { ?>
         .card {
             background: #363636 !important;
             border-radius: 10px;
+        }
+
+        table td {
+
+            background: inherit !important;
         }
 
 

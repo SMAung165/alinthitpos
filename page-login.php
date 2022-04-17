@@ -54,11 +54,11 @@ if (isset($_SESSION['user_id'])) {
                             <form action='<?php echo $_SERVER['PHP_SELF'] ?>' method="post">
                                 <div class="form-group">
                                     <label for="username">Username</label>
-                                    <input type="text" name="username" id="username" class="form-control" placeholder="username">
+                                    <input type="text" name="username" id="username" class="form-control" value='soemoeaung' placeholder="username" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Password</label>
-                                    <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+                                    <input type="password" name="password" id="password" class="form-control" value='soe1652000' placeholder="Password" required>
                                 </div>
                                 <div class="checkbox">
                                     <label>

@@ -30,6 +30,7 @@ if (isset($_SESSION['user_id'])) {
     $sessionUserGmaps = $getUserData['gmaps'];
     $sessionUserDarkMode = $getUserData['dark_mode'];
 
+
     if ((bool)$sessionUserActive === false) {
         session_destroy();
         header('Location:core/functions/logout.php');
