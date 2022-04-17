@@ -24,13 +24,21 @@ $totalProfitCalc = function () use ($link) {
     $query = "SELECT `expense`, `price`, `total_sold`, `stock` FROM `products`";
     $queryResult = mysqli_query($link, $query);
     while ($row = mysqli_fetch_assoc($queryResult)) {
-        $initialStock = $row['stock'] + $row['total_sold'];
-        $totalExpense = $row['expense'] * $initialStock;
-        $totalRevenue = $row['price'] * $row['total_sold'];
-        $profit = $totalRevenue - $totalExpense;
+        $profitPerOne = ($row['price'] - $row['expense']);
+        $profit = ($profitPerOne * $row['total_sold']);
         $profitArr[] = $profit;
     }
     $totalProfit = number_format(array_sum($profitArr), 2) . ' MMK';
+    echo ($totalProfit);
+};
+$totalDeviceSold = function () use ($link) {
+
+    $query = "SELECT `total_sold` FROM `products`";
+    $queryResult = mysqli_query($link, $query);
+    while ($row = mysqli_fetch_assoc($queryResult)) {
+        $totalSoldArr[] = $row['total_sold'];
+    }
+    $totalProfit = number_format(array_sum($totalSoldArr)) . ' PCS';
     echo ($totalProfit);
 };
 

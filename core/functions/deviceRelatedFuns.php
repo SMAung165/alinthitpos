@@ -44,9 +44,9 @@ $listDevices = function ($list) use ($link) {
         $initialStock = $row['stock'] + $row['total_sold'];
         $price = number_format($row['price'], 2) . ' MMK';
         $expense = number_format($row['expense'], 2) . ' MMK';
-        $totalExpense = $row['expense'] * $initialStock;
-        $totalRevenue = $row['price'] * $row['total_sold'];
-        $profit = number_format(($totalRevenue - $totalExpense), 2) . ' MMK';
+        $profitPerOne = ($row['price'] - $row['expense']);
+        // $totalRevenue = $row['price'] * $row['total_sold'];
+        $profit = number_format(($profitPerOne * $row['total_sold']), 2) . ' MMK';
         $initialStock  = ($initialStock >= 10) ? "<td><strong style='color:rgba(0,132,255,0.8)'>{$initialStock}</strong></td>" : "<td><strong style='color:rgba(255,94,0,0.6)'>{$initialStock}</strong></td>";
         if ($list === 'list') {
             // $specs = '<td><a href="#">' . $row['specs'] . '</a></td>';
@@ -59,9 +59,9 @@ $listDevices = function ($list) use ($link) {
             <td>{$row['color']}</td>
             <td>{$expense}</td>
             <td>{$price}</td>
-            {$stock}
-            {$total_sold}
             {$initialStock}
+            {$total_sold}
+            {$stock}
             <td>{$profit}</td>
         </tr>");
         } else if ($list === 'manage') {

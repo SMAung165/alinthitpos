@@ -395,9 +395,9 @@ if (!isset($_SESSION['user_id'])) {
                                                     <th>Color Variant</th>
                                                     <th>Expense Per One (MMK)</th>
                                                     <th>Price Per One (MMK)</th>
-                                                    <th>Stock Left</th>
-                                                    <th>Total Sold</th>
                                                     <th>Initial Stock</th>
+                                                    <th>Total Sold</th>
+                                                    <th>Stock Left (Current assets)</th>
                                                     <th>Profit</th>
                                                 </tr>
                                             </thead>
@@ -413,9 +413,9 @@ if (!isset($_SESSION['user_id'])) {
                                                     <th>Color Variant</th>
                                                     <th>Expense Per One (MMK)</th>
                                                     <th>Price Per One (MMK)</th>
-                                                    <th>Stock Left</th>
-                                                    <th>Total Sold</th>
                                                     <th>Initial Stock</th>
+                                                    <th>Total Sold</th>
+                                                    <th>Stock Left (Current assets)</th>
                                                     <th>Profit</th>
                                                 </tr>
                                             </tfoot>
