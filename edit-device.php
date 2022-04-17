@@ -405,7 +405,7 @@ if (!isset($_SESSION['user_id'])) {
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Specifications*</label>
-                                                    <textarea id="example-email" class="form-control" type="text" name="specs" style="height:178px" required><?php echo $deviceQuery['specs'] ?></textarea>
+                                                    <textarea id="example-email" class="form-control" type="text" name="specs" style="height:235px" required><?php echo $deviceQuery['specs'] ?></textarea>
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Color Variant</label>
@@ -426,6 +426,10 @@ if (!isset($_SESSION['user_id'])) {
                                                 <div class="form-group">
                                                     <label>Price*</label>
                                                     <input class="form-control" type="text" name="price" value="<?php echo $deviceQuery['price'] ?>" required />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Initial Stock*</label>
+                                                    <input class="form-control" type="text" name="initial_stock" value="<?php echo $deviceQuery['initial_stock'] ?>" required />
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Stock*</label>

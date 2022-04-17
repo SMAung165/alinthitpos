@@ -38,10 +38,10 @@ $listDevices = function ($list) use ($link) {
     $query =  "SELECT * FROM `products`";
     $queryResult = mysqli_query($link, $query);
     while ($row = mysqli_fetch_assoc($queryResult)) {
+        $initialStock = intval($row['initial_stock']);
         $specs = (strlen((string)$row['specs']) > 12 ? '<td><a href="#">' . substr($row['specs'], 0, 12) . "..." . '</a></td>' : '<td><a href="#">' . $row['specs'] . '</a></td>');
         $stock  = ((int)$row['stock'] >= 10) ? "<td><strong class='text text-success'>{$row['stock']}</strong></td>" : "<td><strong class='text text-danger'>{$row['stock']}</strong></td>";
         $total_sold  = ((int)$row['total_sold'] >= 10) ? "<td><strong style='color:rgba(0,132,255,0.8)'>{$row['total_sold']}</strong></td>" : "<td><strong style='color:rgba(255,94,0,0.6)'>{$row['total_sold']}</strong></td>";
-        $initialStock = $row['stock'] + $row['total_sold'];
         $price = number_format($row['price'], 2) . ' MMK';
         $expense = number_format($row['expense'], 2) . ' MMK';
         $profitPerOne = ($row['price'] - $row['expense']);

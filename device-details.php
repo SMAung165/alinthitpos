@@ -399,14 +399,19 @@ if (!isset($_SESSION['user_id'])) {
                             <p><?php echo number_format($deviceQuery['price'], 2) . ' MMK' ?></p>
                           </div>
                           <div class="work-content">
-                            <h3>Warehouse Stock</h3>
-                            <p><?php echo $deviceQuery['stock'] ?> </p>
+                            <h4>Warehouse Stock</h4>
+                            <h3>Initial Stock</h3>
+                            <p><?php echo $deviceQuery['initial_stock'] ?></p>
+                            <h3>Stock Left (Current Assets)</h3>
+                            <p><?php $stock = $deviceQuery['stock'] == 0 ? '<span class="text text-danger">Sold out</span>' : $deviceQuery['stock'] . ' Left';
+                                echo $stock ?> </p>
                           </div>
                           <div class="work-content">
                             <h3>Total Sold</h3>
                             <p><?php echo $deviceQuery['total_sold'] ?> </p>
                           </div>
                           <div class="work-content">
+                            <h4>Data Entry</h4>
                             <h3>Data Entry Date</h3>
                             <p><?php
 

@@ -131,5 +131,10 @@ if ($sessionUserDarkMode == 1) { ?>
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 
         }
+
+        .user-work h4,
+        .user-skill h4 {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5) !important;
+        }
     </style>
 <?php } ?>

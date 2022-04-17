@@ -51,6 +51,7 @@ if (isset($_POST['updateDeviceBtn'])) {
         'resolution' => $_POST['resolution'],
         'expense' => $_POST['expense'],
         'price' => $_POST['price'],
+        'initial_stock' => $_POST['initial_stock'],
         'stock' => $_POST['stock'],
         'total_sold' => $_POST['total_sold'],
         'image' => $fileImagePath,
