@@ -31,15 +31,15 @@ $totalProfitCalc = function () use ($link) {
     $totalProfit = number_format(array_sum($profitArr), 2) . ' MMK';
     echo ($totalProfit);
 };
-$totalDeviceSold = function () use ($link) {
 
-    $query = "SELECT `total_sold` FROM `products`";
+$totalDeviceSoldOrCurrentAsset = function ($columName) use ($link) {
+
+    $query = "SELECT `{$columName}` FROM `products`";
     $queryResult = mysqli_query($link, $query);
     while ($row = mysqli_fetch_assoc($queryResult)) {
-        $totalSoldArr[] = $row['total_sold'];
+        $totalDevice[] = $row[$columName];
     }
-    $totalProfit = number_format(array_sum($totalSoldArr)) . ' PCS';
-    echo ($totalProfit);
+    echo (number_format(array_sum($totalDevice)) . ' PCS');
 };
 
 function success()
