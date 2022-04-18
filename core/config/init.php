@@ -4,10 +4,15 @@ session_start();
 
 require_once('databaseConnection.php');
 require_once('generalConfig.php');
+require_once('core/functions/compactNumberFormatterFun.php');
 require_once('core/functions/userRelatedFuns.php');
 require_once('core/functions/loginFun.php');
 require_once('core/functions/deviceRelatedFuns.php');
 require_once('core/functions/orderRelatedFuns.php');
+require_once('core/functions/customerRelatedFuns.php');
+require_once('core/functions/profitRelatedFuns.php');
+require_once('core/functions/monthlyProfitFormSubmitFun.php');
+require_once('core/functions/dailyProfitFormSubmitFun.php');
 
 if (isset($_SESSION['user_id'])) {
     $sessionUserId = $_SESSION['user_id'];

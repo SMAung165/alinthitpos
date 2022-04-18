@@ -45,7 +45,7 @@ if (isset($_POST['updateOrderBtn'])) {
     $updateOrder = $updateOrder($dataToUpdateOrder, $_POST['order_id']);
 
     if ($updateOrder) {
-        header("Location:customer-order.php?upSuccess");
+        header("Location:manage-order.php?upSuccess");
         exit();
     }
 }

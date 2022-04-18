@@ -19,29 +19,6 @@ $getRowCount = function ($tableName) use ($link) {
     return ($finalizedResult);
 };
 
-$totalProfitCalc = function () use ($link) {
-
-    $query = "SELECT `expense`, `price`, `total_sold`, `stock` FROM `products`";
-    $queryResult = mysqli_query($link, $query);
-    while ($row = mysqli_fetch_assoc($queryResult)) {
-        $profitPerOne = ($row['price'] - $row['expense']);
-        $profit = ($profitPerOne * $row['total_sold']);
-        $profitArr[] = $profit;
-    }
-    $totalProfit = number_format(array_sum($profitArr), 2) . ' MMK';
-    echo ($totalProfit);
-};
-
-$totalDeviceSoldOrCurrentAsset = function ($columName) use ($link) {
-
-    $query = "SELECT `{$columName}` FROM `products`";
-    $queryResult = mysqli_query($link, $query);
-    while ($row = mysqli_fetch_assoc($queryResult)) {
-        $totalDevice[] = $row[$columName];
-    }
-    echo (number_format(array_sum($totalDevice)) . ' PCS');
-};
-
 function success()
 {
     if (isset($_GET['inSuccess'])) {

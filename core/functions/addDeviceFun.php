@@ -6,7 +6,6 @@ $insertIntoDatabaseDevices = function ($dataToInsert) use ($link, $sanatization)
     $fieldNames = '`' . implode('`,`', array_keys($dataToInsert)) . '`';
     $dataToInsert = '\'' . implode('\',\'', $dataToInsert) . '\'';
     $query =  "INSERT INTO `products` ({$fieldNames}) VALUES ({$dataToInsert})";
-    echo $query;
     mysqli_query($link, $query);
     return true;
 };

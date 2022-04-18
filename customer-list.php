@@ -3,18 +3,19 @@ require_once('core/config/init.php');
 if (!isset($_SESSION['user_id'])) {
     header("location:page-login.php");
 } else {
-    require_once('core/functions/addDeviceFun.php');
+    require_once('core/functions/delCustomerFun.php');
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Add Device</title>
+    <title>Customer List</title>
 
     <!-- ================= Favicon ================== -->
     <!-- Standard -->
@@ -31,21 +32,114 @@ if (!isset($_SESSION['user_id'])) {
     <!-- Styles -->
     <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
     <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
+    <link href="assets/css/lib/data-table/buttons.bootstrap.min.css" rel="stylesheet" />
     <link href="assets/css/lib/menubar/sidebar.css" rel="stylesheet">
     <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/lib/helper.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/rowgroup/1.1.4/css/rowGroup.dataTables.min.css" rel="stylesheet" />
     <?php require_once('widgets/darkModeFun.php'); ?>
+
+
+    <style type="text/css">
+        .myActionDropDown {
+
+            background-color: #363636 !important;
+
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .myActionDropDown button {
+            border: none;
+            padding: none;
+            background-color: transparent;
+
+            cursor: pointer;
+        }
+
+        .myActionDropDown button {
+            color: white !important;
+
+        }
+
+        .myActionDropDown button i {
+            margin-right: 20px;
+            margin-left: 10px;
+        }
+
+        .myActionDropDown li:hover button {
+
+            color: grey !important;
+        }
+
+        .myActionDropDown li:hover button i {
+            color: grey !important;
+        }
+
+        .tblImg {
+            cursor: pointer;
+        }
+
+        .imageBox {
+
+            width: 100%;
+            height: 100vh;
+
+            position: fixed;
+            top: 0%;
+            left: 0%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            opacity: 0;
+
+            z-index: -1;
+
+            background: rgba(0, 0, 0, 0.5);
+
+            transition: all 0.2s;
+
+        }
+
+        .imageBox .imgContainer {
+
+            width: 250px;
+
+            padding: 9px;
+
+            background-color: #ffff;
+
+            border-radius: 10px;
+
+            position: absolute;
+
+            z-index: 1;
+
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+
+        }
+
+        .imageBox .imgContainer img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .showImgBox {
+            opacity: 1;
+            z-index: 2;
+        }
+    </style>
+
 </head>
 
 <body>
-
     <?php require_once('widgets/darkModeSwitch.php'); ?>
-
-
     <?php require_once('widgets/sideBar.php'); ?>
     <!-- /# sidebar -->
-
 
     <div class="header">
         <div class="container-fluid">
@@ -246,8 +340,6 @@ if (!isset($_SESSION['user_id'])) {
     </div>
 
 
-
-
     <div class="content-wrap">
         <div class="main">
             <div class="container-fluid">
@@ -264,7 +356,9 @@ if (!isset($_SESSION['user_id'])) {
                         <div class="page-header">
                             <div class="page-title">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                                    <li class="breadcrumb-item">
+                                        <a href="#">Devices</a>
+                                    </li>
                                     <li class="breadcrumb-item active"><a class="pageTitle" style="display:inline" href="<?php echo $_SERVER['PHP_SELF'] ?>"></a></li>
                                 </ol>
                             </div>
@@ -274,105 +368,45 @@ if (!isset($_SESSION['user_id'])) {
                 </div>
                 <!-- /# row -->
                 <section id="main-content">
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-title">
-                                <h4>Add Devices</h4>
-
-                            </div>
-                            <div class="card-body">
-                                <center><?php $outputLogs($logs); ?><?php success() ?></center>
-                                <div class="basic-elements">
-                                    <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
-                                        <div class="row">
-                                            <div class="col-lg-8">
-                                                <input type="hidden" name="device_id" value="<?php echo "PR{$deviceIdAssignment}"; ?>" />
-                                                <div class="form-group">
-                                                    <label>Device Name*</label>
-                                                    <input type="text" name="product_name" class="form-control" placeholder="" required>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Model No.</label>
-                                                    <input id="example-email" class="form-control" type="text" name="product_model" placeholder="">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Brand</label>
-                                                    <input id="example-email" class="form-control" type="text" name="product_brand" placeholder="">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Specifications</label><textarea id="example-email" class="form-control" type="text" name="specs" style="height:235px">
-Chipset:
-CPU:
-GPU:
-RAM:
-SIM:
-Android Version:
-UI Version:
-Camera:
-Battery:</textarea>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Resolution</label>
-                                                    <input class="form-control" type="text" name="resolution" value="">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Color Variant</label>
-                                                    <input class="form-control" type="text" name="color" value="">
-                                                </div>
-
-                                            </div>
-                                            <div class="col-lg-4">
-
-                                                <div class="form-group">
-                                                    <label>Expense*</label>
-                                                    <input class="form-control" type="text" name="expense" value="" required>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Price*</label>
-                                                    <input class="form-control" type="text" name="price" value="" required>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Initial Stock*</label>
-                                                    <input class="form-control" type="text" name="initial_stock" value="" required>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Stock Left (Current Assets)</label>
-                                                    <input class="form-control" type="text" name="stock" value="">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Total Sold</label>
-                                                    <input class="form-control" type="text" name="total_sold" value="">
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <div class="user-photo m-b-30">
-                                                        <label for='image' class="customImageInput">
-                                                            <span class="imageOverlay"><i class="ti-image"></i></span>
-                                                            <img class="img-fluid" src="assets/images/user-profile.jpg" alt="" />
-                                                            <input style="display: none;" type="file" name="file_image" id="image" />
-                                                        </label>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-                                        <div class="row">
-                                            <div class="col">
-                                                <button type="submit" class="btn btn-default" name="addDevicesBtn">Submit</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
                     <div class="row">
-                        <div class="col-lg-12">
-                            <div class="footer">
-                                <p>2018 © Admin Board. - <a href="#">example.com</a></p>
+                        <div class=" col-lg-12">
+                            <div class="card">
+                                <div class="card-title">
+                                    <h4>All devices </h4>
+                                    <center><?php success() ?></center>
+                                </div>
+                                <div class="bootstrap-data-table-panel">
+                                    <div class="table-responsive">
+                                        <table id="myDataTable" class="display table table-borderd table-hover" style="text-align:center;width:100%;padding-bottom:80px;">
+                                            <thead>
+                                                <tr>
+                                                    <th>Customer ID</th>
+                                                    <th>First Name</th>
+                                                    <th>Last Name</th>
+                                                    <th>Email</th>
+                                                    <th>Address</th>
+                                                    <th>Phone Number</th>
+                                                    <th>Action</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php $listCustomers() ?>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>Customer ID</th>
+                                                    <th>First Name</th>
+                                                    <th>Last Name</th>
+                                                    <th>Email</th>
+                                                    <th>Address</th>
+                                                    <th>Phone Number</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -381,28 +415,41 @@ Battery:</textarea>
         </div>
     </div>
 
-
-
-
-
-
     <!-- jquery vendor -->
-    <script src="assets/js/lib/jquery.min.js"></script>
+    <script src=" assets/js/lib/jquery.min.js">
+    </script>
     <script src="assets/js/lib/jquery.nanoscroller.min.js"></script>
-    <!-- nano scroller -->
     <script src="assets/js/lib/menubar/sidebar.js"></script>
     <script src="assets/js/lib/preloader/pace.min.js"></script>
-    <!-- sidebar -->
-
-    <!-- bootstrap -->
-
-
-    <script src="assets/js/lib/bootstrap.min.js"></script>
     <script src="assets/js/scripts.js"></script>
+    <!-- bootstrap -->
+    <script src="assets/js/lib/bootstrap.min.js"></script>
     <!-- scripit init-->
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/rowgroup/1.1.4/js/dataTables.rowGroup.min.js"></script>
+    <script src="assets/js/lib/data-table/datatables-init.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#myDataTable').DataTable({
+                responsive: true,
+            });
+        });
 
+
+        document.querySelectorAll('.tblImg').forEach(tblImgEl => {
+
+            tblImgEl.addEventListener('click', (e) => {
+                var imgBoxEl = e.target.parentElement.children[0];
+                imgBoxEl.classList.add('showImgBox');
+                imgBoxEl.addEventListener('click', (e) => {
+                    e.target.classList.remove('showImgBox');
+                })
+            })
+
+        });
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
 
 
 </body>

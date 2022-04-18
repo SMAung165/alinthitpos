@@ -33,6 +33,16 @@ $deviceIdAssignment = function ($deviceCount, $findMaxValueOfDeviceId) {
 };
 $deviceIdAssignment = $deviceIdAssignment($getRowCount('products'), $findMaxValueOfDeviceId());
 
+$totalDeviceSoldOrCurrentAsset = function ($columName) use ($link) {
+
+    $query = "SELECT `{$columName}` FROM `products`";
+    $queryResult = mysqli_query($link, $query);
+    while ($row = mysqli_fetch_assoc($queryResult)) {
+        $totalDevice[] = $row[$columName];
+    }
+    echo (number_format(array_sum($totalDevice)) . ' PCS');
+};
+
 $listDevices = function ($list) use ($link) {
 
     $query =  "SELECT * FROM `products`";

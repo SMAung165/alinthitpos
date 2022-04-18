@@ -1,9 +1,9 @@
 <?php
 
-$orderQuery = function ($pageTitle, $productId) use ($link) {
+$orderQuery = function ($pageTitle, $deviceId) use ($link) {
 
     if ($pageTitle === 'customer-order') {
-        $query = "SELECT * FROM `products` INNER JOIN `customerorder` ON `customerorder`.`order_product_id` = `products`.`product_id` INNER JOIN `customers` ON `customerorder`.`order_customer_id` = `customers`.`customer_id`";
+        $query = "SELECT * FROM `products` INNER JOIN `customerorder` ON `customerorder`.`order_device_id` = `products`.`device_id` INNER JOIN `customers` ON `customerorder`.`order_customer_number` = `customers`.`customer_number`";
         $queryResult = mysqli_query($link, $query);
         while ($row = mysqli_fetch_assoc($queryResult)) {
             $price = number_format($row['price'], 2) . ' MMK';
@@ -37,10 +37,42 @@ $orderQuery = function ($pageTitle, $productId) use ($link) {
                                 <span style=''>Action</span>
                                 <span style='' class='caret'></span></button>
                             <ul class='dropdown-menu myActionDropDown'>
-                                <li><form action='order-details.php' method='post'><input type='hidden' name='order_id' value='{$row['order_id']}' /><button type='submit' name='orderDetailsBtn'><i class='ti-file'></i> Details</button></form></li>
-                                <li><form action='edit-order.php' method='post'><input type='hidden' name='order_id' value='{$row['order_id']}' /><button type='submit' name='editOrderBtn'><i class='ti-pencil-alt'></i> Edit</button></form></li>
-                                <li><form action='edit-device.php' method='post'><input type='hidden' name='product_id' value='{$row['product_id']}' /><button type='submit' name='editDeviceBtn'><i class='ti-printer'></i> Print</button></form></li>
-                                <!-- <li><form action='{$_SERVER['PHP_SELF']}' method='post'><input type='hidden' name='product_id' value='{$row['product_id']}' /><button type='submit' name='deleteDeviceBtn'><i class='ti-trash'></i> Delete</button></form></li> -->
+                                <li>
+                                    <form action='order-details.php' method='post'>
+                                        <input type='hidden' name='order_id' value='{$row['order_id']}' />
+                                        <button type='submit' name='orderDetailsBtn'>
+                                            <i class='ti-file'></i> 
+                                            Details
+                                        </button>
+                                    </form>
+                                </li>
+                                <li>
+                                    <form action='edit-order.php' method='post'>
+                                        <input type='hidden' name='order_id' value='{$row['order_id']}' />
+                                        <button type='submit' name='editOrderBtn'>
+                                            <i class='ti-pencil-alt'></i> 
+                                            Edit
+                                        </button>
+                                    </form>
+                                </li>
+                                <li>
+                                    <form action='edit-device.php' method='post'>
+                                        <input type='hidden' name='product_id' value='{$row['product_id']}' />
+                                            <button type='submit' name='editDeviceBtn'>
+                                                <i class='ti-printer'></i>
+                                                Print
+                                            </button>
+                                    </form>
+                                </li>
+                                <li>
+                                    <form action='{$_SERVER['PHP_SELF']}' method='post'>
+                                        <input type='hidden' name='order_id' value='{$row['order_id']}' />
+                                            <button type='submit' name='deleteOrderBtn'>
+                                                <i class='ti-trash'></i>
+                                                Delete
+                                            </button>
+                                    </form>
+                                </li>
                             </ul>
                         </div>
                     </td>
@@ -48,7 +80,7 @@ $orderQuery = function ($pageTitle, $productId) use ($link) {
                 ";
         }
     } else if ($pageTitle === 'device-details') {
-        $query = "SELECT * FROM `products` INNER JOIN `customerorder` ON `customerorder`.`order_product_id` = `products`.`product_id` INNER JOIN `customers` ON `customerorder`.`order_customer_id` = `customers`.`customer_id` WHERE `product_id` = {$productId}";
+        $query = "SELECT * FROM `products` INNER JOIN `customerorder` ON `customerorder`.`order_device_id` = `products`.`device_id` INNER JOIN `customers` ON `customerorder`.`order_customer_number` = `customers`.`customer_number` WHERE `device_id` = {$deviceId}";
         $queryResult = mysqli_query($link, $query);
         while ($row = mysqli_fetch_assoc($queryResult)) {
             $price = number_format($row['price'], 2) . ' MMK';
@@ -76,7 +108,7 @@ $orderQuery = function ($pageTitle, $productId) use ($link) {
 
 $getOrderDetails = function ($orderId) use ($link) {
 
-    $query = "SELECT * FROM `products` INNER JOIN `customerorder` ON `customerorder`.`order_product_id` = `products`.`product_id` INNER JOIN `customers` ON `customerorder`.`order_customer_id` = `customers`.`customer_id` WHERE `order_id` = {$orderId}";
+    $query = "SELECT * FROM `products` INNER JOIN `customerorder` ON `customerorder`.`order_device_id` = `products`.`device_id` INNER JOIN `customers` ON `customerorder`.`order_customer_number` = `customers`.`customer_number` WHERE `order_id` = {$orderId}";
     $queryResult = mysqli_query($link, $query);
     $finalizedResult = mysqli_fetch_array($queryResult);
     return $finalizedResult;
@@ -84,7 +116,7 @@ $getOrderDetails = function ($orderId) use ($link) {
 
 $orderStatus = function ($orderId) use ($link) {
 
-    $query = "SELECT * FROM `products` INNER JOIN `customerorder` ON `customerorder`.`order_product_id` = `products`.`product_id` INNER JOIN `customers` ON `customerorder`.`order_customer_id` = `customers`.`customer_id` WHERE `order_id`= '{$orderId}'";
+    $query = "SELECT * FROM `products` INNER JOIN `customerorder` ON `customerorder`.`order_device_id` = `products`.`device_id` INNER JOIN `customers` ON `customerorder`.`order_customer_number` = `customers`.`customer_number` WHERE `order_id`= '{$orderId}'";
     $queryResult = mysqli_query($link, $query);
     $finalizedResult = mysqli_fetch_array($queryResult);
     $status = (bool)$finalizedResult['status'] ? "<span class='badge badge-success'>Completed</span>" : "<span class='badge badge-warning'>Pending</span>";
