@@ -261,7 +261,10 @@ if (!isset($_SESSION['user_id'])) {
               <div class="page-title">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item">
-                    <a href="#">Dashboard</a>
+                    <a href="#" style="display: inline;">Dashboard</a>
+                  </li>
+                  <li class="breadcrumb-item">
+                    <a href="manage-order.php" style="display: inline;">Manage Order</a>
                   </li>
                   <li class="breadcrumb-item active"><a class="pageTitle" style="display:inline" href="#"></a></li>
                 </ol>
@@ -289,7 +292,7 @@ if (!isset($_SESSION['user_id'])) {
                           <div class="">
                             <span><b>Model : </b><?php echo $getOrderDetails['product_model'] ?></p></span>
                             <span><b>Brand : </b><?php echo $getOrderDetails['product_brand'] ?></p></span>
-                            <span><b>Price : </b><?php echo number_format($getOrderDetails['price'], 2) . ' MMK' ?></p></span>
+                            <span><b>Price : </b><?php echo number_format($getOrderDetails['price']) . ' MMK' ?></p></span>
                             <span><b>Color : </b><?php echo $getOrderDetails['color'] ?></p></span>
                           </div>
                           <form method="post" action="device-details.php">
@@ -304,10 +307,12 @@ if (!isset($_SESSION['user_id'])) {
                       </div>
                       <div class="col-lg-9">
                         <div class="custom-tab user-profile-tab">
-                          <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation" class="active">
-                              <a href="#1" aria-controls="1" role="tab" data-toggle="tab">Customer Info</a>
-                            </li>
+                          <ul class="nav nav-tabs user-work" role="tablist">
+                            <h4 style="width: 100%;">
+                              <li role=" presentation" class="active ">
+                                <a href="#1" aria-controls="1" role="tab" data-toggle="tab">Customer Info</a>
+                              </li>
+                            </h4>
                           </ul>
                           <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="1">
@@ -336,10 +341,12 @@ if (!isset($_SESSION['user_id'])) {
                         </div>
 
                         <div class="custom-tab user-profile-tab">
-                          <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation" class="active">
-                              <a href="#1" aria-controls="1" role="tab" data-toggle="tab">Order Info</a>
-                            </li>
+                          <ul class="nav nav-tabs user-work" role="tablist">
+                            <h4 style="width: 100%;">
+                              <li role=" presentation" class="active ">
+                                <a href="#1" aria-controls="1" role="tab" data-toggle="tab">Order Info</a>
+                              </li>
+                            </h4>
                           </ul>
                           <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="1">
@@ -356,7 +363,7 @@ if (!isset($_SESSION['user_id'])) {
                                 <div class="birthday-content">
                                   <span class="contact-title">Total Price:</span>
                                   <span class="birth-date"><?php
-                                                            $totalPrice = number_format(($getOrderDetails['price'] * $getOrderDetails['quantity']), 2) . ' MMK';
+                                                            $totalPrice = number_format(($getOrderDetails['price'] * $getOrderDetails['quantity'])) . ' MMK';
                                                             echo $totalPrice;
                                                             ?></span>
                                 </div>

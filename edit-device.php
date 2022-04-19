@@ -260,8 +260,13 @@ if (!isset($_SESSION['user_id'])) {
                         <div class="page-header">
                             <div class="page-title">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                                    <li class="breadcrumb-item active"><a class="pageTitle" style="display:inline" href="<?php echo $_SERVER['PHP_SELF'] ?>"></a></li>
+                                    <li class="breadcrumb-item">
+                                        <a href="index.php" style="display: inline;">Dashboard</a>
+                                    </li>
+                                    <li class="breadcrumb-item">
+                                        <a href="manage-devices.php" style="display: inline;">Manage Devices</a>
+                                    </li>
+                                    <li class="breadcrumb-item active"><a class="pageTitle" style="display:inline" href="#"></a></li>
                                 </ol>
                             </div>
                         </div>
@@ -270,6 +275,7 @@ if (!isset($_SESSION['user_id'])) {
                 </div>
                 <!-- /# row -->
                 <section id="main-content">
+                    <?php require_once('widgets/errorInterface.php'); ?>
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-title">
@@ -277,7 +283,7 @@ if (!isset($_SESSION['user_id'])) {
 
                             </div>
                             <div class="card-body">
-                                <center><?php $outputLogs($logs); ?></center>
+
                                 <div class="basic-elements">
                                     <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
                                         <div class="row">

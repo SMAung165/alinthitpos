@@ -12,7 +12,7 @@ $totalProfitCalc = function ($isForm) use ($link) {
         return floatval(array_sum($profitArr));
     } else {
 
-        echo number_format(array_sum($profitArr), 2) . ' MMK';
+        echo number_format(array_sum($profitArr)) . " <span class='currency'>MMK</span>";
     }
 };
 
@@ -56,4 +56,12 @@ $getAllDailyProfits = function () use ($link) {
     }
 
     return array_sum($allDailyProfits);
+};
+
+$getTodayProfit = function () use ($link) {
+    $todayDate = date("Y-m-d");
+    $query = "SELECT `daily_profit` FROM `daily_profits` WHERE `date` = '{$todayDate}'";
+    $queryResult = mysqli_query($link, $query);
+    $finalizedResult = mysqli_fetch_array($queryResult);
+    return ($finalizedResult['daily_profit']);
 };

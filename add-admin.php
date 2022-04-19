@@ -264,7 +264,10 @@ if (!isset($_SESSION['user_id'])) {
                         <div class="page-header">
                             <div class="page-title">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Admin</a></li>
+                                    <li class="breadcrumb-item">
+                                        <a href="index.php" style="display: inline;">Dashboard</a>
+                                    </li>
+
                                     <li class="breadcrumb-item active"><a class="pageTitle" style="display:inline" href="<?php echo $_SERVER['PHP_SELF'] ?>"></a></li>
                                 </ol>
                             </div>
@@ -274,14 +277,13 @@ if (!isset($_SESSION['user_id'])) {
                 </div>
                 <!-- /# row -->
                 <section id="main-content">
+                    <?php require_once('widgets/errorInterface.php'); ?>
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-title">
                                 <h4>Add Devices</h4>
-
                             </div>
                             <div class="card-body">
-                                <center><?php $outputLogs($logs); ?><?php success() ?></center>
                                 <div class="basic-elements">
                                     <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
                                         <div class="row">

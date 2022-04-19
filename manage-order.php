@@ -3,6 +3,7 @@ require_once('core/config/init.php');
 if (!isset($_SESSION['user_id'])) {
   header("location:/pos/page-login.php");
 } else {
+  require_once('core/functions/upDeviceFun.php');
   require_once('core/functions/delOrderFun.php');
 }
 ?>
@@ -377,16 +378,17 @@ if (!isset($_SESSION['user_id'])) {
         </div>
         <!-- /# row -->
         <section id="main-content">
+          <?php require_once('widgets/errorInterface.php'); ?>
           <div class="row">
             <div class=" col-lg-12">
               <div class="card">
                 <div class="card-title">
                   <h4>All Customer Orders </h4>
-                  <center><?php success() ?></center>
+
                 </div>
                 <div class="bootstrap-data-table-panel">
                   <div class="table-responsive">
-                    <table id="myDataTable" class="display table table-borderd table-hover" style="text-align:center;width:100%;padding-bottom:80px;">
+                    <table id="myDataTable" class="display table table-borderd table-hover" style="text-align:center;width:100%;padding-bottom:10px;">
                       <thead>
                         <tr>
 

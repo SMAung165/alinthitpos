@@ -41,6 +41,13 @@ if (isset($_POST['updateDeviceBtn'])) {
         }
     }
 
+    if (empty($_POST['initial_stock']) or $_POST['initial_stock'] == 0) {
+        $initialStock = $_POST['stock'];
+    } else {
+        $initialStock = $_POST['initial_stock'];
+    }
+
+
     $dataToUpdateDevice = [
 
         'product_name' => $_POST['product_name'],
@@ -51,7 +58,7 @@ if (isset($_POST['updateDeviceBtn'])) {
         'resolution' => $_POST['resolution'],
         'expense' => $_POST['expense'],
         'price' => $_POST['price'],
-        'initial_stock' => $_POST['initial_stock'],
+        'initial_stock' => $initialStock,
         'stock' => $_POST['stock'],
         'total_sold' => $_POST['total_sold'],
         'image' => $fileImagePath,

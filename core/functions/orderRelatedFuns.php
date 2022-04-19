@@ -1,13 +1,42 @@
 <?php
 
+$findMaxValueOfOrderNumber = function () use ($link) {
+
+    $query = "SELECT `order_number` FROM `customerorder` ";
+    $queryResult = mysqli_query($link, $query);
+    $finalizedResult = mysqli_fetch_all($queryResult);
+    if (!empty($finalizedResult)) {
+        $allOrderNumber = filter_var_array($finalizedResult, FILTER_SANITIZE_NUMBER_INT);
+        $allOrderNumber = array_map('intval', call_user_func_array('array_merge', $allOrderNumber));
+        $maxOrderNumberValue = max($allOrderNumber);
+        return [$maxOrderNumberValue, $allOrderNumber];
+    } else {
+        return 0;
+    }
+};
+
+$customerNumberAssignment = function ($orderCount, $findMaxValueOfOrderNumber) {
+
+    if ($orderCount < $findMaxValueOfOrderNumber[0]) {
+        $range = range(1, $orderCount + 1);
+        $orderNumberArray = $findMaxValueOfOrderNumber[1];
+        $missingOrderNumber = array_diff($range, $orderNumberArray);
+        return (min($missingOrderNumber));
+    } else {
+
+        return ($orderCount + 1);
+    }
+};
+$nextOrderNumber = 'OR' . $customerNumberAssignment($getRowCount('customerorder'), $findMaxValueOfOrderNumber());
+
 $orderQuery = function ($pageTitle, $deviceId) use ($link) {
 
     if ($pageTitle === 'customer-order') {
         $query = "SELECT * FROM `products` INNER JOIN `customerorder` ON `customerorder`.`order_device_id` = `products`.`device_id` INNER JOIN `customers` ON `customerorder`.`order_customer_number` = `customers`.`customer_number`";
         $queryResult = mysqli_query($link, $query);
         while ($row = mysqli_fetch_assoc($queryResult)) {
-            $price = number_format($row['price'], 2) . ' MMK';
-            $totalPrice = number_format(($row['price'] * $row['quantity']), 2) . ' MMK';
+            $price = number_format($row['price']) . ' MMK';
+            $totalPrice = number_format(($row['price'] * $row['quantity'])) . ' MMK';
             $status = (bool)$row['status'] ? "<span class='badge badge-success'>Completed</span>" : "<span class='badge badge-warning'>Pending</span>";
             if ((bool)$row['payment_status'] === false) {
                 if ((bool)$row['payment_cancelled'] === true) {
@@ -80,13 +109,27 @@ $orderQuery = function ($pageTitle, $deviceId) use ($link) {
                 ";
         }
     } else if ($pageTitle === 'device-details') {
-        $query = "SELECT * FROM `products` INNER JOIN `customerorder` ON `customerorder`.`order_device_id` = `products`.`device_id` INNER JOIN `customers` ON `customerorder`.`order_customer_number` = `customers`.`customer_number` WHERE `device_id` = {$deviceId}";
+        $query = "SELECT * FROM `products` INNER JOIN `customerorder` ON `customerorder`.`order_device_id` = `products`.`device_id` INNER JOIN `customers` ON `customerorder`.`order_customer_number` = `customers`.`customer_number` WHERE `device_id` = '{$deviceId}'";
         $queryResult = mysqli_query($link, $query);
         while ($row = mysqli_fetch_assoc($queryResult)) {
-            $price = number_format($row['price'], 2) . ' MMK';
-            $totalPrice = number_format(($row['price'] * $row['quantity']), 2) . ' MMK';
-            $status = (bool)$row['status'] ? "<button type='submit' class='btn badge btn-success'>Completed</button>" : "<button type='submit' class='btn badge btn-warning'>Pending</button>";
-            $gender = $row['gender'] === 'Male' ? 'Mr. ' : 'Ms. ';
+            $price = number_format($row['price']) . ' MMK';
+            $totalPrice = number_format(($row['price'] * $row['quantity'])) . ' MMK';
+            if ($row['payment_cancelled'] == 1) {
+                $status = "<button type='submit' class='btn badge btn-danger'>Cancelled</button>";
+            }
+            if ($row['payment_status'] == 1) {
+
+                $status = "<button type='submit' class='btn badge btn-success'>Paid</button>";
+            } else if (($row['status'] == 0) and ($row['payment_status'] == 0) and ($row['payment_cancelled'] == 0)) {
+                $status = "<button type='submit' class='btn badge btn-warning'>Pending</button>";
+            }
+            if ($row['gender'] === 'Male') {
+                $gender = 'Mr. ';
+            } else if ($row['gender'] === 'Female') {
+                $gender = 'Ms. ';
+            } else {
+                $gender = '';
+            }
 
             echo "
                 <tr>

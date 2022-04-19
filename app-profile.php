@@ -367,12 +367,12 @@ if (!isset($_SESSION['user_id'])) {
         </div>
         <!-- /# row -->
         <section id="main-content">
+          <?php require_once('widgets/errorInterface.php'); ?>
           <div class="row">
             <div class="col-lg-12">
               <div class="card">
                 <div class="card-body">
-                  <center><?php $outputLogs($logs);
-                          success() ?></center>
+
                   <span class="edit-profile">
 
                     <label for="userEditBtn" class="">

@@ -1,11 +1,22 @@
 <?php
 
-$deviceQuery = function ($deviceId) use ($link) {
+$deviceQuery = function ($productId) use ($link) {
 
-    $query = "SELECT * FROM `products` WHERE `product_id` = {$deviceId}";
+    $query = "SELECT * FROM `products` WHERE `product_id` = {$productId}";
     $queryResult = mysqli_query($link, $query);
-    $finalizedResult = mysqli_fetch_array($queryResult);
+    $finalizedResult = mysqli_fetch_assoc($queryResult);
     return $finalizedResult;
+};
+
+$deviceQueryByDeviceId = function ($deviceId) use ($link) {
+    $query = "SELECT * FROM `products` WHERE `device_id` = '$deviceId'";
+    $queryResult = mysqli_query($link, $query);
+    $finalizedResult = mysqli_fetch_assoc($queryResult);
+    if (!empty($finalizedResult['device_id'])) {
+        return $finalizedResult += ['exist' => true];
+    } else {
+        return ['exist' => false];
+    }
 };
 
 $findMaxValueOfDeviceId = function () use ($link) {
@@ -13,10 +24,15 @@ $findMaxValueOfDeviceId = function () use ($link) {
     $query = "SELECT `device_id` FROM `products` ";
     $queryResult = mysqli_query($link, $query);
     $finalizedResult = mysqli_fetch_all($queryResult);
-    $allDeviceIdVal = filter_var_array($finalizedResult, FILTER_SANITIZE_NUMBER_INT);
-    $allDeviceIdVal = array_map('intval', call_user_func_array('array_merge', $allDeviceIdVal));
-    $maxIdValue = max($allDeviceIdVal);
-    return [$maxIdValue, $allDeviceIdVal];
+    if (!empty($finalizedResult)) {
+        $allDeviceIdVal = filter_var_array($finalizedResult, FILTER_SANITIZE_NUMBER_INT);
+        $allDeviceIdVal = array_map('intval', call_user_func_array('array_merge', $allDeviceIdVal));
+        $maxIdValue = max($allDeviceIdVal);
+        return [$maxIdValue, $allDeviceIdVal];
+    } else {
+
+        return 0;
+    }
 };
 
 $deviceIdAssignment = function ($deviceCount, $findMaxValueOfDeviceId) {
@@ -31,7 +47,7 @@ $deviceIdAssignment = function ($deviceCount, $findMaxValueOfDeviceId) {
         return ($deviceCount + 1);
     }
 };
-$deviceIdAssignment = $deviceIdAssignment($getRowCount('products'), $findMaxValueOfDeviceId());
+$nextDeviceId = "PR" . $deviceIdAssignment($getRowCount('products'), $findMaxValueOfDeviceId());
 
 $totalDeviceSoldOrCurrentAsset = function ($columName) use ($link) {
 
@@ -40,7 +56,7 @@ $totalDeviceSoldOrCurrentAsset = function ($columName) use ($link) {
     while ($row = mysqli_fetch_assoc($queryResult)) {
         $totalDevice[] = $row[$columName];
     }
-    echo (number_format(array_sum($totalDevice)) . ' PCS');
+    echo (number_format(array_sum($totalDevice)) . " <span class='countSign'>PCS</span>");
 };
 
 $listDevices = function ($list) use ($link) {
@@ -52,11 +68,11 @@ $listDevices = function ($list) use ($link) {
         $specs = (strlen((string)$row['specs']) > 12 ? '<td><a href="#">' . substr($row['specs'], 0, 12) . "..." . '</a></td>' : '<td><a href="#">' . $row['specs'] . '</a></td>');
         $stock  = ((int)$row['stock'] >= 10) ? "<td><strong class='text text-success'>{$row['stock']}</strong></td>" : "<td><strong class='text text-danger'>{$row['stock']}</strong></td>";
         $total_sold  = ((int)$row['total_sold'] >= 10) ? "<td><strong style='color:rgba(0,132,255,0.8)'>{$row['total_sold']}</strong></td>" : "<td><strong style='color:rgba(255,94,0,0.6)'>{$row['total_sold']}</strong></td>";
-        $price = number_format($row['price'], 2) . ' MMK';
-        $expense = number_format($row['expense'], 2) . ' MMK';
+        $price = number_format($row['price']) . ' MMK';
+        $expense = number_format($row['expense']) . ' MMK';
         $profitPerOne = ($row['price'] - $row['expense']);
         // $totalRevenue = $row['price'] * $row['total_sold'];
-        $profit = number_format(($profitPerOne * $row['total_sold']), 2) . ' MMK';
+        $profit = number_format(($profitPerOne * $row['total_sold'])) . ' MMK';
         $initialStock  = ($initialStock >= 10) ? "<td><strong style='color:rgba(0,132,255,0.8)'>{$initialStock}</strong></td>" : "<td><strong style='color:rgba(255,94,0,0.6)'>{$initialStock}</strong></td>";
         if ($list === 'list') {
             // $specs = '<td><a href="#">' . $row['specs'] . '</a></td>';
@@ -108,7 +124,7 @@ $listDevices = function ($list) use ($link) {
                         <li><form action='device-details.php' method='post'><input type='hidden' name='product_id' value='{$row['product_id']}' /><button type='submit' name='deviceDetailsBtn'><i class='ti-file'></i> Details</button></form></li>
                         <li><form action='edit-device.php' method='post'><input type='hidden' name='product_id' value='{$row['product_id']}' /><button type='submit' name='editDeviceBtn'><i class='ti-pencil-alt'></i> Edit</button></form></li>
                         <li><form action='edit-device.php' method='post'><input type='hidden' name='product_id' value='{$row['product_id']}' /><button type='submit' name='editDeviceBtn'><i class='ti-printer'></i> Print</button></form></li>
-                        <li><form action='{$_SERVER['PHP_SELF']}' method='post'><input type='hidden' name='product_id' value='{$row['product_id']}' /><button type='submit' name='deleteDeviceBtn'><i class='ti-trash'></i> Delete</button></form></li>
+                        <li><form action='{$_SERVER['PHP_SELF']}' method='post'><input type='hidden' name='device_id' value='{$row['device_id']}' /><input type='hidden' name='product_id' value='{$row['product_id']}' /><button type='submit' name='deleteDeviceBtn'><i class='ti-trash'></i> Delete</button></form></li>
                     </ul>
                 </div>
             </td>

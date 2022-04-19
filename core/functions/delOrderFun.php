@@ -11,10 +11,14 @@ $deleteOrder = function ($orderId) use ($link) {
 if (isset($_POST['deleteOrderBtn'])) {
 
     $orderId = $_POST['order_id'];
-    $deleteOrder = $deleteOrder($orderId);
 
-    if ($deleteOrder) {
+    if ($getOrderDetails($orderId)['status'] == 1) {
+        $deleteOrder = $deleteOrder($orderId);
+    } else {
+        $logs[] = "Status must be completed before deleting the order";
+    }
 
+    if (($deleteOrder === true)) {
         header("Location:{$_SERVER['PHP_SELF']}?delSuccess");
         exit();
     }

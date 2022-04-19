@@ -368,12 +368,12 @@ if (!isset($_SESSION['user_id'])) {
                 </div>
                 <!-- /# row -->
                 <section id="main-content">
+                    <?php require_once('widgets/errorInterface.php'); ?>
                     <div class="row">
                         <div class=" col-lg-12">
                             <div class="card">
                                 <div class="card-title">
                                     <h4>All devices </h4>
-                                    <center><?php success() ?></center>
                                 </div>
                                 <div class="bootstrap-data-table-panel">
                                     <div class="table-responsive">

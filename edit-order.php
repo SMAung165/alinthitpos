@@ -3,6 +3,7 @@ require_once('core/config/init.php');
 if (!isset($_SESSION['user_id'])) {
     header("location:page-login.php");
 } else {
+    require_once('core/functions/upDeviceFun.php');
     require_once('core/functions/upOrderFun.php');
 }
 ?>
@@ -36,6 +37,36 @@ if (!isset($_SESSION['user_id'])) {
     <link href="assets/css/lib/helper.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
     <?php require_once('widgets/darkModeFun.php'); ?>
+
+    <style type="text/css">
+        .invoiceBtn-container {
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .invoiceBtn-container span {
+            margin-right: 10px;
+        }
+
+        .invoiceBtn-container button {
+            font-size: 0.8rem;
+
+            border: none;
+
+            cursor: pointer;
+
+        }
+
+        .invoiceBtn-container button:hover {
+            transform: scale(1.1);
+        }
+
+        .invoiceBtn-container button:active {
+            transform: scale(1);
+        }
+    </style>
 </head>
 
 <body>
@@ -260,8 +291,13 @@ if (!isset($_SESSION['user_id'])) {
                         <div class="page-header">
                             <div class="page-title">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                                    <li class="breadcrumb-item active"><a class="pageTitle" style="display:inline" href="<?php echo $_SERVER['PHP_SELF'] ?>"></a></li>
+                                    <li class="breadcrumb-item">
+                                        <a href="index.php" style="display: inline;">Dashboard</a>
+                                    </li>
+                                    <li class="breadcrumb-item">
+                                        <a href="manage-order.php" style="display: inline;">Manage Order</a>
+                                    </li>
+                                    <li class="breadcrumb-item active"><a class="pageTitle" style="display:inline" href="#"></a></li>
                                 </ol>
                             </div>
                         </div>
@@ -270,6 +306,31 @@ if (!isset($_SESSION['user_id'])) {
                 </div>
                 <!-- /# row -->
                 <section id="main-content">
+                    <?php require_once('widgets/errorInterface.php'); ?>
+                    <center>
+                        <?php $getOrderDetails = $getOrderDetails($_POST['order_id']);
+                        if ($getOrderDetails['status'] == 1 and $getOrderDetails['payment_status'] == 1) { ?>
+
+                            <form action="invoice.php" method='post'>
+
+                                <h6 class="text text-success">The payment is already settled.</h6>
+                                <input type="hidden" value="<?php echo $getOrderDetails['order_id'] ?>" name='order_id' />
+                                <div class="invoiceBtn-container">
+                                    <span>Move to : </span>
+
+                                    <button class='badge badge-primary' type="submit" name='goToInvoiceBtn'>
+                                        Invoice
+                                    </button>
+                                </div>
+
+                            </form>
+
+                        <?php } else if ($getOrderDetails['payment_cancelled'] == 1) { ?>
+
+                            <h6 class="text text-danger">This order has been cancelled.</h6>
+
+                        <?php } ?>
+                    </center>
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-title">
@@ -277,14 +338,13 @@ if (!isset($_SESSION['user_id'])) {
 
                             </div>
                             <div class="card-body">
-                                <center><?php $outputLogs($logs); ?></center>
+
                                 <div class="basic-elements">
                                     <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
                                         <div class="row">
                                             <div class="col-lg-8">
                                                 <div class="form-group">
-                                                    <input name='order_id' type="hidden" value="<?php $getOrderDetails = $getOrderDetails($_POST['order_id']);
-                                                                                                echo $getOrderDetails['order_id'] ?>" />
+                                                    <input name='order_id' type="hidden" value="<?php echo $getOrderDetails['order_id'] ?>" />
                                                     <label>Order Number</label>
                                                     <input type="text" name="" class="form-control" placeholder="" value="<?php echo $getOrderDetails['order_number'] ?>" required disabled />
                                                 </div>
@@ -293,8 +353,12 @@ if (!isset($_SESSION['user_id'])) {
                                                     <input id="example-email" class="form-control" type="text" name="" placeholder="" value="<?php echo "{$getOrderDetails['product_name']} ({$getOrderDetails['product_model']})" ?>" required disabled />
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Brand*</label>
+                                                    <label>Brand</label>
                                                     <input id="example-email" class="form-control" type="text" name="" placeholder="" value="<?php echo $getOrderDetails['product_brand'] ?>" required disabled />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Color</label>
+                                                    <input id="example-email" class="form-control" type="text" name="" placeholder="" value="<?php echo $getOrderDetails['color'] ?>" required disabled />
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Customer Name</label>
@@ -316,21 +380,7 @@ if (!isset($_SESSION['user_id'])) {
                                                     <input class="form-control" type="text" name="price" value="<?php echo (filter_var($getOrderDetails['price'], FILTER_SANITIZE_NUMBER_INT) * intval($getOrderDetails['quantity']) . "MMK"); ?>" required disabled />
                                                 </div>
 
-                                                <div class="form-group">
-                                                    <label>Overall Status</label>
-                                                    <select class="form-control" name="status">
-                                                        <option>Completed</option>
-                                                        <option selected>Pending</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Payment Status</label>
-                                                    <select class="form-control" name="payment_status">
-                                                        <option>Paid</option>
-                                                        <option selected>Pending</option>
-                                                        <option>Cancelled</option>
-                                                    </select>
-                                                </div>
+                                                <?php require_once('widgets/editPaymentStatus.php'); ?>
 
                                                 <div class="form-group">
                                                     <div class="user-photo m-b-30">
@@ -343,11 +393,13 @@ if (!isset($_SESSION['user_id'])) {
                                             </div>
 
                                         </div>
-                                        <div class="row">
-                                            <div class="col">
-                                                <button type="submit" class="btn btn-default" name="updateOrderBtn">Submit</button>
+                                        <?php if ($getOrderDetails['status'] != 1) { ?>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <button type="submit" class="btn btn-default" name="updateOrderBtn">Submit</button>
+                                                </div>
                                             </div>
-                                        </div>
+                                        <?php } ?>
                                     </form>
                                 </div>
                             </div>

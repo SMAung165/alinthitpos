@@ -33,7 +33,21 @@ if (!isset($_SESSION['user_id'])) {
   <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
   <link href="assets/css/lib/helper.css" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet">
+  <link href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet" />
+  <link href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css" rel="stylesheet" />
+  <link href="https://cdn.datatables.net/rowgroup/1.1.4/css/rowGroup.dataTables.min.css" rel="stylesheet" />
   <?php require_once('widgets/darkModeFun.php'); ?>
+
+  <style>
+    .breadcrumb {
+      width: 106% !important;
+    }
+
+    .odd,
+    .even {
+      background: transparent !important;
+    }
+  </style>
 
 </head>
 
@@ -260,7 +274,10 @@ if (!isset($_SESSION['user_id'])) {
               <div class="page-title">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item">
-                    <a href="#">Dashboard</a>
+                    <a href="index.php" style="display: inline;">Dashboard</a>
+                  </li>
+                  <li class="breadcrumb-item">
+                    <a href="manage-devices.php" style="display: inline;">Manage Devices</a>
                   </li>
                   <li class="breadcrumb-item active"><a class="pageTitle" style="display:inline" href="#"></a></li>
                 </ol>
@@ -290,7 +307,7 @@ if (!isset($_SESSION['user_id'])) {
                           </div>
                           <div class="work-content">
                             <h3>Price</h3>
-                            <p><?php echo number_format($deviceQuery['price'], 2) . ' MMK' ?></p>
+                            <p><?php echo number_format($deviceQuery['price']) . ' MMK' ?></p>
                           </div>
                           <div class="work-content">
                             <h4>Warehouse Stock</h4>
@@ -412,20 +429,20 @@ if (!isset($_SESSION['user_id'])) {
                 <div class="card-title">
                   <h4>Recent Buyers</h4>
                 </div>
-                <div class="card-body">
+                <div class="card-body bootstrap-data-table-panel">
                   <div class="table-responsive">
-                    <table class="table table-hover " style="text-align: center;">
+                    <table id="myDataTable" class="display table table-borderd" style="text-align: center;width:100%;padding-bottom:10px">
                       <thead>
                         <tr>
                           <th>Customer Name</th>
-                          <th>Status</th>
                           <th>Date</th>
                           <th>Quantity</th>
                           <th>Total Price</th>
+                          <th>Status</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <?php $orderQuery('device-details', $deviceQuery['product_id']) ?>
+                        <?php $orderQuery('device-details', $deviceQuery['device_id']) ?>
                       </tbody>
                     </table>
                   </div>
@@ -551,7 +568,18 @@ if (!isset($_SESSION['user_id'])) {
   <script src="assets/js/lib/preloader/pace.min.js"></script>
   <script src="assets/js/lib/bootstrap.min.js"></script>
   <script src="assets/js/scripts.js"></script>
+  <!-- scripit init-->
+  <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+  <script src="https://cdn.datatables.net/rowgroup/1.1.4/js/dataTables.rowGroup.min.js"></script>
+  <script src="assets/js/lib/data-table/datatables-init.js"></script>
   <script>
+    $(document).ready(function() {
+      $('#myDataTable').DataTable({
+        responsive: true,
+      });
+    });
+
     const starColorizer = (rating) => {
       const star = document.querySelectorAll('.ti-star');
       for (i = 0; i < parseInt(rating); i++) {

@@ -274,6 +274,7 @@ if (!isset($_SESSION['user_id'])) {
                 </div>
                 <!-- /# row -->
                 <section id="main-content">
+                    <?php require_once('widgets/errorInterface.php'); ?>
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-title">
@@ -281,12 +282,12 @@ if (!isset($_SESSION['user_id'])) {
 
                             </div>
                             <div class="card-body">
-                                <center><?php $outputLogs($logs); ?><?php success() ?></center>
+
                                 <div class="basic-elements">
                                     <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
                                         <div class="row">
                                             <div class="col-lg-8">
-                                                <input type="hidden" name="device_id" value="<?php echo "PR{$deviceIdAssignment}"; ?>" />
+                                                <input type="hidden" name="device_id" value="<?php echo $nextDeviceId; ?>" required readonly />
                                                 <div class="form-group">
                                                     <label>Device Name*</label>
                                                     <input type="text" name="product_name" class="form-control" placeholder="" required>

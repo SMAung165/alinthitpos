@@ -45,6 +45,19 @@ if (isset($_POST['addDevicesBtn'])) {
         }
         //Insert data into database
         $dateTime = (date("Y-m-d") . ' ' . date("h:i:s"));
+
+        if (empty($_POST['initial_stock']) or $_POST['initial_stock'] == 0) {
+            $initialStock = $_POST['stock'];
+        } else {
+            $initialStock = $_POST['initial_stock'];
+        }
+
+        if (empty($_POST['stock'])) {
+            $stockLeft = $_POST['initial_stock'];
+        } else {
+            $stockLeft = $_POST['stock'];
+        }
+
         $dataToInsert = [
             'device_id' => $_POST['device_id'],
             'product_name' => $_POST['product_name'],
@@ -55,8 +68,8 @@ if (isset($_POST['addDevicesBtn'])) {
             'color' => $_POST['color'],
             'expense' => $_POST['expense'],
             'price' => $_POST['price'],
-            'initial_stock' => $_POST['initial_stock'],
-            'stock' => $_POST['stock'],
+            'initial_stock' => $initialStock,
+            'stock' => $stockLeft,
             'total_sold' => $_POST['total_sold'],
             'image' => $fileImagePath,
             'entry_date' => $dateTime,

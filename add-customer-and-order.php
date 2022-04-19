@@ -4,6 +4,7 @@ if (!isset($_SESSION['user_id'])) {
     header("location:page-login.php");
 } else {
     require_once('core/functions/addCustomerFun.php');
+    require_once('core/functions/upDeviceFun.php');
     require_once('core/functions/addOrderFun.php');
 }
 ?>
@@ -345,6 +346,7 @@ if (!isset($_SESSION['user_id'])) {
                 </div>
                 <!-- /# row -->
                 <section id="main-content">
+                    <?php require_once('widgets/errorInterface.php'); ?>
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-title">
@@ -352,7 +354,6 @@ if (!isset($_SESSION['user_id'])) {
 
                             </div>
                             <div class="card-body">
-                                <center><?php $outputLogs($logs); ?><?php success() ?></center>
                                 <!-- <span class="edit-profile">
 
                                     <label for="userEditBtn" class="">
@@ -381,7 +382,7 @@ if (!isset($_SESSION['user_id'])) {
 
                                                 <div class="form-group">
                                                     <label>Email</label>
-                                                    <input id="example-email" class="form-control" type="text" name="product_model" placeholder="">
+                                                    <input id="example-email" class="form-control" type="text" name="email" placeholder="">
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Phone Number</label>
@@ -391,9 +392,12 @@ if (!isset($_SESSION['user_id'])) {
                                             </div>
                                             <div class="col-lg-4">
 
-
                                                 <div class="form-group">
-                                                    <label>Address</label><textarea id="example-email" class="form-control" type="text" name="address" style="height:322px"></textarea>
+                                                    <label>Address</label><textarea id="example-email" class="form-control" type="text" name="address" style="height:228px"></textarea>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Customer ID</label>
+                                                    <input class="form-control" type="text" name="customer_number" value="<?php echo $nextCustomerNumber ?>" readonly required />
                                                 </div>
                                                 <!-- <div class="form-group">
                                                     <label>Gender</label>

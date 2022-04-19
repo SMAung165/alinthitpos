@@ -3,7 +3,7 @@
 $logs = [];
 $outputLogs = function (array $logs) {
     foreach ($logs as $log) {
-        echo "<span class='badge badge-danger'>{$log}</span>";
+        echo "<li style='margin:10px 0px'><span class='badge badge-danger'>{$log}</span></li>";
     }
 };
 

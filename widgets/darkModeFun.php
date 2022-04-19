@@ -4,6 +4,11 @@
         border-radius: 10px;
     }
 
+    .form-control:disabled,
+    .form-control[readonly] {
+        cursor: not-allowed;
+    }
+
     /* Darkmode Button */
 
     .mode-switch-btn {
@@ -105,10 +110,18 @@ if ($sessionUserDarkMode == 1) { ?>
             background: #363636 !important;
         }
 
+        .form-control:disabled,
+        .form-control[readonly] {
+            background: #303030 !important;
+
+            cursor: not-allowed;
+        }
+
         table tr,
         table td {
 
             background: inherit !important;
+
         }
 
 
@@ -129,10 +142,17 @@ if ($sessionUserDarkMode == 1) { ?>
             background-color: inherit !important;
         }
 
-        .dt-button {
+        .dt-button,
+        .dt-button-info {
 
             background: #464646 !important;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+
+        }
+
+        .dt-button-info h2 {
+
+            background: inherit !important;
 
         }
 

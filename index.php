@@ -37,6 +37,14 @@ if (!isset($_SESSION['user_id'])) {
     <link href="assets/css/lib/helper.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
     <?php require_once('widgets/darkModeFun.php'); ?>
+    <style type="text/css">
+        .currency,
+        .countSign {
+
+            font-size: 1rem;
+
+        }
+    </style>
 
 </head>
 
@@ -272,7 +280,7 @@ if (!isset($_SESSION['user_id'])) {
                 <!-- /# row -->
                 <section id="main-content">
                     <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-lg-5">
                             <div class="card">
                                 <div class="stat-widget-one">
                                     <div class="stat-icon dib"><i class="ti-money color-success border-success"></i>
@@ -284,14 +292,14 @@ if (!isset($_SESSION['user_id'])) {
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-4">
                             <div class="card">
                                 <div class="stat-widget-one">
                                     <div class="stat-icon dib"><i class="ti-money color-success border-success"></i>
                                     </div>
                                     <div class="stat-content dib">
                                         <div class="stat-text">Current Month Profit</div>
-                                        <div class="stat-digit"><?php echo number_format($monthCheckProfitCurrentMonth, 2) . ' MMK'; ?> </div>
+                                        <div class="stat-digit"><?php echo number_format($monthCheckProfitCurrentMonth) . " <span class='currency'>MMK</span>"; ?> </div>
                                     </div>
                                 </div>
                             </div>
@@ -299,19 +307,19 @@ if (!isset($_SESSION['user_id'])) {
                         <div class="col-lg-3">
                             <div class="card">
                                 <div class="stat-widget-one">
-                                    <div class="stat-icon dib"><i class="ti-user color-primary border-primary"></i>
+                                    <div class="stat-icon dib"><i class="ti-money color-primary border-primary"></i>
                                     </div>
                                     <div class="stat-content dib">
-                                        <div class="stat-text">Customers</div>
-                                        <div class="stat-digit"><?php echo $getRowCount('customers'); ?></div>
+                                        <div class="stat-text">Today Profit</div>
+                                        <div class="stat-digit"><?php echo number_format_short($getTodayProfit()) . " <span class='currency'>MMK</span>"; ?></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4">
+                        <div class="col-lg-5">
                             <div class="card">
                                 <div class="stat-widget-one">
-                                    <div class="stat-icon dib"><i class="ti-mobile color-pink border-pink"></i>
+                                    <div class="stat-icon dib"><i class="ti-mobile color-warning border-warning"></i>
                                     </div>
                                     <div class="stat-content dib">
                                         <div class="stat-text">Total Device Sold</div>
@@ -320,10 +328,10 @@ if (!isset($_SESSION['user_id'])) {
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-5">
+                        <div class="col-lg-4">
                             <div class="card">
                                 <div class="stat-widget-one">
-                                    <div class="stat-icon dib"><i class="ti-mobile color-pink border-pink"></i>
+                                    <div class="stat-icon dib"><i class="ti-mobile color-warning border-warning"></i>
                                     </div>
                                     <div class="stat-content dib">
                                         <div class="stat-text">Stock Left (Current Assets)</div>
@@ -332,6 +340,19 @@ if (!isset($_SESSION['user_id'])) {
                                 </div>
                             </div>
                         </div>
+                        <div class="col-lg-3">
+                            <div class="card">
+                                <div class="stat-widget-one">
+                                    <div class="stat-icon dib"><i class="ti-user color-danger border-danger"></i>
+                                    </div>
+                                    <div class="stat-content dib">
+                                        <div class="stat-text">Customers</div>
+                                        <div class="stat-digit"><?php echo $getRowCount('users') ?></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="row">
                         <div class="col-lg-8">
