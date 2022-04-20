@@ -294,7 +294,7 @@ if (!isset($_SESSION['user_id'])) {
                                                 </div>
                                                 <div class="form-group">
                                                     <label>First Name*</label>
-                                                    <input id="example-email" class="form-control" type="text" name="first_name" placeholder="e.g. John" name="example-email">
+                                                    <input id="example-email" class="form-control" type="text" name="first_name" placeholder="John" name="example-email">
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Last Name</label>
@@ -319,7 +319,7 @@ if (!isset($_SESSION['user_id'])) {
                                                     <label>Admin Role</label>
                                                     <select class="form-control" name="role">
                                                         <option>Admin</option>
-                                                        <option selected>Sale staff</option>
+                                                        <option selected>Sale Staff</option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group">

@@ -5,7 +5,6 @@
                 <label>Order No.</label>
                 <input type="text" name="order_number" value="<?php echo $nextOrderNumber ?>" class="form-control" placeholder="" required readonly />
             </div>
-
         </div>
         <div class="col-lg-3">
             <div class="form-group">

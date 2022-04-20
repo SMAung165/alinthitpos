@@ -153,8 +153,22 @@ $getOrderDetails = function ($orderId) use ($link) {
 
     $query = "SELECT * FROM `products` INNER JOIN `customerorder` ON `customerorder`.`order_device_id` = `products`.`device_id` INNER JOIN `customers` ON `customerorder`.`order_customer_number` = `customers`.`customer_number` WHERE `order_id` = {$orderId}";
     $queryResult = mysqli_query($link, $query);
-    $finalizedResult = mysqli_fetch_array($queryResult);
+    $finalizedResult = mysqli_fetch_assoc($queryResult);
     return $finalizedResult;
+};
+
+$expectToEarn = function () use ($link) {
+
+    $query = "SELECT * FROM `customerorder` WHERE `status` = 0 ";
+    $queryResult = mysqli_query($link, $query);
+    while ($row = mysqli_fetch_assoc($queryResult)) {
+        $finalizedResult[] = $row['order_profit'];
+    }
+    if (!empty($finalizedResult)) {
+        return ['count' => count($finalizedResult), 'total_profit' => array_sum($finalizedResult)];
+    } else {
+        return ['count' => 0, 'total_profit' => 0];
+    }
 };
 
 $orderStatus = function ($orderId) use ($link) {

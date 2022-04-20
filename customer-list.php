@@ -377,7 +377,7 @@ if (!isset($_SESSION['user_id'])) {
                                 </div>
                                 <div class="bootstrap-data-table-panel">
                                     <div class="table-responsive">
-                                        <table id="myDataTable" class="display table table-borderd table-hover" style="text-align:center;width:100%;padding-bottom:80px;">
+                                        <table id="myDataTable" class="display table table-borderd table-hover" style="text-align:center;width:100%;padding-bottom:10px;">
                                             <thead>
                                                 <tr>
                                                     <th>Customer ID</th>

@@ -18,14 +18,7 @@ $updateOrder = function ($dataToUpdateOrder, $orderId) use ($link, $sanatization
 if (isset($_POST['updateOrderBtn'])) {
 
     $dataToUpdateOrder = [];
-
-    if ($_POST['status'] === 'Completed') {
-
-        $overallStatus = 1;
-    } else {
-        $overallStatus = 0;
-    }
-
+    $overallStatus = 0;
 
     if ($_POST['payment_status'] === 'Paid') {
         $paymentStatus = 1;
@@ -56,6 +49,20 @@ if (isset($_POST['updateOrderBtn'])) {
         $dataToUpdateOrder['status'] = 0;
     }
 
+    if (($getOrderDetails($orderId)['payment_cancelled'] == 0) and ($dataToUpdateOrder['payment_status'] == 1)) {
+
+        $orderDate = $getOrderDetails($orderId)['order_date'];
+        $orderProfit = $getOrderDetails($orderId)['order_profit'];
+
+        $dailyProfit = $dailyProfitQuery($orderDate);
+        $newDailyProfit = $dailyProfit + $orderProfit;
+
+        $query = "UPDATE `daily_profits` SET `daily_profit` = {$newDailyProfit} WHERE `date` = '{$orderDate}'";
+        mysqli_query($link, $query);
+
+        $dataToUpdateOrder['status'] = 1;
+    }
+
     if (($getOrderDetails($orderId)['payment_cancelled'] == 0) and ($dataToUpdateOrder['payment_cancelled'] == 1)) {
 
         $stockLeftToIncrease = $getOrderDetails($orderId)['stock'] + $getOrderDetails($orderId)['quantity'];
@@ -72,7 +79,7 @@ if (isset($_POST['updateOrderBtn'])) {
 
     $updateOrder = $updateOrder($dataToUpdateOrder, $orderId);
 
-    if ((($updateOrder === true) and ($updateDevice === true)) or (($updateOrder === true) or ($updateDevice === true))) {
+    if ($updateOrder === true) {
         header("Location:manage-order.php?upSuccess");
         exit();
     }

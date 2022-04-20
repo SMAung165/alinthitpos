@@ -357,6 +357,10 @@ if (!isset($_SESSION['user_id'])) {
                                   <span class="birth-date"><?php echo $getOrderDetails['order_number']; ?></span>
                                 </div>
                                 <div class="birthday-content">
+                                  <span class="contact-title">Order Date:</span>
+                                  <span class="birth-date"><?php echo $getOrderDetails['order_date']; ?></span>
+                                </div>
+                                <div class="birthday-content">
                                   <span class="contact-title">Quantity:</span>
                                   <span class="birth-date"><?php echo $getOrderDetails['quantity'] . ' PCS'; ?></span>
                                 </div>

@@ -1,32 +1,38 @@
 <?php
-$totalProfitCalc = function ($isForm) use ($link) {
 
-    $query = "SELECT `expense`, `price`, `total_sold`, `stock` FROM `products`";
+$dayCheckProfit = function ($date) use ($link) {
+    $query = "SELECT * FROM `daily_profits` WHERE `date` = '{$date}'";
     $queryResult = mysqli_query($link, $query);
-    while ($row = mysqli_fetch_assoc($queryResult)) {
-        $profitPerOne = ($row['price'] - $row['expense']);
-        $profit = ($profitPerOne * $row['total_sold']);
-        $profitArr[] = $profit;
-    }
-    if ($isForm === true) {
-        return floatval(array_sum($profitArr));
-    } else {
-
-        echo number_format(array_sum($profitArr)) . " <span class='currency'>MMK</span>";
-    }
-};
-
-
-$dayCheckProfit = function ($day) use ($link) {
-    $query = "SELECT * FROM `daily_profits` WHERE `day` = $day";
-    $queryResult = mysqli_query($link, $query);
-    $finalizedResult = mysqli_fetch_array($queryResult);
-    if (!empty($finalizedResult['day'])) {
-        return $finalizedResult['daily_total_profit'];
+    $finalizedResult = mysqli_num_rows($queryResult);
+    if ($finalizedResult > 0) {
+        return true;
     } else {
         return false;
     }
 };
+
+$dailyProfitQuery = function ($date) use ($link) {
+
+    $query = "SELECT * FROM `daily_profits` WHERE `date` = '{$date}'";
+    $queryResult = mysqli_query($link, $query);
+    return (mysqli_fetch_assoc($queryResult)['daily_profit']);
+};
+
+$totalProfitCalc = function ($isForm) use ($link) {
+
+    $query = "SELECT `daily_profit` FROM `daily_profits`";
+    $queryResult = mysqli_query($link, $query);
+    while ($row = mysqli_fetch_assoc($queryResult)) {
+        $allDailyProfits[] = $row['daily_profit'];
+    }
+    if ($isForm === true) {
+        return floatval(array_sum($allDailyProfits));
+    } else {
+
+        echo number_format(array_sum($allDailyProfits)) . " <span class='currency'>MMK</span>";
+    }
+};
+
 
 $minMaxDate = function ($minOrMax, $tableName) use ($link) {
 
@@ -47,14 +53,14 @@ $monthCheckProfit = function ($month) use ($link) {
     }
 };
 
-$getAllDailyProfits = function () use ($link) {
+$getAllDailyProfitsByMonth = function ($month) use ($link) {
 
-    $query = "SELECT * FROM `daily_profits`";
+    $query = "SELECT * FROM `daily_profits` WHERE `month` = '{$month}'";
     $queryResult = mysqli_query($link, $query);
     while ($row = mysqli_fetch_assoc($queryResult)) {
+
         $allDailyProfits[] = intval($row['daily_profit']);
     }
-
     return array_sum($allDailyProfits);
 };
 

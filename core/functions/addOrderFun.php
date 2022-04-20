@@ -12,12 +12,17 @@ $insertIntoDatabaseOrders = function ($dataToInsert) use ($link, $sanatization) 
 };
 
 if (isset($_POST['addOrderBtn'])) {
+    $device = $deviceQueryByDeviceId($_POST['order_device_id']);
+    $deviceExpense = $device['expense'];
+    $devicePrice = $device['price'];
+    $orderProfit = ($devicePrice - $deviceExpense) * $_POST['quantity'];
 
     $dataToInsert = [
         'order_number' => $_POST['order_number'],
         'order_customer_number' => $_POST['order_customer_number'],
         'order_device_id' => $_POST['order_device_id'],
         'quantity' => $_POST['quantity'],
+        'order_profit' => $orderProfit,
         'order_date' => date('Y-m-d'),
     ];
 

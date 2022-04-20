@@ -645,12 +645,6 @@ if (!isset($_SESSION['user_id'])) {
     </div>
   </div>
 
-
-
-
-
-
-
   <!-- Common -->
   <script src="assets/js/lib/jquery.min.js"></script>
   <script src="assets/js/lib/jquery.nanoscroller.min.js"></script>

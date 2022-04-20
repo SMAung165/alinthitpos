@@ -26,10 +26,10 @@
                         <li><a href="chartjs.html">Admin Management</a></li>
                     </ul>
                 </li>
-                <li><a class="sidebar-sub-toggle"><i class="ti-user"></i> Customer<span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                <li><a class="sidebar-sub-toggle"><i class="ti-user"></i> Customer and Order<span class="sidebar-collapse-icon ti-angle-down"></span></a>
                     <ul>
                         <li><a href="customer-list.php">Customer List <span class="badge badge-primary"><?php echo number_format_short($getRowCount('customers')) ?></span> </a></li>
-                        <li><a href="manage-order.php">Manage Order <span class="badge badge-primary"><?php echo number_format_short($getRowCount('customerorder')) ?></span></a></li>
+                        <li><a href="manage-order.php">Manage Order <span class="badge badge-primary"><?php echo number_format_short($expectToEarn()['count']) ?></span></a></li>
                         <li><a href="add-customer-and-order.php">Add Customer and Order</a></li>
                     </ul>
                 </li>

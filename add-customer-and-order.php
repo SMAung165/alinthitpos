@@ -316,10 +316,6 @@ if (!isset($_SESSION['user_id'])) {
             </div>
         </div>
     </div>
-
-
-
-
     <div class="content-wrap">
         <div class="main">
             <div class="container-fluid">
@@ -354,23 +350,10 @@ if (!isset($_SESSION['user_id'])) {
 
                             </div>
                             <div class="card-body">
-                                <!-- <span class="edit-profile">
-
-                                    <label for="userEditBtn" class="">
-                                        <input type="checkbox" id="userEditBtn" />
-                                    </label>
-
-                                    <i class="ti-pencil-alt"></i>
-
-                                </span> -->
                                 <div class="basic-elements">
                                     <form id='customerForm' action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
                                         <div class="row">
                                             <div class="col-lg-8">
-                                                <!-- <div class="form-group">
-                                                    <label>Customer Username*</label>
-                                                    <input type="text" name="username" class="form-control" placeholder="" required />
-                                                </div> -->
                                                 <div class="form-group">
                                                     <label>First Name*</label>
                                                     <input type="text" name="first_name" class="form-control" placeholder="" required />
@@ -399,26 +382,6 @@ if (!isset($_SESSION['user_id'])) {
                                                     <label>Customer ID</label>
                                                     <input class="form-control" type="text" name="customer_number" value="<?php echo $nextCustomerNumber ?>" readonly required />
                                                 </div>
-                                                <!-- <div class="form-group">
-                                                    <label>Gender</label>
-                                                    <select name='gender' class="form-control">
-                                                        <option selected>Male</option>
-                                                        <option>Female</option>
-                                                    </select>
-                                                </div> -->
-
-
-
-                                                <!-- <div class="form-group">
-                                                    <div class="user-photo m-b-30">
-                                                        <label for='image' class="customImageInput">
-                                                            <span class="imageOverlay"><i class="ti-image"></i></span>
-                                                            <img class="img-fluid" src="assets/images/user-profile.jpg" alt="" />
-                                                            <input style="display: none;" type="file" name="file_image" id="image" />
-                                                        </label>
-                                                    </div>
-                                                </div> -->
-
                                             </div>
 
                                         </div>
