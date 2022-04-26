@@ -46,205 +46,7 @@ if (!isset($_SESSION['user_id'])) {
     <?php require_once('widgets/sideBar.php'); ?>
     <!-- /# sidebar -->
 
-
-    <div class="header">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="float-left">
-                        <div class="hamburger sidebar-toggle">
-                            <span class="line"></span>
-                            <span class="line"></span>
-                            <span class="line"></span>
-                        </div>
-                    </div>
-                    <div class="float-right">
-                        <div class="dropdown dib">
-                            <div class="header-icon">
-                                <i class="ti-bell"></i>
-                                <div class="drop-down dropdown-menu dropdown-menu-right">
-                                    <div class="dropdown-content-heading">
-                                        <span class="text-left">Recent Notifications</span>
-                                    </div>
-                                    <div class="dropdown-content-body">
-                                        <ul>
-                                            <li>
-                                                <a href="#">
-                                                    <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
-                                                    <div class="notification-content">
-                                                        <small class="notification-timestamp pull-right">02:34
-                                                            PM</small>
-                                                        <div class="notification-heading">Mr. John</div>
-                                                        <div class="notification-text">5 members joined today </div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
-                                                    <div class="notification-content">
-                                                        <small class="notification-timestamp pull-right">02:34
-                                                            PM</small>
-                                                        <div class="notification-heading">Mariam</div>
-                                                        <div class="notification-text">likes a photo of you</div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
-                                                    <div class="notification-content">
-                                                        <small class="notification-timestamp pull-right">02:34
-                                                            PM</small>
-                                                        <div class="notification-heading">Tasnim</div>
-                                                        <div class="notification-text">Hi Teddy, Just wanted to let you
-                                                            ...</div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
-                                                    <div class="notification-content">
-                                                        <small class="notification-timestamp pull-right">02:34
-                                                            PM</small>
-                                                        <div class="notification-heading">Mr. John</div>
-                                                        <div class="notification-text">Hi Teddy, Just wanted to let you
-                                                            ...</div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li class="text-center">
-                                                <a href="#" class="more-link">See All</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="dropdown dib">
-                            <div class="header-icon">
-                                <i class="ti-email"></i>
-                                <div class="drop-down dropdown-menu dropdown-menu-right">
-                                    <div class="dropdown-content-heading">
-                                        <span class="text-left">2 New Messages</span>
-                                        <a href="email.html">
-                                            <i class="ti-pencil-alt pull-right"></i>
-                                        </a>
-                                    </div>
-                                    <div class="dropdown-content-body">
-                                        <ul>
-                                            <li class="notification-unread">
-                                                <a href="#">
-                                                    <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/1.jpg" alt="" />
-                                                    <div class="notification-content">
-                                                        <small class="notification-timestamp pull-right">02:34
-                                                            PM</small>
-                                                        <div class="notification-heading">Michael Qin</div>
-                                                        <div class="notification-text">Hi Teddy, Just wanted to let you
-                                                            ...</div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li class="notification-unread">
-                                                <a href="#">
-                                                    <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/2.jpg" alt="" />
-                                                    <div class="notification-content">
-                                                        <small class="notification-timestamp pull-right">02:34
-                                                            PM</small>
-                                                        <div class="notification-heading">Mr. John</div>
-                                                        <div class="notification-text">Hi Teddy, Just wanted to let you
-                                                            ...</div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
-                                                    <div class="notification-content">
-                                                        <small class="notification-timestamp pull-right">02:34
-                                                            PM</small>
-                                                        <div class="notification-heading">Michael Qin</div>
-                                                        <div class="notification-text">Hi Teddy, Just wanted to let you
-                                                            ...</div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/2.jpg" alt="" />
-                                                    <div class="notification-content">
-                                                        <small class="notification-timestamp pull-right">02:34
-                                                            PM</small>
-                                                        <div class="notification-heading">Mr. John</div>
-                                                        <div class="notification-text">Hi Teddy, Just wanted to let you
-                                                            ...</div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li class="text-center">
-                                                <a href="#" class="more-link">See All</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="dropdown dib">
-                            <div class="header-icon">
-                                <span class="user-avatar"><?php echo "{$sessionUserName}" ?>
-                                    <i class="ti-angle-down f-s-10"></i>
-                                </span>
-                                <div class="drop-down dropdown-profile dropdown-menu dropdown-menu-right">
-                                    <div class="dropdown-content-heading">
-                                        <span class="text-left">Upgrade Now</span>
-                                        <p class="trial-day">30 Days Trail</p>
-                                    </div>
-                                    <div class="dropdown-content-body">
-                                        <ul>
-                                            <li>
-                                                <a href="app-profile.php">
-                                                    <i class="ti-user"></i>
-                                                    <span>Profile</span>
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a href="#">
-                                                    <i class="ti-email"></i>
-                                                    <span>Inbox</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <i class="ti-settings"></i>
-                                                    <span>Setting</span>
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a href="#">
-                                                    <i class="ti-lock"></i>
-                                                    <span>Lock Screen</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="core/functions/logout.php">
-                                                    <i class="ti-power-off"></i>
-                                                    <span>Logout</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    <?php require_once('widgets/header.php'); ?>
 
 
 
@@ -278,7 +80,7 @@ if (!isset($_SESSION['user_id'])) {
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-title">
-                                <h4>Add Devices</h4>
+                                <h4><span class='addDevices'></span></h4>
 
                             </div>
                             <div class="card-body">
@@ -289,19 +91,19 @@ if (!isset($_SESSION['user_id'])) {
                                             <div class="col-lg-8">
                                                 <input type="hidden" name="device_id" value="<?php echo $nextDeviceId; ?>" required readonly />
                                                 <div class="form-group">
-                                                    <label>Device Name*</label>
+                                                    <label id='deviceName'>Device Name*</label>
                                                     <input type="text" name="product_name" class="form-control" placeholder="Samsung Galaxy S10" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Model No.</label>
+                                                    <label id='modelNumber'>Model No.</label>
                                                     <input id="example-email" class="form-control" type="text" name="product_model" placeholder="SM-G973U">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Brand</label>
+                                                    <label id='brand'>Brand</label>
                                                     <input id="example-email" class="form-control" type="text" name="product_brand" placeholder="Samsung">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Specifications</label><textarea id="example-email" class="form-control" type="text" name="specs" style="height:235px">
+                                                    <label id='specs'>Specifications</label><textarea id="example-email" class="form-control" type="text" name="specs" style="height:235px">
 Chipset:
 CPU:
 GPU:
@@ -317,7 +119,7 @@ Battery:</textarea>
                                                     <input class="form-control" type="text" name="resolution" value="" placeholder="720x1080">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Color Variant</label>
+                                                    <label id='colorVariant'>Color Variant</label>
                                                     <input class="form-control" type="text" name="color" value="" placeholder="Blue">
                                                 </div>
 
@@ -325,23 +127,23 @@ Battery:</textarea>
                                             <div class="col-lg-4">
 
                                                 <div class="form-group">
-                                                    <label>Expense*</label>
+                                                    <label id='expense'>Expense*</label>
                                                     <input class="form-control" type="text" name="expense" value="" required placeholder="300,000">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Price Determined*</label>
+                                                    <label id='priceDetermined'>Price Determined*</label>
                                                     <input class="form-control" type="text" name="price" value="" required placeholder="350,000">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Initial Stock*</label>
+                                                    <label id='initialStock'>Initial Stock*</label>
                                                     <input class="form-control" type="text" name="initial_stock" value="" required placeholder="10">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Stock Left (Current Assets)</label>
+                                                    <label id='stockLeft'>Stock Left (Current Assets)</label>
                                                     <input class="form-control" type="text" name="stock" value="" placeholder="9">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Total Sold</label>
+                                                    <label id='totalSold'>Total Sold</label>
                                                     <input class="form-control" type="text" name="total_sold" value="" placeholder="1">
                                                 </div>
 
@@ -360,7 +162,7 @@ Battery:</textarea>
                                         </div>
                                         <div class="row">
                                             <div class="col">
-                                                <button type="submit" class="btn btn-default" name="addDevicesBtn">Submit</button>
+                                                <button id='submit' type="submit" class="btn btn-default" name="addDevicesBtn">Submit</button>
                                             </div>
                                         </div>
                                     </form>
@@ -370,13 +172,7 @@ Battery:</textarea>
                     </div>
 
 
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="footer">
-                                <p>2018 © Admin Board. - <a href="#">example.com</a></p>
-                            </div>
-                        </div>
-                    </div>
+                    <?php require_once('widgets/footer.php'); ?>
                 </section>
             </div>
         </div>
@@ -399,10 +195,15 @@ Battery:</textarea>
 
 
     <script src="assets/js/lib/bootstrap.min.js"></script>
+    <script src="assets/language/addDevice.js"></script>
     <script src="assets/js/scripts.js"></script>
+    <script src="assets/js/myScript.js"></script>
     <!-- scripit init-->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!--myScript-->
+
 
 
 

@@ -1,7 +1,9 @@
 <?php
 require_once('core/config/init.php');
-if (!isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['user_id']) or !isset($_POST['order_id'])) {
   header("location:page-login.php");
+} else {
+  $getOrderDetails = $getOrderDetails($_POST['order_id']);
 }
 ?>
 <!DOCTYPE html>
@@ -42,205 +44,7 @@ if (!isset($_SESSION['user_id'])) {
   <?php require_once('widgets/sideBar.php'); ?>
   <!-- /# sidebar -->
 
-  <div class="header">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="float-left">
-            <div class="hamburger sidebar-toggle">
-              <span class="line"></span>
-              <span class="line"></span>
-              <span class="line"></span>
-            </div>
-          </div>
-          <div class="float-right">
-            <div class="dropdown dib">
-              <div class="header-icon">
-                <i class="ti-bell"></i>
-                <div class="drop-down dropdown-menu dropdown-menu-right">
-                  <div class="dropdown-content-heading">
-                    <span class="text-left">Recent Notifications</span>
-                  </div>
-                  <div class="dropdown-content-body">
-                    <ul>
-                      <li>
-                        <a href="#">
-                          <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
-                          <div class="notification-content">
-                            <small class="notification-timestamp pull-right">02:34
-                              PM</small>
-                            <div class="notification-heading">Mr. John</div>
-                            <div class="notification-text">5 members joined today </div>
-                          </div>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
-                          <div class="notification-content">
-                            <small class="notification-timestamp pull-right">02:34
-                              PM</small>
-                            <div class="notification-heading">Mariam</div>
-                            <div class="notification-text">likes a photo of you</div>
-                          </div>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
-                          <div class="notification-content">
-                            <small class="notification-timestamp pull-right">02:34
-                              PM</small>
-                            <div class="notification-heading">Tasnim</div>
-                            <div class="notification-text">Hi Teddy, Just wanted to let you
-                              ...</div>
-                          </div>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
-                          <div class="notification-content">
-                            <small class="notification-timestamp pull-right">02:34
-                              PM</small>
-                            <div class="notification-heading">Mr. John</div>
-                            <div class="notification-text">Hi Teddy, Just wanted to let you
-                              ...</div>
-                          </div>
-                        </a>
-                      </li>
-                      <li class="text-center">
-                        <a href="#" class="more-link">See All</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="dropdown dib">
-              <div class="header-icon">
-                <i class="ti-email"></i>
-                <div class="drop-down dropdown-menu dropdown-menu-right">
-                  <div class="dropdown-content-heading">
-                    <span class="text-left">2 New Messages</span>
-                    <a href="email.html">
-                      <i class="ti-pencil-alt pull-right"></i>
-                    </a>
-                  </div>
-                  <div class="dropdown-content-body">
-                    <ul>
-                      <li class="notification-unread">
-                        <a href="#">
-                          <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/1.jpg" alt="" />
-                          <div class="notification-content">
-                            <small class="notification-timestamp pull-right">02:34
-                              PM</small>
-                            <div class="notification-heading">Michael Qin</div>
-                            <div class="notification-text">Hi Teddy, Just wanted to let you
-                              ...</div>
-                          </div>
-                        </a>
-                      </li>
-                      <li class="notification-unread">
-                        <a href="#">
-                          <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/2.jpg" alt="" />
-                          <div class="notification-content">
-                            <small class="notification-timestamp pull-right">02:34
-                              PM</small>
-                            <div class="notification-heading">Mr. John</div>
-                            <div class="notification-text">Hi Teddy, Just wanted to let you
-                              ...</div>
-                          </div>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
-                          <div class="notification-content">
-                            <small class="notification-timestamp pull-right">02:34
-                              PM</small>
-                            <div class="notification-heading">Michael Qin</div>
-                            <div class="notification-text">Hi Teddy, Just wanted to let you
-                              ...</div>
-                          </div>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/2.jpg" alt="" />
-                          <div class="notification-content">
-                            <small class="notification-timestamp pull-right">02:34
-                              PM</small>
-                            <div class="notification-heading">Mr. John</div>
-                            <div class="notification-text">Hi Teddy, Just wanted to let you
-                              ...</div>
-                          </div>
-                        </a>
-                      </li>
-                      <li class="text-center">
-                        <a href="#" class="more-link">See All</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="dropdown dib">
-              <div class="header-icon">
-                <span class="user-avatar"><?php echo "{$sessionUserName}" ?>
-                  <i class="ti-angle-down f-s-10"></i>
-                </span>
-                <div class="drop-down dropdown-profile dropdown-menu dropdown-menu-right">
-                  <div class="dropdown-content-heading">
-                    <span class="text-left">Upgrade Now</span>
-                    <p class="trial-day">30 Days Trail</p>
-                  </div>
-                  <div class="dropdown-content-body">
-                    <ul>
-                      <li>
-                        <a href="app-profile.php">
-                          <i class="ti-user"></i>
-                          <span>Profile</span>
-                        </a>
-                      </li>
-
-                      <li>
-                        <a href="#">
-                          <i class="ti-email"></i>
-                          <span>Inbox</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i class="ti-settings"></i>
-                          <span>Setting</span>
-                        </a>
-                      </li>
-
-                      <li>
-                        <a href="#">
-                          <i class="ti-lock"></i>
-                          <span>Lock Screen</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="core/functions/logout.php">
-                          <i class="ti-power-off"></i>
-                          <span>Logout</span>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
+  <?php require_once('widgets/header.php'); ?>
 
   <div class="content-wrap">
     <div class="main">
@@ -283,22 +87,21 @@ if (!isset($_SESSION['user_id'])) {
                     <div class="row">
                       <div class="col-lg-3">
                         <div class="user-photo m-b-30">
-                          <img class="img-fluid" src="<?php $getOrderDetails = $getOrderDetails($_POST['order_id']);
-                                                      echo "{$getOrderDetails['image']}" ?>" alt="" />
+                          <img class="img-fluid" src="<?php echo "{$getOrderDetails['image']}" ?>" alt="" />
                         </div>
 
                         <div class="user-work">
                           <h4><?php echo $getOrderDetails['product_name'] ?></h4>
                           <div class="">
-                            <span><b>Model : </b><?php echo $getOrderDetails['product_model'] ?></p></span>
-                            <span><b>Brand : </b><?php echo $getOrderDetails['product_brand'] ?></p></span>
-                            <span><b>Price : </b><?php echo number_format($getOrderDetails['price']) . ' MMK' ?></p></span>
-                            <span><b>Color : </b><?php echo $getOrderDetails['color'] ?></p></span>
+                            <p><b id='model'>Model</b> : <?php echo $getOrderDetails['product_model'] ?></p>
+                            <p><b id='brand'>Brand</b> : <?php echo $getOrderDetails['product_brand'] ?></p>
+                            <p><b id='price'>Price</b> : <?php echo number_format($getOrderDetails['price']) ?><span class="currency"> MMK</span></p>
+                            <p><b id='color'>Color</b> : <?php echo $getOrderDetails['color'] ?></p>
                           </div>
                           <form method="post" action="device-details.php">
                             <input type="hidden" name="product_id" value="<?php echo $getOrderDetails['product_id'] ?>" />
                             <button class="btn btn-secondary btn-addon" type="submit">
-                              <i class="ti-mobile"></i>More Device Details</button>
+                              <i class="ti-mobile"></i><span id='moreDeviceDetails'>More Device Details</span></button>
                             </button>
                           </form>
                         </div>
@@ -307,31 +110,27 @@ if (!isset($_SESSION['user_id'])) {
                       </div>
                       <div class="col-lg-9">
                         <div class="custom-tab user-profile-tab">
-                          <ul class="nav nav-tabs user-work" role="tablist">
-                            <h4 style="width: 100%;">
-                              <li role=" presentation" class="active ">
-                                <a href="#1" aria-controls="1" role="tab" data-toggle="tab">Customer Info</a>
-                              </li>
-                            </h4>
-                          </ul>
+                          <div class="user-work" style="width:100%">
+                            <h4 id='customerInfo'>Customer Info</h4>
+                          </div>
                           <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="1">
                               <div class="contact-information">
 
                                 <div class="birthday-content">
-                                  <span class="contact-title">Name:</span>
+                                  <span class="contact-title" id='customerName'>Name:</span>
                                   <span class="birth-date"><?php echo $getOrderDetails['first_name'] . ' ' . $getOrderDetails['last_name']; ?></span>
                                 </div>
                                 <div class="birthday-content">
-                                  <span class="contact-title">Address:</span>
+                                  <span class="contact-title" id='address'>Address:</span>
                                   <span class="birth-date"><?php echo $getOrderDetails['address']; ?></span>
                                 </div>
                                 <div class="birthday-content">
-                                  <span class="contact-title">Email:</span>
+                                  <span class="contact-title" id='email'>Email:</span>
                                   <span class="birth-date"><?php echo $getOrderDetails['email']; ?></span>
                                 </div>
                                 <div class="birthday-content">
-                                  <span class="contact-title">Phone Number:</span>
+                                  <span class="contact-title" id='phoneNumber'>Phone Number:</span>
                                   <span class="birth-date"><?php echo $getOrderDetails['phone_number']; ?></span>
                                 </div>
 
@@ -341,43 +140,39 @@ if (!isset($_SESSION['user_id'])) {
                         </div>
 
                         <div class="custom-tab user-profile-tab">
-                          <ul class="nav nav-tabs user-work" role="tablist">
-                            <h4 style="width: 100%;">
-                              <li role=" presentation" class="active ">
-                                <a href="#1" aria-controls="1" role="tab" data-toggle="tab">Order Info</a>
-                              </li>
-                            </h4>
-                          </ul>
+                          <div class="user-work">
+                            <h4 id='orderInfo'>Order Info</h4>
+                          </div>
                           <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="1">
                               <div class="contact-information">
 
                                 <div class="birthday-content">
-                                  <span class="contact-title">Order Number:</span>
+                                  <span class="contact-title" id='orderNumber'>Order Number:</span>
                                   <span class="birth-date"><?php echo $getOrderDetails['order_number']; ?></span>
                                 </div>
                                 <div class="birthday-content">
-                                  <span class="contact-title">Order Date:</span>
+                                  <span class="contact-title" id='orderDate'>Order Date:</span>
                                   <span class="birth-date"><?php echo $getOrderDetails['order_date']; ?></span>
                                 </div>
                                 <div class="birthday-content">
-                                  <span class="contact-title">Quantity:</span>
+                                  <span class="contact-title" id='quantity'>Quantity:</span>
                                   <span class="birth-date"><?php echo $getOrderDetails['quantity'] . ' PCS'; ?></span>
                                 </div>
                                 <div class="birthday-content">
-                                  <span class="contact-title">Total Price:</span>
+                                  <span class="contact-title" id='totalCost'>Total Cost:</span>
                                   <span class="birth-date"><?php
                                                             $totalPrice = number_format(($getOrderDetails['price'] * $getOrderDetails['quantity'])) . ' MMK';
                                                             echo $totalPrice;
                                                             ?></span>
                                 </div>
                                 <div class="birthday-content">
-                                  <span class="contact-title">Overall Status:</span>
+                                  <span class="contact-title" id='overallStatus'>Overall Status:</span>
                                   <span class="birth-date"><?php $orderStatus =  $orderStatus($getOrderDetails['order_id']);
                                                             echo $orderStatus['status']; ?></span>
                                 </div>
                                 <div class="birthday-content">
-                                  <span class="contact-title">Payment Status:</span>
+                                  <span class="contact-title" id='paymentStatus'>Payment Status:</span>
                                   <span class="birth-date"><?php echo $orderStatus['payment_status']; ?></span>
                                 </div>
                               </div>
@@ -393,26 +188,11 @@ if (!isset($_SESSION['user_id'])) {
             </div>
           </div>
           <!-- /# row -->
-
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="footer">
-                <p>2018 © Admin Board. -
-                  <a href="#">example.com</a>
-                </p>
-              </div>
-            </div>
-          </div>
+          <?php require_once('widgets/footer.php'); ?>
         </section>
       </div>
     </div>
   </div>
-
-
-
-
-
-
 
   <!-- Common -->
   <script src="assets/js/lib/jquery.min.js"></script>
@@ -420,6 +200,7 @@ if (!isset($_SESSION['user_id'])) {
   <script src="assets/js/lib/menubar/sidebar.js"></script>
   <script src="assets/js/lib/preloader/pace.min.js"></script>
   <script src="assets/js/lib/bootstrap.min.js"></script>
+  <script src="assets/language/orderDetails.js"></script>
   <script src="assets/js/scripts.js"></script>
   <script>
     const starColorizer = (rating) => {

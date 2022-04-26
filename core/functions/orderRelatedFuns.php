@@ -132,18 +132,22 @@ $orderQuery = function ($pageTitle, $deviceId) use ($link) {
             }
 
             echo "
-                <tr>
-                    <td><a href='#'>$gender{$row['first_name']} {$row['last_name']}</a></td>
-                    <td>{$row['order_date']}</td>
-                    <td>{$row['quantity']}</td>
-                    <td class='color-primary'>{$totalPrice}</td>
-                    <td>
-                        <form method='post' action='order-details.php'>
-                            <input type='hidden' name='order_id' value='{$row['order_id']}'/>
-                            {$status}
-                        </form>
-                    </td>
+
+                <tr class='customerTr'>
+                    <form method='post' action='order-details.php' class='recentBuyersForm'>
+                        <td><a href='#' class='recentByrFormSubmit'>$gender{$row['first_name']} {$row['last_name']}</a></td>
+                        <td>{$row['order_date']}</td>
+                        <td>{$row['quantity']}</td>
+                        <td class='color-primary'>{$totalPrice}</td>
+                        <td>
+
+                                <input type='hidden' name='order_id' value='{$row['order_id']}'/>
+                                {$status}
+                            
+                        </td>
+                    </form>
                 </tr>
+
                 ";
         }
     }

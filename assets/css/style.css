@@ -832,7 +832,7 @@ a.dt-button.active:not(.disabled) {
   display: inline-block;
 }
 .dropdown-profile {
-  width: 200px;
+  width: 100px;
 }
 .dropdown-profile .trial-day {
   font-size: 11px;
@@ -4523,6 +4523,32 @@ h6.h1 {
   display: block;
   margin-top: 55px;
 }
+
+
+
+.myActionDropDown button {
+  border: none;
+  padding: none;
+  background-color: transparent;
+
+  cursor: pointer;
+}
+
+
+.myActionDropDown button i {
+  margin-right: 20px;
+  margin-left: 10px;
+}
+
+.myActionDropDown li:hover button {
+
+  color: grey !important;
+}
+
+.myActionDropDown li:hover button i {
+  color: grey !important;
+}
+
 .customImageInput {
   cursor: pointer;
 
@@ -4565,3 +4591,26 @@ h6.h1 {
   background-color: rgba(255, 255, 255, 0.2);
   color: cyan;
 }
+.lang-container{
+
+  display:flex;
+  justify-content:flex-start;
+  align-items: center;
+
+  position: relative;
+}
+
+
+.active-lang-indicator{
+  display:inline-block;
+
+  position: absolute;
+  left:80%;
+
+  transform: translate(-100%, 60%);
+
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+

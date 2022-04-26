@@ -71,3 +71,38 @@ $getTodayProfit = function () use ($link) {
     $finalizedResult = mysqli_fetch_array($queryResult);
     return ($finalizedResult['daily_profit']);
 };
+$getAllMonthlyProfit = function () use ($link) {
+    $year = date('Y');
+    $query = "SELECT * FROM `monthly_profits` WHERE YEAR(`date`) = '$year' ORDER BY `date`";
+    $queryResult = mysqli_query($link, $query);
+    while ($row = mysqli_fetch_assoc($queryResult)) {
+        $allMonthlyProfits[] = intval($row['monthly_profit']);
+    }
+    return implode(', ', $allMonthlyProfits);
+};
+
+function monthNameConvert($monthNum)
+{
+    $dateObj = DateTime::createFromFormat('!m', $monthNum);
+    return $dateObj->format('F');
+}
+
+$getDailyProfitForAWeek = function ($dayOrProfit) use ($link) {
+    $month = date('m');
+    $year = date('Y');
+    $query = "SELECT * FROM `daily_profits` WHERE MONTH(`date`) = '{$month}' AND YEAR(`date`) = '{$year}' ORDER BY `date` DESC LIMIT 5";
+    $queryResult = mysqli_query($link, $query);
+    if (mysqli_num_rows($queryResult) > 0) {
+        while ($row = mysqli_fetch_assoc($queryResult)) {
+            $dailyProfits[] = intval($row['daily_profit']);
+            $dates[] = '"' . (monthnameConvert(explode('-', $row['date'])[1]) . ' - ' . explode('-', $row['date'])[2]) . '"';
+        }
+        if ($dayOrProfit === 'profit') {
+            return implode(', ', array_reverse($dailyProfits));
+        } else if ($dayOrProfit === 'day') {
+            return implode(', ', array_reverse($dates));
+        }
+    } else {
+        return '';
+    }
+};

@@ -30,6 +30,9 @@ function success()
     if (isset($_GET['delSuccess'])) {
         echo "<span class='badge badge-success'>Successfully deleted!</span>";
     }
+    if (isset($_GET['passUp'])) {
+        echo "<span class='badge badge-success'>Password updated successfully!</span>";
+    }
 }
 
 

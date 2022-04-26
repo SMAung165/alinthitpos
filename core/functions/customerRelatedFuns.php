@@ -64,7 +64,7 @@ $listCustomers = function () use ($link) {
                         <li><form action='#' method='post'><input type='hidden' name='customer_id' value='{$row['customer_id']}' /><button type='submit' name='deviceDetailsBtn'><i class='ti-file'></i> Details</button></form></li>
                         <li><form action='#' method='post'><input type='hidden' name='customer_id' value='{$row['customer_id']}' /><button type='submit' name='editDeviceBtn'><i class='ti-pencil-alt'></i> Edit</button></form></li>
                         <li><form action='#' method='post'><input type='hidden' name='customer_id' value='{$row['customer_id']}' /><button type='submit' name='editDeviceBtn'><i class='ti-printer'></i> Print</button></form></li>
-                        <li><form action='{$_SERVER['PHP_SELF']}' method='post'><input type='hidden' name='customer_id' value='{$row['customer_id']}' /><button type='submit' name='deleteCustomerBtn'><i class='ti-trash'></i> Delete</button></form></li>
+                        <li><form action='{$_SERVER['PHP_SELF']}' method='post'><input type='hidden' name='customer_id' value='{$row['customer_id']}' /><input type='hidden' name='customer_number' value='{$row['customer_number']}' /><button type='submit' name='deleteCustomerBtn'><i class='ti-trash'></i> Delete</button></form></li>
                     </ul>
                 </div>
             </td>

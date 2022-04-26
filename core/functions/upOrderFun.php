@@ -14,11 +14,11 @@ $updateOrder = function ($dataToUpdateOrder, $orderId) use ($link, $sanatization
     return true;
 };
 
-
 if (isset($_POST['updateOrderBtn'])) {
 
     $dataToUpdateOrder = [];
     $overallStatus = 0;
+    $completedDate = date('Y-M-d');
 
     if ($_POST['payment_status'] === 'Paid') {
         $paymentStatus = 1;
@@ -35,7 +35,7 @@ if (isset($_POST['updateOrderBtn'])) {
         $dataToUpdateOrder += ['payment_cancelled' => $paymentCancelled];
     }
 
-    $dataToUpdateOrder += ['status' => $overallStatus, 'payment_status' => $paymentStatus];
+    $dataToUpdateOrder += ['status' => $overallStatus, 'payment_status' => $paymentStatus, 'completed_date' => "{$completedDate}"];
     $orderId = $_POST['order_id'];
     $productId = $getOrderDetails($orderId)['product_id'];
 

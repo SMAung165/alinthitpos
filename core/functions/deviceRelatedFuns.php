@@ -66,14 +66,14 @@ $listDevices = function ($list) use ($link) {
     while ($row = mysqli_fetch_assoc($queryResult)) {
         $initialStock = intval($row['initial_stock']);
         $specs = (strlen((string)$row['specs']) > 12 ? '<td><a href="#">' . substr($row['specs'], 0, 12) . "..." . '</a></td>' : '<td><a href="#">' . $row['specs'] . '</a></td>');
-        $stock  = ((int)$row['stock'] >= 10) ? "<td><strong class='text text-success'>{$row['stock']}</strong></td>" : "<td><strong class='text text-danger'>{$row['stock']}</strong></td>";
-        $total_sold  = ((int)$row['total_sold'] >= 10) ? "<td><strong style='color:rgba(0,132,255,0.8)'>{$row['total_sold']}</strong></td>" : "<td><strong style='color:rgba(255,94,0,0.6)'>{$row['total_sold']}</strong></td>";
-        $price = number_format($row['price']) . ' MMK';
-        $expense = number_format($row['expense']) . ' MMK';
+        $stock  = ((int)$row['stock'] >= 10) ? "<td><strong class='text text-success'>{$row['stock']} <span class='countSign'>PCS</span></strong></td>" : "<td><strong class='text text-danger'>{$row['stock']} <span class='countSign'>PCS</span></strong></td>";
+        $total_sold  = ((int)$row['total_sold'] >= 10) ? "<td><strong style='color:rgba(0,132,255,0.8)'>{$row['total_sold']} <span class='countSign'>PCS</span></strong></td>" : "<td><strong style='color:rgba(255,94,0,0.6)'>{$row['total_sold']} <span class='countSign'>PCS</span></strong></td>";
+        $price = number_format($row['price']) . ' <span class="currency">MMK</span>';
+        $expense = number_format($row['expense']) . ' <span class="currency">MMK</span>';
         $profitPerOne = ($row['price'] - $row['expense']);
         // $totalRevenue = $row['price'] * $row['total_sold'];
-        $profit = number_format(($profitPerOne * $row['total_sold'])) . ' MMK';
-        $initialStock  = ($initialStock >= 10) ? "<td><strong style='color:rgba(0,132,255,0.8)'>{$initialStock}</strong></td>" : "<td><strong style='color:rgba(255,94,0,0.6)'>{$initialStock}</strong></td>";
+        $profit = number_format(($profitPerOne * $row['total_sold'])) . ' <span class="currency">MMK</span>';
+        $initialStock  = ($initialStock >= 10) ? "<td><strong style='color:rgba(0,132,255,0.8)'>{$initialStock} <span class='countSign'>PCS</span></strong></td>" : "<td><strong style='color:rgba(255,94,0,0.6)'>{$initialStock} <span class='countSign'>PCS</span></strong></td>";
         if ($list === 'list') {
             // $specs = '<td><a href="#">' . $row['specs'] . '</a></td>';
 
@@ -110,7 +110,6 @@ $listDevices = function ($list) use ($link) {
             <td>{$row['product_name']}</td>
             <td>{$row['product_model']}</td>
             <td>{$row['product_brand']}</td>
-            {$specs}
             <td>{$row['color']}</td>
             <td>{$price}</td>
             {$stock}
@@ -132,3 +131,23 @@ $listDevices = function ($list) use ($link) {
         }
     }
 };
+
+// $mostSoldDevices = function () use ($link) {
+//     $totalDevice = [];
+//     $query = "SELECT * FROM `products`";
+//     $queryResult = mysqli_query($link, $query);
+//     while ($row = mysqli_fetch_assoc($queryResult)) {
+//         $totalDevice += [$row['product_name'] . " ({$row['color']})" => intval($row['total_sold'])];
+//     }
+//     return $totalDevice;
+// };
+// $mostSoldDevices = $mostSoldDevices();
+// $mostSoldDevicesMax = max($mostSoldDevices);
+
+// function mostSold($value)
+// {
+//     global $mostSoldDevicesMax;
+//     return $value <= ($mostSoldDevicesMax % 80);
+// }
+
+// print_r(mostSold(2));

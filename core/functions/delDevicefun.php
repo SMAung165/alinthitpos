@@ -37,9 +37,7 @@ if (isset($_POST['deleteDeviceBtn'])) {
         $logs[] = "This device ({$_POST['device_id']}) is listed on {$grammer}" . '(' . implode(', ', $isDeviceExistInOrders) . ')';
     }
 
-    if ($_POST['product_id'])
-
-        if ($deleteDevice === true) {
-            header("Location:{$_SERVER['PHP_SELF']}?delSuccess");
-        }
+    if ($deleteDevice === true) {
+        header("Location:{$_SERVER['PHP_SELF']}?delSuccess");
+    }
 }

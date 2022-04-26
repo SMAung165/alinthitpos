@@ -16,24 +16,24 @@ require_once('core/functions/dailyProfitFormSubmitFun.php');
 
 if (isset($_SESSION['user_id'])) {
     $sessionUserId = $_SESSION['user_id'];
-    $getUserData = $getUserData($sessionUserId);
-    $sessionUserName = $getUserData['username'];
-    $sessionUserFirstName = $getUserData['first_name'];
-    $sessionUserLastName = $getUserData['last_name'];
-    $sessionUserEmail = $getUserData['email'];
-    $sessionUserPassword = $getUserData['password'];
-    $sessionUserRole = $getUserData['role'];
-    $sessionUserActive = $getUserData['active'];
-    $sessionUserProfileImage = $getUserData['profile_image'];
-    $sessionUserPhoneNumber = $getUserData['phone_number'];
-    $sessionUserAddress = $getUserData['address'];
-    $sessionUserDOB = $getUserData['date_of_birth'];
-    $sessionUserFacebook = $getUserData['facebook'];
-    $sessionUserGender = $getUserData['gender'];
-    $sessionUserPosition = $getUserData['position'];
-    $sessionUserSpecialty = $getUserData['specialty'];
-    $sessionUserGmaps = $getUserData['gmaps'];
-    $sessionUserDarkMode = $getUserData['dark_mode'];
+    $getSessionUserData = $getUserData($sessionUserId);
+    $sessionUserName = $getSessionUserData['username'];
+    $sessionUserFirstName = $getSessionUserData['first_name'];
+    $sessionUserLastName = $getSessionUserData['last_name'];
+    $sessionUserEmail = $getSessionUserData['email'];
+    $sessionUserPassword = $getSessionUserData['password'];
+    $sessionUserRole = $getSessionUserData['role'];
+    $sessionUserActive = $getSessionUserData['active'];
+    $sessionUserProfileImage = $getSessionUserData['profile_image'];
+    $sessionUserPhoneNumber = $getSessionUserData['phone_number'];
+    $sessionUserAddress = $getSessionUserData['address'];
+    $sessionUserDOB = $getSessionUserData['date_of_birth'];
+    $sessionUserFacebook = $getSessionUserData['facebook'];
+    $sessionUserGender = $getSessionUserData['gender'];
+    $sessionUserPosition = $getSessionUserData['position'];
+    $sessionUserSpecialty = $getSessionUserData['specialty'];
+    $sessionUserGmaps = $getSessionUserData['gmaps'];
+    $sessionUserDarkMode = $getSessionUserData['dark_mode'];
 
 
     if ((bool)$sessionUserActive === false) {

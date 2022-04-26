@@ -55,8 +55,10 @@ if (isset($_POST['updateUserBtn'])) {
         'address' => $_POST['address'],
         'gmaps' =>  $_POST['gmaps'],
         'phone_number' => $_POST['phone_number'],
+        'facebook' => $_POST['facebook'],
         'gender' => $_POST['gender'],
         'date_of_birth' => $_POST['date_of_birth'],
+        'position' => $_POST['work_position'],
         'specialty' => $_POST['specialty'],
         'profile_image' => $fileImagePath,
     ];

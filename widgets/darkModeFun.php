@@ -52,6 +52,17 @@
         font-size: 1rem;
         line-height: 40px;
     }
+
+    .myActionDropDown {
+
+        background-color: #ffff !important;
+
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .myActionDropDown button {
+        color: black !important;
+    }
 </style>
 
 <?php
@@ -122,6 +133,17 @@ if ($sessionUserDarkMode == 1) { ?>
 
             background: inherit !important;
 
+        }
+
+        .myActionDropDown {
+
+            background-color: #363636 !important;
+
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .myActionDropDown button {
+            color: white !important;
         }
 
 

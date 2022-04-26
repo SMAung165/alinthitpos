@@ -6,15 +6,35 @@ $deleteCustomer = function ($customerId) use ($link) {
     mysqli_query($link, $query);
     return true;
 };
+$isCustomerExistInOrders = function ($customerNumber) use ($link) {
+
+    $query = "SELECT * FROM `customerorder` WHERE `order_customer_number` = '{$customerNumber}'";
+    $queryResult = mysqli_query($link, $query);
+    $finalizedResult = mysqli_num_rows($queryResult);
+    if ($finalizedResult > 0) {
+        while ($row = mysqli_fetch_assoc($queryResult)) {
+            $orderNumberArr[] = $row['order_number'];
+        }
+        return $orderNumberArr;
+    } else {
+        return false;
+    }
+};
 
 if (isset($_POST['deleteCustomerBtn'])) {
 
-    $customerId = $_POST['customer_id'];
-    $deleteCustomer = $deleteCustomer($customerId);
+    $customerNumber = $_POST['customer_number'];
 
-    if ($deleteCustomer) {
+    $isCustomerExistInOrders = $isCustomerExistInOrders($customerNumber);
 
+    if ($isCustomerExistInOrders === false) {
+        $deleteCustomer = $deleteCustomer($customerNumber);
+    } else {
+        $grammer = count($isCustomerExistInOrders) > 1 ? 'these order numbers : ' : 'this order number : ';
+        $logs[] = "This customer ({$customerNumber}) is listed on {$grammer}" . '(' . implode(', ', $isCustomerExistInOrders) . ')';
+    }
+
+    if ($deleteCustomer === true) {
         header("Location:{$_SERVER['PHP_SELF']}?delSuccess");
-        exit();
     }
 }

@@ -44,40 +44,6 @@ if (!isset($_SESSION['user_id'])) {
 
 
     <style type="text/css">
-        .myActionDropDown {
-
-            background-color: #363636 !important;
-
-            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .myActionDropDown button {
-            border: none;
-            padding: none;
-            background-color: transparent;
-
-            cursor: pointer;
-        }
-
-        .myActionDropDown button {
-            color: white !important;
-
-        }
-
-        .myActionDropDown button i {
-            margin-right: 20px;
-            margin-left: 10px;
-        }
-
-        .myActionDropDown li:hover button {
-
-            color: grey !important;
-        }
-
-        .myActionDropDown li:hover button i {
-            color: grey !important;
-        }
-
         .tblImg {
             cursor: pointer;
         }
@@ -141,203 +107,7 @@ if (!isset($_SESSION['user_id'])) {
     <?php require_once('widgets/sideBar.php'); ?>
     <!-- /# sidebar -->
 
-    <div class="header">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="float-left">
-                        <div class="hamburger sidebar-toggle">
-                            <span class="line"></span>
-                            <span class="line"></span>
-                            <span class="line"></span>
-                        </div>
-                    </div>
-                    <div class="float-right">
-                        <div class="dropdown dib">
-                            <div class="header-icon">
-                                <i class="ti-bell"></i>
-                                <div class="drop-down dropdown-menu dropdown-menu-right">
-                                    <div class="dropdown-content-heading">
-                                        <span class="text-left">Recent Notifications</span>
-                                    </div>
-                                    <div class="dropdown-content-body">
-                                        <ul>
-                                            <li>
-                                                <a href="#">
-                                                    <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
-                                                    <div class="notification-content">
-                                                        <small class="notification-timestamp pull-right">02:34
-                                                            PM</small>
-                                                        <div class="notification-heading">Mr. John</div>
-                                                        <div class="notification-text">5 members joined today </div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
-                                                    <div class="notification-content">
-                                                        <small class="notification-timestamp pull-right">02:34
-                                                            PM</small>
-                                                        <div class="notification-heading">Mariam</div>
-                                                        <div class="notification-text">likes a photo of you</div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
-                                                    <div class="notification-content">
-                                                        <small class="notification-timestamp pull-right">02:34
-                                                            PM</small>
-                                                        <div class="notification-heading">Tasnim</div>
-                                                        <div class="notification-text">Hi Teddy, Just wanted to let you
-                                                            ...</div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
-                                                    <div class="notification-content">
-                                                        <small class="notification-timestamp pull-right">02:34
-                                                            PM</small>
-                                                        <div class="notification-heading">Mr. John</div>
-                                                        <div class="notification-text">Hi Teddy, Just wanted to let you
-                                                            ...</div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li class="text-center">
-                                                <a href="#" class="more-link">See All</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="dropdown dib">
-                            <div class="header-icon">
-                                <i class="ti-email"></i>
-                                <div class="drop-down dropdown-menu dropdown-menu-right">
-                                    <div class="dropdown-content-heading">
-                                        <span class="text-left">2 New Messages</span>
-                                        <a href="email.html">
-                                            <i class="ti-pencil-alt pull-right"></i>
-                                        </a>
-                                    </div>
-                                    <div class="dropdown-content-body">
-                                        <ul>
-                                            <li class="notification-unread">
-                                                <a href="#">
-                                                    <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/1.jpg" alt="" />
-                                                    <div class="notification-content">
-                                                        <small class="notification-timestamp pull-right">02:34
-                                                            PM</small>
-                                                        <div class="notification-heading">Michael Qin</div>
-                                                        <div class="notification-text">Hi Teddy, Just wanted to let you
-                                                            ...</div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li class="notification-unread">
-                                                <a href="#">
-                                                    <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/2.jpg" alt="" />
-                                                    <div class="notification-content">
-                                                        <small class="notification-timestamp pull-right">02:34
-                                                            PM</small>
-                                                        <div class="notification-heading">Mr. John</div>
-                                                        <div class="notification-text">Hi Teddy, Just wanted to let you
-                                                            ...</div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
-                                                    <div class="notification-content">
-                                                        <small class="notification-timestamp pull-right">02:34
-                                                            PM</small>
-                                                        <div class="notification-heading">Michael Qin</div>
-                                                        <div class="notification-text">Hi Teddy, Just wanted to let you
-                                                            ...</div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/2.jpg" alt="" />
-                                                    <div class="notification-content">
-                                                        <small class="notification-timestamp pull-right">02:34
-                                                            PM</small>
-                                                        <div class="notification-heading">Mr. John</div>
-                                                        <div class="notification-text">Hi Teddy, Just wanted to let you
-                                                            ...</div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li class="text-center">
-                                                <a href="#" class="more-link">See All</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="dropdown dib">
-                            <div class="header-icon">
-                                <span class="user-avatar"><?php echo "{$sessionUserName}" ?>
-                                    <i class="ti-angle-down f-s-10"></i>
-                                </span>
-                                <div class="drop-down dropdown-profile dropdown-menu dropdown-menu-right">
-                                    <div class="dropdown-content-heading">
-                                        <span class="text-left">Upgrade Now</span>
-                                        <p class="trial-day">30 Days Trail</p>
-                                    </div>
-                                    <div class="dropdown-content-body">
-                                        <ul>
-                                            <li>
-                                                <a href="app-profile.php">
-                                                    <i class="ti-user"></i>
-                                                    <span>Profile</span>
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a href="#">
-                                                    <i class="ti-email"></i>
-                                                    <span>Inbox</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <i class="ti-settings"></i>
-                                                    <span>Setting</span>
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a href="#">
-                                                    <i class="ti-lock"></i>
-                                                    <span>Lock Screen</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="core/functions/logout.php">
-                                                    <i class="ti-power-off"></i>
-                                                    <span>Logout</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <?php require_once('widgets/header.php'); ?>
 
 
     <div class="content-wrap">
@@ -357,7 +127,7 @@ if (!isset($_SESSION['user_id'])) {
                             <div class="page-title">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item">
-                                        <a href="#">Devices</a>
+                                        <a href="index.php">Dashboard</a>
                                     </li>
                                     <li class="breadcrumb-item active"><a class="pageTitle" style="display:inline" href="<?php echo $_SERVER['PHP_SELF'] ?>"></a></li>
                                 </ol>
@@ -373,19 +143,19 @@ if (!isset($_SESSION['user_id'])) {
                         <div class=" col-lg-12">
                             <div class="card">
                                 <div class="card-title">
-                                    <h4>All devices </h4>
+                                    <h4 class='customerList'></h4>
                                 </div>
                                 <div class="bootstrap-data-table-panel">
                                     <div class="table-responsive">
                                         <table id="myDataTable" class="display table table-borderd table-hover" style="text-align:center;width:100%;padding-bottom:10px;">
                                             <thead>
                                                 <tr>
-                                                    <th>Customer ID</th>
-                                                    <th>First Name</th>
-                                                    <th>Last Name</th>
-                                                    <th>Email</th>
-                                                    <th>Address</th>
-                                                    <th>Phone Number</th>
+                                                    <th><span class="customer"></span> ID</th>
+                                                    <th><span class='firstname'></span></th>
+                                                    <th><span class='lastname'></span></th>
+                                                    <th><span class='email'></span></th>
+                                                    <th><span class='address'></span></th>
+                                                    <th><span class="phoneNumber"></span></th>
                                                     <th>Action</th>
 
                                                 </tr>
@@ -395,12 +165,12 @@ if (!isset($_SESSION['user_id'])) {
                                             </tbody>
                                             <tfoot>
                                                 <tr>
-                                                    <th>Customer ID</th>
-                                                    <th>First Name</th>
-                                                    <th>Last Name</th>
-                                                    <th>Email</th>
-                                                    <th>Address</th>
-                                                    <th>Phone Number</th>
+                                                    <th><span class="customer"></span> ID</th>
+                                                    <th><span class='firstname'></span></th>
+                                                    <th><span class='lastname'></span></th>
+                                                    <th><span class='email'></span></th>
+                                                    <th><span class='address'></span></th>
+                                                    <th><span class="phoneNumber"></span></th>
                                                     <th>Action</th>
                                                 </tr>
                                             </tfoot>
@@ -410,6 +180,7 @@ if (!isset($_SESSION['user_id'])) {
                             </div>
                         </div>
                     </div>
+                    <?php require_once('widgets/footer.php'); ?>
                 </section>
             </div>
         </div>
@@ -421,6 +192,7 @@ if (!isset($_SESSION['user_id'])) {
     <script src="assets/js/lib/jquery.nanoscroller.min.js"></script>
     <script src="assets/js/lib/menubar/sidebar.js"></script>
     <script src="assets/js/lib/preloader/pace.min.js"></script>
+    <script src="assets/language/customerList.js"></script>
     <script src="assets/js/scripts.js"></script>
     <!-- bootstrap -->
     <script src="assets/js/lib/bootstrap.min.js"></script>

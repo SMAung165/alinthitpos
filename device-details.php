@@ -1,7 +1,9 @@
 <?php
 require_once('core/config/init.php');
-if (!isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['user_id']) or !isset($_POST['product_id'])) {
   header("location:page-login.php");
+} else {
+  $deviceQuery = $deviceQuery($_POST['product_id']);
 }
 ?>
 <!DOCTYPE html>
@@ -46,6 +48,12 @@ if (!isset($_SESSION['user_id'])) {
     .odd,
     .even {
       background: transparent !important;
+      cursor: pointer;
+    }
+
+    .odd:hover,
+    .even:hover {
+      background: rgba(0, 0, 0, 0.1) !important;
     }
   </style>
 
@@ -55,203 +63,7 @@ if (!isset($_SESSION['user_id'])) {
   <?php require_once('widgets/sideBar.php'); ?>
   <!-- /# sidebar -->
 
-  <div class="header">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="float-left">
-            <div class="hamburger sidebar-toggle">
-              <span class="line"></span>
-              <span class="line"></span>
-              <span class="line"></span>
-            </div>
-          </div>
-          <div class="float-right">
-            <div class="dropdown dib">
-              <div class="header-icon">
-                <i class="ti-bell"></i>
-                <div class="drop-down dropdown-menu dropdown-menu-right">
-                  <div class="dropdown-content-heading">
-                    <span class="text-left">Recent Notifications</span>
-                  </div>
-                  <div class="dropdown-content-body">
-                    <ul>
-                      <li>
-                        <a href="#">
-                          <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
-                          <div class="notification-content">
-                            <small class="notification-timestamp pull-right">02:34
-                              PM</small>
-                            <div class="notification-heading">Mr. John</div>
-                            <div class="notification-text">5 members joined today </div>
-                          </div>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
-                          <div class="notification-content">
-                            <small class="notification-timestamp pull-right">02:34
-                              PM</small>
-                            <div class="notification-heading">Mariam</div>
-                            <div class="notification-text">likes a photo of you</div>
-                          </div>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
-                          <div class="notification-content">
-                            <small class="notification-timestamp pull-right">02:34
-                              PM</small>
-                            <div class="notification-heading">Tasnim</div>
-                            <div class="notification-text">Hi Teddy, Just wanted to let you
-                              ...</div>
-                          </div>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
-                          <div class="notification-content">
-                            <small class="notification-timestamp pull-right">02:34
-                              PM</small>
-                            <div class="notification-heading">Mr. John</div>
-                            <div class="notification-text">Hi Teddy, Just wanted to let you
-                              ...</div>
-                          </div>
-                        </a>
-                      </li>
-                      <li class="text-center">
-                        <a href="#" class="more-link">See All</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="dropdown dib">
-              <div class="header-icon">
-                <i class="ti-email"></i>
-                <div class="drop-down dropdown-menu dropdown-menu-right">
-                  <div class="dropdown-content-heading">
-                    <span class="text-left">2 New Messages</span>
-                    <a href="email.html">
-                      <i class="ti-pencil-alt pull-right"></i>
-                    </a>
-                  </div>
-                  <div class="dropdown-content-body">
-                    <ul>
-                      <li class="notification-unread">
-                        <a href="#">
-                          <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/1.jpg" alt="" />
-                          <div class="notification-content">
-                            <small class="notification-timestamp pull-right">02:34
-                              PM</small>
-                            <div class="notification-heading">Michael Qin</div>
-                            <div class="notification-text">Hi Teddy, Just wanted to let you
-                              ...</div>
-                          </div>
-                        </a>
-                      </li>
-                      <li class="notification-unread">
-                        <a href="#">
-                          <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/2.jpg" alt="" />
-                          <div class="notification-content">
-                            <small class="notification-timestamp pull-right">02:34
-                              PM</small>
-                            <div class="notification-heading">Mr. John</div>
-                            <div class="notification-text">Hi Teddy, Just wanted to let you
-                              ...</div>
-                          </div>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
-                          <div class="notification-content">
-                            <small class="notification-timestamp pull-right">02:34
-                              PM</small>
-                            <div class="notification-heading">Michael Qin</div>
-                            <div class="notification-text">Hi Teddy, Just wanted to let you
-                              ...</div>
-                          </div>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/2.jpg" alt="" />
-                          <div class="notification-content">
-                            <small class="notification-timestamp pull-right">02:34
-                              PM</small>
-                            <div class="notification-heading">Mr. John</div>
-                            <div class="notification-text">Hi Teddy, Just wanted to let you
-                              ...</div>
-                          </div>
-                        </a>
-                      </li>
-                      <li class="text-center">
-                        <a href="#" class="more-link">See All</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="dropdown dib">
-              <div class="header-icon">
-                <span class="user-avatar"><?php echo "{$sessionUserName}" ?>
-                  <i class="ti-angle-down f-s-10"></i>
-                </span>
-                <div class="drop-down dropdown-profile dropdown-menu dropdown-menu-right">
-                  <div class="dropdown-content-heading">
-                    <span class="text-left">Upgrade Now</span>
-                    <p class="trial-day">30 Days Trail</p>
-                  </div>
-                  <div class="dropdown-content-body">
-                    <ul>
-                      <li>
-                        <a href="app-profile.php">
-                          <i class="ti-user"></i>
-                          <span>Profile</span>
-                        </a>
-                      </li>
-
-                      <li>
-                        <a href="#">
-                          <i class="ti-email"></i>
-                          <span>Inbox</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i class="ti-settings"></i>
-                          <span>Setting</span>
-                        </a>
-                      </li>
-
-                      <li>
-                        <a href="#">
-                          <i class="ti-lock"></i>
-                          <span>Lock Screen</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="core/functions/logout.php">
-                          <i class="ti-power-off"></i>
-                          <span>Logout</span>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <?php require_once('widgets/header.php'); ?>
 
 
 
@@ -296,34 +108,33 @@ if (!isset($_SESSION['user_id'])) {
                     <div class="row">
                       <div class="col-lg-3">
                         <div class="user-photo m-b-30">
-                          <img class="img-fluid" src="<?php $deviceQuery = $deviceQuery($_POST['product_id']);
-                                                      echo "{$deviceQuery['image']}" ?>" alt="" />
+                          <img class="img-fluid" src="<?php echo "{$deviceQuery['image']}" ?>" alt="" />
                         </div>
                         <div class="user-work">
-                          <h4>Device Warehouse Info</h4>
+                          <h4 id='deviceWarehouseInfo'>Device Warehouse Info</h4>
                           <div class="work-content">
-                            <h3>Device ID</h3>
+                            <h3 id='deviceId'>Device ID</h3>
                             <p><?php echo $deviceQuery['device_id'] ?></p>
                           </div>
                           <div class="work-content">
-                            <h3>Price</h3>
-                            <p><?php echo number_format($deviceQuery['price']) . ' MMK' ?></p>
+                            <h3 id='price'>Price</h3>
+                            <p><?php echo number_format($deviceQuery['price']) ?> <span class='currency'>MMK</span></p>
                           </div>
                           <div class="work-content">
-                            <h4>Warehouse Stock</h4>
-                            <h3>Initial Stock</h3>
-                            <p><?php echo $deviceQuery['initial_stock'] ?></p>
-                            <h3>Stock Left (Current Assets)</h3>
-                            <p><?php $stock = $deviceQuery['stock'] == 0 ? '<span class="text text-danger">Sold out</span>' : $deviceQuery['stock'] . ' Left';
+                            <h4 id='warehouseStock'>Warehouse Stock</h4>
+                            <h3 id='initialStock'>Initial Stock</h3>
+                            <p><?php echo $deviceQuery['initial_stock'] ?> <span class="countSign">PCS</span></p>
+                            <h3 id='stockLeft'>Stock Left (Current Assets)</h3>
+                            <p><?php $stock = $deviceQuery['stock'] == 0 ? '<span class="text text-danger">Sold out</span>' : $deviceQuery['stock'] . ' <span id="left">Left</span>';
                                 echo $stock ?> </p>
                           </div>
                           <div class="work-content">
-                            <h3>Total Sold</h3>
-                            <p><?php echo $deviceQuery['total_sold'] ?> </p>
+                            <h3 id='totalSold'>Total Sold</h3>
+                            <p><?php echo $deviceQuery['total_sold'] ?> <span class='countSign'>PCS</span></p>
                           </div>
                           <div class="work-content">
-                            <h4>Data Entry</h4>
-                            <h3>Data Entry Date</h3>
+                            <h4 id='dataEntry'>Data Entry</h4>
+                            <h3 id='dataEntryDate'>Data Entry Date</h3>
                             <p><?php
 
                                 $entryDateTime = (explode(' ', $deviceQuery['entry_date']));
@@ -335,7 +146,7 @@ if (!isset($_SESSION['user_id'])) {
                                 ?></p>
                           </div>
                           <div class="work-content">
-                            <h3>Data Entry Time</h3>
+                            <h3 id='dataEntryTime'>Data Entry Time</h3>
                             <p><?php
                                 echo $entryTime
 
@@ -346,9 +157,6 @@ if (!isset($_SESSION['user_id'])) {
                       </div>
                       <div class="col-lg-9">
                         <div class="user-profile-name"><?php echo "{$deviceQuery['product_name']}" ?></div>
-                        <div class="user-Location">
-                          <i class="ti-location-pin"></i> New York, New York
-                        </div>
                         <div class="user-job-title"><?php echo "{$deviceQuery['product_model']}" ?></div>
                         <div class="ratings">
                           <h4>Ratings</h4>
@@ -368,15 +176,15 @@ if (!isset($_SESSION['user_id'])) {
                             <i class="ti-email"></i>Send Message</button>
                         </div> -->
                         <div class="custom-tab user-profile-tab">
-                          <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation" class="active">
-                              <a href="#1" aria-controls="1" role="tab" data-toggle="tab">Device Info</a>
-                            </li>
-                          </ul>
-                          <div class="tab-content">
+                          <div class="">
+                            <div class="user-work" style="width:100%">
+                              <h4 id='deviceInfo'>Device Info</h4>
+                            </div>
+                          </div>
+                          <div class="">
                             <div role="tabpanel" class="tab-pane active" id="1">
                               <div class="contact-information">
-                                <h4>Specifications</h4>
+                                <h4 id='specs'>Specifications</h4>
                                 <?php
                                 $specifications = trim($deviceQuery['specs'], " \n\r\t\v\x00");
                                 $specifications = (explode(PHP_EOL, $deviceQuery['specs']));
@@ -401,10 +209,10 @@ if (!isset($_SESSION['user_id'])) {
 
                               </div>
 
-                              <div class="basic-information">
-                                <h4>Appearance</h4>
+                              <div class="basic-information user-work">
+                                <h4 id='appearance'>Appearance</h4>
                                 <div class="birthday-content">
-                                  <span class="contact-title">Color:</span>
+                                  <span class="contact-title" id='color'>Color:</span>
                                   <span class="birth-date"><?php echo $deviceQuery['color']; ?></span>
                                 </div>
                                 <div class="gender-content">
@@ -424,21 +232,21 @@ if (!isset($_SESSION['user_id'])) {
           </div>
           <!-- /# row -->
           <div class="row">
-            <div class="col-lg-7">
+            <div class="col-lg-12">
               <div class="card">
                 <div class="card-title">
-                  <h4>Recent Buyers</h4>
+                  <h4 id='recentBuyers'>Recent Buyers</h4>
                 </div>
                 <div class="card-body bootstrap-data-table-panel">
                   <div class="table-responsive">
                     <table id="myDataTable" class="display table table-borderd" style="text-align: center;width:100%;padding-bottom:10px">
                       <thead>
                         <tr>
-                          <th>Customer Name</th>
-                          <th>Date</th>
-                          <th>Quantity</th>
-                          <th>Total Price</th>
-                          <th>Status</th>
+                          <th id='customerName'>Customer Name</th>
+                          <th id='date'>Date</th>
+                          <th id='quantity'>Quantity</th>
+                          <th id='totalPrice'>Total Price</th>
+                          <th id='status'>Status</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -450,106 +258,8 @@ if (!isset($_SESSION['user_id'])) {
               </div>
             </div>
             <!-- /# column -->
-            <div class="col-lg-5">
-              <div class="card">
-                <div class="card-title">
-                  <h4>Recent Comments </h4>
-
-                </div>
-                <div class="recent-comment">
-                  <div class="media">
-                    <div class="media-left">
-                      <a href="#">
-                        <img class="media-object" src="assets/images/avatar/1.jpg" alt="...">
-                      </a>
-                    </div>
-                    <div class="media-body">
-                      <h4 class="media-heading">john doe</h4>
-                      <p>Cras sit amet nibh libero, in gravida nulla. </p>
-                      <div class="comment-action">
-                        <div class="badge badge-success">Approved</div>
-                        <span class="m-l-10">
-                          <a href="#">
-                            <i class="ti-check color-success"></i>
-                          </a>
-                          <a href="#">
-                            <i class="ti-close color-danger"></i>
-                          </a>
-                          <a href="#">
-                            <i class="fa fa-reply color-primary"></i>
-                          </a>
-                        </span>
-                      </div>
-                      <p class="comment-date">October 21, 2017</p>
-                    </div>
-                  </div>
-                  <div class="media">
-                    <div class="media-left">
-                      <a href="#">
-                        <img class="media-object" src="assets/images/avatar/2.jpg" alt="...">
-                      </a>
-                    </div>
-                    <div class="media-body">
-                      <h4 class="media-heading">Mr. John</h4>
-                      <p>Cras sit amet nibh libero, in gravida nulla. </p>
-                      <div class="comment-action">
-                        <div class="badge badge-warning">Pending</div>
-                        <span class="m-l-10">
-                          <a href="#">
-                            <i class="ti-check color-success"></i>
-                          </a>
-                          <a href="#">
-                            <i class="ti-close color-danger"></i>
-                          </a>
-                          <a href="#">
-                            <i class="fa fa-reply color-primary"></i>
-                          </a>
-                        </span>
-                      </div>
-                      <p class="comment-date">October 21, 2017</p>
-                    </div>
-                  </div>
-                  <div class="media no-border">
-                    <div class="media-left">
-                      <a href="#">
-                        <img class="media-object" src="assets/images/avatar/3.jpg" alt="...">
-                      </a>
-                    </div>
-                    <div class="media-body">
-                      <h4 class="media-heading">Mr. John</h4>
-                      <p>Cras sit amet nibh libero, in gravida nulla. </p>
-                      <div class="comment-action">
-                        <div class="badge badge-danger">Rejected</div>
-                        <span class="m-l-10">
-                          <a href="#">
-                            <i class="ti-check color-success"></i>
-                          </a>
-                          <a href="#">
-                            <i class="ti-close color-danger"></i>
-                          </a>
-                          <a href="#">
-                            <i class="fa fa-reply color-primary"></i>
-                          </a>
-                        </span>
-                      </div>
-                      <div class="comment-date">October 21, 2017</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /# card -->
-            </div>
-            <!-- /# column -->
           </div>
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="footer">
-                <p>2018 © Admin Board. -
-                  <a href="#">example.com</a>
-                </p>
-              </div>
-            </div>
-          </div>
+          <?php require_once('widgets/footer.php'); ?>
         </section>
       </div>
     </div>
@@ -567,6 +277,7 @@ if (!isset($_SESSION['user_id'])) {
   <script src="assets/js/lib/menubar/sidebar.js"></script>
   <script src="assets/js/lib/preloader/pace.min.js"></script>
   <script src="assets/js/lib/bootstrap.min.js"></script>
+  <script src="assets/language/deviceDetails.js"></script>
   <script src="assets/js/scripts.js"></script>
   <!-- scripit init-->
   <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
@@ -588,6 +299,14 @@ if (!isset($_SESSION['user_id'])) {
       }
     }
     starColorizer(<?php echo "{$deviceQuery['rating']}/2" ?>);
+
+    document.querySelectorAll('.customerTr').forEach(element => {
+      element.addEventListener('click', (e) => {
+
+        e.target.parentElement.children[0].submit();
+
+      })
+    })
   </script>
 
 </body>

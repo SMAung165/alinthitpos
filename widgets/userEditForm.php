@@ -8,36 +8,40 @@ if (!isset($_SESSION['user_id'])) {
         <div class="col-lg-8">
             <div class="form-group">
                 <input name='user_id' type="hidden" value="<?php echo $sessionUserId ?>" />
-                <label>Username*</label>
+                <label><span id='username'></span>*</label>
                 <input type="text" name="username" class="form-control" placeholder="" value="<?php echo $sessionUserName ?>" required />
             </div>
             <div class="form-group">
-                <label>Email*</label>
+                <label><span class="email"></span>*</label>
                 <input type="email" name="email" class="form-control" value="<?php echo $sessionUserEmail ?>" required />
             </div>
             <div class="form-group">
-                <label>First Name*</label>
+                <label><span id="firstname"></span>*</label>
                 <input class="form-control" type="text" name="first_name" value="<?php echo $sessionUserFirstName ?>" required />
             </div>
             <div class="form-group">
-                <label>Last Name</label>
+                <label><span id='lastname'></span></label>
                 <input class="form-control" type="text" name="last_name" value="<?php echo $sessionUserLastName ?>" />
             </div>
 
             <div class="form-group">
-                <label>Phone Number</label>
+                <label><span class='phoneNumber'></span></label>
                 <input class="form-control" type="text" name="phone_number" value="<?php echo $sessionUserPhoneNumber ?>" />
+            </div>
+            <div class="form-group">
+                <label><span>Facebook</span></label>
+                <input class="form-control" type="text" name="facebook" value="<?php echo $sessionUserFacebook ?>" />
             </div>
 
             <div class="form-group">
-                <label>Location</label>
+                <label><span id='location'></span></label>
                 <div class="row">
                     <div class="col-lg-7">
                         <label>Google Maps</label>
                         <textarea style='height:80px' class="form-control" type="text" name="gmaps"><?php echo $sessionUserGmaps ?></textarea>
                     </div>
                     <div class="col-lg-5">
-                        <label>Address</label>
+                        <label><span class="address"></span></label>
                         <textarea style='height:80px' class="form-control" type="text" name="address"><?php echo $sessionUserAddress ?></textarea>
                     </div>
 
@@ -49,7 +53,7 @@ if (!isset($_SESSION['user_id'])) {
         <div class="col-lg-4">
 
             <div class="form-group">
-                <label>Gender</label>
+                <label><span class="gender"></span></label>
                 <select class="form-control" name="gender">
                     <?php if ($sessionUserGender === 'Male') { ?>
                         <option selected>Male</option>
@@ -63,14 +67,18 @@ if (!isset($_SESSION['user_id'])) {
 
             </div>
             <div class="form-group">
-                <label>Date of Birth</label>
+                <label><span class='dateOfBirth'></span></label>
                 <input class="form-control" type="date" name="date_of_birth" value="<?php echo $sessionUserDOB  ?>" />
             </div>
-
             <div class="form-group">
-                <label>Specialty (Skills)</label>
+                <label><span id='workPosition'></span></label>
+                <input class="form-control" name="work_position" placeholder="Web Developer" value="<?php echo $sessionUserPosition; ?>" />
+            </div>
+            <div class="form-group">
+                <label><span class='specialty'></span> (<span class="skills"></span>)</label>
                 <textarea style="height:100px" class="form-control" name="specialty" placeholder="Sales & Marketing, Accountant, HR"><?php echo $sessionUserSpecialty; ?></textarea>
             </div>
+
 
             <div class="form-group">
                 <div class="user-photo m-b-30">

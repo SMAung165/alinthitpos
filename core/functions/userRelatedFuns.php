@@ -87,14 +87,20 @@ $listUsers = function () use ($link) {
                             </form>
                         </td>";
         $active  = ((bool)$row['active'] === true) ?  $btnActive : $btnInactive;
-        echo ("<tr>
-            <td>USR{$row['user_id']}</td>
-            <td>{$row['username']}</td>
-            <td>{$row['first_name']}</td>
-            <td>{$row['last_name']}</td>
-            <td>{$row['email']}</td>
-            <td>{$row['role']}</td>
-            {$active}
-        </tr>");
+        echo ("
+            
+                <tr class='adminTr'>
+                    <form action='admin-profile.php' method='post'>
+                        <td>USR{$row['user_id']} <input type='hidden' name='user_id' value='{$row['user_id']}' /> </td>
+                    </form>
+                    <td>{$row['username']}</td>
+                    <td>{$row['first_name']}</td>
+                    <td>{$row['last_name']}</td>
+                    <td>{$row['email']}</td>
+                    <td>{$row['role']}</td>
+                    {$active}
+                </tr>
+
+        ");
     }
 };

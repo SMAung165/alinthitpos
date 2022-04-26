@@ -39,10 +39,24 @@ if (!isset($_SESSION['user_id'])) {
     <?php require_once('widgets/darkModeFun.php'); ?>
     <style type="text/css">
         .currency,
-        .countSign {
+        .countSign,
+        #toEarn {
 
             font-size: 1rem;
 
+        }
+
+        .dash-item {
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .dash-item:hover {
+            transform: scale(1.05);
+        }
+
+        .dash-item:active {
+            transform: scale(0.9);
         }
     </style>
 
@@ -54,203 +68,7 @@ if (!isset($_SESSION['user_id'])) {
     <?php require_once('widgets/sideBar.php'); ?>
     <!-- /# sidebar -->
 
-    <div class="header">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="float-left">
-                        <div class="hamburger sidebar-toggle">
-                            <span class="line"></span>
-                            <span class="line"></span>
-                            <span class="line"></span>
-                        </div>
-                    </div>
-                    <div class="float-right">
-                        <div class="dropdown dib">
-                            <div class="header-icon">
-                                <i class="ti-bell"></i>
-                                <div class="drop-down dropdown-menu dropdown-menu-right">
-                                    <div class="dropdown-content-heading">
-                                        <span class="text-left">Recent Notifications</span>
-                                    </div>
-                                    <div class="dropdown-content-body">
-                                        <ul>
-                                            <li>
-                                                <a href="#">
-                                                    <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
-                                                    <div class="notification-content">
-                                                        <small class="notification-timestamp pull-right">02:34
-                                                            PM</small>
-                                                        <div class="notification-heading">Mr. John</div>
-                                                        <div class="notification-text">5 members joined today </div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
-                                                    <div class="notification-content">
-                                                        <small class="notification-timestamp pull-right">02:34
-                                                            PM</small>
-                                                        <div class="notification-heading">Mariam</div>
-                                                        <div class="notification-text">likes a photo of you</div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
-                                                    <div class="notification-content">
-                                                        <small class="notification-timestamp pull-right">02:34
-                                                            PM</small>
-                                                        <div class="notification-heading">Tasnim</div>
-                                                        <div class="notification-text">Hi Teddy, Just wanted to let you
-                                                            ...</div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
-                                                    <div class="notification-content">
-                                                        <small class="notification-timestamp pull-right">02:34
-                                                            PM</small>
-                                                        <div class="notification-heading">Mr. John</div>
-                                                        <div class="notification-text">Hi Teddy, Just wanted to let you
-                                                            ...</div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li class="text-center">
-                                                <a href="#" class="more-link">See All</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="dropdown dib">
-                            <div class="header-icon">
-                                <i class="ti-email"></i>
-                                <div class="drop-down dropdown-menu dropdown-menu-right">
-                                    <div class="dropdown-content-heading">
-                                        <span class="text-left">2 New Messages</span>
-                                        <a href="email.html">
-                                            <i class="ti-pencil-alt pull-right"></i>
-                                        </a>
-                                    </div>
-                                    <div class="dropdown-content-body">
-                                        <ul>
-                                            <li class="notification-unread">
-                                                <a href="#">
-                                                    <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/1.jpg" alt="" />
-                                                    <div class="notification-content">
-                                                        <small class="notification-timestamp pull-right">02:34
-                                                            PM</small>
-                                                        <div class="notification-heading">Michael Qin</div>
-                                                        <div class="notification-text">Hi Teddy, Just wanted to let you
-                                                            ...</div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li class="notification-unread">
-                                                <a href="#">
-                                                    <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/2.jpg" alt="" />
-                                                    <div class="notification-content">
-                                                        <small class="notification-timestamp pull-right">02:34
-                                                            PM</small>
-                                                        <div class="notification-heading">Mr. John</div>
-                                                        <div class="notification-text">Hi Teddy, Just wanted to let you
-                                                            ...</div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
-                                                    <div class="notification-content">
-                                                        <small class="notification-timestamp pull-right">02:34
-                                                            PM</small>
-                                                        <div class="notification-heading">Michael Qin</div>
-                                                        <div class="notification-text">Hi Teddy, Just wanted to let you
-                                                            ...</div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/2.jpg" alt="" />
-                                                    <div class="notification-content">
-                                                        <small class="notification-timestamp pull-right">02:34
-                                                            PM</small>
-                                                        <div class="notification-heading">Mr. John</div>
-                                                        <div class="notification-text">Hi Teddy, Just wanted to let you
-                                                            ...</div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li class="text-center">
-                                                <a href="#" class="more-link">See All</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="dropdown dib">
-                            <div class="header-icon">
-                                <span class="user-avatar"><?php echo "{$sessionUserName}" ?>
-                                    <i class="ti-angle-down f-s-10"></i>
-                                </span>
-                                <div class="drop-down dropdown-profile dropdown-menu dropdown-menu-right">
-                                    <div class="dropdown-content-heading">
-                                        <span class="text-left">Upgrade Now</span>
-                                        <p class="trial-day">30 Days Trail</p>
-                                    </div>
-                                    <div class="dropdown-content-body">
-                                        <ul>
-                                            <li>
-                                                <a href="app-profile.php">
-                                                    <i class="ti-user"></i>
-                                                    <span>Profile</span>
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a href="#">
-                                                    <i class="ti-email"></i>
-                                                    <span>Inbox</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <i class="ti-settings"></i>
-                                                    <span>Setting</span>
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a href="#">
-                                                    <i class="ti-lock"></i>
-                                                    <span>Lock Screen</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="core/functions/logout.php">
-                                                    <i class="ti-power-off"></i>
-                                                    <span>Logout</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <?php require_once('widgets/header.php'); ?>
 
 
     <div class="content-wrap">
@@ -281,336 +99,117 @@ if (!isset($_SESSION['user_id'])) {
                 <section id="main-content">
                     <div class="row">
                         <div class="col-lg-5">
-                            <div class="card">
+                            <div class="card dash-item">
                                 <div class="stat-widget-one">
                                     <div class="stat-icon dib"><i class="ti-money color-success border-success"></i>
                                     </div>
                                     <div class="stat-content dib">
-                                        <div class="stat-text">Total Profit</div>
+                                        <div class="stat-text"><span id="totalProfit">Total Profit</span></div>
                                         <div class="stat-digit"><?php $totalProfitCalc(false) ?> </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-4">
-                            <div class="card">
+                            <div class="card dash-item">
                                 <div class="stat-widget-one">
                                     <div class="stat-icon dib"><i class="ti-money color-success border-success"></i>
                                     </div>
                                     <div class="stat-content dib">
-                                        <div class="stat-text">Current Month Profit</div>
+                                        <div class="stat-text"><span id="currentMonthProfit">Current Month Profit</span></div>
                                         <div class="stat-digit"><?php echo number_format($monthCheckProfitCurrentMonth) . " <span class='currency'>MMK</span>"; ?> </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-3">
-                            <div class="card">
+                            <div class="card dash-item">
                                 <div class="stat-widget-one">
                                     <div class="stat-icon dib"><i class="ti-money color-primary border-primary"></i>
                                     </div>
                                     <div class="stat-content dib">
-                                        <div class="stat-text">Today Profit</div>
+                                        <div class="stat-text"><span id="todayProfit">Today Profit</span></div>
                                         <div class="stat-digit"><?php echo number_format_short($getTodayProfit()) . " <span class='currency'>MMK</span>"; ?></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-5">
-                            <div class="card">
+                            <div class="card dash-item" onclick="window.location='manage-order.php'">
                                 <div class="stat-widget-one">
                                     <div class="stat-icon dib"><i class="ti-money color-danger border-danger"></i>
                                     </div>
                                     <div class="stat-content dib">
-                                        <div class="stat-text">Pending Orders ( <?php echo "{$expectToEarn()['count']}"; ?> )</div>
-                                        <div class="stat-digit"><?php echo "To Earn : " . number_format($expectToEarn()['total_profit']) . ' <span class="currency">MMK</span>' ?></div>
+                                        <div class="stat-text"><span id="pendingOrders">Pending Orders</span> ( <?php echo "{$expectToEarn()['count']}"; ?> )</div>
+                                        <div class="stat-digit"><span id="toEarn">To Earn</span> <?php echo  number_format($expectToEarn()['total_profit']) . ' <span class="currency">MMK</span>' ?></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-4">
-                            <div class="card">
+                            <div class="card dash-item" onclick="window.location='device-list.php'">
                                 <div class="stat-widget-one">
                                     <div class="stat-icon dib"><i class="ti-mobile color-warning border-warning"></i>
                                     </div>
                                     <div class="stat-content dib">
-                                        <div class="stat-text">Stock Left (Current Assets)</div>
+                                        <div class="stat-text"><span id="currentAssets">Current Assets</span></div>
                                         <div class="stat-digit"><?php $totalDeviceSoldOrCurrentAsset('stock') ?></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-3">
-                            <div class="card">
+                            <div class="card dash-item" onclick="window.location='device-list.php'">
                                 <div class="stat-widget-one">
                                     <div class="stat-icon dib"><i class="ti-mobile color-warning border-warning"></i>
                                     </div>
                                     <div class="stat-content dib">
-                                        <div class="stat-text">Device Sold</div>
+                                        <div class="stat-text"><span id="deviceSold">Device Sold</span></div>
                                         <div class="stat-digit"><?php $totalDeviceSoldOrCurrentAsset('total_sold') ?></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- <div class="col-lg-3">
-                            <div class="card">
-                                <div class="stat-widget-one">
-                                    <div class="stat-icon dib"><i class="ti-user color-danger border-danger"></i>
-                                    </div>
-                                    <div class="stat-content dib">
-                                        <div class="stat-text">Customers</div>
-                                        <div class="stat-digit"><?php echo $getRowCount('customers') ?></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-
-
                     </div>
-                    <div class="row">
-                        <div class="col-lg-8">
-                            <div class="card">
-                                <div class="card-title">
-                                    <h4>Fee Collections and Expenses</h4>
-
-                                </div>
-                                <div class="card-body">
-                                    <div class="ct-bar-chart m-t-30"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="ct-pie-chart">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /# row -->
-                    <div class="row">
-                        <div class="col-lg-3">
-                            <div class="card p-0">
-                                <div class="stat-widget-three home-widget-three">
-                                    <div class="stat-icon bg-facebook">
-                                        <i class="ti-facebook"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="stat-digit">8,268</div>
-                                        <div class="stat-text">Likes</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="card p-0">
-                                <div class="stat-widget-three home-widget-three">
-                                    <div class="stat-icon bg-youtube">
-                                        <i class="ti-youtube"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="stat-digit">12,545</div>
-                                        <div class="stat-text">Subscribes</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="card p-0">
-                                <div class="stat-widget-three home-widget-three">
-                                    <div class="stat-icon bg-twitter">
-                                        <i class="ti-twitter"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="stat-digit">7,982</div>
-                                        <div class="stat-text">Tweets</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="card p-0">
-                                <div class="stat-widget-three home-widget-three">
-                                    <div class="stat-icon bg-danger">
-                                        <i class="ti-linkedin"></i>
-                                    </div>
-                                    <div class="stat-content">
-                                        <div class="stat-digit">9,658</div>
-                                        <div class="stat-text">Followers</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div style='height:100%' class="year-calendar"></div>
-                                </div>
-                            </div>
-                            <!-- /# card -->
-                        </div>
-                        <!-- /# column -->
-                        <div class="col-lg-4">
-                            <div class="card">
-                                <div class="card-title">
-                                    <h4>Notice Board </h4>
-
-                                </div>
-                                <div class="recent-comment m-t-15">
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <a href="#"><img class="media-object" src="assets/images/avatar/1.jpg" alt="..."></a>
-                                        </div>
-                                        <div class="media-body">
-                                            <h4 class="media-heading color-primary">john doe</h4>
-                                            <p>Cras sit amet nibh libero, in gravida nulla.</p>
-                                            <p class="comment-date">10 min ago</p>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <a href="#"><img class="media-object" src="assets/images/avatar/2.jpg" alt="..."></a>
-                                        </div>
-                                        <div class="media-body">
-                                            <h4 class="media-heading color-success">Mr. John</h4>
-                                            <p>Cras sit amet nibh libero, in gravida nulla.</p>
-                                            <p class="comment-date">1 hour ago</p>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <a href="#"><img class="media-object" src="assets/images/avatar/3.jpg" alt="..."></a>
-                                        </div>
-                                        <div class="media-body">
-                                            <h4 class="media-heading color-danger">Mr. John</h4>
-                                            <p>Cras sit amet nibh libero, in gravida nulla.</p>
-                                            <div class="comment-date">Yesterday</div>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <a href="#"><img class="media-object" src="assets/images/avatar/1.jpg" alt="..."></a>
-                                        </div>
-                                        <div class="media-body">
-                                            <h4 class="media-heading color-primary">john doe</h4>
-                                            <p>Cras sit amet nibh libero, in gravida nulla.</p>
-                                            <p class="comment-date">10 min ago</p>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <a href="#"><img class="media-object" src="assets/images/avatar/2.jpg" alt="..."></a>
-                                        </div>
-                                        <div class="media-body">
-                                            <h4 class="media-heading color-success">Mr. John</h4>
-                                            <p>Cras sit amet nibh libero, in gravida nulla.</p>
-                                            <p class="comment-date">1 hour ago</p>
-                                        </div>
-                                    </div>
-                                    <div class="media no-border">
-                                        <div class="media-left">
-                                            <a href="#"><img class="media-object" src="assets/images/avatar/3.jpg" alt="..."></a>
-                                        </div>
-                                        <div class="media-body">
-                                            <h4 class="media-heading color-info">Mr. John</h4>
-                                            <p>Cras sit amet nibh libero, in gravida nulla.</p>
-                                            <div class="comment-date">Yesterday</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /# card -->
-                        </div>
-                        <!-- /# column -->
-                        <div class="col-lg-4">
-                            <div class="card">
-                                <div class="card-title">
-                                    <h4>Timeline</h4>
-
-                                </div>
-                                <div class="card-body">
-                                    <ul class="timeline">
-                                        <li>
-                                            <div class="timeline-badge primary"><i class="fa fa-smile-o"></i></div>
-                                            <div class="timeline-panel">
-                                                <div class="timeline-heading">
-                                                    <h5 class="timeline-title">School promote video sharing</h5>
-                                                </div>
-                                                <div class="timeline-body">
-                                                    <p>10 minutes ago</p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="timeline-badge warning"><i class="fa fa-sun-o"></i></div>
-                                            <div class="timeline-panel">
-                                                <div class="timeline-heading">
-                                                    <h5 class="timeline-title">Ready our school website and online
-                                                        service</h5>
-                                                </div>
-                                                <div class="timeline-body">
-                                                    <p>20 minutes ago</p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="timeline-badge danger"><i class="fa fa-times-circle-o"></i>
-                                            </div>
-                                            <div class="timeline-panel">
-                                                <div class="timeline-heading">
-                                                    <h5 class="timeline-title">Routine pubish our website form
-                                                        10/03/2017 </h5>
-                                                </div>
-                                                <div class="timeline-body">
-                                                    <p>30 minutes ago</p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="timeline-badge success"><i class="fa fa-check-circle-o"></i>
-                                            </div>
-                                            <div class="timeline-panel">
-                                                <div class="timeline-heading">
-                                                    <h5 class="timeline-title">Principle quotation publish our website
-                                                    </h5>
-                                                </div>
-                                                <div class="timeline-body">
-                                                    <p>15 minutes ago</p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="timeline-badge warning"><i class="fa fa-sun-o"></i></div>
-                                            <div class="timeline-panel">
-                                                <div class="timeline-heading">
-                                                    <h5 class="timeline-title">Class schedule publish our website</h5>
-                                                </div>
-                                                <div class="timeline-body">
-                                                    <p>20 minutes ago</p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- /# card -->
-                        </div>
-                    </div>
-                    <!-- /# row -->
-
-
                     <div class="row">
                         <div class="col-lg-12">
-                            <div class="footer">
-                                <p>2018 © Admin Board. - <a href="#">example.com</a></p>
+                            <div class="card">
+                                <div class="panel-heading">
+                                    <div class="panel-title">
+                                        <h4 id="monthlyProfit">Monthly Profit</h4>
+                                    </div>
+                                </div>
+                                <div class="panel-body refresh">
+
+                                </div>
                             </div>
                         </div>
+                        <div class="col-lg-8">
+                            <div class="card">
+                                <div class="panel-heading">
+                                    <div class="panel-title">
+                                        <h4 id='dailyProfit'>Daily Profit</h4>
+                                    </div>
+                                </div>
+                                <div class="panel-body refresh">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div style="height:100%" class="year-calendar"></div>
+                                </div>
+                            </div>
+                            <!-- /# card -->
+                        </div>
                     </div>
+                    <!-- /# row -->
+
+
+                    <?php require_once('widgets/footer.php'); ?>
                 </section>
             </div>
         </div>
@@ -624,7 +223,6 @@ if (!isset($_SESSION['user_id'])) {
     <!-- sidebar -->
 
     <script src="assets/js/lib/bootstrap.min.js"></script>
-    <script src="assets/js/scripts.js"></script>
     <!-- bootstrap -->
 
     <script src="assets/js/lib/calendar-2/moment.latest.min.js"></script>
@@ -637,12 +235,8 @@ if (!isset($_SESSION['user_id'])) {
     <script src="assets/js/lib/circle-progress/circle-progress.min.js"></script>
     <script src="assets/js/lib/circle-progress/circle-progress-init.js"></script>
     <script src="assets/js/lib/chartist/chartist.min.js"></script>
-    <script src="assets/js/lib/sparklinechart/jquery.sparkline.min.js"></script>
-    <script src="assets/js/lib/sparklinechart/sparkline.init.js"></script>
-    <script src="assets/js/lib/owl-carousel/owl.carousel.min.js"></script>
-    <script src="assets/js/lib/owl-carousel/owl.carousel-init.js"></script>
-    <!-- scripit init-->
-    <script src="assets/js/dashboard2.js"></script>
+    <script src="assets/js/lib/chart-js/Chart.bundle.js"></script>
+    <?php require_once('core/functions/dashboardChartFun.php') ?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         window.onload = () => {
@@ -652,6 +246,10 @@ if (!isset($_SESSION['user_id'])) {
             }
         }
     </script>
+    <script src="assets/language/dashboard.js"></script>
+    <script src="assets/js/scripts.js"></script>
+    <?php require_once('core/functions/userOnlineStatusFun.php') ?>
+
 </body>
 
 </html>
