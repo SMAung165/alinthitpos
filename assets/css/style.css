@@ -4519,8 +4519,6 @@ h6.h1 {
   margin-top: 55px;
 }
 
-
-
 .myActionDropDown button {
   border: none;
   padding: none;
@@ -4542,6 +4540,10 @@ h6.h1 {
 
 .myActionDropDown li:hover button i {
   color: grey !important;
+}
+
+.lightMode, .darkMode {
+  cursor:pointer;
 }
 
 .customImageInput {
@@ -4608,6 +4610,9 @@ h6.h1 {
   height: 10px;
   border-radius: 50%;
 }
+.mode-switch{
+  display:none;
+}
 /*  Responsive*/
 @media (min-width: 320px) and (max-width: 679px) {
   .sidebar {
@@ -4615,8 +4620,19 @@ h6.h1 {
   }
 }
 @media only screen and (max-width: 768px){
+
+  .mode-switch{
+    display: block;
+  }
+  .mode-switch-btn{
+    display:none;
+  }
+
   .header .container-fluid{
     padding-right:0px;
+  }
+  .container-fluid{
+    padding:0px 5px;
   }
   .sidebar-hide .sidebar.sidebar-hide-to-small{
     left:-100% !important;
@@ -4631,7 +4647,6 @@ h6.h1 {
     margin-left:0;
     z-index: 0;
   }
-
   .dash-chart{
     display:none;
   }

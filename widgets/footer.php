@@ -1,8 +1,8 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="footer">
-            <p>2018 © Admin Board. -
-                <a href="#">example.com</a>
+            <p><?php echo date('Y') ?> © Admin Board. -
+                <a href="index.php">alinthitpos.com</a>
             </p>
         </div>
     </div>

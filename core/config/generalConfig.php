@@ -45,7 +45,7 @@ $modeSwitch = function ($darkmodeVal, $userId) use ($link, $sanatization) {
 };
 
 
-if (isset($_POST['modeSwitchBtn'])) {
+if (isset($_POST['modeSwitchBtn']) or isset($_POST['dark_mode'])) {
 
     $userId = $_POST['user_id'];
     $darmodeVal = $_POST['dark_mode'];

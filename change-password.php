@@ -80,6 +80,7 @@ if (!isset($_SESSION['user_id'])) {
                     </div>
                 </div>
             </div>
+            <?php require_once('widgets/footer.php'); ?>
         </div>
     </div>
 

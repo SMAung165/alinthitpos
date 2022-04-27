@@ -10,138 +10,6 @@
                     </div>
                 </div>
                 <div class="float-right">
-                    <!-- <div class="dropdown dib">
-                        <div class="header-icon">
-                            <i class="ti-bell"></i>
-                            <div class="drop-down dropdown-menu dropdown-menu-right">
-                                <div class="dropdown-content-heading">
-                                    <span class="text-left">Recent Notifications</span>
-                                </div>
-                                <div class="dropdown-content-body">
-                                    <ul>
-                                        <li>
-                                            <a href="#">
-                                                <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
-                                                <div class="notification-content">
-                                                    <small class="notification-timestamp pull-right">02:34
-                                                        PM</small>
-                                                    <div class="notification-heading">Mr. John</div>
-                                                    <div class="notification-text">5 members joined today </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
-                                                <div class="notification-content">
-                                                    <small class="notification-timestamp pull-right">02:34
-                                                        PM</small>
-                                                    <div class="notification-heading">Mariam</div>
-                                                    <div class="notification-text">likes a photo of you</div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
-                                                <div class="notification-content">
-                                                    <small class="notification-timestamp pull-right">02:34
-                                                        PM</small>
-                                                    <div class="notification-heading">Tasnim</div>
-                                                    <div class="notification-text">Hi Teddy, Just wanted to let you
-                                                        ...</div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
-                                                <div class="notification-content">
-                                                    <small class="notification-timestamp pull-right">02:34
-                                                        PM</small>
-                                                    <div class="notification-heading">Mr. John</div>
-                                                    <div class="notification-text">Hi Teddy, Just wanted to let you
-                                                        ...</div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li class="text-center">
-                                            <a href="#" class="more-link">See All</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-                    <!-- <div class="dropdown dib">
-                        <div class="header-icon">
-                            <i class="ti-email"></i>
-                            <div class="drop-down dropdown-menu dropdown-menu-right">
-                                <div class="dropdown-content-heading">
-                                    <span class="text-left">2 New Messages</span>
-                                    <a href="email.html">
-                                        <i class="ti-pencil-alt pull-right"></i>
-                                    </a>
-                                </div>
-                                <div class="dropdown-content-body">
-                                    <ul>
-                                        <li class="notification-unread">
-                                            <a href="#">
-                                                <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/1.jpg" alt="" />
-                                                <div class="notification-content">
-                                                    <small class="notification-timestamp pull-right">02:34
-                                                        PM</small>
-                                                    <div class="notification-heading">Michael Qin</div>
-                                                    <div class="notification-text">Hi Teddy, Just wanted to let you
-                                                        ...</div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li class="notification-unread">
-                                            <a href="#">
-                                                <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/2.jpg" alt="" />
-                                                <div class="notification-content">
-                                                    <small class="notification-timestamp pull-right">02:34
-                                                        PM</small>
-                                                    <div class="notification-heading">Mr. John</div>
-                                                    <div class="notification-text">Hi Teddy, Just wanted to let you
-                                                        ...</div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
-                                                <div class="notification-content">
-                                                    <small class="notification-timestamp pull-right">02:34
-                                                        PM</small>
-                                                    <div class="notification-heading">Michael Qin</div>
-                                                    <div class="notification-text">Hi Teddy, Just wanted to let you
-                                                        ...</div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/2.jpg" alt="" />
-                                                <div class="notification-content">
-                                                    <small class="notification-timestamp pull-right">02:34
-                                                        PM</small>
-                                                    <div class="notification-heading">Mr. John</div>
-                                                    <div class="notification-text">Hi Teddy, Just wanted to let you
-                                                        ...</div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li class="text-center">
-                                            <a href="#" class="more-link">See All</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-
                     <div class="dropdown dib">
                         <div class="header-icon">
                             <span class="user-avatar">Language
@@ -187,25 +55,26 @@
                                                 <span>Profile</span>
                                             </a>
                                         </li>
-
-                                        <li>
-                                            <a href="#">
-                                                <i class="ti-email"></i>
-                                                <span>Inbox</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="ti-settings"></i>
-                                                <span>Setting</span>
-                                            </a>
-                                        </li>
-
-                                        <li>
-                                            <a href="#">
-                                                <i class="ti-lock"></i>
-                                                <span>Lock Screen</span>
-                                            </a>
+                                        <li onclick="modeSwitch(event)" class="mode-switch">
+                                            <?php if ($sessionUserDarkMode == 1) { ?>
+                                                <form method='post' action="<?php echo $_SERVER['PHP_SELF'] ?>">
+                                                    <input value="0" type="hidden" name='dark_mode' />
+                                                    <input value="<?php echo $sessionUserId ?>" type="hidden" name='user_id' />
+                                                    <a class="lightMode">
+                                                        <i class="fa-regular fa-sun" style='margin-right:5px;'></i>
+                                                        <span>Light Mode</span>
+                                                    </a>
+                                                </form>
+                                            <?php } else { ?>
+                                                <form method='post' action="<?php echo $_SERVER['PHP_SELF'] ?>">
+                                                    <input value="1" type="hidden" name='dark_mode' />
+                                                    <input value="<?php echo $sessionUserId ?>" type="hidden" name='user_id' />
+                                                    <a class='darkMode' onclick="">
+                                                        <i style='margin-right:5px;' class="fa-regular fa-moon"></i>
+                                                        <span>Dark Mode</span>
+                                                    </a>
+                                                </form>
+                                            <?php } ?>
                                         </li>
                                         <li>
                                             <a href="core/functions/logout.php">
