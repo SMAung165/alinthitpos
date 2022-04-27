@@ -44,17 +44,6 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['product_id'])) {
     .breadcrumb {
       width: 106% !important;
     }
-
-    .odd,
-    .even {
-      background: transparent !important;
-      cursor: pointer;
-    }
-
-    .odd:hover,
-    .even:hover {
-      background: rgba(0, 0, 0, 0.1) !important;
-    }
   </style>
 
 </head>

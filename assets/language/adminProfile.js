@@ -25,12 +25,8 @@ function setLang() {
     document.getElementById("about").textContent = language.en.about;
     document.getElementById("basicInfo").textContent =
       language.en.basic_information;
-    document.getElementById("firstname").textContent = language.en.first_name;
-    document.getElementById("lastname").textContent = language.en.last_name;
     document.getElementById("contactInfo").textContent =
       language.en.contact_info;
-    document.getElementById("workPosition").textContent =
-      language.en.work_position;
     for (i = 0; i < document.querySelectorAll(".phoneNumber").length; i++) {
       document.querySelectorAll(".phoneNumber")[i].textContent =
         language.en.phone_number;

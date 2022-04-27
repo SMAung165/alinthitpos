@@ -54,17 +54,6 @@ if (!isset($_SESSION['user_id'])) {
     .status:active {
       transform: scale(0.8);
     }
-
-    .odd,
-    .even {
-      background: transparent !important;
-      cursor: pointer;
-    }
-
-    .odd:hover,
-    .even:hover {
-      background: rgba(0, 0, 0, 0.1) !important;
-    }
   </style>
 
 </head>

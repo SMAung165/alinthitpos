@@ -63,6 +63,11 @@
     .myActionDropDown button {
         color: black !important;
     }
+
+    .odd:hover,
+    .even:hover {
+        background: rgba(0, 0, 0, 0.1) !important;
+    }
 </style>
 
 <?php
@@ -152,12 +157,10 @@ if ($sessionUserDarkMode == 1) { ?>
             background: #222222 !important;
         }
 
-        .odd {
-            background: #2e2e2e !important;
-        }
-
+        .odd,
         .even {
-            background: #464646 !important;
+            background: transparent !important;
+            cursor: pointer;
         }
 
         .dtr-control {
