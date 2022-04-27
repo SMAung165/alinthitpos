@@ -15,16 +15,10 @@ if (!isset($_SESSION['user_id'])) {
     <title>Dashboard</title>
     <!-- ================= Favicon ================== -->
     <!-- Standard -->
-    <link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">
-    <!-- Retina iPad Touch Icon-->
-    <link rel="apple-touch-icon" sizes="144x144" href="http://placehold.it/144.png/000/fff">
-    <!-- Retina iPhone Touch Icon-->
-    <link rel="apple-touch-icon" sizes="114x114" href="http://placehold.it/114.png/000/fff">
-    <!-- Standard iPad Touch Icon-->
-    <link rel="apple-touch-icon" sizes="72x72" href="http://placehold.it/72.png/000/fff">
-    <!-- Standard iPhone Touch Icon-->
-    <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
-    <!-- Styles -->
+    <link rel='icon' href='assets/images/favicon.png' type="image/png">
+
+    <!-- styles -->
+
     <link href="assets/css/lib/calendar2/pignose.calendar.min.css" rel="stylesheet">
     <link href="assets/css/lib/chartist/chartist.min.css" rel="stylesheet">
     <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">

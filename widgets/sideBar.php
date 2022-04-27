@@ -2,9 +2,11 @@
     <div class="nano">
         <div class="nano-content">
             <ul>
-                <div class="logo"><a href="index.php">
-                        <!-- <img src="assets/images/logo.png" alt="" /> --><span class='alinthit'></span>
-                    </a></div>
+                <div class="logo">
+                    <a href="index.php">
+                        <span class='alinthit'></span>
+                    </a>
+                </div>
                 <li class="label">Main</li>
                 <li>
                     <a href="index.php"><i class="ti-home"></i> <span id="dashboard">Dashboard</span> <span class="badge badge-primary"><?php echo number_format_short($totalProfitCalc(true)) ?></span></a>
