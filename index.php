@@ -173,7 +173,7 @@ if (!isset($_SESSION['user_id'])) {
 
                     </div>
                     <div class="row">
-                        <div class="col-lg-12">
+                        <div class="col-lg-12 dash-chart">
                             <div class="card">
                                 <div class="panel-heading">
                                     <div class="panel-title">
@@ -185,7 +185,7 @@ if (!isset($_SESSION['user_id'])) {
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-8">
+                        <div class="col-lg-8 dash-chart">
                             <div class="card">
                                 <div class="panel-heading">
                                     <div class="panel-title">

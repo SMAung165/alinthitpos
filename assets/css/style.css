@@ -909,12 +909,7 @@ a.dt-button.active:not(.disabled) {
 .dropdown-task .progress-bar {
   box-shadow: none;
 }
-/*  Responsive*/
-@media (min-width: 320px) and (max-width: 679px) {
-  .sidebar {
-    top: 50px;
-  }
-}
+
 .map {
   width: 100%;
   height: 400px;
@@ -4613,3 +4608,33 @@ h6.h1 {
   height: 10px;
   border-radius: 50%;
 }
+/*  Responsive*/
+@media (min-width: 320px) and (max-width: 679px) {
+  .sidebar {
+    top: 0px;
+  }
+}
+@media only screen and (max-width: 768px){
+  .header .container-fluid{
+    padding-right:0px;
+  }
+  .sidebar-hide .sidebar.sidebar-hide-to-small{
+    left:-100% !important;
+  }
+  .sidebar-hide .sidebar.sidebar-shrink.sidebar-hide-to-small~.header{
+    margin-left: 0 !important;
+  }
+  .sidebar-hide .sidebar.sidebar-shrink.sidebar-hide-to-small~.content-wrap{
+    margin-left:0 !important;
+  }
+  .sidebar.sidebar-shrink~.content-wrap, .header, .hamburger{
+    margin-left:0;
+    z-index: 0;
+  }
+
+  .dash-chart{
+    display:none;
+  }
+
+}
+
