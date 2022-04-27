@@ -36,7 +36,6 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['product_id'])) {
     <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/lib/helper.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
-    <?php require_once('widgets/darkModeFun.php'); ?>
 </head>
 
 <body>
@@ -45,6 +44,9 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['product_id'])) {
 
 
     <?php require_once('widgets/header.php'); ?>
+
+
+    <script src="assets/js/themeSwitcherFun.js"></script>
 
 
 

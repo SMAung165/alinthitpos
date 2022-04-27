@@ -35,7 +35,6 @@ if (!isset($_SESSION['user_id'])) {
   <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
   <link href="assets/css/lib/helper.css" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet">
-  <?php require_once('widgets/darkModeFun.php'); ?>
   <style>
     .user-profile {
       position: relative;
@@ -133,11 +132,13 @@ if (!isset($_SESSION['user_id'])) {
 
 <body>
 
-  <?php require_once('widgets/darkModeSwitch.php'); ?>
   <?php require_once('widgets/sideBar.php'); ?>
   <!-- /# sidebar -->
 
   <?php require_once('widgets/header.php'); ?>
+
+
+  <script src="assets/js/themeSwitcherFun.js"></script>
 
 
 
@@ -263,171 +264,6 @@ if (!isset($_SESSION['user_id'])) {
             </div>
           </div>
           <!-- /# row -->
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="card">
-                <div class="card-title">
-                  <h4>Recent Project </h4>
-
-                </div>
-                <div class="card-body">
-                  <div class="table-responsive">
-                    <table class="table table-hover ">
-                      <thead>
-                        <tr>
-                          <th>Name</th>
-                          <th>Status</th>
-                          <th>Date</th>
-                          <th>Price</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>Kolor Tea Shirt For Man</td>
-                          <td>
-                            <span class="badge badge-primary">Ongoing</span>
-                          </td>
-                          <td>January 22</td>
-                          <td class="color-primary">$21.56</td>
-                        </tr>
-                        <tr>
-                          <td>Kolor Tea Shirt For Women</td>
-                          <td>
-                            <span class="badge badge-success">Complete</span>
-                          </td>
-                          <td>January 30</td>
-                          <td class="color-success">$55.32</td>
-                        </tr>
-                        <tr>
-                          <td>Blue Backpack For Baby</td>
-                          <td>
-                            <span class="badge badge-danger">Rejected</span>
-                          </td>
-                          <td>January 25</td>
-                          <td class="color-danger">$14.85</td>
-                        </tr>
-                        <tr>
-                          <td>Kolor Tea Shirt For Man</td>
-                          <td>
-                            <span class="badge badge-primary">Ongoing</span>
-                          </td>
-                          <td>January 22</td>
-                          <td class="color-primary">$21.56</td>
-                        </tr>
-                        <tr>
-                          <td>Kolor Tea Shirt For Women</td>
-                          <td>
-                            <span class="badge badge-success">Complete</span>
-                          </td>
-                          <td>January 30</td>
-                          <td class="color-success">$55.32</td>
-                        </tr>
-                        <tr>
-                          <td>Blue Backpack For Baby</td>
-                          <td>
-                            <span class="badge badge-danger">Rejected</span>
-                          </td>
-                          <td>January 25</td>
-                          <td class="color-danger">$14.85</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- /# column -->
-            <div class="col-lg-6">
-              <div class="card">
-                <div class="card-title">
-                  <h4>Recent Comments </h4>
-
-                </div>
-                <div class="recent-comment">
-                  <div class="media">
-                    <div class="media-left">
-                      <a href="#">
-                        <img class="media-object" src="assets/images/avatar/1.jpg" alt="...">
-                      </a>
-                    </div>
-                    <div class="media-body">
-                      <h4 class="media-heading">john doe</h4>
-                      <p>Cras sit amet nibh libero, in gravida nulla. </p>
-                      <div class="comment-action">
-                        <div class="badge badge-success">Approved</div>
-                        <span class="m-l-10">
-                          <a href="#">
-                            <i class="ti-check color-success"></i>
-                          </a>
-                          <a href="#">
-                            <i class="ti-close color-danger"></i>
-                          </a>
-                          <a href="#">
-                            <i class="fa fa-reply color-primary"></i>
-                          </a>
-                        </span>
-                      </div>
-                      <p class="comment-date">October 21, 2017</p>
-                    </div>
-                  </div>
-                  <div class="media">
-                    <div class="media-left">
-                      <a href="#">
-                        <img class="media-object" src="assets/images/avatar/2.jpg" alt="...">
-                      </a>
-                    </div>
-                    <div class="media-body">
-                      <h4 class="media-heading">Mr. John</h4>
-                      <p>Cras sit amet nibh libero, in gravida nulla. </p>
-                      <div class="comment-action">
-                        <div class="badge badge-warning">Pending</div>
-                        <span class="m-l-10">
-                          <a href="#">
-                            <i class="ti-check color-success"></i>
-                          </a>
-                          <a href="#">
-                            <i class="ti-close color-danger"></i>
-                          </a>
-                          <a href="#">
-                            <i class="fa fa-reply color-primary"></i>
-                          </a>
-                        </span>
-                      </div>
-                      <p class="comment-date">October 21, 2017</p>
-                    </div>
-                  </div>
-                  <div class="media no-border">
-                    <div class="media-left">
-                      <a href="#">
-                        <img class="media-object" src="assets/images/avatar/3.jpg" alt="...">
-                      </a>
-                    </div>
-                    <div class="media-body">
-                      <h4 class="media-heading">Mr. John</h4>
-                      <p>Cras sit amet nibh libero, in gravida nulla. </p>
-                      <div class="comment-action">
-                        <div class="badge badge-danger">Rejected</div>
-                        <span class="m-l-10">
-                          <a href="#">
-                            <i class="ti-check color-success"></i>
-                          </a>
-                          <a href="#">
-                            <i class="ti-close color-danger"></i>
-                          </a>
-                          <a href="#">
-                            <i class="fa fa-reply color-primary"></i>
-                          </a>
-                        </span>
-                      </div>
-                      <div class="comment-date">October 21, 2017</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /# card -->
-            </div>
-            <!-- /# column -->
-          </div>
           <?php require_once('widgets/footer.php'); ?>
         </section>
       </div>

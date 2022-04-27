@@ -4596,8 +4596,6 @@ h6.h1 {
 
   position: relative;
 }
-
-
 .active-lang-indicator{
   display:inline-block;
 
@@ -4611,7 +4609,7 @@ h6.h1 {
   border-radius: 50%;
 }
 .mode-switch{
-  display:none;
+  display:block;
 }
 /*  Responsive*/
 @media (min-width: 320px) and (max-width: 679px) {
@@ -4653,3 +4651,71 @@ h6.h1 {
 
 }
 
+.card {
+  border-radius: 10px;
+}
+
+.form-control:disabled,
+.form-control[readonly] {
+  cursor: not-allowed;
+}
+
+/* Darkmode Button */
+
+.mode-switch-btn {
+
+  position: fixed;
+  top: 90%;
+  left: 98%;
+
+  transform: translateX(-100%);
+
+  z-index: 1;
+}
+
+.mode-switch-btn button {
+
+  width: 40px;
+  height: 40px;
+
+  background: #464646;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+
+  padding: 20px;
+  border: none;
+  border-radius: 50%;
+
+  cursor: pointer;
+
+}
+
+.mode-switch-btn button:hover {
+  background: #666666;
+}
+
+.mode-switch-btn button span {
+
+  font-size: 1rem;
+  line-height: 40px;
+}
+
+.myActionDropDown {
+
+  background-color: #ffff !important;
+
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.myActionDropDown button {
+  color: black !important;
+}
+
+.odd:hover,
+.even:hover {
+  background: rgba(0, 0, 0, 0.1) !important;
+}

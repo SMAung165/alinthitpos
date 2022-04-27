@@ -14,7 +14,7 @@ if (isset($_SESSION['user_id'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Focus Admin: Widget</title>
+    <title>Alin Thit Mobile</title>
 
     <!-- ================= Favicon ================== -->
     <!-- Standard -->
@@ -34,18 +34,46 @@ if (isset($_SESSION['user_id'])) {
     <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/lib/helper.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
+    <style>
+        .login-form {
+            background: transparent !important;
+        }
+    </style>
 </head>
 
-<body class="bg-primary">
+<body>
+
+
+    <script>
+        if (localStorage.getItem("theme") == null) {
+            localStorage.setItem("theme", "light");
+        }
+
+        function setTheme() {
+            if (localStorage.getItem("theme") == "dark") {
+                var head = document.getElementsByTagName("HEAD")[0];
+                var link = document.createElement("link");
+
+                link.rel = "stylesheet";
+                link.type = "text/css";
+                link.href = "assets/css/darkMode.css";
+                link.id = "theme";
+
+                head.appendChild(link);
+            } else {
+                var head = document.getElementsByTagName("HEAD")[0];
+                head.removeChild(document.getElementById("theme"));
+            }
+        }
+
+        setTheme();
+    </script>
 
     <div class="unix-login">
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
-                    <div class="login-content">
-                        <div class="login-logo">
-                            <a href="index.html"><span>Focus</span></a>
-                        </div>
+                    <div class="login-content card">
                         <div class="login-form">
                             <h4>Administratior Login</h4>
                             <center>
@@ -54,11 +82,11 @@ if (isset($_SESSION['user_id'])) {
                             <form action='<?php echo $_SERVER['PHP_SELF'] ?>' method="post">
                                 <div class="form-group">
                                     <label for="username">Username</label>
-                                    <input type="text" name="username" id="username" class="form-control" value='soemoeaung' placeholder="username" required>
+                                    <input type="text" name="username" id="username" class="form-control" value='' placeholder="username" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Password</label>
-                                    <input type="password" name="password" id="password" class="form-control" value='soe1652000' placeholder="Password" required>
+                                    <input type="password" name="password" id="password" class="form-control" value='' placeholder="Password" required>
                                 </div>
                                 <div class="checkbox">
                                     <label>
@@ -70,12 +98,6 @@ if (isset($_SESSION['user_id'])) {
 
                                 </div>
                                 <button type="submit" name="loginBtn" class="btn btn-primary btn-flat m-b-30 m-t-30">Sign in</button>
-                                <div class="social-login-content">
-                                    <div class="social-button">
-                                        <button type="button" class="btn btn-primary bg-facebook btn-flat btn-addon m-b-10"><i class="ti-facebook"></i>Sign in with facebook</button>
-                                        <button type="button" class="btn btn-primary bg-twitter btn-flat btn-addon m-t-10"><i class="ti-twitter"></i>Sign in with twitter</button>
-                                    </div>
-                                </div>
                             </form>
                         </div>
                     </div>

@@ -388,7 +388,3 @@ function changeLanguage(lang) {
 
 setLang();
 setLangSideBar();
-
-function modeSwitch(e) {
-  document.querySelector(".mode-switch").children[0].submit();
-}

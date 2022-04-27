@@ -37,7 +37,6 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['order_id'])) {
     <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/lib/helper.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
-    <?php require_once('widgets/darkModeFun.php'); ?>
 
     <style type="text/css">
         .invoiceBtn-container {
@@ -76,6 +75,9 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['order_id'])) {
 
 
     <?php require_once('widgets/header.php'); ?>
+
+
+    <script src="assets/js/themeSwitcherFun.js"></script>
 
 
 

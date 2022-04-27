@@ -47,6 +47,7 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['order_id'])) {
     </style>
 </head>
 
+
 <body>
     <div class="content-wrap">
         <div class="main">

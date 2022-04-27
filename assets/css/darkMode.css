@@ -1,0 +1,112 @@
+* {
+    color: white !important;
+    border-color: #363636 !important;
+}
+
+body {
+
+    background: #262626 !important;
+}
+
+.header {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.header .hamburger .line {
+    background: white !important;
+}
+
+.drop-down {
+    background: #363636 !important;
+}
+
+.drop-down li:hover {
+    background: #464646 !important;
+}
+
+.notification-unread {
+    background: #464646 !important;
+}
+
+.sidebar .nano-content ul li a,
+.sidebar,
+.logo {
+    background: #363636 !important;
+}
+
+.sidebar .nano-content ul li a:hover {
+    background: rgba(0, 255, 255, 0.5) !important;
+}
+
+input,
+textarea,
+select {
+
+    background: #464646 !important;
+
+}
+
+.card {
+    background: #363636 !important;
+}
+
+.form-control:disabled,
+.form-control[readonly] {
+    background: #303030 !important;
+
+    cursor: not-allowed;
+}
+
+table tr,
+table td {
+
+    background: inherit !important;
+
+}
+
+.myActionDropDown {
+
+    background-color: #363636 !important;
+
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.myActionDropDown button {
+    color: white !important;
+}
+
+
+thead,
+tfoot {
+    background: #222222 !important;
+}
+
+.odd,
+.even {
+    background: transparent !important;
+    cursor: pointer;
+}
+
+.dtr-control {
+    background-color: inherit !important;
+}
+
+.dt-button,
+.dt-button-info {
+
+    background: #464646 !important;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+
+}
+
+.dt-button-info h2 {
+
+    background: inherit !important;
+
+}
+
+.user-work h4,
+.user-skill h4 {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5) !important;
+}

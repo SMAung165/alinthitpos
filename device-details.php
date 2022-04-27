@@ -38,7 +38,6 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['product_id'])) {
   <link href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet" />
   <link href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css" rel="stylesheet" />
   <link href="https://cdn.datatables.net/rowgroup/1.1.4/css/rowGroup.dataTables.min.css" rel="stylesheet" />
-  <?php require_once('widgets/darkModeFun.php'); ?>
 
   <style>
     .breadcrumb {
@@ -53,6 +52,9 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['product_id'])) {
   <!-- /# sidebar -->
 
   <?php require_once('widgets/header.php'); ?>
+
+
+  <script src="assets/js/themeSwitcherFun.js"></script>
 
 
 

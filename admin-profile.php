@@ -35,7 +35,6 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['user_id'])) {
   <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
   <link href="assets/css/lib/helper.css" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet">
-  <?php require_once('widgets/darkModeFun.php'); ?>
   <style>
     .user-profile {
       position: relative;
@@ -133,11 +132,13 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['user_id'])) {
 
 <body>
 
-  <?php require_once('widgets/darkModeSwitch.php'); ?>
   <?php require_once('widgets/sideBar.php'); ?>
   <!-- /# sidebar -->
 
   <?php require_once('widgets/header.php'); ?>
+
+
+  <script src="assets/js/themeSwitcherFun.js"></script>
 
 
 

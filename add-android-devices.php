@@ -35,13 +35,9 @@ if (!isset($_SESSION['user_id'])) {
     <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/lib/helper.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
-    <?php require_once('widgets/darkModeFun.php'); ?>
 </head>
 
 <body>
-
-    <?php require_once('widgets/darkModeSwitch.php'); ?>
-
 
     <?php require_once('widgets/sideBar.php'); ?>
     <!-- /# sidebar -->
@@ -49,6 +45,7 @@ if (!isset($_SESSION['user_id'])) {
     <?php require_once('widgets/header.php'); ?>
 
 
+    <script src="assets/js/themeSwitcherFun.js"></script>
 
     <div class="content-wrap">
         <div class="main">

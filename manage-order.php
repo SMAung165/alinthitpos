@@ -41,8 +41,6 @@ if (!isset($_SESSION['user_id'])) {
   <link href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet" />
   <link href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css" rel="stylesheet" />
   <link href="https://cdn.datatables.net/rowgroup/1.1.4/css/rowGroup.dataTables.min.css" rel="stylesheet" />
-
-  <?php require_once('widgets/darkModeFun.php'); ?>
   <style type="text/css">
     .myActionDropDown {
 
@@ -147,11 +145,13 @@ if (!isset($_SESSION['user_id'])) {
 
 <body>
 
-  <?php require_once('widgets/darkModeSwitch.php'); ?>
   <?php require_once('widgets/sideBar.php'); ?>
   <!-- /# sidebar -->
 
   <?php require_once('widgets/header.php'); ?>
+
+
+  <script src="assets/js/themeSwitcherFun.js"></script>
 
 
   <div class="content-wrap">

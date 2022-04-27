@@ -39,13 +39,34 @@ if (!isset($_SESSION['user_id'])) {
             background: transparent !important;
         }
     </style>
-    <?php require_once('widgets/darkModeFun.php'); ?>
 </head>
 
+<script>
+    if (localStorage.getItem("theme") == null) {
+        localStorage.setItem("theme", "light");
+    }
+
+    function setTheme() {
+        if (localStorage.getItem("theme") == "dark") {
+            var head = document.getElementsByTagName("HEAD")[0];
+            var link = document.createElement("link");
+
+            link.rel = "stylesheet";
+            link.type = "text/css";
+            link.href = "assets/css/darkMode.css";
+            link.id = "theme";
+
+            head.appendChild(link);
+        } else {
+            var head = document.getElementsByTagName("HEAD")[0];
+            head.removeChild(document.getElementById("theme"));
+        }
+    }
+
+    setTheme();
+</script>
+
 <body>
-
-    <?php require_once('widgets/darkModeSwitch.php'); ?>
-
     <div class="unix-login">
         <div class="container-fluid">
             <div class="row justify-content-center">

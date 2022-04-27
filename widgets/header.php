@@ -55,26 +55,9 @@
                                                 <span>Profile</span>
                                             </a>
                                         </li>
-                                        <li onclick="modeSwitch(event)" class="mode-switch">
-                                            <?php if ($sessionUserDarkMode == 1) { ?>
-                                                <form method='post' action="<?php echo $_SERVER['PHP_SELF'] ?>">
-                                                    <input value="0" type="hidden" name='dark_mode' />
-                                                    <input value="<?php echo $sessionUserId ?>" type="hidden" name='user_id' />
-                                                    <a class="lightMode">
-                                                        <i class="fa-regular fa-sun" style='margin-right:5px;'></i>
-                                                        <span>Light Mode</span>
-                                                    </a>
-                                                </form>
-                                            <?php } else { ?>
-                                                <form method='post' action="<?php echo $_SERVER['PHP_SELF'] ?>">
-                                                    <input value="1" type="hidden" name='dark_mode' />
-                                                    <input value="<?php echo $sessionUserId ?>" type="hidden" name='user_id' />
-                                                    <a class='darkMode' onclick="">
-                                                        <i style='margin-right:5px;' class="fa-regular fa-moon"></i>
-                                                        <span>Dark Mode</span>
-                                                    </a>
-                                                </form>
-                                            <?php } ?>
+                                        <li onclick="modeSwitch()" class="mode-switch">
+                                            <a class="theme-btn">
+                                            </a>
                                         </li>
                                         <li>
                                             <a href="core/functions/logout.php">
