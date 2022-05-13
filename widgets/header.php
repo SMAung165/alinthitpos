@@ -20,7 +20,7 @@
                                     <ul>
                                         <li class="lang-container">
 
-                                            <a href="#" class='change-language' onclick="changeLanguage('en')">
+                                            <a class='change-language' onclick="changeLanguage('en')">
                                                 <i class="fa fa-globe" aria-hidden="true"></i>
                                                 <span style="margin-left: 10px;">English</span>
                                                 <span class="active-lang-indicator"></span>
@@ -28,7 +28,7 @@
                                         </li>
 
                                         <li class="lang-container">
-                                            <a href="#" class='change-language' onclick="changeLanguage('mm')">
+                                            <a class='change-language' onclick="changeLanguage('mm')">
                                                 <i class="fa fa-globe" aria-hidden="true"></i>
                                                 <span style="margin-left: 10px;">Myanmar</span>
                                                 <span class="active-lang-indicator"></span>

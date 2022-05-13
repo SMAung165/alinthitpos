@@ -13,9 +13,8 @@ $emailExist = function ($email) use ($link, $sanatization) {
     $email = $sanatization($email);
     $query = "SELECT `email` FROM `users` WHERE `email` = '$email'";
     $queryResult = mysqli_query($link, $query);
-
-    $finalizedResult = mysqli_fetch_array($queryResult)['email'];
-    return ($finalizedResult === $email) ? true : false;
+    $finalizedResult = mysqli_fetch_array($queryResult);
+    return ($finalizedResult['email'] === $email) ? true : false;
 };
 
 $userActive = function ($username) use ($link, $sanatization) {
@@ -42,6 +41,14 @@ $getUserData = function ($sessionUserId) use ($link) {
     return ($finalizedResult);
 };
 
+$userRecovery = function ($email) use ($link, $sanatization) {
+    $email = $sanatization($email);
+    $query = "SELECT * FROM `users` WHERE `email` = '$email'";
+    $queryResult = mysqli_query($link, $query);
+    $finalizedResult = mysqli_fetch_array($queryResult);
+    return ($finalizedResult['email'] === $email) ? $finalizedResult : false;
+};
+
 function finalizedLoggedIn($sessionUserId)
 {
     if (isset($sessionUserId)) {
@@ -65,6 +72,28 @@ $listUsers = function () use ($link) {
     $query =  "SELECT * FROM `users`";
     $queryResult = mysqli_query($link, $query);
     while ($row = mysqli_fetch_assoc($queryResult)) {
+        $btnDeleteAdmin = "<td>
+                            <button name='' class='delete-admin-btn status btn btn-secondary'>
+                            <input type='hidden' name='ID'/> 
+                                <i class='ti-trash'></i>
+                                Delete
+                            </button>
+                            <div class='form-container'>
+                                <form action='{$_SERVER['PHP_SELF']}' method='post' class='delete-admin-confirm-box card'>
+                                <span class='close-btn'><i class='ti-close'></i></span>
+                                    <input type='hidden' name='user_id' value='{$row['user_id']}' />
+                                    <div class='form-group'>
+                                        <label>Enter Your Password</label>
+                                        <input type='password' value='' name='delete_confirmation_password' class='form-control' required/>
+                                    </div>
+                                    
+                                    <button type='submit' name='confirmBtn' class='btn btn-secondary' >
+                                        Confirm
+                                    </button>
+                                </form>
+                            </div>
+                        </td>";
+
         $btnActive = "<td>
                         <form action='{$_SERVER['PHP_SELF']}' method='post'>
                             <input type='hidden' name='user_id' value='{$row['user_id']}' />
@@ -90,6 +119,7 @@ $listUsers = function () use ($link) {
         echo ("
             
                 <tr class='adminTr'>
+                    {$btnDeleteAdmin}
                     <form action='admin-profile.php' method='post'>
                         <td>USR{$row['user_id']} <input type='hidden' name='user_id' value='{$row['user_id']}' /> </td>
                     </form>
@@ -99,6 +129,7 @@ $listUsers = function () use ($link) {
                     <td>{$row['email']}</td>
                     <td>{$row['role']}</td>
                     {$active}
+                    
                 </tr>
 
         ");

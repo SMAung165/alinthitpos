@@ -75,6 +75,11 @@
 })(jQuery);
 
 // My Script
+
+document.querySelectorAll("input").forEach((element) => {
+  element.autocomplete = "off";
+});
+
 const dropDownEls = document.getElementsByClassName("drop-down");
 for (i = 0; i < dropDownEls.length; i++) {
   dropDownEls[i].parentElement.parentElement.addEventListener("click", (e) => {
@@ -94,7 +99,7 @@ const language = {
   en: {
     alinthit: "Alin Thit",
     dashboard: "Dashboard",
-    total_profit: "Total Profit",
+    total_profit: "All Time Profit",
     mmk: "MMK",
     current_month_profit: "Current Month Profit",
     today_profit: "Today Profit",
@@ -201,6 +206,8 @@ const language = {
     date_of_birth: "Date of Birth",
     gender: "Gender",
     location: "location",
+    best_seller: "Best Seller",
+    edit_customer: "Edit Customer",
   },
   mm: {
     alinthit: "အလင်းသစ်",
@@ -312,6 +319,8 @@ const language = {
     date_of_birth: "မွေးနေ့",
     gender: "ကျား၊မ",
     location: "တည်နေရာ",
+    best_seller: "ရောင်းအားအကောင်းဆုံး",
+    edit_customer: "ဈေးဝယ်သူ အချက်အလက် ပြောင်းလဲရန်",
   },
 };
 
@@ -379,12 +388,83 @@ function setLangSideBar() {
   }
 }
 
+function setLangAttri() {
+  if (localLanguage == "en") {
+    document.documentElement.setAttribute("lang", "en");
+  } else if (localLanguage == "mm") {
+    document.documentElement.setAttribute("lang", "mm");
+  }
+}
 function changeLanguage(lang) {
   localStorage.setItem("language", lang);
   localLanguage = localStorage.getItem("language");
   window.setTimeout(setLang, 0);
   window.setTimeout(setLangSideBar, 0);
+  window.setTimeout(setLangAttri, 0);
 }
 
 setLang();
 setLangSideBar();
+
+function closeNotice(e) {
+  e.target.parentElement.parentElement.style.display = "none";
+  const url = window.location.href.toString();
+  if (url.includes("?") === true) {
+    window.location.href = url.split("?")[0];
+  } else if (url.includes("#") === true) {
+    window.location.href = url.split("#")[0];
+  }
+}
+function suggestionBox(inputId, parentId, liveQuery) {
+  document.querySelector(`${inputId}`).addEventListener("focus", (e) => {
+    e.target.parentElement.children[2].children[0].classList.add("show");
+  });
+
+  document.querySelector(`${inputId}`).addEventListener("keyup", (e) => {
+    var keyword = document.querySelector(`${inputId}`).value.toLowerCase();
+    const liEl = [].slice.call(
+      e.target.parentElement.children[2].children[0].children
+    );
+
+    liEl.forEach((element) => {
+      if (
+        element.children[0].textContent.toLowerCase().includes(`${keyword}`) ===
+        false
+      ) {
+        element.style.display = "none";
+      } else {
+        element.style.display = "block";
+      }
+    });
+    isSearchEmpty = [];
+    for (i = 0; i < liEl.length; i++) {
+      if (liEl[i].style.display == "none") {
+        isSearchEmpty[i] = "none";
+      } else {
+        isSearchEmpty[i] = "block";
+      }
+    }
+    if (isSearchEmpty.includes("block") === false) {
+      e.target.parentElement.children[2].children[1].style.display = "block";
+    } else {
+      e.target.parentElement.children[2].children[1].style.display = "none";
+    }
+  });
+
+  document.querySelectorAll(`${parentId} .suggest-value`).forEach((element) => {
+    element.parentElement.addEventListener("click", (e) => {
+      document.querySelector(`${inputId}`).value = e.target.children[1].value;
+      if (typeof liveQuery !== "undefined") {
+        liveQuery();
+      }
+    });
+  });
+
+  document.addEventListener("click", (e) => {
+    const suggestionBox = document.querySelector(`${inputId}`).parentElement
+      .children[2].children[0];
+    if (document.querySelector(`${inputId}`).contains(e.target) === false) {
+      suggestionBox.classList.remove("show");
+    }
+  });
+}

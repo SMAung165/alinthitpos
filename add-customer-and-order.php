@@ -22,6 +22,10 @@ if (!isset($_SESSION['user_id'])) {
     <!-- Standard -->
     <link rel='icon' href='assets/images/favicon.png' type="image/png">
 
+    <!-- script -->
+
+    <script src="assets/js/themeSetterFun.js"></script>
+
     <!-- Styles -->
     <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
     <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
@@ -227,29 +231,16 @@ if (!isset($_SESSION['user_id'])) {
 
     <!-- bootstrap -->
 
-
     <script src="assets/js/lib/bootstrap.min.js"></script>
     <script src="assets/language/addCustomerAndOrder.js"></script>
     <script src="assets/js/scripts.js"></script>
     <!-- scripit init-->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- <script type="text/javascript">
-        document.querySelector('.edit-profile').children[0].addEventListener('click', (e) => {
-
-            if (e.target.checked) {
-                e.target.parentElement.classList.add('checked');
-                document.querySelector('#customerForm').style.display = 'none';
-                document.querySelector('#customerEditForm').style.display = 'block';
-            } else {
-                e.target.parentElement.classList.remove('checked');
-                document.querySelector('#customerForm').style.display = 'block';
-                document.querySelector('#customerEditForm').style.display = 'none';
-            }
-
-        })
-    </script> -->
-
+    <script type="text/javascript">
+        suggestionBox('#customer-number', '#customer-input');
+        suggestionBox('#device-id', '#device-input');
+    </script>
 
 </body>
 

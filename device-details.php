@@ -20,8 +20,12 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['product_id'])) {
   <!-- Standard -->
   <link rel='icon' href='assets/images/favicon.png' type="image/png">
 
+  <!-- script -->
 
-  <!-- Common -->
+  <script src="assets/js/themeSetterFun.js"></script>
+
+
+  <!-- Styles -->
   <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
   <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
   <link href="assets/css/lib/menubar/sidebar.css" rel="stylesheet">
@@ -268,6 +272,7 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['product_id'])) {
   <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
   <script src="https://cdn.datatables.net/rowgroup/1.1.4/js/dataTables.rowGroup.min.js"></script>
   <script src="assets/js/lib/data-table/datatables-init.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
     $(document).ready(function() {
       $('#myDataTable').DataTable({

@@ -20,6 +20,10 @@ if (isset($_SESSION['user_id'])) {
     <!-- Standard -->
     <link rel='icon' href='assets/images/favicon.png' type="image/png">
 
+    <!-- script -->
+
+    <script src="assets/js/themeSetterFun.js"></script>
+
 
     <!-- Styles -->
     <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
@@ -36,32 +40,6 @@ if (isset($_SESSION['user_id'])) {
 
 <body>
 
-
-    <script>
-        if (localStorage.getItem("theme") == null) {
-            localStorage.setItem("theme", "light");
-        }
-
-        function setTheme() {
-            if (localStorage.getItem("theme") == "dark") {
-                var head = document.getElementsByTagName("HEAD")[0];
-                var link = document.createElement("link");
-
-                link.rel = "stylesheet";
-                link.type = "text/css";
-                link.href = "assets/css/darkMode.css";
-                link.id = "theme";
-
-                head.appendChild(link);
-            } else {
-                var head = document.getElementsByTagName("HEAD")[0];
-                head.removeChild(document.getElementById("theme"));
-            }
-        }
-
-        setTheme();
-    </script>
-
     <div class="unix-login">
         <div class="container-fluid">
             <div class="row justify-content-center">
@@ -69,9 +47,6 @@ if (isset($_SESSION['user_id'])) {
                     <div class="login-content card">
                         <div class="login-form">
                             <h4>Administratior Login</h4>
-                            <center>
-                                <span style="font-weight: bolder; color:red"><?php $outputLogs($logs) ?></span style="font-weight: bolder; color:red">
-                            </center>
                             <form action='<?php echo $_SERVER['PHP_SELF'] ?>' method="post">
                                 <div class="form-group">
                                     <label for="username">Username</label>
@@ -86,7 +61,7 @@ if (isset($_SESSION['user_id'])) {
                                         <input type="checkbox"> Remember Me
                                     </label>
                                     <label class="pull-right">
-                                        <a href="#">Forgotten Password?</a>
+                                        <a href="page-reset-password.php">Forgotten Password?</a>
                                     </label>
 
                                 </div>
@@ -99,6 +74,19 @@ if (isset($_SESSION['user_id'])) {
         </div>
     </div>
 
+    <?php require_once('widgets/errorInterface.php') ?>
+
+    <script type="text/javascript">
+        function closeNotice(e) {
+            e.target.parentElement.parentElement.style.display = "none";
+            const url = window.location.href.toString();
+            if (url.includes("?") === true) {
+                window.location.href = url.split("?")[0];
+            } else if (url.includes("#") === true) {
+                window.location.href = url.split("#")[0];
+            }
+        }
+    </script>
 </body>
 
 </html>

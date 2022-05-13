@@ -41,10 +41,16 @@ if (isset($_POST['updateDeviceBtn'])) {
         }
     }
 
+    $stockOrCurrentAssets = $_POST['stock'];
+
     if (empty($_POST['initial_stock']) or $_POST['initial_stock'] == 0) {
-        $initialStock = $_POST['stock'];
+        $initialStock = $stockOrCurrentAssets;
     } else {
         $initialStock = $_POST['initial_stock'];
+    }
+
+    if ((empty($_POST['stock']) or $_POST['stock'] == 0) and ($_POST['initial_stock'] > 0)) {
+        $stockOrCurrentAssets = $_POST['initial_stock'];
     }
 
 
@@ -59,7 +65,7 @@ if (isset($_POST['updateDeviceBtn'])) {
         'expense' => $_POST['expense'],
         'price' => $_POST['price'],
         'initial_stock' => $initialStock,
-        'stock' => $_POST['stock'],
+        'stock' => $stockOrCurrentAssets,
         'total_sold' => $_POST['total_sold'],
         'image' => $fileImagePath,
     ];

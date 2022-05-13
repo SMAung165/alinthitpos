@@ -45,7 +45,7 @@ if (isset($_POST['addOrderBtn'])) {
 
             if ($stockLeft < $dataToInsert['quantity']) {
                 $stockToReduce = abs($stockToReduce);
-                $logs[] = "Quantity demanded exceed stock left by: {$stockToReduce}.";
+                $logs[] = "Quantity demanded exceeds stock left by: {$stockToReduce}.";
             } else {
 
                 $dataToUpdateDevice = [

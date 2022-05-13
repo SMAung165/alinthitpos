@@ -20,7 +20,6 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['order_id'])) {
     <!-- Standard -->
     <link rel='icon' href='assets/images/favicon.png' type="image/png">
 
-
     <!-- Styles -->
     <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
     <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
@@ -61,7 +60,10 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['order_id'])) {
                                     <li class="breadcrumb-item">
                                         <a href="index.php" style="display: inline;">Dashboard</a>
                                     </li>
-                                    <li class="breadcrumb-item active"><a class="pageTitle" style="display:inline" href="#">Invoice</a></li>
+                                    <li class="breadcrumb-item">
+                                        <a href="manage-order.php" style="display: inline;">Manage Order</a>
+                                    </li>
+                                    <li class="breadcrumb-item active"><a class="pageTitle" href="#">Invoice</a></li>
                                 </ol>
                             </div>
                         </div>
@@ -84,7 +86,9 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['order_id'])) {
                                             </div>
                                             <!--End Info-->
                                             <div class="title">
-                                                <h4>Alint Thit Mobile</h4>
+                                                <h3>Invoice No. #<?php echo $getOrderDetails['order_number'] ?></h3>
+                                                <hr />
+                                                <h5 style='text-align:right'>Alint Thit Mobile</h5 style='text-align:right'>
                                                 <p>Issued : <?php echo $getOrderDetails['order_date'] ?>
                                                     <br> Paid : <?php echo $getOrderDetails['completed_date'] ?>
                                                 </p>

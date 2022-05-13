@@ -22,6 +22,10 @@ if (!isset($_SESSION['user_id'])) {
   <!-- Standard -->
   <link rel='icon' href='assets/images/favicon.png' type="image/png">
 
+  <!-- script -->
+
+  <script src="assets/js/themeSetterFun.js"></script>
+
 
   <!-- Styles -->
   <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet" />
@@ -35,102 +39,8 @@ if (!isset($_SESSION['user_id'])) {
   <link href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css" rel="stylesheet" />
   <link href="https://cdn.datatables.net/rowgroup/1.1.4/css/rowGroup.dataTables.min.css" rel="stylesheet" />
   <style type="text/css">
-    .myActionDropDown {
-
-      background-color: #363636 !important;
-
-      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    .myActionDropDown button {
-      border: none;
-      padding: none;
-      background-color: transparent;
-
-      cursor: pointer;
-    }
-
-    .myActionDropDown button,
-    i {
-      color: white !important;
-
-    }
-
-    .myActionDropDown button i {
-      margin-right: 20px;
-      margin-left: 10px;
-    }
-
-    .myActionDropDown li:hover button {
-
-      color: grey !important;
-    }
-
-    .myActionDropDown li:hover button i {
-      color: grey !important;
-    }
-
-    .tblImg {
-      cursor: pointer;
-    }
-
-    .imageBox {
-
-      width: 100%;
-      height: 100vh;
-
-      position: fixed;
-      top: 0%;
-      left: 0%;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      opacity: 0;
-
-      z-index: -1;
-
-      background: rgba(0, 0, 0, 0.5);
-
-      transition: all 0.2s;
-
-    }
-
-    .imageBox .imgContainer {
-
-      width: 250px;
-
-      padding: 9px;
-
-      background-color: #ffff;
-
-      border-radius: 10px;
-
-      position: absolute;
-
-      z-index: 1;
-
-      box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
-
-    }
-
-    .imageBox .imgContainer img {
-      width: 100%;
-      height: 100%;
-    }
-
-    .showImgBox {
-      opacity: 1;
-      z-index: 2;
-    }
-
     table tr .badge {
       font-size: 0.7rem !important;
-    }
-
-    .dropdown button {
-      font-size: 1rem !important;
     }
   </style>
 
@@ -254,7 +164,6 @@ if (!isset($_SESSION['user_id'])) {
         responsive: true,
       });
     });
-
 
     document.querySelectorAll('.tblImg').forEach(tblImgEl => {
 

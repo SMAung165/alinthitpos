@@ -1,6 +1,7 @@
 <?php
 date_default_timezone_set('Asia/Yangon');
 session_start();
+// error_reporting(0);
 
 require_once('databaseConnection.php');
 require_once('generalConfig.php');
@@ -13,6 +14,9 @@ require_once('core/functions/customerRelatedFuns.php');
 require_once('core/functions/profitRelatedFuns.php');
 require_once('core/functions/monthlyProfitFormSubmitFun.php');
 require_once('core/functions/dailyProfitFormSubmitFun.php');
+require_once('core/functions/employeeRelatedFuns.php');
+require_once('core/functions/salaryRelatedFuns.php');
+require_once('core/functions/suggestionBoxFun.php');
 
 if (isset($_SESSION['user_id'])) {
     $sessionUserId = $_SESSION['user_id'];

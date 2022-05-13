@@ -12,6 +12,7 @@ function setLang() {
     document.querySelector("#currentAssets").textContent =
       language.mm.current_assets;
     document.querySelector("#deviceSold").textContent = language.mm.device_sold;
+    document.querySelector("#bestSeller").textContent = language.mm.best_seller;
     document.querySelector("#monthlyProfit").textContent =
       language.mm.monthly_profit;
     monthlyProfit = language.mm.monthly_profit;
@@ -38,6 +39,7 @@ function setLang() {
     document.querySelector("#currentAssets").textContent =
       language.en.current_assets;
     document.querySelector("#deviceSold").textContent = language.en.device_sold;
+    document.querySelector("#bestSeller").textContent = language.en.best_seller;
     document.querySelector("#monthlyProfit").textContent =
       language.en.monthly_profit;
     monthlyProfit = language.en.monthly_profit;

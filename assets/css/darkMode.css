@@ -1,6 +1,6 @@
 * {
     color: white !important;
-    border-color: #363636 !important;
+    border-color: transparent !important;
 }
 
 body {
@@ -18,7 +18,8 @@ body {
 }
 
 .drop-down {
-    background: #363636 !important;
+    background: rgba(46, 46, 46, 1) !important;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .drop-down li:hover {
@@ -32,7 +33,7 @@ body {
 .sidebar .nano-content ul li a,
 .sidebar,
 .logo {
-    background: #363636 !important;
+    background: rgba(46, 46, 46, 1) !important;
 }
 
 .sidebar .nano-content ul li a:hover {
@@ -43,12 +44,12 @@ input,
 textarea,
 select {
 
-    background: #464646 !important;
+    background: rgba(56, 56, 56, 1) !important;
 
 }
 
 .card {
-    background: #363636 !important;
+    background: rgba(46, 46, 46, 0.8) !important;
 }
 
 .form-control:disabled,
@@ -56,6 +57,11 @@ select {
     background: #303030 !important;
 
     cursor: not-allowed;
+}
+
+.btn-default{
+    background: rgba(56, 56, 56, 1) !important;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
 table tr,
@@ -67,7 +73,7 @@ table td {
 
 .myActionDropDown {
 
-    background-color: #363636 !important;
+    background-color: rgba(46, 46, 46, 1) !important;
 
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
 }
@@ -80,12 +86,6 @@ table td {
 thead,
 tfoot {
     background: #222222 !important;
-}
-
-.odd,
-.even {
-    background: transparent !important;
-    cursor: pointer;
 }
 
 .dtr-control {
@@ -109,4 +109,10 @@ tfoot {
 .user-work h4,
 .user-skill h4 {
     border-bottom: 1px solid rgba(255, 255, 255, 0.5) !important;
+}
+
+.card.info div p{
+
+    color: white !important;
+
 }

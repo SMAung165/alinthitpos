@@ -1,9 +1,9 @@
 <?php
 
 $logs = [];
-$outputLogs = function (array $logs) {
-    foreach ($logs as $log) {
-        echo "<li style='margin:10px 0px'><span class='badge badge-danger'>{$log}</span></li>";
+$outputLogs = function ($logs) {
+    for ($i = 0; $i < count($logs); $i++) {
+        echo "<p class='text-muted mb-0'>{$logs[$i]}</p>";
     }
 };
 
@@ -18,23 +18,6 @@ $getRowCount = function ($tableName) use ($link) {
     $finalizedResult = mysqli_num_rows($queryResult);
     return ($finalizedResult);
 };
-
-function success()
-{
-    if (isset($_GET['inSuccess'])) {
-        echo "<span class='badge badge-success'>Data inserted successfully!</span>";
-    }
-    if (isset($_GET['upSuccess'])) {
-        echo "<span class='badge badge-success'>Data updated successfully!</span>";
-    }
-    if (isset($_GET['delSuccess'])) {
-        echo "<span class='badge badge-success'>Successfully deleted!</span>";
-    }
-    if (isset($_GET['passUp'])) {
-        echo "<span class='badge badge-success'>Password updated successfully!</span>";
-    }
-}
-
 
 $modeSwitch = function ($darkmodeVal, $userId) use ($link, $sanatization) {
     $darkmodeVal = intval($sanatization($darkmodeVal));
@@ -55,4 +38,23 @@ if (isset($_POST['modeSwitchBtn']) or isset($_POST['dark_mode'])) {
         header("Location:{$_SERVER['PHP_SELF']}");
         exit();
     }
+}
+
+$verifyPassword = function ($sessionUserId, $currentAdminPass) use ($link, $sanatization) {
+    $currentAdminPass = md5($sanatization($currentAdminPass));
+    $query =  "SELECT * FROM `users` WHERE `user_id` = $sessionUserId";
+    $queryResult = mysqli_query($link, $query);
+    $finalizedResult = mysqli_fetch_array($queryResult);
+    return (($finalizedResult['password'] === $currentAdminPass) ? true : false);
+};
+
+function monthNameConvert($monthNum)
+{
+    $dateObj = DateTime::createFromFormat('!m', $monthNum);
+    return $dateObj->format('F');
+}
+
+function monthNumberConvert($monthName)
+{
+    return date('m', strtotime("{$monthName}"));
 }

@@ -53,10 +53,14 @@ $totalDeviceSoldOrCurrentAsset = function ($columName) use ($link) {
 
     $query = "SELECT `{$columName}` FROM `products`";
     $queryResult = mysqli_query($link, $query);
-    while ($row = mysqli_fetch_assoc($queryResult)) {
-        $totalDevice[] = $row[$columName];
+    if (mysqli_num_rows($queryResult) > 0) {
+        while ($row = mysqli_fetch_assoc($queryResult)) {
+            $totalDevice[] = $row[$columName];
+        }
+        echo (number_format(array_sum($totalDevice)) . " <span class='countSign'>PCS</span>");
+    } else {
+        echo "0 <span class='countSign'>PCS</span>";
     }
-    echo (number_format(array_sum($totalDevice)) . " <span class='countSign'>PCS</span>");
 };
 
 $listDevices = function ($list) use ($link) {
@@ -132,22 +136,18 @@ $listDevices = function ($list) use ($link) {
     }
 };
 
-// $mostSoldDevices = function () use ($link) {
-//     $totalDevice = [];
-//     $query = "SELECT * FROM `products`";
-//     $queryResult = mysqli_query($link, $query);
-//     while ($row = mysqli_fetch_assoc($queryResult)) {
-//         $totalDevice += [$row['product_name'] . " ({$row['color']})" => intval($row['total_sold'])];
-//     }
-//     return $totalDevice;
-// };
-// $mostSoldDevices = $mostSoldDevices();
-// $mostSoldDevicesMax = max($mostSoldDevices);
+$bestSellers = function ($nameOrValue) use ($link) {
 
-// function mostSold($value)
-// {
-//     global $mostSoldDevicesMax;
-//     return $value <= ($mostSoldDevicesMax % 80);
-// }
-
-// print_r(mostSold(2));
+    $query = "SELECT `product_name`, `total_sold`, `color` FROM `products` ORDER BY `total_sold` DESC LIMIT 5";
+    $queryResult = mysqli_query($link, $query);
+    while ($row = mysqli_fetch_assoc($queryResult)) {
+        $bestSellersName[] = '"' . $row['product_name'] . ' (' . $row['color'] . ')' . '"';
+        $bestSellersQuantity[] = $row['total_sold'];
+    }
+    $combined = array_combine($bestSellersName, $bestSellersQuantity);
+    if ($nameOrValue === 'name') {
+        return implode(', ', array_keys($combined));
+    } else if ($nameOrValue === 'value') {
+        return implode(', ', $combined);
+    }
+};

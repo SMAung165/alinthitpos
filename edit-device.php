@@ -20,6 +20,9 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['product_id'])) {
     <!-- ================= Favicon ================== -->
     <!-- Standard -->
     <link rel='icon' href='assets/images/favicon.png' type="image/png">
+    <!-- script -->
+
+    <script src="assets/js/themeSetterFun.js"></script>
 
 
     <!-- Styles -->

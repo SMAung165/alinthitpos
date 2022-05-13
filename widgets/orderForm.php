@@ -7,22 +7,24 @@
             </div>
         </div>
         <div class="col-lg-3">
-            <div class="form-group">
+            <div class="form-group" id='customer-input'>
                 <label><span class="customer"></span> ID*</label>
-                <input type="text" name="order_customer_number" class="form-control" placeholder="" required />
+                <input type="text" name="order_customer_number" class="form-control" placeholder="" id='customer-number' required autocomplete="off" />
+                <?php $showSuggestionBox('customers', 'customer_number', 'first_name', 'last_name', 'ti-user') ?>
             </div>
 
         </div>
-        <div class="col-lg-3">
-            <div class="form-group">
+        <div class="col-lg-4">
+            <div class="form-group" id='device-input'>
                 <label><span id='deviceId'></span>*</label>
-                <input type="text" name="order_device_id" class="form-control" placeholder="" required />
+                <input type="text" name="order_device_id" class="form-control" placeholder="" id='device-id' required autocomplete="off" />
+                <?php $showSuggestionBox('products', 'device_id', 'product_model', 'color', 'ti-mobile') ?>
             </div>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-2">
             <div class="form-group">
                 <label><span id='quantity'></span>*</label>
-                <input type="text" name="quantity" class="form-control" placeholder="" value="1" required />
+                <input type="number" name="quantity" class="form-control" placeholder="" value="1" required autocomplete="off" />
             </div>
         </div>
 

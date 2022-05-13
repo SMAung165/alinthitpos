@@ -3,7 +3,11 @@ require_once('core/config/init.php');
 if (!isset($_SESSION['user_id'])) {
     header("location:page-login.php");
 } else {
-    require_once('core/functions/addAdminFun.php');
+    if ($sessionUserRole !== 'Admin') {
+        header("location:page-login.php");
+    } else {
+        require_once('core/functions/addAdminFun.php');
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -19,6 +23,11 @@ if (!isset($_SESSION['user_id'])) {
     <!-- ================= Favicon ================== -->
     <!-- Standard -->
     <link rel='icon' href='assets/images/favicon.png' type="image/png">
+
+
+    <!-- script -->
+
+    <script src="assets/js/themeSetterFun.js"></script>
 
 
     <!-- Styles -->

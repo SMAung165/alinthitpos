@@ -22,6 +22,10 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['order_id'])) {
     <!-- Standard -->
     <link rel='icon' href='assets/images/favicon.png' type="image/png">
 
+    <!-- script -->
+
+    <script src="assets/js/themeSetterFun.js"></script>
+
     <!-- Styles -->
     <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
     <link href="assets/css/lib/themify-icons.css" rel="stylesheet">

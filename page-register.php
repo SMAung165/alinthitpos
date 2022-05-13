@@ -20,6 +20,7 @@
     <!-- Standard iPhone Touch Icon-->
     <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
 
+
     <!-- Styles -->
     <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
     <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
@@ -55,8 +56,8 @@
                                 </div>
                                 <div class="checkbox">
                                     <label>
-										<input type="checkbox"> Agree the terms and policy 
-									</label>
+                                        <input type="checkbox"> Agree the terms and policy
+                                    </label>
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Register</button>
                                 <div class="social-login-content">

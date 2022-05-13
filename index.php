@@ -4,7 +4,6 @@ if (!isset($_SESSION['user_id'])) {
     header("location:page-login.php");
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,9 +12,15 @@ if (!isset($_SESSION['user_id'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dashboard</title>
+    <!-- manifest -->
+    <link rel="manifest" href="assets/JSON/manifest.json">
     <!-- ================= Favicon ================== -->
     <!-- Standard -->
     <link rel='icon' href='assets/images/favicon.png' type="image/png">
+
+    <!-- script -->
+
+    <script src="assets/js/themeSetterFun.js"></script>
 
     <!-- styles -->
 
@@ -31,12 +36,11 @@ if (!isset($_SESSION['user_id'])) {
     <link href="assets/css/lib/helper.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
     <style type="text/css">
+        #toEarn,
         .currency,
-        .countSign,
-        #toEarn {
+        .countSign {
 
             font-size: 1rem;
-
         }
 
         .dash-item {
@@ -50,6 +54,12 @@ if (!isset($_SESSION['user_id'])) {
 
         .dash-item:active {
             transform: scale(0.9);
+        }
+
+        .dash-chart .card {
+            background: transparent !important;
+            border: none;
+            box-shadow: none;
         }
     </style>
 
@@ -99,7 +109,7 @@ if (!isset($_SESSION['user_id'])) {
                                     <div class="stat-icon dib"><i class="ti-money color-success border-success"></i>
                                     </div>
                                     <div class="stat-content dib">
-                                        <div class="stat-text"><span id="totalProfit">Total Profit</span></div>
+                                        <div class="stat-text"><span id="totalProfit">All Time Profit</span></div>
                                         <div class="stat-digit"><?php $totalProfitCalc(false) ?> </div>
                                     </div>
                                 </div>
@@ -120,7 +130,8 @@ if (!isset($_SESSION['user_id'])) {
                         <div class="col-lg-3">
                             <div class="card dash-item">
                                 <div class="stat-widget-one">
-                                    <div class="stat-icon dib"><i class="ti-money color-primary border-primary"></i>
+                                    <div class="stat-icon dib">
+                                        <i class="ti-stats-up color-primary border-primary"></i>
                                     </div>
                                     <div class="stat-content dib">
                                         <div class="stat-text"><span id="todayProfit">Today Profit</span></div>
@@ -168,6 +179,33 @@ if (!isset($_SESSION['user_id'])) {
 
                     </div>
                     <div class="row">
+                        <div class="col-lg-5">
+                            <div class="card" style="background-color:transparent !important; border:none;box-shadow:none;">
+                                <div class="panel-heading">
+                                    <div class="panel-title">
+                                        <h4 id='bestSeller'>Best Sellers</h4>
+                                    </div>
+                                </div>
+                                <div class="panel-body refresh">
+
+                                </div>
+                            </div>
+                            <!-- /# card -->
+                        </div>
+                        <!-- /# column -->
+                        <div class="col-lg-7">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="year-calendar">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /# card -->
+                        </div>
+
+                    </div>
+                    <!-- /# row -->
+                    <div class="row">
                         <div class="col-lg-12 dash-chart">
                             <div class="card">
                                 <div class="panel-heading">
@@ -180,7 +218,10 @@ if (!isset($_SESSION['user_id'])) {
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-8 dash-chart">
+                    </div>
+                    <!-- /# row -->
+                    <div class="row">
+                        <div class="col-lg-12 dash-chart">
                             <div class="card">
                                 <div class="panel-heading">
                                     <div class="panel-title">
@@ -191,18 +232,9 @@ if (!isset($_SESSION['user_id'])) {
 
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div style="height:100%" class="year-calendar"></div>
-                                </div>
-                            </div>
                             <!-- /# card -->
                         </div>
                     </div>
-                    <!-- /# row -->
-
 
                     <?php require_once('widgets/footer.php'); ?>
                 </section>
@@ -233,16 +265,27 @@ if (!isset($_SESSION['user_id'])) {
     <script src="assets/js/lib/chart-js/Chart.bundle.js"></script>
     <?php require_once('core/functions/dashboardChartFun.php') ?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-        window.onload = () => {
-            if (!window.location.hash) {
-                window.location = window.location + '#loaded';
-                window.location.reload();
-            }
-        }
-    </script>
     <script src="assets/language/dashboard.js"></script>
     <script src="assets/js/scripts.js"></script>
+
+
+    <div style='display:none' class="fixed-notification bottom-right-corner">
+        <div class="info card info--success flex-row p-4 mb-3 shadow d-flex justify-content-between align-items-center">
+            <div class="d-block">
+                <h4 class='text text-success'>Success</h4>
+                <p class="text-muted mb-0">Reset completed!</p>
+            </div>
+            <a href="#" onclick="closeNotice(event)" class="close m-2 p-2">&times;</a>
+        </div>
+    </div>
+
+    <script>
+        if (window.location.toString().includes('#reSuccess')) {
+
+            document.querySelector('.fixed-notification').style.display = 'block';
+
+        }
+    </script>
     <?php require_once('core/functions/userOnlineStatusFun.php') ?>
 
 </body>

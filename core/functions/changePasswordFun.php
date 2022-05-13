@@ -12,9 +12,9 @@ $isPasswordMatch = function ($sessionUserId, $currentPassword) use ($link) {
     }
 };
 
-$changePassword = function ($sessionUserId, $newPassword) use ($link) {
+$changePassword = function ($userId, $newPassword) use ($link) {
     $newPassword = md5($newPassword);
-    $query = "UPDATE `users` SET `password` = '$newPassword' WHERE `user_id` = $sessionUserId";
+    $query = "UPDATE `users` SET `password` = '$newPassword' WHERE `user_id` = $userId";
     mysqli_query($link, $query);
     return true;
 };
@@ -52,6 +52,33 @@ if (isset($_POST['changePasswordBtn'])) {
 
     if ($changePassword === true) {
         header("Location:{$_SERVER['PHP_SELF']}?passUp");
+        exit();
+    }
+}
+
+if (isset($_POST['changePasswordForgotBtn'])) {
+    $userId = $_POST['user_id'];
+    $newPassword = $sanatization($_POST['new_password']);
+    $confirmNewPassword = $sanatization($_POST['confirm_new_password']);
+
+    //Password error handling
+    if (preg_match("/\\s/", $newPassword)) {
+        $logs[] = 'Password must not contain spaces <br/><br/>';
+    } else {
+        if (strlen($newPassword) < 8) {
+            $logs[] = 'Password must be at least 8 characters';
+        } else {
+            if ($confirmNewPassword !== $newPassword) {
+                $logs[] = 'New password do not match';
+            } else {
+                $changePassword = $changePassword($userId, $newPassword);
+            }
+        }
+    }
+
+    if ($changePassword === true) {
+        unset($_SESSION['recover_user_id']);
+        header("location:page-login.php?passUp");
         exit();
     }
 }

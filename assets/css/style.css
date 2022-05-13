@@ -4720,16 +4720,118 @@ h6.h1 {
 
 .myActionDropDown {
 
-  background-color: #ffff !important;
+  background-color: #ffff;
 
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .myActionDropDown button {
-  color: black !important;
+  color: black;
+}
+
+.odd,
+.even {
+    background: transparent !important;
+    cursor: pointer;
 }
 
 .odd:hover,
 .even:hover {
   background: rgba(0, 0, 0, 0.1) !important;
+}
+
+
+
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
+
+.shadow {
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+.info {
+	border-left: 5px solid #007bff !important;
+}
+.info.info--success {
+	border-color: #28a745 !important;
+}
+.info.info--warning {
+	border-color: #ffc107 !important;
+}
+.info.info--danger {
+	border-color: #dc3545 !important;
+}
+
+.fixed-notification {
+	max-width: 500px;
+}
+
+.top-right-corner {
+	position: fixed;
+  z-index: 1;
+
+	top: 50px;
+	left: 75%;
+}
+
+.bottom-right-corner {  
+	position: fixed;
+  z-index: 1;
+
+	bottom: 0%;
+	right: 2%;
+
+}
+
+.top-left-corner {
+	position: fixed;
+	top: 100px;
+	left: 50px;
+}
+
+.bottom-left-corner {
+	position: fixed;
+	bottom: 50px;
+	left: 50px;
+}
+
+@keyframes myani
+{
+   0%
+   {
+       transform:translateX(100%);
+   }
+
+   100%
+   {
+       transform:translateX(0%);
+   }
+   
+}
+
+.fixed-notification {
+  animation: myani 0.3s;
+}
+.close{
+  cursor:pointer;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background:rgba(3, 169, 245,0.5);
+  border-radius: 40px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background:rgba(3, 169, 245,1);
 }

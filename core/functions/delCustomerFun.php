@@ -28,7 +28,7 @@ if (isset($_POST['deleteCustomerBtn'])) {
     $isCustomerExistInOrders = $isCustomerExistInOrders($customerNumber);
 
     if ($isCustomerExistInOrders === false) {
-        $deleteCustomer = $deleteCustomer($customerNumber);
+        $deleteCustomer = $deleteCustomer($_POST['customer_id']);
     } else {
         $grammer = count($isCustomerExistInOrders) > 1 ? 'these order numbers : ' : 'this order number : ';
         $logs[] = "This customer ({$customerNumber}) is listed on {$grammer}" . '(' . implode(', ', $isCustomerExistInOrders) . ')';

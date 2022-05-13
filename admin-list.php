@@ -3,7 +3,12 @@ require_once('core/config/init.php');
 if (!isset($_SESSION['user_id'])) {
   header("location:page-login.php");
 } else {
-  require_once('core/functions/adminStatusCtrlFun.php');
+  if ($sessionUserRole !== 'Admin') {
+    header("location:page-login.php");
+  } else {
+    require_once('core/functions/adminStatusCtrlFun.php');
+    require_once('core/functions/delAdminFun.php');
+  }
 }
 ?>
 <!DOCTYPE html>
@@ -19,6 +24,10 @@ if (!isset($_SESSION['user_id'])) {
   <!-- ================= Favicon ================== -->
   <!-- Standard -->
   <link rel='icon' href='assets/images/favicon.png' type="image/png">
+
+  <!-- script -->
+
+  <script src="assets/js/themeSetterFun.js"></script>
 
   <!-- Styles -->
   <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
@@ -44,6 +53,41 @@ if (!isset($_SESSION['user_id'])) {
 
     .status:active {
       transform: scale(0.8);
+    }
+
+    .form-container {
+
+      width: 100%;
+      height: 100vh;
+
+      position: fixed;
+      top: 0;
+      left: 0;
+
+      background: rgba(0, 0, 0, 0.5);
+
+      display: none;
+      justify-content: center;
+      align-items: center;
+
+      z-index: 1;
+    }
+
+    .delete-admin-confirm-box {
+
+
+      padding: 10px 20px 20px 20px;
+
+      text-align: center;
+    }
+
+    .delete-admin-confirm-box .close-btn {
+      width: 100%;
+
+      display: flex;
+      justify-content: flex-end;
+
+      cursor: pointer;
     }
   </style>
 
@@ -94,25 +138,13 @@ if (!isset($_SESSION['user_id'])) {
               <div class="card">
                 <div class="card-title">
                   <h4 class="adminList">Admin List</h4>
-                  <center>
-                    <span style="color:red">
-                      <?php
-                      if (isset($_GET['failure'])) {
-                        echo "<script>
-                                window.alert('Must have at least one admin to be active!');
-                                location.reload();
-                                location.href='{$_SERVER['PHP_SELF']}';
-                              </script>";
-                      }
-                      ?>
-                    </span>
-                  </center>
                 </div>
                 <div class="bootstrap-data-table-panel">
                   <div class="table-responsive">
-                    <table id="myDataTable" class="display table table-borderd table-hover" style="width: 100%;">
+                    <table id="myDataTable" class="display table table-borderd table-hover" style="width: 100%;text-align: center;">
                       <thead>
                         <tr>
+                          <th style="text-align: center;"><span>Action</span></th>
                           <th><span class="admin"></span> ID</th>
                           <th><span class='username'></span></th>
                           <th><span class='firstname'></span></th>
@@ -120,6 +152,7 @@ if (!isset($_SESSION['user_id'])) {
                           <th><span class='email'></span></th>
                           <th><span class='role'></span></th>
                           <th><span class='accountStatus'></span></th>
+
                         </tr>
                       </thead>
 
@@ -128,6 +161,7 @@ if (!isset($_SESSION['user_id'])) {
                       </tbody>
                       <tfoot>
                         <tr>
+                          <th><span>Action</span></th>
                           <th><span class="admin"></span> ID</th>
                           <th><span class='username'></span></th>
                           <th><span class='firstname'></span></th>
@@ -135,6 +169,7 @@ if (!isset($_SESSION['user_id'])) {
                           <th><span class='email'></span></th>
                           <th><span class='role'></span></th>
                           <th><span class='accountStatus'></span></th>
+
                         </tr>
                       </tfoot>
                     </table>
@@ -148,6 +183,8 @@ if (!isset($_SESSION['user_id'])) {
       </div>
     </div>
   </div>
+
+  <?php require_once('widgets/errorInterface.php') ?>
 
   <!-- jquery vendor -->
   <script src="assets/js/lib/jquery.min.js"></script>
@@ -171,10 +208,22 @@ if (!isset($_SESSION['user_id'])) {
     });
 
     document.querySelectorAll('.adminTr').forEach(element => {
+      for (i = 1; i < element.children.length - 1; i++) {
+        element.children[i].addEventListener('click', (e) => {
+          e.target.parentElement.children[1].submit();
+        });
+      }
+    })
+
+    document.querySelectorAll('.delete-admin-btn').forEach(element => {
       element.addEventListener('click', (e) => {
+        e.target.parentElement.children[1].style.display = 'flex';
+      });
+    })
 
-        e.target.parentElement.children[0].submit();
-
+    document.querySelectorAll('.close-btn').forEach(element => {
+      element.children[0].addEventListener('click', (e) => {
+        e.target.parentElement.parentElement.parentElement.style.display = 'none';
       })
     })
   </script>

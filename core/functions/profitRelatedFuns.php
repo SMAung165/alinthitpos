@@ -20,16 +20,21 @@ $dailyProfitQuery = function ($date) use ($link) {
 
 $totalProfitCalc = function ($isForm) use ($link) {
 
-    $query = "SELECT `daily_profit` FROM `daily_profits`";
+    $query = "SELECT `monthly_profit` FROM `monthly_profits`";
     $queryResult = mysqli_query($link, $query);
     while ($row = mysqli_fetch_assoc($queryResult)) {
-        $allDailyProfits[] = $row['daily_profit'];
+        $allMonthlyProfits[] = $row['monthly_profit'];
     }
-    if ($isForm === true) {
-        return floatval(array_sum($allDailyProfits));
-    } else {
+    if (mysqli_num_rows($queryResult) > 0) {
 
-        echo number_format(array_sum($allDailyProfits)) . " <span class='currency'>MMK</span>";
+        if ($isForm === true) {
+            return floatval(array_sum($allMonthlyProfits));
+        } else {
+
+            echo number_format(array_sum($allMonthlyProfits)) . " <span class='currency'>MMK</span>";
+        }
+    } else {
+        return 0;
     }
 };
 
@@ -71,21 +76,31 @@ $getTodayProfit = function () use ($link) {
     $finalizedResult = mysqli_fetch_array($queryResult);
     return ($finalizedResult['daily_profit']);
 };
-$getAllMonthlyProfit = function () use ($link) {
+function months()
+{
+    $monthArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    $arrayKeys = array_keys($monthArray);
+    foreach ($arrayKeys as $keys) {
+        $newArrKeys[] = '"' . (string)monthNameConvert($keys + 1) . '"';
+    }
+    return (array_combine($newArrKeys, $monthArray));
+}
+
+$getAllMonthlyProfit = function ($monthOrProfit) use ($link) {
     $year = date('Y');
     $query = "SELECT * FROM `monthly_profits` WHERE YEAR(`date`) = '$year' ORDER BY `date`";
     $queryResult = mysqli_query($link, $query);
     while ($row = mysqli_fetch_assoc($queryResult)) {
         $allMonthlyProfits[] = intval($row['monthly_profit']);
+        $allMonths[] = '"' . monthnameConvert((string)($row['month'])) . '"';
     }
-    return implode(', ', $allMonthlyProfits);
+    if ($monthOrProfit === 'profit') {
+        $combined = array_merge(months(), array_combine($allMonths, $allMonthlyProfits));
+        return implode(', ', $combined);
+    } else if ($monthOrProfit === 'month') {
+        return implode(', ', array_keys(months()));
+    }
 };
-
-function monthNameConvert($monthNum)
-{
-    $dateObj = DateTime::createFromFormat('!m', $monthNum);
-    return $dateObj->format('F');
-}
 
 $getDailyProfitForAWeek = function ($dayOrProfit) use ($link) {
     $month = date('m');

@@ -41,12 +41,25 @@ $orderQuery = function ($pageTitle, $deviceId) use ($link) {
             if ((bool)$row['payment_status'] === false) {
                 if ((bool)$row['payment_cancelled'] === true) {
                     $paymentStatus = "<span class='badge badge-danger'>Cancelled</span>";
+                    $invoice = null;
                 } else {
                     $paymentStatus = "<span class='badge badge-warning'>Pending</span>";
+                    $invoice = null;
                 }
             } else {
                 $paymentStatus = "<span class='badge badge-success'>Paid</span>";
+                $invoice = "<li>
+                                <form action='invoice.php' method='post'>
+                                    <input type='hidden' name='order_id' value='{$row['order_id']}' />
+                                        <button type='submit' name='invoiceBtn'>
+                                            <i class='ti-receipt'></i>
+                                            Invoice
+                                        </button>
+                                </form>
+                            </li>";
             }
+
+
 
             echo "
                 <tr>
@@ -84,15 +97,7 @@ $orderQuery = function ($pageTitle, $deviceId) use ($link) {
                                         </button>
                                     </form>
                                 </li>
-                                <li>
-                                    <form action='edit-device.php' method='post'>
-                                        <input type='hidden' name='product_id' value='{$row['product_id']}' />
-                                            <button type='submit' name='editDeviceBtn'>
-                                                <i class='ti-printer'></i>
-                                                Print
-                                            </button>
-                                    </form>
-                                </li>
+                                {$invoice}
                                 <li>
                                     <form action='{$_SERVER['PHP_SELF']}' method='post'>
                                         <input type='hidden' name='order_id' value='{$row['order_id']}' />

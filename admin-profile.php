@@ -21,7 +21,11 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['user_id'])) {
   <link rel='icon' href='assets/images/favicon.png' type="image/png">
 
 
-  <!-- Common -->
+  <!-- script -->
+
+  <script src="assets/js/themeSetterFun.js"></script>
+
+  <!-- Styles -->
   <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
   <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
   <link href="assets/css/lib/menubar/sidebar.css" rel="stylesheet">
@@ -154,7 +158,10 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['user_id'])) {
               <div class="page-title">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item">
-                    <a href="#">Dashboard</a>
+                    <a href="index.php">Dashboard</a>
+                  </li>
+                  <li class="breadcrumb-item">
+                    <a style='display:inline' href="admin-list.php">Admin List</a>
                   </li>
                   <li class="breadcrumb-item active"><a class="pageTitle" style="display:inline" href="<?php echo $_SERVER['PHP_SELF'] ?>"></a></li>
                 </ol>

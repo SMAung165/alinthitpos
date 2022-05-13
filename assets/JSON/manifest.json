@@ -1,0 +1,17 @@
+{
+    "name": "Alin Thit POS",
+    "short_name": "Alin Thit",
+    "theme_color": "#ffffff",
+    "background_color": "#262626",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "localhost:8000/alinthitpos/alinthitpos/",
+    "description": "Point of sale system for Alin Thit Mobile",
+    "orientation": "any",
+    "icons": [
+        {
+            "src": "localhost:8000/alinthitpos/alinthitpos/assets/images/favicon.png",
+            "sizes": "48x48"
+        }
+    ]
+}

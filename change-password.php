@@ -20,6 +20,10 @@ if (!isset($_SESSION['user_id'])) {
     <!-- Standard -->
     <link rel='icon' href='assets/images/favicon.png' type="image/png">
 
+    <!-- script -->
+
+    <script src="assets/js/themeSetterFun.js"></script>
+
 
     <!-- Styles -->
     <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
@@ -34,30 +38,6 @@ if (!isset($_SESSION['user_id'])) {
     </style>
 </head>
 
-<script>
-    if (localStorage.getItem("theme") == null) {
-        localStorage.setItem("theme", "light");
-    }
-
-    function setTheme() {
-        if (localStorage.getItem("theme") == "dark") {
-            var head = document.getElementsByTagName("HEAD")[0];
-            var link = document.createElement("link");
-
-            link.rel = "stylesheet";
-            link.type = "text/css";
-            link.href = "assets/css/darkMode.css";
-            link.id = "theme";
-
-            head.appendChild(link);
-        } else {
-            var head = document.getElementsByTagName("HEAD")[0];
-            head.removeChild(document.getElementById("theme"));
-        }
-    }
-
-    setTheme();
-</script>
 
 <body>
     <div class="unix-login">
@@ -67,7 +47,6 @@ if (!isset($_SESSION['user_id'])) {
                     <div class="login-content card">
                         <div class="login-form">
                             <h4>Change Password</h4>
-                            <?php require_once('widgets/errorInterface.php'); ?>
                             <form method='post' action="<?php echo $_SERVER['PHP_SELF'] ?>">
                                 <div class="form-group">
                                     <label>Current Password</label>
@@ -97,6 +76,18 @@ if (!isset($_SESSION['user_id'])) {
             <?php require_once('widgets/footer.php'); ?>
         </div>
     </div>
+    <?php require_once('widgets/errorInterface.php'); ?>
+    <script>
+        function closeNotice(e) {
+            e.target.parentElement.parentElement.style.display = "none";
+            const url = window.location.href.toString();
+            if (url.includes("?") === true) {
+                window.location.href = url.split("?")[0];
+            } else if (url.includes("#") === true) {
+                window.location.href = url.split("#")[0];
+            }
+        }
+    </script>
 
 </body>
 
