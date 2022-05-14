@@ -19,6 +19,8 @@ if (!isset($_SESSION['user_id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Manage Salary</title>
+    <!-- manifest -->
+    <link rel="manifest" href="assets/JSON/manifest.json">
 
     <!-- ================= Favicon ================== -->
     <!-- Standard -->
@@ -127,7 +129,8 @@ if (!isset($_SESSION['user_id'])) {
                                                     <th><span class="salaryId">Salary ID</span></th>
                                                     <th><span class='employeeName'>Employee Name</span></th>
                                                     <th><span class='position'>Position</span></th>
-                                                    <th><span class='salaryDate'>Salary Date</span></th>
+                                                    <th><span class='month'>Month</span></th>
+                                                    <th><span class='paymentDate'>Payment Date</span></th>
                                                     <th><span class='basic-salary'>Basic Salary</span></th>
                                                     <th><span class='bonus'>Bonus</span></th>
                                                     <th><span class='totalSalary'>Total Salary</span></th>
@@ -143,11 +146,12 @@ if (!isset($_SESSION['user_id'])) {
                                                     <th><span class="salaryId">Salary ID</span></th>
                                                     <th><span class='employeeName'>Employee Name</span></th>
                                                     <th><span class='position'>Position</span></th>
-                                                    <th><span class='salaryDate'>Salary Date</span></th>
-                                                    <th><span class='basicSalary'>Basic Salary</span></th>
+                                                    <th><span class='month'>Month</span></th>
+                                                    <th><span class='paymentDate'>Payment Date</span></th>
+                                                    <th><span class='basic-salary'>Basic Salary</span></th>
                                                     <th><span class='bonus'>Bonus</span></th>
                                                     <th><span class='totalSalary'>Total Salary</span></th>
-                                                    <th><span class='salaryStatus'>Salary Status</span></th>
+                                                    <th style="text-align:center;"><span class='salaryStatus'>Salary Status</span></th>
                                                 </tr>
                                             </tfoot>
                                         </table>
@@ -201,7 +205,7 @@ if (!isset($_SESSION['user_id'])) {
             document.querySelector('#employee-id').addEventListener('keydown', (e) => {
                 if (e.keyCode == 8) {
                     if (option.childElementCount < 1) {
-                        option.innerHTML = '<option><?php echo monthNameConvert(date('m')) ?></option>';
+                        option.innerHTML = '<option><?php echo (date('F - Y')) ?></option>';
                     }
                 }
             })

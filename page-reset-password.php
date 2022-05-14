@@ -17,6 +17,8 @@ if (isset($_SESSION['user_id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Focus Admin: Widget</title>
+    <!-- manifest -->
+    <link rel="manifest" href="assets/JSON/manifest.json">
 
     <!-- ================= Favicon ================== -->
     <!-- Standard -->

@@ -105,7 +105,7 @@ $getAllMonthlyProfit = function ($monthOrProfit) use ($link) {
 $getDailyProfitForAWeek = function ($dayOrProfit) use ($link) {
     $month = date('m');
     $year = date('Y');
-    $query = "SELECT * FROM `daily_profits` WHERE MONTH(`date`) = '{$month}' AND YEAR(`date`) = '{$year}' ORDER BY `date` DESC LIMIT 5";
+    $query = "SELECT * FROM `daily_profits` WHERE MONTH(`date`) = '{$month}' AND YEAR(`date`) = '{$year}' ORDER BY `date` DESC LIMIT 7";
     $queryResult = mysqli_query($link, $query);
     if (mysqli_num_rows($queryResult) > 0) {
         while ($row = mysqli_fetch_assoc($queryResult)) {
@@ -116,6 +116,26 @@ $getDailyProfitForAWeek = function ($dayOrProfit) use ($link) {
             return implode(', ', array_reverse($dailyProfits));
         } else if ($dayOrProfit === 'day') {
             return implode(', ', array_reverse($dates));
+        }
+    } else {
+        return '';
+    }
+};
+
+$getMostDailyProfitForAWeek = function ($dayOrProfit) use ($link) {
+    $month = date('m');
+    $year = date('Y');
+    $query = "SELECT * FROM `daily_profits` WHERE MONTH(`date`) = '{$month}' AND YEAR(`date`) = '{$year}' ORDER BY `daily_profit` DESC LIMIT 7";
+    $queryResult = mysqli_query($link, $query);
+    if (mysqli_num_rows($queryResult) > 0) {
+        while ($row = mysqli_fetch_assoc($queryResult)) {
+            $dailyProfits[] = intval($row['daily_profit']);
+            $dates[] = '"' . (monthnameConvert(explode('-', $row['date'])[1]) . ' - ' . explode('-', $row['date'])[2]) . '"';
+        }
+        if ($dayOrProfit === 'profit') {
+            return implode(', ', ($dailyProfits));
+        } else if ($dayOrProfit === 'day') {
+            return implode(', ', ($dates));
         }
     } else {
         return '';

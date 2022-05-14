@@ -4,7 +4,7 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['employee_id'])) {
   header("location:page-login.php");
 } else {
   $queryEmployee = $queryEmployee($_POST['employee_id']);
-  $createEmptyRowSalary($_POST['employee_id'], date('m'));
+  $createEmptyRowSalary($_POST['employee_id'], date('m'), date('Y'));
 }
 ?>
 <!DOCTYPE html>
@@ -16,6 +16,8 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['employee_id'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Employee Details</title>
+  <!-- manifest -->
+  <link rel="manifest" href="assets/JSON/manifest.json">
 
   <!-- ================= Favicon ================== -->
   <!-- Standard -->
@@ -175,10 +177,11 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['employee_id'])) {
                       <thead>
                         <tr>
                           <th id='employeeName'>Employee Name</th>
-                          <th id='salaryDate'>Salary Date</th>
+                          <th id='month'>Month</th>
                           <th id='basicSalary'>Basic Salary</th>
                           <th id='SalaryBonus'>Salary Bonus</th>
                           <th id='totalSalary'>Total Salary</th>
+                          <th id='salaryDate'>Payment Date</th>
                           <th style="text-align: center;" id='salaryStatus'>Salary Status</th>
                         </tr>
                       </thead>

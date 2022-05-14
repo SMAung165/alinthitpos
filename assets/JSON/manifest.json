@@ -1,17 +1,16 @@
 {
     "name": "Alin Thit POS",
     "short_name": "Alin Thit",
-    "theme_color": "#ffffff",
-    "background_color": "#262626",
+    "start_url": "alinthitpos/alinthitpos/index.php",
     "display": "standalone",
-    "scope": "/",
-    "start_url": "localhost:8000/alinthitpos/alinthitpos/",
-    "description": "Point of sale system for Alin Thit Mobile",
-    "orientation": "any",
+    "background_color": "#262626",
+    "theme_color": "#222",
+    "orientation": "portrait-primary",
     "icons": [
         {
-            "src": "localhost:8000/alinthitpos/alinthitpos/assets/images/favicon.png",
-            "sizes": "48x48"
+            "src": "/alinthitpos/alinthitpos/assets/images/favicon-144x144.png",
+            "type":"image/png",
+            "sizes": "144x144"
         }
     ]
 }

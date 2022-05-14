@@ -15,7 +15,8 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['order_id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title><?php echo "{$getOrderDetails['first_name']} {$getOrderDetails['last_name']}'s" ?> Invoice</title>
-
+    <!-- manifest -->
+    <link rel="manifest" href="assets/JSON/manifest.json">
     <!-- ================= Favicon ================== -->
     <!-- Standard -->
     <link rel='icon' href='assets/images/favicon.png' type="image/png">
@@ -45,7 +46,7 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['order_id'])) {
         <div class="main">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-8 p-r-0 title-margin-right">
+                    <div class="col-lg-6 p-r-0 title-margin-right">
                         <div class="page-header">
                             <div class="page-title">
                                 <h1>Hello, <span><?php echo "{$sessionUserFirstName} {$sessionUserLastName}"; ?></span></h1>
@@ -53,7 +54,7 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['order_id'])) {
                         </div>
                     </div>
                     <!-- /# column -->
-                    <div class="col-lg-4 p-l-0 title-margin-left">
+                    <div class="col-lg-6 p-l-0 title-margin-left">
                         <div class="page-header">
                             <div class="page-title">
                                 <ol class="breadcrumb">
@@ -63,7 +64,7 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['order_id'])) {
                                     <li class="breadcrumb-item">
                                         <a href="manage-order.php" style="display: inline;">Manage Order</a>
                                     </li>
-                                    <li class="breadcrumb-item active"><a class="pageTitle" href="#">Invoice</a></li>
+                                    <li class="breadcrumb-item active"><a class="pageTitle" href="#" style="display: inline;">Invoice</a></li>
                                 </ol>
                             </div>
                         </div>

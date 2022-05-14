@@ -19,6 +19,8 @@ function setLang() {
     dailyProfit = language.mm.daily_profit;
     document.querySelector("#dailyProfit").textContent =
       language.mm.daily_profit;
+    document.querySelector("#mostDailyEarn").textContent =
+      language.mm.most_daily_earn;
 
     for (i = 0; i < document.querySelectorAll(".currency").length; i++) {
       document.querySelectorAll(".currency")[i].textContent = language.mm.mmk;
@@ -46,6 +48,8 @@ function setLang() {
     dailyProfit = language.en.daily_profit;
     document.querySelector("#dailyProfit").textContent =
       language.en.daily_profit;
+    document.querySelector("#mostDailyEarn").textContent =
+      language.en.most_daily_earn;
 
     for (i = 0; i < document.querySelectorAll(".currency").length; i++) {
       document.querySelectorAll(".currency")[i].textContent = language.en.mmk;

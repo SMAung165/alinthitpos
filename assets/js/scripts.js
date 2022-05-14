@@ -208,6 +208,7 @@ const language = {
     location: "location",
     best_seller: "Best Seller",
     edit_customer: "Edit Customer",
+    most_daily_earn: "Most Daily Earnings",
   },
   mm: {
     alinthit: "အလင်းသစ်",
@@ -321,6 +322,7 @@ const language = {
     location: "တည်နေရာ",
     best_seller: "ရောင်းအားအကောင်းဆုံး",
     edit_customer: "ဈေးဝယ်သူ အချက်အလက် ပြောင်းလဲရန်",
+    most_daily_earn: "အများဆုံး နေ့စဉ်ဝင်ငွေ",
   },
 };
 
@@ -413,6 +415,8 @@ function closeNotice(e) {
     window.location.href = url.split("?")[0];
   } else if (url.includes("#") === true) {
     window.location.href = url.split("#")[0];
+  } else {
+    window.location.href = url;
   }
 }
 function suggestionBox(inputId, parentId, liveQuery) {

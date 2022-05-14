@@ -19,6 +19,8 @@ if (!isset($_SESSION['user_id'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Control Panel</title>
+    <!-- manifest -->
+    <link rel="manifest" href="assets/JSON/manifest.json">
     <!-- ================= Favicon ================== -->
     <!-- Standard -->
     <link rel='icon' href='assets/images/favicon.png' type="image/png">

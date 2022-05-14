@@ -221,11 +221,24 @@ if (!isset($_SESSION['user_id'])) {
                     </div>
                     <!-- /# row -->
                     <div class="row">
-                        <div class="col-lg-12 dash-chart">
+                        <div class="col-lg-6 dash-chart">
                             <div class="card">
                                 <div class="panel-heading">
                                     <div class="panel-title">
                                         <h4 id='dailyProfit'>Daily Profit</h4>
+                                    </div>
+                                </div>
+                                <div class="panel-body refresh">
+
+                                </div>
+                            </div>
+                            <!-- /# card -->
+                        </div>
+                        <div class="col-lg-6 dash-chart">
+                            <div class="card">
+                                <div class="panel-heading">
+                                    <div class="panel-title">
+                                        <h4 id='mostDailyEarn'>Most Daily Earnings</h4>
                                     </div>
                                 </div>
                                 <div class="panel-body refresh">
@@ -286,6 +299,7 @@ if (!isset($_SESSION['user_id'])) {
 
         }
     </script>
+    <script src="assets/js/app.js"></script>
     <?php require_once('core/functions/userOnlineStatusFun.php') ?>
 
 </body>

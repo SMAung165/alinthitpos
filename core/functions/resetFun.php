@@ -64,8 +64,3 @@ if ($resetSystem === true or $resetProfits === true or $resetStocks === true) {
     header("Location:index.php#reSuccess");
     exit();
 }
-
-// if ($resetProfits === true) {
-//     header("Location:index.php#reSuccess");
-//     exit();
-// }

@@ -18,9 +18,15 @@ $listEmployees = function () use ($link) {
             $employeeId = intval($row['employee_id']);
             $query1 = "SELECT * FROM `salary` WHERE MONTH(`salary_date`) = '{$month}' AND `employee_id` = $employeeId";
             $queryResult1 = mysqli_query($link, $query1);
-            $thisEmployee = mysqli_fetch_assoc($queryResult1);
-            $salary_status = $thisEmployee['salary_status'] == 1 ? '<span class=\'badge badge-success\'>Paid</span>' : '<span class=\'badge badge-warning\'>Unpaid</span>'; ?>
-
+            if (mysqli_num_rows($queryResult1) > 0) {
+                $thisEmployee = mysqli_fetch_assoc($queryResult1);
+                $month = $thisEmployee['salary_month'];
+                $salary_status = $thisEmployee['salary_status'] == 1 ? '<span class=\'badge badge-success\'>Paid</span>' : '<span class=\'badge badge-warning\'>Unpaid</span>';
+            } else {
+                $month = date('m');
+                $salary_status = '<span class=\'badge badge-warning\'>Unpaid</span>';
+            }
+?>
             <tr class='employee-tr'>
                 <td>
                     <form action='employee-details.php' method='post'>
@@ -31,6 +37,7 @@ $listEmployees = function () use ($link) {
                 <td><?php echo $row['last_name'] ?></td>
                 <td><?php echo $row['email'] ?></td>
                 <td><?php echo $row['phone_number'] ?></td>
+                <td><?php echo monthNameConvert($month) ?></td>
                 <td><?php echo $salary_status ?></td>
                 <td>
                     <div class='dropdown'>
@@ -43,7 +50,7 @@ $listEmployees = function () use ($link) {
                                 <form action='employee-details.php' method='post'><input type='hidden' name='employee_id' value='<?php echo $row['employee_id'] ?>' /><button type='submit' name='deviceDetailsBtn'><i class='ti-file'></i> Details</button></form>
                             </li>
                             <li>
-                                <form action='edit-device.php' method='post'><input type='hidden' name='employee_id' value='' /><button type='submit' name='editDeviceBtn'><i class='ti-pencil-alt'></i> Edit</button></form>
+                                <form action='edit-employee.php' method='post'><input type='hidden' name='employee_id' value='' /><button type='submit' name='editDeviceBtn'><i class='ti-pencil-alt'></i> Edit</button></form>
                             </li>
 
                             <li>

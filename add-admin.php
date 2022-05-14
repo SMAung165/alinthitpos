@@ -19,10 +19,13 @@ if (!isset($_SESSION['user_id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Add Admin</title>
+    <!-- manifest -->
+    <link rel="manifest" href="assets/JSON/manifest.json">
 
     <!-- ================= Favicon ================== -->
     <!-- Standard -->
     <link rel='icon' href='assets/images/favicon.png' type="image/png">
+
 
 
     <!-- script -->

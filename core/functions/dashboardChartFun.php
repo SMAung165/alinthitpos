@@ -1,13 +1,16 @@
 <script type='text/javascript'>
   function showChart() {
     document.querySelectorAll(".refresh")[0].innerHTML =
-      ' <canvas id="pieChart"></canvas>';
+      ' <canvas id="pieChartMSold"></canvas>';
 
     document.querySelectorAll(".refresh")[1].innerHTML =
-      '<canvas id="lineChart" style="height:250px !important"></canvas>';
+      '<canvas id="lineChartMProfit" style="height:250px !important"></canvas>';
 
     document.querySelectorAll(".refresh")[2].innerHTML =
-      ' <canvas id="singelBarChart" style="height:250px !important"></canvas>';
+      ' <canvas id="singelBarChartDProfit" style="height:150px !important"></canvas>';
+
+    document.querySelectorAll(".refresh")[3].innerHTML =
+      ' <canvas id="singelBarChartDProfitMax" style="height:150px !important"></canvas>';
   }
 
   var monthlyProfit = localStorage.getItem("language") == 'en' ? "Monthly Profit" : "လစဉ်အမြတ်ငွေ";
@@ -15,7 +18,7 @@
 
   function showChartFun() {
 
-    var ctx = document.getElementById("lineChart");
+    var ctx = document.getElementById("lineChartMProfit");
     ctx.height = 150;
     var myChart = new Chart(ctx, {
       type: 'line',
@@ -44,7 +47,7 @@
     });
 
     // single bar chart
-    var ctx = document.getElementById("singelBarChart");
+    var ctx = document.getElementById("singelBarChartDProfit");
     ctx.height = 150;
     var myChart = new Chart(ctx, {
       type: 'bar',
@@ -70,8 +73,35 @@
       }
     });
 
+    // single bar chart
+    var ctx = document.getElementById("singelBarChartDProfitMax");
+    ctx.height = 150;
+    var myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: [<?php echo $getMostDailyProfitForAWeek('day'); ?>],
+        datasets: [{
+          label: dailyProfit,
+          data: [<?php echo $getMostDailyProfitForAWeek('profit'); ?>],
+          borderColor: "rgba(0, 255, 0, 0.9)",
+          borderWidth: "1",
+          backgroundColor: "rgba(0, 255, 0, 0.5)",
+          pointHighlightStroke: "rgba(0,255,148,1)",
+        }]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+
     //pie chart
-    var ctx = document.getElementById("pieChart");
+    var ctx = document.getElementById("pieChartMSold");
     ctx.height = 300;
     var myChart = new Chart(ctx, {
       type: 'pie',

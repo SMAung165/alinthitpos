@@ -7,7 +7,7 @@
                     <h4 class="text text-success">Success</h4>
                     <p class="text-muted mb-0">Data inserted successfully!</p>
                 </div>
-                <a onclick="closeNotice(event)" class="close m-2 p-2">&times;</a>
+                <a onclick="closeNotice(event)" class="close m-2 p-2"><i class="ti-close" style="font-size: 1rem;"></i></a>
             </div>
         </div>
     <?php } ?>
@@ -19,7 +19,7 @@
                     <h4 class="text text-success">Success</h4>
                     <p class="text-muted mb-0">Data updated successfully!</p>
                 </div>
-                <a onclick="closeNotice(event)" class="close m-2 p-2">&times;</a>
+                <a onclick="closeNotice(event)" class="close m-2 p-2"><i class="ti-close" style="font-size: 1rem;"></i></a>
             </div>
         </div>
     <?php  } ?>
@@ -31,7 +31,7 @@
                     <h4 class="text text-success">Success</h4>
                     <p class="text-muted mb-0">Successfully deleted!</p>
                 </div>
-                <a onclick="closeNotice(event)" class="close m-2 p-2">&times;</a>
+                <a onclick="closeNotice(event)" class="close m-2 p-2"><i class="ti-close" style="font-size: 1rem;"></i></a>
             </div>
         </div>
     <?php } ?>
@@ -45,7 +45,7 @@
                     <h4 class="text text-success">Success</h4>
                     <p class="text-muted mb-0">Password updated successfully!</p>
                 </div>
-                <a onclick="closeNotice(event)" class="close m-2 p-2">&times;</a>
+                <a onclick="closeNotice(event)" class="close m-2 p-2"><i class="ti-close" style="font-size: 1rem;"></i></a>
             </div>
         </div>
     <?php } ?>
@@ -58,7 +58,7 @@
                     <h4 class="text text-success">Success</h4>
                     <p class="text-muted mb-0">System reset completed!</p>
                 </div>
-                <a onclick="closeNotice(event)" class="close m-2 p-2">&times;</a>
+                <a onclick="closeNotice(event)" class="close m-2 p-2"><i class="ti-close" style="font-size: 1rem;"></i></a>
             </div>
         </div>
     <?php  } ?>
@@ -70,7 +70,7 @@
                     <h4 class="text text-success">Success</h4>
                     <p class="text-muted mb-0">Email has been sent!</p>
                 </div>
-                <a onclick="closeNotice(event)" class="close m-2 p-2">&times;</a>
+                <a onclick="closeNotice(event)" class="close m-2 p-2"><i class="ti-close" style="font-size: 1rem;"></i></a>
             </div>
         </div>
     <?php  } ?>
@@ -87,7 +87,7 @@
                 <h4 class="text text-danger">Error!</h4>
                 <?php $outputLogs($logs); ?>
             </div>
-            <a onclick="closeNotice(event)" class="close m-2 p-2">&times;</a>
+            <a onclick="closeNotice(event)" class="close m-2 p-2"><i class="ti-close" style="font-size: 1rem;"></i></a>
         </div>
     </div>
 <?php } ?>

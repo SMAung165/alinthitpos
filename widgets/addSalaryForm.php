@@ -42,8 +42,7 @@
                             <div class="form-group">
                                 <label><span class='month'>Month</span>*</label>
                                 <select class='form-control' name="salary_month" id='select-salary-month' required>
-
-                                    <option><?php echo monthNameConvert(date('m')); ?></option>
+                                    <option><?php echo (date('F - Y')); ?></option>
                                 </select>
                             </div>
                         </div>

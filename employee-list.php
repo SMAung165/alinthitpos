@@ -18,6 +18,8 @@ if (!isset($_SESSION['user_id'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Admin List</title>
+  <!-- manifest -->
+  <link rel="manifest" href="assets/JSON/manifest.json">
 
   <!-- ================= Favicon ================== -->
   <!-- Standard -->
@@ -94,6 +96,7 @@ if (!isset($_SESSION['user_id'])) {
                           <th><span class="lastname">Last Name</span></th>
                           <th><span class='email'>Email</span></th>
                           <th><span class='phone'>Phone Number</span></th>
+                          <th><span class='salary-month'>Salary Month</span></th>
                           <th><span class='salary-status'>Salary Status</span></th>
                           <th style="text-align: center;"><span>Action</span></th>
                         </tr>
@@ -108,6 +111,7 @@ if (!isset($_SESSION['user_id'])) {
                           <th><span class="lastname">Last Name</span></th>
                           <th><span class='email'>Email</span></th>
                           <th><span class='phone'>Phone Number</span></th>
+                          <th><span class='salary-month'>Salary Month</span></th>
                           <th><span class='salary-status'>Salary Status</span></th>
                           <th style="text-align: center;"><span>Action</span></th>
                         </tr>
