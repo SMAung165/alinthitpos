@@ -24,6 +24,12 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['order_id'])) {
     <!-- Standard -->
     <link rel='icon' href='assets/images/favicon.png' type="image/png">
 
+
+    <!-- Language -->
+
+    <script type="text/javascript" src="assets/language/lang/en.js"></script>
+    <script type="text/javascript" src="assets/language/lang/mm.js"></script>
+
     <!-- script -->
 
     <script src="assets/js/themeSetterFun.js"></script>
@@ -228,20 +234,24 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['order_id'])) {
 
     <!-- jquery vendor -->
     <script src="assets/js/lib/jquery.min.js"></script>
-    <script src="assets/js/lib/jquery.nanoscroller.min.js"></script>
+
     <!-- nano scroller -->
+    <script src="assets/js/lib/jquery.nanoscroller.min.js"></script>
+
+    <!-- sidebar -->
     <script src="assets/js/lib/menubar/sidebar.js"></script>
     <script src="assets/js/lib/preloader/pace.min.js"></script>
-    <!-- sidebar -->
 
     <!-- bootstrap -->
-
-
     <script src="assets/js/lib/bootstrap.min.js"></script>
-    <script src="assets/language/editOrder.js"></script>
-    <script src="assets/js/scripts.js"></script>
-    <!-- scripit init-->
 
+    <!-- Language init -->
+    <script type="text/javascript" src="assets/language/editOrder.js"></script>
+    <script type="text/javascript" src="assets/language/sidebar.js"></script>
+    <script type="text/javascript" src="assets/js/setLang.js"></script>
+
+    <!-- scripit init-->
+    <script src="assets/js/scripts.js"></script>
 
 
 

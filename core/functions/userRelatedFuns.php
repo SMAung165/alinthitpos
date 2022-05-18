@@ -73,10 +73,9 @@ $listUsers = function () use ($link) {
     $queryResult = mysqli_query($link, $query);
     while ($row = mysqli_fetch_assoc($queryResult)) {
         $btnDeleteAdmin = "<td>
-                            <button name='' class='delete-admin-btn status btn btn-secondary'>
-                            <input type='hidden' name='ID'/> 
+                            <button type='button' class='delete-admin-btn status btn btn-secondary'>
                                 <i class='ti-trash'></i>
-                                Delete
+                                <span id='delete'>Delete</span>
                             </button>
                             <div class='form-container'>
                                 <form action='{$_SERVER['PHP_SELF']}' method='post' class='delete-admin-confirm-box card'>

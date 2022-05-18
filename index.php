@@ -18,6 +18,11 @@ if (!isset($_SESSION['user_id'])) {
     <!-- Standard -->
     <link rel='icon' href='assets/images/favicon.png' type="image/png">
 
+    <!-- Language -->
+
+    <script type="text/javascript" src="assets/language/lang/en.js"></script>
+    <script type="text/javascript" src="assets/language/lang/mm.js"></script>
+
     <!-- script -->
 
     <script src="assets/js/themeSetterFun.js"></script>
@@ -254,6 +259,17 @@ if (!isset($_SESSION['user_id'])) {
             </div>
         </div>
     </div>
+
+    <div style='display:none' class="fixed-notification bottom-right-corner">
+        <div class="info card info--success flex-row p-4 mb-3 shadow d-flex justify-content-between align-items-center">
+            <div class="d-block">
+                <h4 class='text text-success'>Success</h4>
+                <p class="text-muted mb-0">Reset completed!</p>
+            </div>
+            <a href="#" onclick="closeNotice(event)" class="close m-2 p-2">&times;</a>
+        </div>
+    </div>
+
     <!-- jquery vendor -->
     <script src="assets/js/lib/jquery.min.js"></script>
     <script src="assets/js/lib/jquery.nanoscroller.min.js"></script>
@@ -269,6 +285,7 @@ if (!isset($_SESSION['user_id'])) {
     <script src="assets/js/lib/calendar-2/pignose.calendar.min.js"></script>
     <script src="assets/js/lib/calendar-2/pignose.init.js"></script>
 
+    <!-- Libraries -->
 
     <script src="assets/js/lib/weather/jquery.simpleWeather.min.js"></script>
     <script src="assets/js/lib/weather/weather-init.js"></script>
@@ -278,29 +295,36 @@ if (!isset($_SESSION['user_id'])) {
     <script src="assets/js/lib/chart-js/Chart.bundle.js"></script>
     <?php require_once('core/functions/dashboardChartFun.php') ?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="assets/language/dashboard.js"></script>
+
+    <!-- Language init -->
+    <script type="text/javascript" src="assets/language/dashboard.js"></script>
+    <script type="text/javascript" src="assets/language/sidebar.js"></script>
+    <script type="text/javascript" src="assets/js/setLang.js"></script>
+
+    <!-- Script init -->
     <script src="assets/js/scripts.js"></script>
 
+    <!-- Extra script -->
 
-    <div style='display:none' class="fixed-notification bottom-right-corner">
-        <div class="info card info--success flex-row p-4 mb-3 shadow d-flex justify-content-between align-items-center">
-            <div class="d-block">
-                <h4 class='text text-success'>Success</h4>
-                <p class="text-muted mb-0">Reset completed!</p>
-            </div>
-            <a href="#" onclick="closeNotice(event)" class="close m-2 p-2">&times;</a>
-        </div>
-    </div>
+    <script type="text/javascript">
+        showChart();
+        showChartFun();
 
-    <script>
+        document.querySelectorAll(".change-language").forEach((element) => {
+            element.addEventListener("click", () => {
+                window.setTimeout(showChart, 0);
+                window.setTimeout(showChartFun, 0);
+            });
+        });
         if (window.location.toString().includes('#reSuccess')) {
 
             document.querySelector('.fixed-notification').style.display = 'block';
 
         }
     </script>
+
+    <!-- PWA  -->
     <script src="assets/js/app.js"></script>
-    <?php require_once('core/functions/userOnlineStatusFun.php') ?>
 
 </body>
 

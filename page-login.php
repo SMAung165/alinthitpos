@@ -22,6 +22,11 @@ if (isset($_SESSION['user_id'])) {
     <!-- Standard -->
     <link rel='icon' href='assets/images/favicon.png' type="image/png">
 
+    <!-- Language -->
+
+    <script type="text/javascript" src="assets/language/lang/en.js"></script>
+    <script type="text/javascript" src="assets/language/lang/mm.js"></script>
+
     <!-- script -->
 
     <script src="assets/js/themeSetterFun.js"></script>

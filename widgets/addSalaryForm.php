@@ -50,9 +50,9 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <label><span class='forced'>Mode</span></label>
-                                <select name="forced" class="form-control">
+                                <select name="mode" class="form-control">
                                     <option selected>Normal</option>
-                                    <option>Forced</option>
+                                    <option>Update</option>
                                 </select>
                             </div>
                         </div>

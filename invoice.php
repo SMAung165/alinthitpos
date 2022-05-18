@@ -21,6 +21,11 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['order_id'])) {
     <!-- Standard -->
     <link rel='icon' href='assets/images/favicon.png' type="image/png">
 
+    <!-- Language -->
+
+    <script type="text/javascript" src="assets/language/lang/en.js"></script>
+    <script type="text/javascript" src="assets/language/lang/mm.js"></script>
+
     <!-- Styles -->
     <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
     <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
@@ -186,6 +191,7 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['order_id'])) {
             </div>
         </div>
     </div>
+
     <script type="text/javascript">
         const getPageTitle = () => document.querySelector("title").innerHTML;
         document.querySelector(".pageTitle").innerHTML = getPageTitle();

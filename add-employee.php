@@ -22,6 +22,11 @@ if (!isset($_SESSION['user_id'])) {
     <!-- Standard -->
     <link rel='icon' href='assets/images/favicon.png' type="image/png">
 
+    <!-- Language -->
+
+    <script type="text/javascript" src="assets/language/lang/en.js"></script>
+    <script type="text/javascript" src="assets/language/lang/mm.js"></script>
+
 
     <!-- script -->
 
@@ -121,7 +126,7 @@ if (!isset($_SESSION['user_id'])) {
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label id='DOB'>Date of Birth</label>
+                                                    <label id='dateOfBirth'>Date of Birth</label>
                                                     <input class="form-control" type="date" name="date_of_birth">
                                                 </div>
                                                 <div class="form-group">
@@ -133,7 +138,7 @@ if (!isset($_SESSION['user_id'])) {
                                                     <input class="form-control" type="text" name="position" value="" required placeholder="Web Developer">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label><span id='specialty'>Specialties</span> (<span id='skills'>Skills</span>)</label>
+                                                    <label><span id='specialty'>Specialty</span> (<span id='skills'>Skills</span>)</label>
                                                     <textarea class="form-control" type="text" name="specialty" value="" placeholder="HTML, CSS, JavaScript"></textarea>
                                                 </div>
 
@@ -192,7 +197,13 @@ if (!isset($_SESSION['user_id'])) {
 
 
     <script src="assets/js/lib/bootstrap.min.js"></script>
-    <script src="assets/language/addDevice.js"></script>
+
+    <!-- Language init -->
+    <script type="text/javascript" src="assets/language/addEmployee.js"></script>
+    <script type="text/javascript" src="assets/language/sidebar.js"></script>
+    <script type="text/javascript" src="assets/js/setLang.js"></script>
+
+    <!-- Script init -->
     <script src="assets/js/scripts.js"></script>
     <script src="assets/js/myScript.js"></script>
     <!-- scripit init-->

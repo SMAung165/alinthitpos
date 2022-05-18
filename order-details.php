@@ -22,6 +22,11 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['order_id'])) {
   <!-- Standard -->
   <link rel='icon' href='assets/images/favicon.png' type="image/png">
 
+  <!-- Language -->
+
+  <script type="text/javascript" src="assets/language/lang/en.js"></script>
+  <script type="text/javascript" src="assets/language/lang/mm.js"></script>
+
   <!-- script -->
 
   <script src="assets/js/themeSetterFun.js"></script>
@@ -198,12 +203,24 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['order_id'])) {
   <!-- Common -->
   <script src="assets/js/lib/jquery.min.js"></script>
   <script src="assets/js/lib/jquery.nanoscroller.min.js"></script>
+
+  <!-- sidebar -->
   <script src="assets/js/lib/menubar/sidebar.js"></script>
   <script src="assets/js/lib/preloader/pace.min.js"></script>
+
+  <!-- Bootstrap -->
   <script src="assets/js/lib/bootstrap.min.js"></script>
-  <script src="assets/language/orderDetails.js"></script>
+
+  <!-- Language init -->
+  <script type="text/javascript" src="assets/language/orderDetails.js"></script>
+  <script type="text/javascript" src="assets/language/sidebar.js"></script>
+  <script type="text/javascript" src="assets/js/setLang.js"></script>
+
+  <!-- scripit init-->
   <script src="assets/js/scripts.js"></script>
-  <script>
+
+  <!-- Extra Script -->
+  <script type="text/javascript">
     const starColorizer = (rating) => {
       const star = document.querySelectorAll('.ti-star');
       for (i = 0; i < parseInt(rating); i++) {

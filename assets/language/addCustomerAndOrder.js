@@ -1,41 +1,31 @@
 function setLang() {
   if (localLanguage == "mm") {
-    document.getElementById("addCustomer").textContent =
-      language.mm.add_customer;
-    document.getElementById("firstname").textContent = language.mm.first_name;
-    document.getElementById("lastname").textContent = language.mm.last_name;
-    document.getElementById("email").textContent = language.mm.email;
-    document.getElementById("phoneNumber").textContent =
-      language.mm.phone_number;
-    document.getElementById("address").textContent = language.mm.address;
-    document.getElementById("orderNumber").textContent =
-      language.mm.order_number;
-    document.getElementById("deviceId").textContent = language.mm.device_id;
-    document.getElementById("quantity").textContent = language.mm.quantity;
+    document.getElementById("addCustomer").textContent = mm.add_customer;
+    document.getElementById("firstname").textContent = mm.first_name;
+    document.getElementById("lastname").textContent = mm.last_name;
+    document.getElementById("email").textContent = mm.email;
+    document.getElementById("phoneNumber").textContent = mm.phone_number;
+    document.getElementById("address").textContent = mm.address;
+    document.getElementById("orderNumber").textContent = mm.order_number;
+    document.getElementById("deviceId").textContent = mm.device_id;
+    document.getElementById("quantity").textContent = mm.quantity;
     for (i = 0; i < document.querySelectorAll(".submit").length; i++) {
-      document.getElementsByClassName("customer")[i].textContent =
-        language.mm.customer;
-      document.getElementsByClassName("submit")[i].textContent =
-        language.mm.submit;
+      document.getElementsByClassName("customer")[i].textContent = mm.customer;
+      document.getElementsByClassName("submit")[i].textContent = mm.submit;
     }
   } else {
-    document.getElementById("addCustomer").textContent =
-      language.en.add_customer;
-    document.getElementById("firstname").textContent = language.en.first_name;
-    document.getElementById("lastname").textContent = language.en.last_name;
-    document.getElementById("email").textContent = language.en.email;
-    document.getElementById("phoneNumber").textContent =
-      language.en.phone_number;
-    document.getElementById("address").textContent = language.en.address;
-    document.getElementById("orderNumber").textContent =
-      language.en.order_number;
-    document.getElementById("deviceId").textContent = language.en.device_id;
-    document.getElementById("quantity").textContent = language.en.quantity;
+    document.getElementById("addCustomer").textContent = en.add_customer;
+    document.getElementById("firstname").textContent = en.first_name;
+    document.getElementById("lastname").textContent = en.last_name;
+    document.getElementById("email").textContent = en.email;
+    document.getElementById("phoneNumber").textContent = en.phone_number;
+    document.getElementById("address").textContent = en.address;
+    document.getElementById("orderNumber").textContent = en.order_number;
+    document.getElementById("deviceId").textContent = en.device_id;
+    document.getElementById("quantity").textContent = en.quantity;
     for (i = 0; i < document.querySelectorAll(".submit").length; i++) {
-      document.getElementsByClassName("customer")[i].textContent =
-        language.en.customer;
-      document.getElementsByClassName("submit")[i].textContent =
-        language.en.submit;
+      document.getElementsByClassName("customer")[i].textContent = en.customer;
+      document.getElementsByClassName("submit")[i].textContent = en.submit;
     }
   }
 }

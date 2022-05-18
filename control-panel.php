@@ -7,7 +7,7 @@ if (!isset($_SESSION['user_id'])) {
     if ($sessionUserRole !== 'Admin') {
         header("location:page-login.php");
     } else {
-        require_once('core/functions/resetFun.php');
+        require_once('core/functions/resetFuns.php');
     }
 }
 ?>
@@ -25,9 +25,16 @@ if (!isset($_SESSION['user_id'])) {
     <!-- Standard -->
     <link rel='icon' href='assets/images/favicon.png' type="image/png">
 
+    <!-- Language -->
+
+    <script type="text/javascript" src="assets/language/lang/en.js"></script>
+    <script type="text/javascript" src="assets/language/lang/mm.js"></script>
+
     <!-- script -->
 
     <script src="assets/js/themeSetterFun.js"></script>
+
+
 
     <!-- styles -->
 
@@ -122,7 +129,7 @@ if (!isset($_SESSION['user_id'])) {
 
                     <?php require_once('widgets/errorInterface.php') ?>
                     <div class="row">
-                        <div class="col-lg-4">
+                        <div class="col-lg-4 col-md-6">
                             <div class="card">
                                 <div class="card-title">
                                     <h4>Reset The System</h4>
@@ -152,7 +159,7 @@ if (!isset($_SESSION['user_id'])) {
                             </div>
                             <!-- /# card -->
                         </div>
-                        <div class="col-lg-4">
+                        <div class="col-lg-4 col-md-6">
                             <div class="card">
                                 <div class="card-title">
                                     <h4>Reset Profits</h4>
@@ -181,7 +188,7 @@ if (!isset($_SESSION['user_id'])) {
                             </div>
                             <!-- /# card -->
                         </div>
-                        <div class="col-lg-4">
+                        <div class="col-lg-4 col-md-6">
                             <div class="card">
                                 <div class="card-title">
                                     <h4>Reset Warehouse Stocks</h4>
@@ -210,6 +217,35 @@ if (!isset($_SESSION['user_id'])) {
                             </div>
                             <!-- /# card -->
                         </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="card">
+                                <div class="card-title">
+                                    <h4>Reset Salary</h4>
+
+                                </div>
+                                <div class="card-toggle-body">
+                                    <p class="m-b-15">Tap <code>reset</code> button to remove all salary logs.</p>
+                                    <div>
+                                        <div class='form-container'>
+                                            <form action='<?php echo "{$_SERVER['PHP_SELF']}" ?>' method='post' class='card'>
+                                                <span class='close-btn'><i class='ti-close'></i></span>
+                                                <input type='hidden' name='user_id' value='<?php echo "{$sessionUserId}" ?>' />
+                                                <div class='form-group'>
+                                                    <label>Enter Your Password</label>
+                                                    <input type='password' value='' name='confirm_password' class='form-control' required />
+                                                </div>
+
+                                                <button type='submit' name='confirm_reset_salary' class='btn btn-secondary'>
+                                                    Confirm
+                                                </button>
+                                            </form>
+                                        </div>
+                                        <button type="button" name='reset_salary_btn' class="btn btn-primary col-lg-12 reset-btn">Reset</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /# card -->
+                        </div>
                     </div>
 
                     <?php require_once('widgets/footer.php'); ?>
@@ -232,14 +268,29 @@ if (!isset($_SESSION['user_id'])) {
 
     <!-- jquery vendor -->
     <script src="assets/js/lib/jquery.min.js"></script>
-    <script src="assets/js/lib/jquery.nanoscroller.min.js"></script>
+
     <!-- nano scroller -->
+    <script src="assets/js/lib/jquery.nanoscroller.min.js"></script>
+
+    <!-- sidebar -->
     <script src="assets/js/lib/menubar/sidebar.js"></script>
     <script src="assets/js/lib/preloader/pace.min.js"></script>
-    <!-- sidebar -->
 
+
+    <!-- Language init -->
+    <script type="text/javascript" src="assets/language/controlPanel.js"></script>
+    <script type="text/javascript" src="assets/language/sidebar.js"></script>
+    <script type="text/javascript" src="assets/js/setLang.js"></script>
+
+    <!-- scripit init-->
+    <script src="assets/js/scripts.js"></script>
+
+
+    <!-- Fontawesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
+
+    <!-- Extra Script -->
+    <script type="text/javascript">
         if (window.location.toString().includes('#warning')) {
 
             document.querySelector('.fixed-notification').style.display = 'block';
@@ -256,9 +307,6 @@ if (!isset($_SESSION['user_id'])) {
             })
         })
     </script>
-    <script src="assets/language/controlPanel.js"></script>
-    <script src="assets/js/scripts.js"></script>
-    <?php require_once('core/functions/userOnlineStatusFun.php') ?>
 
 </body>
 

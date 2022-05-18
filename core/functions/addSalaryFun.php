@@ -21,9 +21,10 @@ $updateSalary = function ($dataToUpdateSalary, $salaryId) use ($link, $sanatizat
 };
 
 if (isset($_POST['add_salary_btn'])) {
-    if ($_POST['salary_month'] !== 'No Result') {
+    if ($isEmployeeExists($_POST['employee_id']) === true) {
         $monthByYear = array_combine(['month', 'year'], (explode(' - ', $_POST['salary_month'])));
         $haveSalary = $haveSalary($_POST['employee_id'], monthNumberConvert($monthByYear['month']), $monthByYear['year']);
+
         //If empty salary row does not exist create one but with salary status paid.
         if ($haveSalary === false) {
             $dataToInsert = [
@@ -32,13 +33,14 @@ if (isset($_POST['add_salary_btn'])) {
                 'basic_salary' => $_POST['basic_salary'],
                 'bonus' => $_POST['bonus'],
                 'salary_date' => date('Y-m-d'),
-                'salary_month' => date('m'),
+                'salary_month' => monthNumberConvert($monthByYear['month']),
+                'salary_year' => $monthByYear['year'],
                 'salary_status' => 1,
             ];
             $inserIntoDataBaseSalary = $inserIntoDataBaseSalary($dataToInsert);
         } else {
             //Check mode if Normal
-            if ($_POST['forced'] === 'Normal') {
+            if ($_POST['mode'] === 'Normal') {
                 //If salary is not given but Empty salary row exists, update it.
                 if ($isSalaryGiven($_POST['employee_id'], monthNumberConvert($monthByYear['month']), $monthByYear['year'], 'status') === true) {
                     $monthName = $isSalaryGiven($_POST['employee_id'], monthNumberConvert($monthByYear['month']), $monthByYear['year'], 'month');
@@ -55,7 +57,7 @@ if (isset($_POST['add_salary_btn'])) {
                 }
             }
             //Execute when mode is Forced
-            else {
+            else if ($_POST['mode'] === 'Update') {
                 $dataToUpdateSalary = [
                     'basic_salary' => $_POST['basic_salary'],
                     'bonus' => $_POST['bonus'],

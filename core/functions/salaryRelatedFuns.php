@@ -6,7 +6,7 @@ $querySalaryByEmId = function ($employeeId) use ($link) {
     $queryResult = mysqli_query($link, $query);
     if (mysqli_num_rows($queryResult) > 0) {
         while ($row = mysqli_fetch_assoc($queryResult)) {
-            $salary_status = $row['salary_status'] == 1 ? '<span class=\'badge badge-success\'>Paid</span>' : '<span class=\'badge badge-warning\'>Unpaid</span>'; ?>
+            $salary_status = $row['salary_status'] == 1 ? '<span class=\'badge badge-success paid\'>Paid</span>' : '<span class=\'badge badge-warning unpaid\'>Unpaid</span>'; ?>
             <tr>
                 <td><?php echo "{$row['first_name']} {$row['last_name']}" ?></td>
                 <td><?php echo monthNameConvert($row['salary_month']) ?></td>
@@ -63,9 +63,29 @@ $listSalaries = function () use ($link) {
     $queryResult = mysqli_query($link, $query);
     if (mysqli_num_rows($queryResult) > 0) {
         while ($row = mysqli_fetch_assoc($queryResult)) {
-            $salary_status = $row['salary_status'] == 1 ? '<span class=\'badge badge-success\'>Paid</span>' : '<span class=\'badge badge-warning\'>Unpaid</span>'; ?>
+            $salary_status = $row['salary_status'] == 1 ? '<span class=\'badge badge-success paid\'>Paid</span>' : '<span class=\'badge badge-warning unpaid\'>Unpaid</span>'; ?>
 
             <tr>
+                <td>
+                    <button type='button' class='delete-salary-btn status btn btn-secondary'>
+                        <i class='ti-trash'></i>
+                        <span id='delete'>Delete</span>
+                    </button>
+                    <div class='form-container'>
+                        <form action='<?php echo "{$_SERVER['PHP_SELF']}" ?>' method='post' class='delete-salary-confirm-box card'>
+                            <span class='close-btn'><i class='ti-close'></i></span>
+                            <input type='hidden' name='salary_id' value='<?php echo "{$row['salary_id']}" ?>' />
+                            <div class='form-group'>
+                                <label>Enter Your Password</label>
+                                <input type='password' value='' name='delete_confirmation_password' class='form-control' required />
+                            </div>
+
+                            <button type='submit' name='confirmBtn' class='btn btn-secondary'>
+                                Confirm
+                            </button>
+                        </form>
+                    </div>
+                </td>
                 <td><?php echo $row['salary_id'] ?></td>
                 <td><?php echo "{$row['first_name']} {$row['last_name']}" ?></td>
                 <td><?php echo $row['position'] ?></td>
@@ -97,11 +117,24 @@ $isSalaryGiven = function ($employeeId, $month, $year, $statusOrMonth) use ($lin
         }
     }
 };
-$selectSalaryMonth = function ($employeeId) use ($link) {
 
+$isEmployeeExists = function ($employeeId) use ($link, $sanatization) {
+    $employeeId = intval($sanatization($employeeId));
+    $query = "SELECT `employee_id` FROM `employees` WHERE `employee_id` = {$employeeId}";
+    $queryResult = mysqli_query($link, $query);
+    if (mysqli_num_rows($queryResult) > 0) {
+        return true;
+    } else {
+        return false;
+    }
+};
+
+$selectSalaryMonth = function ($employeeId) use ($link, $isEmployeeExists, $sanatization) {
+
+    $employeeId = intval($sanatization($employeeId));
     $currentMonth = (date('F - Y'));
-
     $query = "SELECT `salary_month`, `salary_year` FROM `salary` INNER JOIN `employees` ON `employees`.`employee_id` = `salary`.`employee_id` WHERE `salary`.`employee_id` = {$employeeId}";
+
     $queryResult = mysqli_query($link, $query);
     if (mysqli_num_rows($queryResult) > 0) {
         while ($row = mysqli_fetch_assoc($queryResult)) {
@@ -118,6 +151,10 @@ $selectSalaryMonth = function ($employeeId) use ($link) {
             echo "<option selected>{$currentMonth}</option>";
         }
     } else {
-        echo "<option selected>No Result</option>";
+        if ($isEmployeeExists($employeeId) === true) {
+            echo "<option selected>{$currentMonth}</option>";
+        } else if ($isEmployeeExists($employeeId) === false) {
+            echo "<option selected>No Result</option>";
+        }
     }
 };

@@ -1,56 +1,46 @@
 function setLang() {
   if (localLanguage == "mm") {
-    document.getElementById("admin").textContent = language.mm.admin;
-    document.getElementById("about").textContent = language.mm.about;
-    document.getElementById("basicInfo").textContent =
-      language.mm.basic_information;
-    document.getElementById("username").textContent = language.mm.username;
-    document.getElementById("firstname").textContent = language.mm.first_name;
-    document.getElementById("lastname").textContent = language.mm.last_name;
-    document.getElementById("contactInfo").textContent =
-      language.mm.contact_info;
-    document.getElementById("location").textContent = language.mm.location;
-    document.getElementById("workPosition").textContent =
-      language.mm.work_position;
+    document.getElementById("admin").textContent = mm.admin;
+    document.getElementById("about").textContent = mm.about;
+    document.getElementById("basicInfo").textContent = mm.basic_information;
+    document.getElementById("username").textContent = mm.username;
+    document.getElementById("firstname").textContent = mm.first_name;
+    document.getElementById("lastname").textContent = mm.last_name;
+    document.getElementById("contactInfo").textContent = mm.contact_info;
+    document.getElementById("location").textContent = mm.location;
+    document.getElementById("workPosition").textContent = mm.work_position;
     for (i = 0; i < document.querySelectorAll(".phoneNumber").length; i++) {
       document.querySelectorAll(".phoneNumber")[i].textContent =
-        language.mm.phone_number;
-      document.querySelectorAll(".address")[i].textContent =
-        language.mm.address;
-      document.querySelectorAll(".email")[i].textContent = language.mm.email;
+        mm.phone_number;
+      document.querySelectorAll(".address")[i].textContent = mm.address;
+      document.querySelectorAll(".email")[i].textContent = mm.email;
 
       document.querySelectorAll(".dateOfBirth")[i].textContent =
-        language.mm.date_of_birth;
-      document.querySelectorAll(".gender")[i].textContent = language.mm.gender;
-      document.querySelectorAll(".specialty")[i].textContent =
-        language.mm.specialty;
-      document.querySelectorAll(".skills")[i].textContent = language.mm.skills;
+        mm.date_of_birth;
+      document.querySelectorAll(".gender")[i].textContent = mm.gender;
+      document.querySelectorAll(".specialty")[i].textContent = mm.specialty;
+      document.querySelectorAll(".skills")[i].textContent = mm.skills;
     }
   } else {
-    document.getElementById("admin").textContent = language.en.admin;
-    document.getElementById("about").textContent = language.en.about;
-    document.getElementById("basicInfo").textContent =
-      language.en.basic_information;
-    document.getElementById("username").textContent = language.en.username;
-    document.getElementById("firstname").textContent = language.en.first_name;
-    document.getElementById("lastname").textContent = language.en.last_name;
-    document.getElementById("contactInfo").textContent =
-      language.en.contact_info;
-    document.getElementById("workPosition").textContent =
-      language.en.work_position;
+    document.getElementById("admin").textContent = en.admin;
+    document.getElementById("about").textContent = en.about;
+    document.getElementById("basicInfo").textContent = en.basic_information;
+    document.getElementById("username").textContent = en.username;
+    document.getElementById("firstname").textContent = en.first_name;
+    document.getElementById("lastname").textContent = en.last_name;
+    document.getElementById("contactInfo").textContent = en.contact_info;
+    document.getElementById("workPosition").textContent = en.work_position;
     for (i = 0; i < document.querySelectorAll(".phoneNumber").length; i++) {
       document.querySelectorAll(".phoneNumber")[i].textContent =
-        language.en.phone_number;
-      document.querySelectorAll(".address")[i].textContent =
-        language.en.address;
-      document.querySelectorAll(".email")[i].textContent = language.en.email;
+        en.phone_number;
+      document.querySelectorAll(".address")[i].textContent = en.address;
+      document.querySelectorAll(".email")[i].textContent = en.email;
 
       document.querySelectorAll(".dateOfBirth")[i].textContent =
-        language.en.date_of_birth;
-      document.querySelectorAll(".gender")[i].textContent = language.en.gender;
-      document.querySelectorAll(".specialty")[i].textContent =
-        language.en.specialty;
-      document.querySelectorAll(".skills")[i].textContent = language.en.skills;
+        en.date_of_birth;
+      document.querySelectorAll(".gender")[i].textContent = en.gender;
+      document.querySelectorAll(".specialty")[i].textContent = en.specialty;
+      document.querySelectorAll(".skills")[i].textContent = en.skills;
     }
   }
 }

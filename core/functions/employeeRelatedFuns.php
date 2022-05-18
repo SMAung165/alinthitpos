@@ -21,10 +21,10 @@ $listEmployees = function () use ($link) {
             if (mysqli_num_rows($queryResult1) > 0) {
                 $thisEmployee = mysqli_fetch_assoc($queryResult1);
                 $month = $thisEmployee['salary_month'];
-                $salary_status = $thisEmployee['salary_status'] == 1 ? '<span class=\'badge badge-success\'>Paid</span>' : '<span class=\'badge badge-warning\'>Unpaid</span>';
+                $salary_status = $thisEmployee['salary_status'] == 1 ? '<span class=\'badge badge-success paid\'>Paid</span>' : '<span class=\'badge badge-warning unpaid\'>Unpaid</span>';
             } else {
                 $month = date('m');
-                $salary_status = '<span class=\'badge badge-warning\'>Unpaid</span>';
+                $salary_status = '<span class=\'badge badge-warning unpaid\'>Unpaid</span>';
             }
 ?>
             <tr class='employee-tr'>

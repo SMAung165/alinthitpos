@@ -22,6 +22,12 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['user_id'])) {
   <link rel='icon' href='assets/images/favicon.png' type="image/png">
 
 
+  <!-- Language -->
+
+  <script type="text/javascript" src="assets/language/lang/en.js"></script>
+  <script type="text/javascript" src="assets/language/lang/mm.js"></script>
+
+
   <!-- script -->
 
   <script src="assets/js/themeSetterFun.js"></script>
@@ -265,7 +271,12 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['user_id'])) {
   <script src="assets/js/lib/preloader/pace.min.js"></script>
   <script src="assets/js/lib/bootstrap.min.js"></script>
 
-  <script src="assets/language/adminProfile.js"></script>
+  <!-- Language init -->
+  <script type="text/javascript" src="assets/language/adminProfile.js"></script>
+  <script type="text/javascript" src="assets/language/sidebar.js"></script>
+  <script type="text/javascript" src="assets/js/setLang.js"></script>
+
+  <!-- scripit init-->
   <script src="assets/js/scripts.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>

@@ -50,7 +50,7 @@
                     </li>
                 <?php } ?>
                 <li class="label">Account Settings</li>
-                <li><a href="change-password.php"><i class="ti-lock"></i> Change Password</a></li>
+                <li><a href="change-password.php"><i class="ti-lock"></i><span id='changePassword'>Change Password</span></a></li>
                 <li><a href="core/functions/logout.php"><i class="ti-close"></i> Logout</a></li>
 
             </ul>

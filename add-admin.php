@@ -26,7 +26,10 @@ if (!isset($_SESSION['user_id'])) {
     <!-- Standard -->
     <link rel='icon' href='assets/images/favicon.png' type="image/png">
 
+    <!-- Language -->
 
+    <script type="text/javascript" src="assets/language/lang/en.js"></script>
+    <script type="text/javascript" src="assets/language/lang/mm.js"></script>
 
     <!-- script -->
 
@@ -96,11 +99,11 @@ if (!isset($_SESSION['user_id'])) {
                                                 </div>
                                                 <div class="form-group">
                                                     <label><span id='firstname'></span>*</label>
-                                                    <input id="example-email" class="form-control" type="text" name="first_name" placeholder="John" name="example-email">
+                                                    <input id="example-firstname" class="form-control" type="text" name="first_name" placeholder="John" name="example-email">
                                                 </div>
                                                 <div class="form-group">
                                                     <label><span id='lastname'></span></label>
-                                                    <input id="example-email" class="form-control" type="text" name="last_name" placeholder="Doe" name="example-email">
+                                                    <input id="example-lastname" class="form-control" type="text" name="last_name" placeholder="Doe" name="example-email">
                                                 </div>
                                                 <div class="form-group">
                                                     <label><span id='email'></span>*</label>
@@ -168,10 +171,14 @@ if (!isset($_SESSION['user_id'])) {
     <!-- sidebar -->
 
     <!-- bootstrap -->
-
-
     <script src="assets/js/lib/bootstrap.min.js"></script>
-    <script src="assets/language/addAdmin.js"></script>
+
+    <!-- Language init -->
+    <script type="text/javascript" src="assets/language/addAdmin.js"></script>
+    <script type="text/javascript" src="assets/language/sidebar.js"></script>
+    <script type="text/javascript" src="assets/js/setLang.js"></script>
+
+    <!-- Script init -->
     <script src="assets/js/scripts.js"></script>
     <!-- scripit init-->
 

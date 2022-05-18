@@ -67,6 +67,10 @@ select {
     background: linear-gradient(90deg, rgba(16,195,106,1) 35%, rgba(0,255,214,1) 100%) !important;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
+.btn-warning, .badge-warning{
+    background: linear-gradient(90deg, rgba(255,158,0,1) 0%, rgba(255,231,0,1) 100%) !important;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
 .btn-danger, .badge-danger{
     background: linear-gradient(90deg, rgba(195,61,16,1) 35%, rgba(255,192,0,1) 100%) !important;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);

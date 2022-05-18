@@ -1,5 +1,6 @@
 <?php
 
+//Methods
 $resetSystem = function () use ($link) {
     mysqli_query($link, "TRUNCATE TABLE `daily_profits`");
     mysqli_query($link, "TRUNCATE TABLE `monthly_profits`");
@@ -21,6 +22,15 @@ $resetStocks = function () use ($link) {
     mysqli_query($link, "UPDATE `products` SET `total_sold` = 0, `initial_stock`= 0, `stock` = 0");
     return true;
 };
+$resetSalary = function () use ($link) {
+    mysqli_query($link, "DELETE FROM `salary`");
+    mysqli_query($link, "ALTER TABLE `salary` AUTO_INCREMENT = 1");
+    return true;
+};
+
+
+
+//Process
 
 if (isset($_POST['confirm_reset_system'])) {
 
@@ -59,8 +69,21 @@ if (isset($_POST['confirm_reset_stocks'])) {
         $logs[] = "Password is incorrect!";
     }
 }
+if (isset($_POST['confirm_reset_salary'])) {
 
-if ($resetSystem === true or $resetProfits === true or $resetStocks === true) {
-    header("Location:index.php#reSuccess");
+    $userId = intval($sanatization($_POST['user_id']));
+    $password = $sanatization($_POST['confirm_password']);
+
+    $verifyPassword($userId, $password);
+
+    if (($verifyPassword($userId, $password)) === true) {
+        $resetSalary =  $resetSalary();
+    } else {
+        $logs[] = "Password is incorrect!";
+    }
+}
+
+if ($resetSystem === true or $resetProfits === true or $resetStocks === true or $resetSalary === true) {
+    header("Location:{$_SERVER['PHP_SELF']}?reSuccess");
     exit();
 }
