@@ -8,6 +8,7 @@ function setLang() {
     document.querySelector("#gender").textContent = mm.gender;
     document.querySelector("#address").textContent = mm.address;
     document.querySelector("#work").textContent = mm.work;
+    document.querySelector("#workLocation").textContent = mm.work_location;
     document.querySelector("#workPosition").textContent = mm.work_position;
     document.querySelector("#specialty").textContent = mm.specialty;
     document.querySelector("#skills").textContent = mm.skills;
@@ -39,6 +40,7 @@ function setLang() {
     document.querySelector("#gender").textContent = en.gender;
     document.querySelector("#address").textContent = en.address;
     document.querySelector("#work").textContent = en.work;
+    document.querySelector("#workLocation").textContent = en.work_location;
     document.querySelector("#workPosition").textContent = en.work_position;
     document.querySelector("#employeeName").textContent = en.employee_name;
     document.querySelector("#month").textContent = en.salary_month;

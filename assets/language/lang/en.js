@@ -131,4 +131,6 @@ en = {
   salary: "Salary",
   salary_list: "Salary List",
   employee: "Employee",
+  edit_employee: "Edit Employee",
+  profile_image: "Profile Image",
 };

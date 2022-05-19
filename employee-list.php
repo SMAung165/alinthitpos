@@ -5,6 +5,8 @@ if (!isset($_SESSION['user_id'])) {
 } else {
   if ($sessionUserRole !== 'Admin') {
     header("location:page-login.php");
+  } else {
+    require_once('core/functions/delEmployeeFun.php');
   }
 }
 ?>
@@ -44,7 +46,80 @@ if (!isset($_SESSION['user_id'])) {
   <link href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet" />
   <link href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css" rel="stylesheet" />
   <link href="https://cdn.datatables.net/rowgroup/1.1.4/css/rowGroup.dataTables.min.css" rel="stylesheet" />
+  <style type="text/css">
+    .form-container {
 
+      width: 100%;
+      height: 100vh;
+
+      position: fixed;
+      top: 0;
+      left: 0;
+
+      background: rgba(0, 0, 0, 0.5);
+
+      display: flex !important;
+      justify-content: center;
+      align-items: center;
+
+      z-index: 1;
+    }
+
+    .tblImg {
+      cursor: pointer;
+    }
+
+    .imageBox {
+
+      width: 100%;
+      height: 100vh;
+
+      position: fixed;
+      top: 0%;
+      left: 0%;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      opacity: 0;
+
+      z-index: -1;
+
+      background: rgba(0, 0, 0, 0.5);
+
+      transition: all 0.2s;
+
+    }
+
+    .imageBox .imgContainer {
+
+      width: 300px;
+
+      padding: 9px;
+
+      background-color: #ffff;
+
+      border-radius: 10px;
+
+      position: absolute;
+
+      z-index: 1;
+
+      box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+
+    }
+
+    .imageBox .imgContainer img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .showImgBox {
+      opacity: 1;
+      z-index: 2;
+    }
+  </style>
 </head>
 
 <body>
@@ -96,6 +171,7 @@ if (!isset($_SESSION['user_id'])) {
                     <table id="myDataTable" class="display table table-borderd table-hover" style="width: 100%;text-align: center;">
                       <thead>
                         <tr>
+                          <th><span class='profile-image'>Profile Image</span></th>
                           <th><span class='firstname'>First Name</span></th>
                           <th><span class="lastname">Last Name</span></th>
                           <th><span class='email'>Email</span></th>
@@ -111,6 +187,7 @@ if (!isset($_SESSION['user_id'])) {
                       </tbody>
                       <tfoot>
                         <tr>
+                          <th><span class='profile-image'>Image</span></th>
                           <th><span class='firstname'>First Name</span></th>
                           <th><span class="lastname">Last Name</span></th>
                           <th><span class='email'>Email</span></th>
@@ -176,6 +253,18 @@ if (!isset($_SESSION['user_id'])) {
         });
       }
     })
+
+    document.querySelectorAll('.tblImg').forEach(tblImgEl => {
+
+      tblImgEl.addEventListener('click', (e) => {
+        var imgBoxEl = e.target.parentElement.children[0];
+        imgBoxEl.classList.add('showImgBox');
+        imgBoxEl.addEventListener('click', (e) => {
+          e.target.classList.remove('showImgBox');
+        })
+      })
+
+    });
   </script>
 
 

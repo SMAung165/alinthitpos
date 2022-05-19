@@ -77,7 +77,7 @@ if (!isset($_SESSION['user_id'])) {
 
     .imageBox .imgContainer {
 
-      width: 250px;
+      width: 400px;
 
       padding: 9px;
 

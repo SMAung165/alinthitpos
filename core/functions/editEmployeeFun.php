@@ -50,6 +50,12 @@ if (isset($_POST['edit_employee_btn'])) {
                 $fileImagePath = "assets/images/avatar/employees/{$_POST['first_name']} {$_POST['last_name']}/{$generateImageName}";
                 if (!file_exists("assets/images/avatar/employees/{$_POST['first_name']} {$_POST['last_name']}")) {
                     mkdir("assets/images/avatar/employees/{$_POST['first_name']} {$_POST['last_name']}");
+                } else {
+                    if (!empty($queryEmployee['image'])) {
+                        if (file_exists($queryEmployee['image'])) {
+                            unlink($queryEmployee['image']);
+                        }
+                    }
                 }
                 $fileImageTemp = $_FILES['file_image']['tmp_name'];
                 move_uploaded_file($fileImageTemp, $fileImagePath);
@@ -68,6 +74,7 @@ if (isset($_POST['edit_employee_btn'])) {
             'address' => $_POST['address'],
             'date_of_birth' => $_POST['date_of_birth'],
             'date_hired' => $_POST['date_hired'],
+            'work_location' => $_POST['work_location'],
             'position' => $_POST['position'],
             'specialty' => $_POST['specialty'],
             'facebook' => $_POST['facebook'],

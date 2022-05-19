@@ -147,8 +147,6 @@ if (!isset($_SESSION['user_id'])) {
                                                     <input class="form-control" type="link" name="facebook" value="" placeholder="https://facebook.com/youraccount" />
                                                 </div>
 
-
-
                                                 <div class="form-group">
                                                     <div class="user-photo m-b-30">
                                                         <label for='image' class="customImageInput">
@@ -172,30 +170,23 @@ if (!isset($_SESSION['user_id'])) {
                             </div>
                         </div>
                     </div>
-
-
                     <?php require_once('widgets/footer.php'); ?>
                 </section>
             </div>
         </div>
     </div>
 
-
-
-
-
-
     <!-- jquery vendor -->
     <script src="assets/js/lib/jquery.min.js"></script>
-    <script src="assets/js/lib/jquery.nanoscroller.min.js"></script>
+
     <!-- nano scroller -->
+    <script src="assets/js/lib/jquery.nanoscroller.min.js"></script>
+
+    <!-- sidebar -->
     <script src="assets/js/lib/menubar/sidebar.js"></script>
     <script src="assets/js/lib/preloader/pace.min.js"></script>
-    <!-- sidebar -->
 
     <!-- bootstrap -->
-
-
     <script src="assets/js/lib/bootstrap.min.js"></script>
 
     <!-- Language init -->
@@ -209,8 +200,6 @@ if (!isset($_SESSION['user_id'])) {
     <!-- scripit init-->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    <!--myScript-->
 
 
 

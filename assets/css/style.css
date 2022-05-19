@@ -4749,7 +4749,7 @@ h6.h1 {
 }
 
 .info {
-	border-left: 5px solid #007bff !important;
+	border-left: 6px solid #007bff !important;
 }
 .info.info--success {
 	border-color: #28a745 !important;
@@ -4780,8 +4780,8 @@ h6.h1 {
 	bottom: 0%;
 	right: 2%;
 
+  transform:translateX(100%);
 }
-
 .top-left-corner {
 	position: fixed;
 	top: 100px;
@@ -4798,19 +4798,36 @@ h6.h1 {
 {
    0%
    {
-       transform:translateX(100%);
+      transform: translateX(100%);
    }
-
+   25%
+   {
+      transform: translateX(0%);
+   }
+   50%
+   {
+    transform: translateX(0%);
+   }
+   75%
+   {
+    transform: translateX(0%);
+       
+   }
    100%
    {
-       transform:translateX(0%);
+    transform: translateX(100%);
    }
-   
 }
 
 .fixed-notification {
-  animation: myani 0.3s;
+  animation: myani ease-out 3.5s;
+  transition: all 0.8s ease-out;
 }
+.fixed-notification:hover{
+  right:2%;
+  transform: translateX(0%);
+}
+
 .close{
   cursor:pointer;
 }

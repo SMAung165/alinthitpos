@@ -131,4 +131,6 @@ mm = {
   salary: "လစာ",
   salary_list: "လစာ စာရင်း",
   employee: "ဝန်ထမ်း",
+  edit_employee: "ဝန်ထမ်း အချက်အလက် ပြောင်းလဲရန်",
+  profile_image: "ပရိုဖိုင်ပုံ",
 };

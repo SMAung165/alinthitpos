@@ -32,8 +32,17 @@ $listEmployees = function () use ($link) {
                     <form action='employee-details.php' method='post'>
                         <input type="hidden" name='employee_id' value='<?php echo $row['employee_id'] ?>' />
                     </form>
-                    <?php echo $row['first_name'] ?>
+                    <span>
+                        <span class='imageBox'>
+                            <div class='imgContainer'>
+                                <img src="<?php echo $row['image'] ?>" alt='<?php echo $row['first_name'] ?>' />
+                            </div>
+                        </span>
+                        <img class='tblImg' src="<?php echo $row['image'] ?>" alt='<?php echo $row['first_name'] ?>' width="80px" />
+                    </span>
+
                 </td>
+                <td><?php echo $row['first_name'] ?></td>
                 <td><?php echo $row['last_name'] ?></td>
                 <td><?php echo $row['email'] ?></td>
                 <td><?php echo $row['phone_number'] ?></td>
@@ -47,14 +56,14 @@ $listEmployees = function () use ($link) {
                         </button>
                         <ul class='dropdown-menu myActionDropDown'>
                             <li>
-                                <form action='employee-details.php' method='post'><input type='hidden' name='employee_id' value='<?php echo $row['employee_id'] ?>' /><button type='submit' name='deviceDetailsBtn'><i class='ti-file'></i> Details</button></form>
+                                <form action='employee-details.php' method='post'><input type='hidden' name='employee_id' value='<?php echo $row['employee_id'] ?>' /><button type='submit' name=''><i class='ti-file'></i> Details</button></form>
                             </li>
                             <li>
-                                <form action='edit-employee.php' method='post'><input type='hidden' name='employee_id' value='<?php echo $row['employee_id'] ?>' /><button type='submit' name='editDeviceBtn'><i class='ti-pencil-alt'></i> Edit</button></form>
+                                <form action='edit-employee.php' method='post'><input type='hidden' name='employee_id' value='<?php echo $row['employee_id'] ?>' /><button type='submit' name=''><i class='ti-pencil-alt'></i> Edit</button></form>
                             </li>
 
                             <li>
-                                <form action='' method='post'><input type='hidden' name='device_id' value='' /><input type='hidden' name='employee_id' value='' /><button type='submit' name='deleteDeviceBtn'><i class='ti-trash'></i> Delete</button></form>
+                                <form action='<?php echo $_SERVER['PHP_SELF'] ?>' method='post'><input type='hidden' name='employee_id' value='<?php echo $row['employee_id'] ?>' /><button type='submit' name='delete_employee_btn'><i class='ti-trash'></i> Delete</button></form>
                             </li>
                         </ul>
                     </div>
@@ -73,5 +82,7 @@ $queryEmployee = function ($employeeId) use ($link) {
     $queryResult = mysqli_query($link, $query);
     if (mysqli_num_rows($queryResult) > 0) {
         return mysqli_fetch_assoc($queryResult);
+    } else {
+        return false;
     }
 };

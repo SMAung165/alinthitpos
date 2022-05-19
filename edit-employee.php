@@ -3,14 +3,13 @@ require_once('core/config/init.php');
 if (!isset($_SESSION['user_id'])) {
     header("location:page-login.php");
 } else {
-    require_once('core/functions/editEmployeeFun.php');
-    $queryEmployee = $queryEmployee($_POST['employee_id']);
-    //  if (!isset($_POST['employee_id'])) {
-    //     header("location:page-login.php");
-    //  } else {
-    // require_once('core/functions/editEmployeeFun.php');
-    // $queryEmployee = $queryEmployee($_POST['employee_id']);
-    // }
+
+    if (!isset($_POST['employee_id'])) {
+        header("location:page-login.php");
+    } else {
+        $queryEmployee = $queryEmployee($_POST['employee_id']);
+        require_once('core/functions/editEmployeeFun.php');
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -152,12 +151,12 @@ if (!isset($_SESSION['user_id'])) {
                                                 </div>
                                                 <div class="form-group">
                                                     <label><span id='specialty'>Specialty</span> (<span id='skills'>Skills</span>)</label>
-                                                    <textarea class="form-control" type="text" name="specialty" value="" placeholder="HTML, CSS, JavaScript"><?php echo "{$queryEmployee['specialty']}" ?></textarea>
+                                                    <textarea class="form-control" type="text" name="specialty" placeholder="HTML, CSS, JavaScript"><?php echo "{$queryEmployee['specialty']}" ?></textarea>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label>Facebook</label>
-                                                    <input class="form-control" type="link" name="facebook" value="" placeholder="https://facebook.com/youraccount" value="<?php echo "{$queryEmployee['facebook']}" ?>" />
+                                                    <input class="form-control" type="link" name="facebook" placeholder="https://facebook.com/youraccount" value="<?php echo "{$queryEmployee['facebook']}" ?>" />
                                                 </div>
 
                                                 <div class="form-group">
@@ -169,7 +168,7 @@ if (!isset($_SESSION['user_id'])) {
                                                             <input style="display: none;" type="file" name="file_image" id="image" />
                                                         </label>
 
-                                                        <input name='image' value="<?php echo "{$queryEmployee['image']}" ?>" type="hidden" />
+                                                        <input name='image' value="<?php echo "{$queryEmployeeImage}" ?>" type="hidden" />
                                                     </div>
                                                 </div>
 
@@ -213,7 +212,7 @@ if (!isset($_SESSION['user_id'])) {
     <script src="assets/js/lib/bootstrap.min.js"></script>
 
     <!-- Language init -->
-    <script type="text/javascript" src="assets/language/addEmployee.js"></script>
+    <script type="text/javascript" src="assets/language/editEmployee.js"></script>
     <script type="text/javascript" src="assets/language/sidebar.js"></script>
     <script type="text/javascript" src="assets/js/setLang.js"></script>
 

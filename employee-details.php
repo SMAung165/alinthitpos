@@ -109,9 +109,12 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['employee_id'])) {
                         <div class="user-work">
                           <h4 id='work'>Work</h4>
                           <div class="work-content">
+                            <b id='workLocation'>Work Location</b> :
+                            <span><?php echo ($queryEmployee['work_location']) ?></span>
+                            <br /><br />
                             <b id='workPosition'>Work Position</b> :
                             <span><?php echo "{$queryEmployee['position']}" ?></span>
-                            <p><?php $outPutSessionUserSpecialty($queryEmployee['work_location']) ?></p>
+                            <br /><br />
                             <p class="text text-info"><?php echo $queryEmployee['date_hired'] ?></p>
                           </div>
                         </div>
@@ -148,7 +151,7 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['employee_id'])) {
                                 </div>
                                 <div class="facebook-content">
                                   <span class="contact-title"><span id="facebook">Facebook</span> : </span>
-                                  <span class="contact-facebook"><a href="<?php echo "{$queryEmployee['facebook']}" ?>" target="blank"><?php echo "{$queryEmployee['first_name']} {$queryEmployee['last_name']} " ?></a></span>
+                                  <span class="contact-facebook"><a class='text-secondary font-weight-bold' href="<?php echo "{$queryEmployee['facebook']}" ?>" target="blank"><?php echo "{$queryEmployee['first_name']} {$queryEmployee['last_name']} " ?></a></span>
                                 </div>
                               </div>
                               <div class="basic-information user-work" style="width: 100%;">
