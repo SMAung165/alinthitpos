@@ -50,7 +50,7 @@ $listEmployees = function () use ($link) {
                                 <form action='employee-details.php' method='post'><input type='hidden' name='employee_id' value='<?php echo $row['employee_id'] ?>' /><button type='submit' name='deviceDetailsBtn'><i class='ti-file'></i> Details</button></form>
                             </li>
                             <li>
-                                <form action='edit-employee.php' method='post'><input type='hidden' name='employee_id' value='' /><button type='submit' name='editDeviceBtn'><i class='ti-pencil-alt'></i> Edit</button></form>
+                                <form action='edit-employee.php' method='post'><input type='hidden' name='employee_id' value='<?php echo $row['employee_id'] ?>' /><button type='submit' name='editDeviceBtn'><i class='ti-pencil-alt'></i> Edit</button></form>
                             </li>
 
                             <li>
