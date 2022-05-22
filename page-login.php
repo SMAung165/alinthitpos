@@ -36,9 +36,8 @@ if (isset($_SESSION['user_id'])) {
     <link href="assets/css/lib/helper.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
     <style type="text/css">
-        html,
         body {
-            overflow: hidden;
+            overflow-y: auto;
         }
 
         .login-form {
@@ -94,6 +93,11 @@ if (isset($_SESSION['user_id'])) {
 
             animation: rotate 2s linear infinite;
         }
+
+        .btn-success {
+            background: linear-gradient(90deg, rgba(16, 195, 106, 1) 35%, rgba(0, 255, 214, 1) 100%) !important;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
     </style>
 </head>
 
@@ -125,7 +129,7 @@ if (isset($_SESSION['user_id'])) {
                                     </label>
 
                                 </div>
-                                <button type="submit" name="loginBtn" class="btn btn-primary btn-flat m-b-30 m-t-30 submit">Sign in</button>
+                                <button type="submit" name="loginBtn" class="btn btn-success btn-flat m-b-30 m-t-30 submit">Sign in</button>
                             </form>
                         </div>
                     </div>
