@@ -42,9 +42,9 @@ if (!isset($_SESSION['user_id'])) {
   <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
   <link href="assets/css/lib/helper.css" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet">
-  <link href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet" />
-  <link href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css" rel="stylesheet" />
-  <link href="https://cdn.datatables.net/rowgroup/1.1.4/css/rowGroup.dataTables.min.css" rel="stylesheet" />
+  <link href="assets/css/lib/data-table-responsive/jquery.dataTables.min.css" rel="stylesheet" />
+  <link href="assets/css/lib/data-table-responsive/responsive.dataTables.min.css" rel="stylesheet" />
+  <link href="assets/css/lib/data-table-responsive/rowGroup.dataTables.min.css" rel="stylesheet" />
 
 
   <style type="text/css">
@@ -198,7 +198,7 @@ if (!isset($_SESSION['user_id'])) {
   </div>
 
   <!-- jquery vendor -->
-  <script src=" assets/js/lib/jquery.min.js"></script>
+  <script src="assets/js/lib/jquery.min.js"></script>
   <script src="assets/js/lib/jquery.nanoscroller.min.js"></script>
 
   <!-- sidebar -->
@@ -217,9 +217,9 @@ if (!isset($_SESSION['user_id'])) {
   <script src="assets/js/scripts.js"></script>
 
   <!-- datatables-->
-  <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
-  <script src="https://cdn.datatables.net/rowgroup/1.1.4/js/dataTables.rowGroup.min.js"></script>
+  <script type="text/javascript" src="assets/js/lib/data-table-responsive/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="assets/js/lib/data-table-responsive/dataTables.responsive.min.js"></script>
+  <script type="text/javascript" src="assets/js/lib/data-table-responsive/dataTables.rowGroup.min.js"></script>
   <script src="assets/js/lib/data-table/datatables-init.js"></script>
 
   <!-- Extra Script -->
@@ -243,8 +243,12 @@ if (!isset($_SESSION['user_id'])) {
 
     });
   </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+  <!-- Fontawesome-->
+  <script type="text/javascript" src="assets/js/lib/font-awesome/all.min.js"></script>
+
+  <!-- PWA  -->
+  <script src="assets/js/app.js"></script>
 
 </body>
 

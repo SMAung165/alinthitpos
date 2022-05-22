@@ -90,15 +90,19 @@ $getAllMonthlyProfit = function ($monthOrProfit) use ($link) {
     $year = date('Y');
     $query = "SELECT * FROM `monthly_profits` WHERE YEAR(`date`) = '$year' ORDER BY `date`";
     $queryResult = mysqli_query($link, $query);
-    while ($row = mysqli_fetch_assoc($queryResult)) {
-        $allMonthlyProfits[] = intval($row['monthly_profit']);
-        $allMonths[] = '"' . monthnameConvert((string)($row['month'])) . '"';
-    }
-    if ($monthOrProfit === 'profit') {
-        $combined = array_merge(months(), array_combine($allMonths, $allMonthlyProfits));
-        return implode(', ', $combined);
-    } else if ($monthOrProfit === 'month') {
-        return implode(', ', array_keys(months()));
+    if (mysqli_num_rows($queryResult) > 0) {
+        while ($row = mysqli_fetch_assoc($queryResult)) {
+            $allMonthlyProfits[] = intval($row['monthly_profit']);
+            $allMonths[] = '"' . monthnameConvert((string)($row['month'])) . '"';
+        }
+        if ($monthOrProfit === 'profit') {
+            $combined = array_merge(months(), array_combine($allMonths, $allMonthlyProfits));
+            return implode(', ', $combined);
+        } else if ($monthOrProfit === 'month') {
+            return implode(', ', array_keys(months()));
+        }
+    } else {
+        return '';
     }
 };
 

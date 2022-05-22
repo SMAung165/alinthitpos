@@ -34,12 +34,9 @@ if (!isset($_SESSION['user_id'])) {
 
     <script src="assets/js/themeSetterFun.js"></script>
 
-
-
     <!-- styles -->
 
     <link href="assets/css/lib/calendar2/pignose.calendar.min.css" rel="stylesheet">
-    <link href="assets/css/lib/chartist/chartist.min.css" rel="stylesheet">
     <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
     <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
     <link href="assets/css/lib/owl.carousel.min.css" rel="stylesheet" />
@@ -50,7 +47,7 @@ if (!isset($_SESSION['user_id'])) {
     <link href="assets/css/lib/helper.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
 
-    <style>
+    <style type="text/css">
         .form-container {
 
             width: 100%;
@@ -132,8 +129,7 @@ if (!isset($_SESSION['user_id'])) {
                         <div class="col-lg-4 col-md-6">
                             <div class="card">
                                 <div class="card-title">
-                                    <h4>Reset The System</h4>
-
+                                    <h4 class='reset-the-system'>Reset The System</h4>
                                 </div>
                                 <div class="card-toggle-body">
                                     <p class="m-b-15">Tap <code>reset</code> button to reset the system to its original state.</p>
@@ -143,7 +139,7 @@ if (!isset($_SESSION['user_id'])) {
                                                 <span class='close-btn'><i class='ti-close'></i></span>
                                                 <input type='hidden' name='user_id' value='<?php echo "{$sessionUserId}" ?>' />
                                                 <div class='form-group'>
-                                                    <label>Enter Your Password</label>
+                                                    <label class='enter-your-password'>Enter Your Password</label>
                                                     <input type='password' value='' name='confirm_password' class='form-control' required />
                                                 </div>
 
@@ -162,7 +158,7 @@ if (!isset($_SESSION['user_id'])) {
                         <div class="col-lg-4 col-md-6">
                             <div class="card">
                                 <div class="card-title">
-                                    <h4>Reset Profits</h4>
+                                    <h4 class='reset-profits'>Reset Profits</h4>
 
                                 </div>
                                 <div class="card-toggle-body">
@@ -173,7 +169,7 @@ if (!isset($_SESSION['user_id'])) {
                                                 <span class='close-btn'><i class='ti-close'></i></span>
                                                 <input type='hidden' name='user_id' value='<?php echo "{$sessionUserId}" ?>' />
                                                 <div class='form-group'>
-                                                    <label>Enter Your Password</label>
+                                                    <label class='enter-your-password'>Enter Your Password</label>
                                                     <input type='password' value='' name='confirm_password' class='form-control' required />
                                                 </div>
 
@@ -191,8 +187,7 @@ if (!isset($_SESSION['user_id'])) {
                         <div class="col-lg-4 col-md-6">
                             <div class="card">
                                 <div class="card-title">
-                                    <h4>Reset Warehouse Stocks</h4>
-
+                                    <h4 class='reset-warehouse-stocks'>Reset Warehouse Stocks</h4>
                                 </div>
                                 <div class="card-toggle-body">
                                     <p class="m-b-15">Tap <code>reset</code> button to reset the stocks of all devices to <code>Zero</code>.</p>
@@ -202,7 +197,7 @@ if (!isset($_SESSION['user_id'])) {
                                                 <span class='close-btn'><i class='ti-close'></i></span>
                                                 <input type='hidden' name='user_id' value='<?php echo "{$sessionUserId}" ?>' />
                                                 <div class='form-group'>
-                                                    <label>Enter Your Password</label>
+                                                    <label class='enter-your-password'>Enter Your Password</label>
                                                     <input type='password' value='' name='confirm_password' class='form-control' required />
                                                 </div>
 
@@ -220,7 +215,35 @@ if (!isset($_SESSION['user_id'])) {
                         <div class="col-lg-4 col-md-6">
                             <div class="card">
                                 <div class="card-title">
-                                    <h4>Reset Salary</h4>
+                                    <h4 class='reset-orders'>Reset Orders</h4>
+                                </div>
+                                <div class="card-toggle-body">
+                                    <p class="m-b-15">Tap <code>reset</code> button to reset the orders list.</p>
+                                    <div>
+                                        <div class='form-container'>
+                                            <form action='<?php echo "{$_SERVER['PHP_SELF']}" ?>' method='post' class='card'>
+                                                <span class='close-btn'><i class='ti-close'></i></span>
+                                                <input type='hidden' name='user_id' value='<?php echo "{$sessionUserId}" ?>' />
+                                                <div class='form-group'>
+                                                    <label class='enter-your-password'>Enter Your Password</label>
+                                                    <input type='password' value='' name='confirm_password' class='form-control' required />
+                                                </div>
+
+                                                <button type='submit' name='confirm_reset_orders' class='btn btn-secondary'>
+                                                    Confirm
+                                                </button>
+                                            </form>
+                                        </div>
+                                        <button type="button" name='reset_orders_btn' class="btn btn-primary col-lg-12 reset-btn">Reset</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /# card -->
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="card">
+                                <div class="card-title">
+                                    <h4 class='reset-salary'>Reset Salary</h4>
 
                                 </div>
                                 <div class="card-toggle-body">
@@ -231,7 +254,7 @@ if (!isset($_SESSION['user_id'])) {
                                                 <span class='close-btn'><i class='ti-close'></i></span>
                                                 <input type='hidden' name='user_id' value='<?php echo "{$sessionUserId}" ?>' />
                                                 <div class='form-group'>
-                                                    <label>Enter Your Password</label>
+                                                    <label class='enter-your-password'>Enter Your Password</label>
                                                     <input type='password' value='' name='confirm_password' class='form-control' required />
                                                 </div>
 
@@ -254,18 +277,6 @@ if (!isset($_SESSION['user_id'])) {
         </div>
     </div>
 
-    <div style='display:none' class="fixed-notification bottom-right-corner">
-        <div class="info card info--warning flex-row p-4 mb-3 shadow d-flex justify-content-between align-items-center">
-            <div class="d-block">
-                <h4 class='text text-warning'>Warning!</h4>
-                <p class="text-muted mb-0">Performing any of these will result in
-                    loss of data!
-                </p>
-            </div>
-            <a href="#" onclick="closeNotice(event)" class="close m-2 p-2">&times;</a>
-        </div>
-    </div>
-
     <!-- jquery vendor -->
     <script src="assets/js/lib/jquery.min.js"></script>
 
@@ -276,7 +287,6 @@ if (!isset($_SESSION['user_id'])) {
     <script src="assets/js/lib/menubar/sidebar.js"></script>
     <script src="assets/js/lib/preloader/pace.min.js"></script>
 
-
     <!-- Language init -->
     <script type="text/javascript" src="assets/language/controlPanel.js"></script>
     <script type="text/javascript" src="assets/language/sidebar.js"></script>
@@ -285,17 +295,11 @@ if (!isset($_SESSION['user_id'])) {
     <!-- scripit init-->
     <script src="assets/js/scripts.js"></script>
 
-
-    <!-- Fontawesome -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Fontawesome-->
+    <script type="text/javascript" src="assets/js/lib/font-awesome/all.min.js"></script>
 
     <!-- Extra Script -->
     <script type="text/javascript">
-        if (window.location.toString().includes('#warning')) {
-
-            document.querySelector('.fixed-notification').style.display = 'block';
-
-        }
         document.querySelectorAll('.reset-btn').forEach(element => {
             element.addEventListener('click', (e) => {
                 e.target.parentElement.children[0].style.display = 'flex';
@@ -307,6 +311,10 @@ if (!isset($_SESSION['user_id'])) {
             })
         })
     </script>
+
+
+    <!-- PWA  -->
+    <script src="assets/js/app.js"></script>
 
 </body>
 

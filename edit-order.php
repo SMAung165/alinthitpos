@@ -74,23 +74,18 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['order_id'])) {
 </head>
 
 <body>
+    <!-- sidebar -->
     <?php require_once('widgets/sideBar.php'); ?>
-    <!-- /# sidebar -->
-
 
     <?php require_once('widgets/header.php'); ?>
 
-
     <script src="assets/js/themeSwitcherFun.js"></script>
-
-
-
 
     <div class="content-wrap">
         <div class="main">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-8 p-r-0 title-margin-right">
+                    <div class="col-lg-6 p-r-0 title-margin-right">
                         <div class="page-header">
                             <div class="page-title">
                                 <h1>Hello, <span><?php echo "{$sessionUserFirstName} {$sessionUserLastName}"; ?></span></h1>
@@ -98,12 +93,12 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['order_id'])) {
                         </div>
                     </div>
                     <!-- /# column -->
-                    <div class="col-lg-4 p-l-0 title-margin-left">
+                    <div class="col-lg-6 p-l-0 title-margin-left">
                         <div class="page-header">
                             <div class="page-title">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item">
-                                        <a href="index.php" style="display: inline;">Dashboard</a>
+                                        <a href="#" style="display: inline;">Customer and Order</a>
                                     </li>
                                     <li class="breadcrumb-item">
                                         <a href="manage-order.php" style="display: inline;">Manage Order</a>
@@ -219,18 +214,11 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['order_id'])) {
                             </div>
                         </div>
                     </div>
-
-
                     <?php require_once('widgets/footer.php'); ?>
                 </section>
             </div>
         </div>
     </div>
-
-
-
-
-
 
     <!-- jquery vendor -->
     <script src="assets/js/lib/jquery.min.js"></script>
@@ -253,8 +241,10 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['order_id'])) {
     <!-- scripit init-->
     <script src="assets/js/scripts.js"></script>
 
-
-
+    <!-- Fontawesome-->
+    <script type="text/javascript" src="assets/js/lib/font-awesome/all.min.js"></script>
+    <!-- PWA  -->
+    <script src="assets/js/app.js"></script>
 
 </body>
 

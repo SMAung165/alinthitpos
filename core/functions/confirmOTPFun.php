@@ -16,6 +16,6 @@ if (isset($_POST['confirm_otp'])) {
     if ($confirmOTP === true) {
         header("location:change-password-forgot.php");
     } else {
-        $logs[] = "OTP is incorrect.";
+        $logs[] = "<span class='wrong-otp'>OTP is incorrect.</span>";
     }
 }

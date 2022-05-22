@@ -13,8 +13,7 @@ if (isset($_POST['forgot_password'])) {
     $email = $_POST['recovery_email'];
 
     if ($userRecovery($email) === false) {
-
-        $logs[] = "Email does not exist!";
+        $logs[] = "<span class='email-not-reg'>Email is not registered!</span>";
     } else {
         $recovery_email = $userRecovery($email)['email'];
         $username = $userRecovery($email)['username'];
@@ -49,23 +48,6 @@ if (isset($_POST['forgot_password'])) {
         } else {
             $_SESSION['recover_user_id'] = $userId;
             header("location:confirm-otp.php");
-            // echo "<form method='post' action='confirm-otp.php' id='header'>
-
-            //         <input name='user_id' type='hidden' value='{$userId}'/>
-
-            //      </form>
-
-            //     <script type='text/javascript'>
-
-            //     window.onload = ()=>{
-
-            //         document.getElementById('header').submit();
-
-            //     }
-
-            //     </script>
-
-            //      ";
             exit();
         }
     }

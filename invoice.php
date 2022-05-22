@@ -3,7 +3,13 @@ require_once('core/config/init.php');
 if (!isset($_SESSION['user_id']) or !isset($_POST['order_id'])) {
     header("location:page-login.php");
 } else {
-    $getOrderDetails = $getOrderDetails($_POST['order_id']);
+
+    if (!isset($_POST['order_id'])) {
+        header("location:index.php");
+    } else {
+        $getOrderDetails = $getOrderDetails($_POST['order_id']);
+        $customerName = $getOrderDetails['first_name'] . ' ' . $getOrderDetails['last_name'];
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -14,7 +20,7 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['order_id'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title><?php echo "{$getOrderDetails['first_name']} {$getOrderDetails['last_name']}'s" ?> Invoice</title>
+    <title><?php echo $customerName ?>'s Invoice</title>
     <!-- manifest -->
     <link rel="manifest" href="assets/JSON/manifest.json">
     <!-- ================= Favicon ================== -->
@@ -33,7 +39,7 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['order_id'])) {
     <link href="assets/css/lib/helper.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
 
-    <style>
+    <style type="text/css">
         .row {
             justify-content: center;
         }
@@ -42,11 +48,47 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['order_id'])) {
             font-size: 0.8rem !important;
             font-weight: bolder !important;
         }
+
+        .custom-print-btn {
+            background: rgba(0, 0, 0, 0.7);
+            width: 40px;
+            height: 40px;
+
+            border: none;
+            border-radius: 40px;
+            padding: 10px;
+
+            color: white !important;
+
+            position: fixed;
+            z-index: 1;
+            bottom: 5%;
+            right: 5%;
+
+            cursor: pointer;
+
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .custom-print-btn:hover {
+            background: rgba(0, 0, 0, 0.5);
+            transform: scale(1.1);
+        }
+
+        .custom-print-btn:active {
+            transition: all 0.1s ease;
+            background: rgba(0, 0, 0, 0.7);
+            box-shadow: unset;
+        }
     </style>
 </head>
 
 
 <body>
+    <button type="button" class="custom-print-btn" onclick="printPageArea('print-area','<?php echo $customerName ?> invoice')">
+        <i class="ti-printer"></i>
+    </button>
+
     <div class="content-wrap">
         <div class="main">
             <div class="container-fluid">
@@ -64,7 +106,7 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['order_id'])) {
                             <div class="page-title">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item">
-                                        <a href="index.php" style="display: inline;">Dashboard</a>
+                                        <a href="#" style="display: inline;">Customer and Order</a>
                                     </li>
                                     <li class="breadcrumb-item">
                                         <a href="manage-order.php" style="display: inline;">Manage Order</a>
@@ -81,7 +123,7 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['order_id'])) {
                     <div class="unix-invoice">
                         <div class="container-fluid">
                             <div class="row">
-                                <div class="col-lg-7">
+                                <div class="col-lg-7" id='print-area'>
                                     <div id="invoice" class="effect2 ">
                                         <div id="invoice-top">
                                             <div class="invoice-logo"></div>
@@ -102,7 +144,6 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['order_id'])) {
                                             <!--End Title-->
                                         </div>
                                         <!--End InvoiceTop-->
-
 
 
                                         <div id="invoice-mid">
@@ -172,8 +213,6 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['order_id'])) {
                                                 </div>
                                             </div>
                                             <!--End Table-->
-
-
                                             <div id="legalcopy">
                                                 <p class="legal"><strong>Thank you for your business!</strong> </p>
                                             </div>
@@ -186,16 +225,31 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['order_id'])) {
                             </div>
                         </div>
                     </div>
-
+                    <?php require_once('widgets/footer.php'); ?>
                 </section>
             </div>
         </div>
     </div>
 
+    <!-- Printing -->
+    <script src="assets/js/print.js" type="text/javascript"></script>
+
+    <!-- Extra Script -->
     <script type="text/javascript">
         const getPageTitle = () => document.querySelector("title").innerHTML;
         document.querySelector(".pageTitle").innerHTML = getPageTitle();
+
+        //Breadcrumb
+        var breadcrumb = document.querySelector(".breadcrumb");
+        var li = document.createElement("li");
+        li.className = "breadcrumb-item";
+        li.innerHTML = "<a href='index.php'>Alin Thit</a>";
+
+        breadcrumb.insertBefore(li, breadcrumb.children[0]);
     </script>
+
+    <!-- PWA  -->
+    <script src="assets/js/app.js"></script>
 </body>
 
 </html>

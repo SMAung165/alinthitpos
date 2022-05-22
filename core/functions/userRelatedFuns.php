@@ -120,7 +120,7 @@ $listUsers = function () use ($link) {
                 <tr class='adminTr'>
                     {$btnDeleteAdmin}
                     <form action='admin-profile.php' method='post'>
-                        <td>USR{$row['user_id']} <input type='hidden' name='user_id' value='{$row['user_id']}' /> </td>
+                        <td><span class='text-info font-weight-bold'>USR{$row['user_id']}</span> <input type='hidden' name='user_id' value='{$row['user_id']}' /> </td>
                     </form>
                     <td>{$row['username']}</td>
                     <td>{$row['first_name']}</td>

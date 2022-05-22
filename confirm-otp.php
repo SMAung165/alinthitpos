@@ -49,14 +49,14 @@ if (!isset($_SESSION['recover_user_id'])) {
                 <div class="col-lg-6">
                     <div class="login-content">
                         <div class="login-form card">
-                            <h4>Enter OTP</h4>
+                            <h4 class="enter-otp">Enter OTP</h4>
                             <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
                                 <div class="form-group">
                                     <input name='OTP' class="form-control" placeholder="12345" />
                                 </div>
-                                <button type="submit" name='confirm_otp' class="btn btn-primary btn-flat m-b-15">Submit</button>
+                                <button type="submit" name='confirm_otp' class="btn btn-primary btn-flat m-b-15 submit">Submit</button>
                                 <div class="register-link text-center">
-                                    <a href='index.php'><span>Back to Home</span></a>
+                                    Back to <a href='index.php' class="text-primary">Home</a>
                                 </div>
                             </form>
                         </div>
@@ -66,6 +66,12 @@ if (!isset($_SESSION['recover_user_id'])) {
         </div>
     </div>
     <?php require_once('widgets/errorInterface.php') ?>
+
+    <!-- Language init -->
+    <script type="text/javascript" src="assets/language/confirmOTP.js"></script>
+    <script type="text/javascript" src="assets/js/setLang.js"></script>
+
+    <!-- Extra Script -->
     <script type="text/javascript">
         function closeNotice(e) {
             e.target.parentElement.parentElement.style.display = "none";
@@ -77,6 +83,9 @@ if (!isset($_SESSION['recover_user_id'])) {
             }
         }
     </script>
+
+    <!-- PWA  -->
+    <script src="assets/js/app.js"></script>
 
 </body>
 

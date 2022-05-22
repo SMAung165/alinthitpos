@@ -24,9 +24,12 @@ if (isset($_POST['updateDeviceBtn'])) {
         if (in_array($fileImageType, $allowedFileType)) {
             $generateImageName = substr(md5(time()), 0, 5);
             $generateImageName = $generateImageName . '.' . substr($fileImageType, 6, 10);
-            $fileImagePath = "assets/images/{$_POST['product_name']}/{$generateImageName}";
-            if (!file_exists("assets/images/{$_POST['product_name']}")) {
-                mkdir("assets/images/{$_POST['product_name']}");
+            $fileImagePath = "assets/images/products/{$_POST['product_name']}/{$generateImageName}";
+            if (!file_exists("assets/images/products")) {
+                mkdir("assets/images/products");
+            }
+            if (!file_exists("assets/images/products/{$_POST['product_name']}")) {
+                mkdir("assets/images/products/{$_POST['product_name']}");
             } else {
                 if (!empty($deviceQuery($_POST['product_id'])['image'])) {
                     if (file_exists($deviceQuery($_POST['product_id'])['image'])) {

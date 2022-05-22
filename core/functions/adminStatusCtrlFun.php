@@ -8,7 +8,7 @@ if (isset($_POST['activatedBtn'])) {
     $finalizedResultForActiveUsr = (int)$finalizedResultForActiveUsr[0];
 
     if ($finalizedResultForActiveUsr < 2 and $_POST['role'] === 'Admin') {
-        $logs[] = "Must have at least one admin to be active!";
+        $logs[] = "<span class='must-hv-one-admin'>Must have at least one admin to be active!</span>";
     } else {
         $queryResult = mysqli_query($link, $query);
         header("Location:{$_SERVER['PHP_SELF']}");

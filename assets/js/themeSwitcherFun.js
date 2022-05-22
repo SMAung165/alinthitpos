@@ -10,11 +10,14 @@ function setBtn() {
 }
 setBtn();
 
+var metaTheme = document.querySelector("#themeColor");
+
 function modeSwitch() {
   if (localStorage.getItem("theme") == "dark") {
     localStorage.setItem("theme", "light");
     setTimeout(() => {
       head.removeChild(document.getElementById("theme"));
+      metaTheme.setAttribute("content", "#fff");
       setBtn();
     }, 0);
   } else {

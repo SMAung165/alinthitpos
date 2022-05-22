@@ -32,10 +32,12 @@ if (isset($_POST['addDevicesBtn'])) {
             if (in_array($fileImageType, $allowedFileType)) {
                 $generateImageName = substr(md5(time()), 0, 5);
                 $generateImageName = $generateImageName . '.' . substr($fileImageType, 6, 10);
-                $fileImagePath = "assets/images/{$_POST['product_name']}/{$generateImageName}";
-                if (!file_exists("assets/images/{$_POST['product_name']}")) {
-
-                    mkdir("assets/images/{$_POST['product_name']}");
+                $fileImagePath = "assets/images/products/{$_POST['product_name']}/{$generateImageName}";
+                if (!file_exists("assets/images/products")) {
+                    mkdir("assets/images/products");
+                }
+                if (!file_exists("assets/images/products/{$_POST['product_name']}")) {
+                    mkdir("assets/images/products/{$_POST['product_name']}");
                 }
                 $fileImageTemp = $_FILES['file_image']['tmp_name'];
                 move_uploaded_file($fileImageTemp, $fileImagePath);

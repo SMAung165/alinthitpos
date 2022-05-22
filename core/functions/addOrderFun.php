@@ -60,6 +60,8 @@ if (isset($_POST['addOrderBtn'])) {
             $logs[] = "There's no stock left in the warehouse.";
         }
     }
+
+
     if ($isCustomerExist === false) {
         $logs[] = "Customer Number: {$dataToInsert['order_customer_number']} does not exist!.";
     }

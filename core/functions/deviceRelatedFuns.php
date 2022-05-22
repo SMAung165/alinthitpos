@@ -82,7 +82,7 @@ $listDevices = function ($list) use ($link) {
             // $specs = '<td><a href="#">' . $row['specs'] . '</a></td>';
 
             echo ("<tr >
-            <td>{$row['device_id']}</td>
+            <td><span class='text-info font-weight-bold'>{$row['device_id']}</span></td>
             <td>{$row['product_name']}</td>
             <td>{$row['product_model']}</td>
             <td>{$row['product_brand']}</td>
@@ -110,7 +110,7 @@ $listDevices = function ($list) use ($link) {
                
                  
             </td>
-            <td>{$row['device_id']}</td>
+            <td><span class='text-info font-weight-bold'>{$row['device_id']}</span></td>
             <td>{$row['product_name']}</td>
             <td>{$row['product_model']}</td>
             <td>{$row['product_brand']}</td>
@@ -126,7 +126,6 @@ $listDevices = function ($list) use ($link) {
                     <ul class='dropdown-menu myActionDropDown'>
                         <li><form action='device-details.php' method='post'><input type='hidden' name='product_id' value='{$row['product_id']}' /><button type='submit' name='deviceDetailsBtn'><i class='ti-file'></i> Details</button></form></li>
                         <li><form action='edit-device.php' method='post'><input type='hidden' name='product_id' value='{$row['product_id']}' /><button type='submit' name='editDeviceBtn'><i class='ti-pencil-alt'></i> Edit</button></form></li>
-                        <li><form action='edit-device.php' method='post'><input type='hidden' name='product_id' value='{$row['product_id']}' /><button type='submit' name='editDeviceBtn'><i class='ti-printer'></i> Print</button></form></li>
                         <li><form action='{$_SERVER['PHP_SELF']}' method='post'><input type='hidden' name='device_id' value='{$row['device_id']}' /><input type='hidden' name='product_id' value='{$row['product_id']}' /><button type='submit' name='deleteDeviceBtn'><i class='ti-trash'></i> Delete</button></form></li>
                     </ul>
                 </div>
@@ -140,14 +139,22 @@ $bestSellers = function ($nameOrValue) use ($link) {
 
     $query = "SELECT `product_name`, `total_sold`, `color` FROM `products` ORDER BY `total_sold` DESC LIMIT 5";
     $queryResult = mysqli_query($link, $query);
-    while ($row = mysqli_fetch_assoc($queryResult)) {
-        $bestSellersName[] = '"' . $row['product_name'] . ' (' . $row['color'] . ')' . '"';
-        $bestSellersQuantity[] = $row['total_sold'];
-    }
-    $combined = array_combine($bestSellersName, $bestSellersQuantity);
-    if ($nameOrValue === 'name') {
-        return implode(', ', array_keys($combined));
-    } else if ($nameOrValue === 'value') {
-        return implode(', ', $combined);
+    if (mysqli_num_rows($queryResult) > 0) {
+        while ($row = mysqli_fetch_assoc($queryResult)) {
+            $bestSellersName[] = '"' . $row['product_name'] . ' (' . $row['color'] . ')' . '"';
+            $bestSellersQuantity[] = $row['total_sold'];
+        }
+        $combined = array_combine($bestSellersName, $bestSellersQuantity);
+        if ($nameOrValue === 'name') {
+            return implode(', ', array_keys($combined));
+        } else if ($nameOrValue === 'value') {
+            return implode(', ', $combined);
+        }
+    } else {
+        if ($nameOrValue === 'name') {
+            return '"Example"';
+        } else if ($nameOrValue === 'value') {
+            return 10;
+        }
     }
 };

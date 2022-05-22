@@ -27,21 +27,21 @@ if (isset($_POST['changePasswordBtn'])) {
     $isPasswordMatch =  $isPasswordMatch($sessionUserId, $currentPassword);
 
     if ($isPasswordMatch === false) {
-        $logs[] = "Current password do not match, try again!";
+        $logs[] = "<span class='curr-pass-unmatch'>Current password do not match.</span>";
     } else {
 
         //Password error handling
         if (preg_match("/\\s/", $newPassword)) {
-            $logs[] = 'Password must not contain spaces <br/><br/>';
+            $logs[] = '<span class="pass-cant-hv-space">Password must not contain spaces</span>';
         } else {
             if (strlen($newPassword) < 8) {
-                $logs[] = 'Password must be at least 8 characters';
+                $logs[] = '<span class="pass-hv-least-8">Password must be at least 8 characters</span>';
             } else {
                 if ($confirmNewPassword !== $newPassword) {
-                    $logs[] = 'New password do not match';
+                    $logs[] = '<span class="new-pass-unmatch">New password do not match</span>';
                 } else {
                     if ($newPassword === $currentPassword) {
-                        $logs[] = "New password must not be the same as current password";
+                        $logs[] = "<span class='new-pass-cant-b-old-pass'>New password must not be the same as current password</span>";
                     } else {
                         $changePassword = $changePassword($sessionUserId, $newPassword);
                     }
@@ -63,13 +63,13 @@ if (isset($_POST['changePasswordForgotBtn'])) {
 
     //Password error handling
     if (preg_match("/\\s/", $newPassword)) {
-        $logs[] = 'Password must not contain spaces <br/><br/>';
+        $logs[] = '<span class="pass-cant-hv-space">Password must not contain spaces</span>';
     } else {
         if (strlen($newPassword) < 8) {
-            $logs[] = 'Password must be at least 8 characters';
+            $logs[] = '<span class="pass-hv-least-8">Password must be at least 8 characters</span>';
         } else {
             if ($confirmNewPassword !== $newPassword) {
-                $logs[] = 'New password do not match';
+                $logs[] = '<span class="new-pass-unmatch">New password do not match</span>';
             } else {
                 $changePassword = $changePassword($userId, $newPassword);
             }

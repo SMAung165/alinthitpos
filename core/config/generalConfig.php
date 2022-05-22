@@ -3,13 +3,29 @@
 $logs = [];
 $outputLogs = function ($logs) {
     for ($i = 0; $i < count($logs); $i++) {
-        echo "<p class='text-muted mb-0'>{$logs[$i]}</p>";
+        echo "<p class='text-muted mb-0 msg'>{$logs[$i]}</p>";
     }
 };
 
 $sanatization = function ($data) use ($link) {
     return mysqli_real_escape_string($link, $data);
 };
+
+/*
+ * Remove the directory and its content (all files and subdirectories).
+ * @param string $dir the directory name
+ */
+function rmrf($dir)
+{
+    foreach (glob($dir) as $file) {
+        if (is_dir($file)) {
+            rmrf("$file/*");
+            rmdir($file);
+        } else {
+            unlink($file);
+        }
+    }
+}
 
 $getRowCount = function ($tableName) use ($link) {
 

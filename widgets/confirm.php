@@ -1,10 +1,10 @@
-<div class="form-container" style="display:none">
+<div class="confirm-form-container" style="display:none">
     <div class="card">
         <div class="card-title">
             <h5 class="text-warning">Warning!</h5>
         </div>
         <div class="card-subtitle">
-            <h6><?php echo "{$warning}" ?></h6>
+            <h6 class="msg"><?php echo "{$warning}" ?></h6>
         </div>
         <div class="card-body">
             <form method='post' action="<?php echo $_SERVER['PHP_SELF'] ?>">
@@ -23,3 +23,4 @@
         </div>
     </div>
 </div>
+<script src="assets/language/notifications.js"></script>

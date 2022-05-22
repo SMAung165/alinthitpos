@@ -1,10 +1,11 @@
 {
     "name": "Alin Thit POS",
     "short_name": "Alin Thit",
-    "start_url": "alinthitpos/alinthitpos/index.php",
+    "scope":"/",
+    "start_url": "../../index.php",
     "display": "standalone",
     "background_color": "#262626",
-    "theme_color": "#222",
+    "theme_color": "#262626",
     "orientation": "portrait-primary",
     "icons": [
         {

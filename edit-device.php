@@ -73,7 +73,7 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['product_id'])) {
                             <div class="page-title">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item">
-                                        <a href="index.php" style="display: inline;">Dashboard</a>
+                                        <a href="#" style="display: inline;">Devices</a>
                                     </li>
                                     <li class="breadcrumb-item">
                                         <a href="manage-devices.php" style="display: inline;">Manage Devices</a>
@@ -92,7 +92,6 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['product_id'])) {
                         <div class="card">
                             <div class="card-title">
                                 <h4 id='editDevice'>Edit Device</h4>
-
                             </div>
                             <div class="card-body">
 
@@ -197,7 +196,6 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['product_id'])) {
     <script src="assets/js/lib/menubar/sidebar.js"></script>
     <script src="assets/js/lib/preloader/pace.min.js"></script>
 
-
     <!-- bootstrap -->
     <script src="assets/js/lib/bootstrap.min.js"></script>
 
@@ -210,7 +208,11 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['product_id'])) {
     <script src="assets/js/scripts.js"></script>
     <script src="assets/js/myScript.js"></script>
 
+    <!-- Fontawesome-->
+    <script type="text/javascript" src="assets/js/lib/font-awesome/all.min.js"></script>
 
+    <!-- PWA  -->
+    <script src="assets/js/app.js"></script>
 
 </body>
 

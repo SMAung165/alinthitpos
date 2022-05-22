@@ -53,19 +53,19 @@ if (!isset($_SESSION['recover_user_id'])) {
                 <div class="col-lg-6">
                     <div class="login-content card">
                         <div class="login-form">
-                            <h4>Change Password</h4>
+                            <h4 class="change-password">Change Password</h4>
                             <form method='post' action="<?php echo $_SERVER['PHP_SELF'] ?>">
                                 <div class="form-group">
-                                    <label>New Password</label>
+                                    <label class="new-password">New Password</label>
                                     <input type="hidden" name='user_id' value="<?php echo $_SESSION['recover_user_id'] ?>" />
                                     <input type="password" name='new_password' class="form-control" placeholder="" required />
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Confirm New Password</label>
+                                    <label class="confirm-new-password">Confirm New Password</label>
                                     <input type="password" name='confirm_new_password' class="form-control" placeholder="" required />
                                 </div>
-                                <button type="submit" name='changePasswordForgotBtn' class="btn btn-primary btn-flat m-b-15">Submit</button>
+                                <button type="submit" name='changePasswordForgotBtn' class="btn btn-primary btn-flat m-b-15 submit">Submit</button>
                                 <div class="register-link text-center">
                                     <a href='index.php'><span>Back to Home</span></a>
                                 </div>
@@ -78,7 +78,13 @@ if (!isset($_SESSION['recover_user_id'])) {
         </div>
     </div>
     <?php require_once('widgets/errorInterface.php'); ?>
-    <script>
+
+    <!-- Language init -->
+    <script type="text/javascript" src="assets/language/changePasswordForgot.js"></script>
+    <script type="text/javascript" src="assets/js/setLang.js"></script>
+
+    <!-- Extra Script -->
+    <script type="text/javascript">
         function closeNotice(e) {
             e.target.parentElement.parentElement.style.display = "none";
             const url = window.location.href.toString();
@@ -89,6 +95,9 @@ if (!isset($_SESSION['recover_user_id'])) {
             }
         }
     </script>
+
+    <!-- PWA  -->
+    <script src="assets/js/app.js"></script>
 
 </body>
 

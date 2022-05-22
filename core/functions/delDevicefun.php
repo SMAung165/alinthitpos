@@ -34,7 +34,7 @@ if (isset($_POST['deleteDeviceBtn'])) {
         $deleteDevice = $deleteDevice($_POST['product_id']);
     } else {
         $grammer = count($isDeviceExistInOrders) > 1 ? 'these order numbers : ' : 'this order number : ';
-        $logs[] = "This device ({$_POST['device_id']}) is listed on {$grammer}" . '(' . implode(', ', $isDeviceExistInOrders) . ')';
+        $logs[] = "<span class='this-dv'>This device</span> ({$_POST['device_id']}) <span class='is-ls-on'>is listed on {$grammer}</span> " . '(' . implode(', ', $isDeviceExistInOrders) . ') <span class=\'extra-mm\'></span>';
     }
 
     if ($deleteDevice === true) {

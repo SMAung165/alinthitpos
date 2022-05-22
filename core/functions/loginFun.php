@@ -11,13 +11,13 @@ if (isset($_POST['loginBtn'])) {
             header("location:{$_SERVER['PHP_SELF']}");
         } else {
             if ($userExist($username) === false) {
-                $logs[] =  'Username does not exist.';
+                $logs[] =  '<span class="user-not-exist">Username does not exist.</span>';
             } else {
                 if ($login($username, $password) === false) {
-                    $logs[] = "Incorrect password";
+                    $logs[] = "<span class='wrong-pass'>Incorrect password</span>";
                 } else {
                     if ($userActive($username) === false) {
-                        $logs[] =  "You haven't activated your account";
+                        $logs[] =  "<span class='hvnt-activate-acc'>You haven't activated your account</span>";
                     } else {
                         $loggedIn = $login($username, $password); //return user_id
                         $_SESSION['user_id'] = $loggedIn;

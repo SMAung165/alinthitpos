@@ -23,14 +23,11 @@ if (isset($_SESSION['user_id'])) {
     <link rel='icon' href='assets/images/favicon.png' type="image/png">
 
     <!-- Language -->
-
     <script type="text/javascript" src="assets/language/lang/en.js"></script>
     <script type="text/javascript" src="assets/language/lang/mm.js"></script>
 
     <!-- script -->
-
     <script src="assets/js/themeSetterFun.js"></script>
-
 
     <!-- Styles -->
     <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
@@ -38,9 +35,37 @@ if (isset($_SESSION['user_id'])) {
     <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/lib/helper.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
-    <style>
+    <style type="text/css">
+        html,
+        body {
+            overflow: hidden;
+        }
+
         .login-form {
             background: transparent !important;
+        }
+
+        .logo-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .page-logo,
+        .alinthit {
+            margin: 0px 4px;
+            display: inline-block;
+        }
+
+        .alinthit {
+            line-height: 44px;
+        }
+
+        .page-logo {
+            padding: 9px;
+            border-radius: 40px;
+
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
@@ -50,29 +75,30 @@ if (isset($_SESSION['user_id'])) {
     <div class="unix-login">
         <div class="container-fluid">
             <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="login-content card">
+                <div class="col-lg-4 col-md-8 col-sm-10 mt-5">
+                    <div class="logo-container">
+                        <div class="page-logo"><img src="assets/images/favicon-144x144.png" width="35px" alt='alinthit' /></div>
+                        <h3 class='alinthit'>အလင်းသစ်</h3>
+                    </div>
+                    <div class="login-content card p-0 mt-5">
                         <div class="login-form">
-                            <h4>Administratior Login</h4>
+                            <h4 class='admin-login'>Administrator Login</h4>
                             <form action='<?php echo $_SERVER['PHP_SELF'] ?>' method="post">
                                 <div class="form-group">
-                                    <label for="username">Username</label>
-                                    <input type="text" name="username" id="username" class="form-control" value='' placeholder="username" required>
+                                    <label for="username" class="username">Username</label>
+                                    <input type="text" name="username" id="username" class="form-control" placeholder="username" required autocomplete="off" />
                                 </div>
                                 <div class="form-group">
-                                    <label for="password">Password</label>
-                                    <input type="password" name="password" id="password" class="form-control" value='' placeholder="Password" required>
+                                    <label for="password" class="password">Password</label>
+                                    <input type="password" name="password" id="password" class="form-control" placeholder="Password" required autocomplete="off" />
                                 </div>
                                 <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox"> Remember Me
-                                    </label>
                                     <label class="pull-right">
-                                        <a href="page-reset-password.php">Forgotten Password?</a>
+                                        <a href="page-reset-password.php" class="forgotten-password">Forgotten Password?</a>
                                     </label>
 
                                 </div>
-                                <button type="submit" name="loginBtn" class="btn btn-primary btn-flat m-b-30 m-t-30">Sign in</button>
+                                <button type="submit" name="loginBtn" class="btn btn-primary btn-flat m-b-30 m-t-30 submit">Sign in</button>
                             </form>
                         </div>
                     </div>
@@ -83,6 +109,12 @@ if (isset($_SESSION['user_id'])) {
 
     <?php require_once('widgets/errorInterface.php') ?>
 
+    <!-- Language init -->
+    <script type="text/javascript" src="assets/language/adminLogin.js"></script>
+    <script type="text/javascript" src="assets/js/setLang.js"></script>
+
+
+    <!-- Extra Script -->
     <script type="text/javascript">
         function closeNotice(e) {
             e.target.parentElement.parentElement.style.display = "none";
@@ -94,6 +126,9 @@ if (isset($_SESSION['user_id'])) {
             }
         }
     </script>
+
+    <!-- PWA  -->
+    <script src="assets/js/app.js"></script>
 </body>
 
 </html>

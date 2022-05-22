@@ -65,10 +65,10 @@ $orderQuery = function ($pageTitle, $deviceId) use ($link) {
                 <tr>
                     
                     <td>{$row['first_name']} {$row['last_name']}</td>
-                    <td>{$row['order_number']}</td>
+                    <td><span class='text-info font-weight-bold'>{$row['order_number']}</span></td>
                     <td>{$row['product_name']}</td>
                     <td>{$price}</td>
-                    <td>{$row['quantity']} PCS</td>
+                    <td><span class='text-success font-weight-bold'>{$row['quantity']}</span> PCS</td>
                     <td>{$totalPrice}</td>
                     <td>{$row['order_date']}</td>
                     <td>{$status}</td>
@@ -142,7 +142,7 @@ $orderQuery = function ($pageTitle, $deviceId) use ($link) {
                     <form method='post' action='order-details.php' class='recentBuyersForm'>
                         <td><a href='#' class='recentByrFormSubmit'>$gender{$row['first_name']} {$row['last_name']}</a></td>
                         <td>{$row['order_date']}</td>
-                        <td>{$row['quantity']}</td>
+                        <td><span class='text-success font-weight-bold'>{$row['quantity']}</span></td>
                         <td class='color-primary'>{$totalPrice}</td>
                         <td>
 

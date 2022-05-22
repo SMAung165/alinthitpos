@@ -17,7 +17,30 @@ function changeLanguage(lang) {
   window.setTimeout(setLang, 0);
   window.setTimeout(setLangSidebarAndIndicator, 0);
   window.setTimeout(setLangAttri, 0);
+  if (
+    document.querySelector("body").querySelector(".fixed-notification") !=
+      null ||
+    document.querySelector("body").querySelector(".confirm-form-container") !=
+      null ||
+    window.location.toString().includes("#warning") ||
+    window.location.toString().includes("#reSuccess")
+  ) {
+    window.setTimeout(setLangForNoti, 0);
+  }
 }
 
 setLang();
-setLangSidebarAndIndicator();
+
+//Only if sidebar exist
+if (document.querySelector("body").querySelector(".sidebar") != null) {
+  setLangSidebarAndIndicator();
+}
+
+//Only if these classes exist
+if (
+  document.querySelector("body").querySelector(".fixed-notification") != null ||
+  document.querySelector("body").querySelector(".confirm-form-container") !=
+    null
+) {
+  setLangForNoti();
+}

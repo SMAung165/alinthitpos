@@ -30,12 +30,10 @@ if (!isset($_SESSION['user_id'])) {
     <!-- styles -->
 
     <link href="assets/css/lib/calendar2/pignose.calendar.min.css" rel="stylesheet">
-    <link href="assets/css/lib/chartist/chartist.min.css" rel="stylesheet">
     <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
     <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
     <link href="assets/css/lib/owl.carousel.min.css" rel="stylesheet" />
     <link href="assets/css/lib/owl.theme.default.min.css" rel="stylesheet" />
-    <link href="assets/css/lib/weather-icons.css" rel="stylesheet" />
     <link href="assets/css/lib/menubar/sidebar.css" rel="stylesheet">
     <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/lib/helper.css" rel="stylesheet">
@@ -44,13 +42,26 @@ if (!isset($_SESSION['user_id'])) {
         #toEarn,
         .currency,
         .countSign {
-
             font-size: 1rem;
         }
+
+        /* 
+        .custom-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            flex-wrap: wrap;
+        } */
 
         .dash-item {
             cursor: pointer;
             transition: all 0.2s;
+        }
+
+        .stat-text,
+        .stat-digit {
+            font-size: 1rem !important;
         }
 
         .dash-item:hover {
@@ -97,7 +108,6 @@ if (!isset($_SESSION['user_id'])) {
                         <div class="page-header">
                             <div class="page-title">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
                                     <li class="breadcrumb-item active"><a class="pageTitle" style="display:inline" href="<?php echo $_SERVER['PHP_SELF'] ?>"></a></li>
                                 </ol>
                             </div>
@@ -107,8 +117,8 @@ if (!isset($_SESSION['user_id'])) {
                 </div>
                 <!-- /# row -->
                 <section id="main-content">
-                    <div class="row">
-                        <div class="col-lg-5">
+                    <div class="row custom-container">
+                        <div class="col-lg-5 col-md-6">
                             <div class="card dash-item">
                                 <div class="stat-widget-one">
                                     <div class="stat-icon dib"><i class="ti-money color-success border-success"></i>
@@ -120,7 +130,7 @@ if (!isset($_SESSION['user_id'])) {
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4">
+                        <div class="col-lg-4 col-md-6">
                             <div class="card dash-item">
                                 <div class="stat-widget-one">
                                     <div class="stat-icon dib"><i class="ti-money color-success border-success"></i>
@@ -132,7 +142,7 @@ if (!isset($_SESSION['user_id'])) {
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3">
+                        <div class="col-lg-3 col-md-6">
                             <div class="card dash-item">
                                 <div class="stat-widget-one">
                                     <div class="stat-icon dib">
@@ -145,7 +155,7 @@ if (!isset($_SESSION['user_id'])) {
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-5">
+                        <div class="col-lg-5 col-md-6">
                             <div class="card dash-item" onclick="window.location='manage-order.php'">
                                 <div class="stat-widget-one">
                                     <div class="stat-icon dib"><i class="ti-money color-danger border-danger"></i>
@@ -157,7 +167,7 @@ if (!isset($_SESSION['user_id'])) {
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4">
+                        <div class="col-lg-4 col-md-6">
                             <div class="card dash-item" onclick="window.location='device-list.php'">
                                 <div class="stat-widget-one">
                                     <div class="stat-icon dib"><i class="ti-mobile color-warning border-warning"></i>
@@ -169,7 +179,7 @@ if (!isset($_SESSION['user_id'])) {
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3">
+                        <div class="col-lg-3 col-md-6">
                             <div class="card dash-item" onclick="window.location='device-list.php'">
                                 <div class="stat-widget-one">
                                     <div class="stat-icon dib"><i class="ti-mobile color-warning border-warning"></i>
@@ -184,7 +194,7 @@ if (!isset($_SESSION['user_id'])) {
 
                     </div>
                     <div class="row">
-                        <div class="col-lg-5">
+                        <div class="col-lg-5 col-md-6">
                             <div class="card" style="background-color:transparent !important; border:none;box-shadow:none;">
                                 <div class="panel-heading">
                                     <div class="panel-title">
@@ -198,7 +208,7 @@ if (!isset($_SESSION['user_id'])) {
                             <!-- /# card -->
                         </div>
                         <!-- /# column -->
-                        <div class="col-lg-7">
+                        <div class="col-lg-7 col-md-6">
                             <div class="card">
                                 <div class="card-body">
                                     <div class="year-calendar">
@@ -260,41 +270,30 @@ if (!isset($_SESSION['user_id'])) {
         </div>
     </div>
 
-    <div style='display:none' class="fixed-notification bottom-right-corner">
-        <div class="info card info--success flex-row p-4 mb-3 shadow d-flex justify-content-between align-items-center">
-            <div class="d-block">
-                <h4 class='text text-success'>Success</h4>
-                <p class="text-muted mb-0">Reset completed!</p>
-            </div>
-            <a href="#" onclick="closeNotice(event)" class="close m-2 p-2">&times;</a>
-        </div>
-    </div>
-
     <!-- jquery vendor -->
     <script src="assets/js/lib/jquery.min.js"></script>
-    <script src="assets/js/lib/jquery.nanoscroller.min.js"></script>
+
     <!-- nano scroller -->
+    <script src="assets/js/lib/jquery.nanoscroller.min.js"></script>
+
+    <!-- sidebar -->
     <script src="assets/js/lib/menubar/sidebar.js"></script>
     <script src="assets/js/lib/preloader/pace.min.js"></script>
-    <!-- sidebar -->
 
-    <script src="assets/js/lib/bootstrap.min.js"></script>
     <!-- bootstrap -->
+    <script src="assets/js/lib/bootstrap.min.js"></script>
 
+    <!-- Libraries -->
     <script src="assets/js/lib/calendar-2/moment.latest.min.js"></script>
     <script src="assets/js/lib/calendar-2/pignose.calendar.min.js"></script>
     <script src="assets/js/lib/calendar-2/pignose.init.js"></script>
-
-    <!-- Libraries -->
-
-    <script src="assets/js/lib/weather/jquery.simpleWeather.min.js"></script>
-    <script src="assets/js/lib/weather/weather-init.js"></script>
     <script src="assets/js/lib/circle-progress/circle-progress.min.js"></script>
     <script src="assets/js/lib/circle-progress/circle-progress-init.js"></script>
-    <script src="assets/js/lib/chartist/chartist.min.js"></script>
     <script src="assets/js/lib/chart-js/Chart.bundle.js"></script>
     <?php require_once('core/functions/dashboardChartFun.php') ?>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- Fontawesome-->
+    <script type="text/javascript" src="assets/js/lib/font-awesome/all.min.js"></script>
 
     <!-- Language init -->
     <script type="text/javascript" src="assets/language/dashboard.js"></script>
@@ -305,7 +304,6 @@ if (!isset($_SESSION['user_id'])) {
     <script src="assets/js/scripts.js"></script>
 
     <!-- Extra script -->
-
     <script type="text/javascript">
         showChart();
         showChartFun();
@@ -316,11 +314,6 @@ if (!isset($_SESSION['user_id'])) {
                 window.setTimeout(showChartFun, 0);
             });
         });
-        if (window.location.toString().includes('#reSuccess')) {
-
-            document.querySelector('.fixed-notification').style.display = 'block';
-
-        }
     </script>
 
     <!-- PWA  -->

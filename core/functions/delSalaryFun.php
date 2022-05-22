@@ -9,7 +9,7 @@ $deleteSalary = function ($salaryId) use ($link) {
 
 if (isset($_POST['confirmBtn'])) {
     if (empty($_POST['delete_confirmation_password'])) {
-        $logs[] = 'Please enter your password!';
+        $logs[] = "<span class='empty-pass'>Please enter your password!</span>";
     } else {
         $currentAdminPass = $_POST['delete_confirmation_password'];
         $verifyPassword = $verifyPassword($sessionUserId, $currentAdminPass);
@@ -17,7 +17,7 @@ if (isset($_POST['confirmBtn'])) {
             $salaryId = $_POST['salary_id'];
             $deleteSalary =  $deleteSalary($salaryId);
         } else {
-            $logs[] = "Password is incorrect!";
+            $logs[] = "<span class='wrong-pass'>Password is incorrect!</span>";
         }
     }
 

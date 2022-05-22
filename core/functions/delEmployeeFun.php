@@ -18,7 +18,7 @@ if (isset($_POST['delete_employee_btn'])) {
     $firstName = $queryEmployee($_POST['employee_id'])['first_name'];
     $lastName = $queryEmployee($_POST['employee_id'])['last_name'];
 
-    $warning = "This will delete all the related data to this employee <span class='text-primary'>'{$firstName} {$lastName}'</span>";
+    $warning = "<span class='will-del-related-em'>This will delete all the related data to this employee</span> <span class='text-primary'>'{$firstName} {$lastName}'</span>";
     $input = "<input name='employee_id' value='{$_POST['employee_id']}' type='hidden' />";
     require_once('widgets/confirm.php');
 }

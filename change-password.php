@@ -50,30 +50,30 @@ if (!isset($_SESSION['user_id'])) {
     <div class="unix-login">
         <div class="container-fluid">
             <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="login-content card">
+                <div class="col-lg-5">
+                    <div class="login-content card p-0">
                         <div class="login-form">
-                            <h4>Change Password</h4>
+                            <h4 class='change-password'>Change Password</h4>
                             <form method='post' action="<?php echo $_SERVER['PHP_SELF'] ?>">
                                 <div class="form-group">
-                                    <label>Current Password</label>
+                                    <label class="current-password">Current Password</label>
                                     <input type="hidden" name='session_user_id' value="<?php echo $sessionUserId ?>" />
                                     <input type="password" name='current_password' class="form-control" placeholder="" required />
                                 </div>
 
                                 <div class="form-group">
-                                    <label>New Password</label>
+                                    <label class='new-password'>New Password</label>
                                     <input type="password" name='new_password' class="form-control" placeholder="" required />
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Confirm New Password</label>
+                                    <label class="confirm-new-password">Confirm New Password</label>
                                     <input type="password" name='confirm_new_password' class="form-control" placeholder="" required />
                                 </div>
 
-                                <button type="submit" name='changePasswordBtn' class="btn btn-primary btn-flat m-b-15">Submit</button>
+                                <button type="submit" name='changePasswordBtn' class="btn btn-primary btn-flat m-b-15 submit">Submit</button>
                                 <div class="register-link text-center">
-                                    <a href='index.php'><span>Back to Home</span></a>
+                                    Back to <a href='index.php'><span class="text-primary">Home</span></a>
                                 </div>
                             </form>
                         </div>
@@ -84,7 +84,13 @@ if (!isset($_SESSION['user_id'])) {
         </div>
     </div>
     <?php require_once('widgets/errorInterface.php'); ?>
-    <script>
+
+    <!-- Language init -->
+    <script type="text/javascript" src="assets/language/changePassword.js"></script>
+    <script type="text/javascript" src="assets/js/setLang.js"></script>
+
+    <!-- Extra Script -->
+    <script type="text/javascript">
         function closeNotice(e) {
             e.target.parentElement.parentElement.style.display = "none";
             const url = window.location.href.toString();
@@ -92,9 +98,14 @@ if (!isset($_SESSION['user_id'])) {
                 window.location.href = url.split("?")[0];
             } else if (url.includes("#") === true) {
                 window.location.href = url.split("#")[0];
+            } else {
+                window.location.href = url;
             }
         }
     </script>
+
+    <!-- PWA  -->
+    <script src="assets/js/app.js"></script>
 
 </body>
 

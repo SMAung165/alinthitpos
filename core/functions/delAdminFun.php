@@ -12,7 +12,7 @@ $deleteAdmin = function ($userId) use ($link) {
 if (isset($_POST['confirmBtn'])) {
 
     if (empty($_POST['delete_confirmation_password'])) {
-        $logs[] = 'Please enter your password!';
+        $logs[] = "<span class='pls-enter-pass'>Please enter your password!</span>";
     } else {
         $currentAdminPass = $_POST['delete_confirmation_password'];
         $verifyPassword = $verifyPassword($sessionUserId, $currentAdminPass);
@@ -21,10 +21,10 @@ if (isset($_POST['confirmBtn'])) {
             if ($userId !== $sessionUserId) {
                 $deleteAdmin =  $deleteAdmin($userId);
             } else {
-                $logs[] = "You can't delete the account you are using!";
+                $logs[] = "<span class='cant-del-acc-using'>You can't delete the account you are using!</span>";
             }
         } else {
-            $logs[] = "Password is incorrect!";
+            $logs[] = "<span class='wrong-pass'>Password is incorrect!</span>";
         }
     }
 

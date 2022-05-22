@@ -46,7 +46,7 @@
                 <?php if ($sessionUserRole === 'Admin') { ?>
                     <li class="label">System</li>
                     <li>
-                        <a href="control-panel.php#warning"><i class='ti-settings'></i><span id='controlPanel'>Control Panel</span></a>
+                        <a href="control-panel.php?warning"><i class='ti-settings'></i><span id='controlPanel'>Control Panel</span></a>
                     </li>
                 <?php } ?>
                 <li class="label">Account Settings</li>

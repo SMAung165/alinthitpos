@@ -51,15 +51,15 @@ if (isset($_SESSION['user_id'])) {
                 <div class="col-lg-6">
                     <div class="login-content">
                         <div class="login-form card">
-                            <h4>Forgot Password</h4>
+                            <h4 class="account-recovery">Account Recovery</h4>
                             <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
                                 <div class="form-group">
                                     <label>Email address</label>
                                     <input type="email" name='recovery_email' class="form-control" placeholder="Email">
                                 </div>
-                                <button type="submit" name='forgot_password' class="btn btn-primary btn-flat m-b-15">Submit</button>
+                                <button type="submit" name='forgot_password' class="btn btn-primary btn-flat m-b-15 submit">Submit</button>
                                 <div class="register-link text-center">
-                                    <p>Back to <a href="page-login.php"> Home</a></p>
+                                    <p>Back to <a href="page-login.php" class="text-primary">Home</a></p>
                                 </div>
                             </form>
                         </div>
@@ -71,6 +71,11 @@ if (isset($_SESSION['user_id'])) {
 
     <?php require_once('widgets/errorInterface.php') ?>
 
+    <!-- Language init -->
+    <script type="text/javascript" src="assets/language/forgotPassword.js"></script>
+    <script type="text/javascript" src="assets/js/setLang.js"></script>
+
+    <!-- Extra Script -->
     <script type="text/javascript">
         function closeNotice(e) {
             e.target.parentElement.parentElement.style.display = "none";
@@ -82,6 +87,9 @@ if (isset($_SESSION['user_id'])) {
             }
         }
     </script>
+
+    <!-- PWA  -->
+    <script src="assets/js/app.js"></script>
 
 </body>
 

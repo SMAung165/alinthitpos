@@ -153,9 +153,7 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['user_id'])) {
           <div class="col-lg-8 p-r-0 title-margin-right">
             <div class="page-header">
               <div class="page-title">
-                <h1>Hello,
-                  <span>Welcome Here</span>
-                </h1>
+                <h1>Hello, <span><?php echo "{$sessionUserFirstName} {$sessionUserLastName}"; ?></span></h1>
               </div>
             </div>
           </div>
@@ -165,12 +163,9 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['user_id'])) {
               <div class="page-title">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item">
-                    <a href="index.php">Dashboard</a>
-                  </li>
-                  <li class="breadcrumb-item">
                     <a style='display:inline' href="admin-list.php">Admin List</a>
                   </li>
-                  <li class="breadcrumb-item active"><a class="pageTitle" style="display:inline" href="<?php echo $_SERVER['PHP_SELF'] ?>"></a></li>
+                  <li class="breadcrumb-item active"><a class="pageTitle" style="display:inline" href="#"></a></li>
                 </ol>
               </div>
             </div>
@@ -278,7 +273,12 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['user_id'])) {
 
   <!-- scripit init-->
   <script src="assets/js/scripts.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <!-- Fontawesome-->
+  <script type="text/javascript" src="assets/js/lib/font-awesome/all.min.js"></script>
+
+  <!-- PWA  -->
+  <script src="assets/js/app.js"></script>
 </body>
 
 </html>
