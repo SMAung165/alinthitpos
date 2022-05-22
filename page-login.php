@@ -65,7 +65,34 @@ if (isset($_SESSION['user_id'])) {
             padding: 9px;
             border-radius: 40px;
 
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .page-logo::before {
+            content: '';
+
+            width: 100%;
+            height: 100%;
+
+            border-radius: 40px;
+            border-left: 1px solid;
+            border-color: cyan;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            animation: rotate 2s linear infinite;
         }
     </style>
 </head>
@@ -78,23 +105,23 @@ if (isset($_SESSION['user_id'])) {
                 <div class="col-lg-4 col-md-8 col-sm-10 mt-5">
                     <div class="logo-container">
                         <div class="page-logo"><img src="assets/images/favicon-144x144.png" width="35px" alt='alinthit' /></div>
-                        <h3 class='alinthit'>အလင်းသစ်</h3>
+                        <h3 class='alinthit text-muted'>အလင်းသစ်</h3>
                     </div>
                     <div class="login-content card p-0 mt-5">
                         <div class="login-form">
-                            <h4 class='admin-login'>Administrator Login</h4>
+                            <h4 class='admin-login text-muted'>Administrator Login</h4>
                             <form action='<?php echo $_SERVER['PHP_SELF'] ?>' method="post">
                                 <div class="form-group">
-                                    <label for="username" class="username">Username</label>
+                                    <label for="username" class="username text-muted">Username</label>
                                     <input type="text" name="username" id="username" class="form-control" placeholder="username" required autocomplete="off" />
                                 </div>
                                 <div class="form-group">
-                                    <label for="password" class="password">Password</label>
+                                    <label for="password" class="password text-muted">Password</label>
                                     <input type="password" name="password" id="password" class="form-control" placeholder="Password" required autocomplete="off" />
                                 </div>
                                 <div class="checkbox">
                                     <label class="pull-right">
-                                        <a href="page-reset-password.php" class="forgotten-password">Forgotten Password?</a>
+                                        <a href="page-reset-password.php" class="forgotten-password text-info">Forgotten Password?</a>
                                     </label>
 
                                 </div>
