@@ -1,15 +1,14 @@
 {
     "name": "Alin Thit POS",
     "short_name": "Alin Thit",
-    "scope":"/",
-    "start_url": "../../index.php",
+    "start_url":"../../",
     "display": "standalone",
     "background_color": "#262626",
     "theme_color": "#262626",
     "orientation": "portrait-primary",
     "icons": [
         {
-            "src": "/alinthitpos/alinthitpos/assets/images/favicon-144x144.png",
+            "src": "../images/favicon-144x144.png",
             "type":"image/png",
             "sizes": "144x144"
         }
