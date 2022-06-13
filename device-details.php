@@ -101,30 +101,30 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['product_id'])) {
                           <img class="img-fluid" src="<?php echo "{$deviceQuery['image']}" ?>" alt="" />
                         </div>
                         <div class="user-work">
-                          <h4 id='deviceWarehouseInfo'>Device Warehouse Info</h4>
+                          <h4 class='device-warehouse-info'>Device Warehouse Info</h4>
                           <div class="work-content">
-                            <h3 id='deviceId'>Device ID</h3>
+                            <h3 class='device-id'>Device ID</h3>
                             <p><?php echo $deviceQuery['device_id'] ?></p>
                           </div>
                           <div class="work-content">
-                            <h3 id='price'>Price</h3>
+                            <h3 class='price'>Price</h3>
                             <p><?php echo number_format($deviceQuery['price']) ?> <span class='currency'>MMK</span></p>
                           </div>
                           <div class="work-content">
-                            <h4 id='warehouseStock'>Warehouse Stock</h4>
-                            <h3 id='initialStock'>Initial Stock</h3>
+                            <h4 class='warehouse-stock'>Warehouse Stock</h4>
+                            <h3 class='initial-stock'>Initial Stock</h3>
                             <p><?php echo $deviceQuery['initial_stock'] ?> <span class="countSign">PCS</span></p>
-                            <h3 id='stockLeft'>Stock Left (Current Assets)</h3>
+                            <h3 class='current-assets'>Stock Left (Current Assets)</h3>
                             <p><?php $stock = $deviceQuery['stock'] == 0 ? '<span class="text text-danger">Sold out</span>' : $deviceQuery['stock'] . ' <span id="left">Left</span>';
                                 echo $stock ?> </p>
                           </div>
                           <div class="work-content">
-                            <h3 id='totalSold'>Total Sold</h3>
+                            <h3 class='total-sold'>Total Sold</h3>
                             <p><?php echo $deviceQuery['total_sold'] ?> <span class='countSign'>PCS</span></p>
                           </div>
                           <div class="work-content">
-                            <h4 id='dataEntry'>Data Entry</h4>
-                            <h3 id='dataEntryDate'>Data Entry Date</h3>
+                            <h4 class='data-entry'>Data Entry</h4>
+                            <h3 class='data-entry-date'>Data Entry Date</h3>
                             <p><?php
 
                                 $entryDateTime = (explode(' ', $deviceQuery['entry_date']));
@@ -136,7 +136,7 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['product_id'])) {
                                 ?></p>
                           </div>
                           <div class="work-content">
-                            <h3 id='dataEntryTime'>Data Entry Time</h3>
+                            <h3 class='data-entry-time'>Data Entry Time</h3>
                             <p><?php
                                 echo $entryTime
 
@@ -161,20 +161,16 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['product_id'])) {
 
                           </div>
                         </div>
-                        <!-- <div class="user-send-message">
-                          <button class="btn btn-primary btn-addon" type="button">
-                            <i class="ti-email"></i>Send Message</button>
-                        </div> -->
                         <div class="custom-tab user-profile-tab">
-                          <div class="">
+                          <div>
                             <div class="user-work" style="width:100%">
-                              <h4 id='deviceInfo'>Device Info</h4>
+                              <h4 class='device-details'>Device Details</h4>
                             </div>
                           </div>
-                          <div class="">
+                          <div>
                             <div role="tabpanel" class="tab-pane active" id="1">
                               <div class="contact-information">
-                                <h4 id='specs'>Specifications</h4>
+                                <h4 class='specs'>Specifications</h4>
                                 <?php
                                 $specifications = trim($deviceQuery['specs'], " \n\r\t\v\x00");
                                 $specifications = (explode(PHP_EOL, $deviceQuery['specs']));
@@ -188,7 +184,7 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['product_id'])) {
                                     echo "
                                         <div class='phone-content'>
                                           <span class='contact-title'>{$newSpecArr[$i][0]}:</span>
-                                          <span class='phone-number'>{$newSpecArr[$i][1]}</span>
+                                          <span>{$newSpecArr[$i][1]}</span>
                                         </div>     
                                     ";
                                   }
@@ -200,14 +196,14 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['product_id'])) {
                               </div>
 
                               <div class="basic-information user-work">
-                                <h4 id='appearance'>Appearance</h4>
+                                <h4 class='appearance'>Appearance</h4>
                                 <div class="birthday-content">
-                                  <span class="contact-title" id='color'>Color:</span>
-                                  <span class="birth-date"><?php echo $deviceQuery['color']; ?></span>
+                                  <span class="contact-title" class='color-variant'>Color:</span>
+                                  <span><?php echo $deviceQuery['color']; ?></span>
                                 </div>
                                 <div class="gender-content">
                                   <span class="contact-title">Resolution:</span>
-                                  <span class="gender"><?php echo $deviceQuery['resolution'] ?></span>
+                                  <span><?php echo $deviceQuery['resolution'] ?></span>
                                 </div>
                               </div>
                             </div>
@@ -225,18 +221,18 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['product_id'])) {
             <div class="col-lg-12">
               <div class="card">
                 <div class="card-title">
-                  <h4 id='recentBuyers'>Recent Buyers</h4>
+                  <h4 class='recent-buyers'>Recent Buyers</h4>
                 </div>
                 <div class="card-body bootstrap-data-table-panel">
                   <div class="table-responsive">
                     <table id="myDataTable" class="display table table-borderd" style="text-align: center;width:100%;padding-bottom:10px">
                       <thead>
                         <tr>
-                          <th id='customerName'>Customer Name</th>
-                          <th id='date'>Date</th>
-                          <th id='quantity'>Quantity</th>
-                          <th id='totalPrice'>Total Price</th>
-                          <th id='status'>Status</th>
+                          <th class='customer-name'>Customer Name</th>
+                          <th class='order-date'>Date</th>
+                          <th class='quantity'>Quantity</th>
+                          <th class='total-price'>Total Price</th>
+                          <th class='payment-status' style="text-align:center;">Payment Status</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -264,7 +260,7 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['product_id'])) {
   <script src="assets/js/lib/bootstrap.min.js"></script>
 
   <!-- Language init -->
-  <script type="text/javascript" src="assets/language/deviceDetails.js"></script>
+  <script type="text/javascript" src="assets/language/applyLanguage.js"></script>
   <script type="text/javascript" src="assets/language/sidebar.js"></script>
   <script type="text/javascript" src="assets/js/setLang.js"></script>
 

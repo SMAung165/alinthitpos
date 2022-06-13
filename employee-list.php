@@ -175,7 +175,7 @@ if (!isset($_SESSION['user_id'])) {
                           <th><span class='firstname'>First Name</span></th>
                           <th><span class="lastname">Last Name</span></th>
                           <th><span class='email'>Email</span></th>
-                          <th><span class='phone'>Phone Number</span></th>
+                          <th><span class='phone-number'>Phone Number</span></th>
                           <th><span class='salary-month'>Salary Month</span></th>
                           <th><span class='salary-status'>Salary Status</span></th>
                           <th style="text-align: center;"><span>Action</span></th>
@@ -191,7 +191,7 @@ if (!isset($_SESSION['user_id'])) {
                           <th><span class='firstname'>First Name</span></th>
                           <th><span class="lastname">Last Name</span></th>
                           <th><span class='email'>Email</span></th>
-                          <th><span class='phone'>Phone Number</span></th>
+                          <th><span class='phone-number'>Phone Number</span></th>
                           <th><span class='salary-month'>Salary Month</span></th>
                           <th><span class='salary-status'>Salary Status</span></th>
                           <th style="text-align: center;"><span>Action</span></th>
@@ -225,7 +225,7 @@ if (!isset($_SESSION['user_id'])) {
   <script type="text/javascript" src="assets/js/lib/font-awesome/all.min.js"></script>
 
   <!-- Language init -->
-  <script type="text/javascript" src="assets/language/employeeList.js"></script>
+  <script type="text/javascript" src="assets/language/applyLanguage.js"></script>
   <script type="text/javascript" src="assets/language/sidebar.js"></script>
   <script type="text/javascript" src="assets/js/setLang.js"></script>
 

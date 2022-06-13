@@ -8,7 +8,7 @@ if (!isset($_SESSION['user_id'])) {
         <div class="col-lg-8">
             <div class="form-group">
                 <input name='user_id' type="hidden" value="<?php echo $sessionUserId ?>" />
-                <label><span id='username'></span>*</label>
+                <label><span class='username'></span>*</label>
                 <input type="text" name="username" class="form-control" placeholder="" value="<?php echo $sessionUserName ?>" required />
             </div>
             <div class="form-group">
@@ -16,16 +16,16 @@ if (!isset($_SESSION['user_id'])) {
                 <input type="email" name="email" class="form-control" value="<?php echo $sessionUserEmail ?>" required />
             </div>
             <div class="form-group">
-                <label><span id="firstname"></span>*</label>
+                <label><span class="firstname"></span>*</label>
                 <input class="form-control" type="text" name="first_name" value="<?php echo $sessionUserFirstName ?>" required />
             </div>
             <div class="form-group">
-                <label><span id='lastname'></span></label>
+                <label><span class='lastname'></span></label>
                 <input class="form-control" type="text" name="last_name" value="<?php echo $sessionUserLastName ?>" />
             </div>
 
             <div class="form-group">
-                <label><span class='phoneNumber'></span></label>
+                <label><span class='phone-number'></span></label>
                 <input class="form-control" type="text" name="phone_number" value="<?php echo $sessionUserPhoneNumber ?>" />
             </div>
             <div class="form-group">
@@ -34,7 +34,7 @@ if (!isset($_SESSION['user_id'])) {
             </div>
 
             <div class="form-group">
-                <label><span id='location'></span></label>
+                <label><span class='location'></span></label>
                 <div class="row">
                     <div class="col-lg-7">
                         <label>Google Maps</label>
@@ -67,11 +67,11 @@ if (!isset($_SESSION['user_id'])) {
 
             </div>
             <div class="form-group">
-                <label><span class='dateOfBirth'></span></label>
+                <label><span class='date-of-birth'></span></label>
                 <input class="form-control" type="date" name="date_of_birth" value="<?php echo $sessionUserDOB  ?>" />
             </div>
             <div class="form-group">
-                <label><span id='workPosition'></span></label>
+                <label><span class='work-position'></span></label>
                 <input class="form-control" name="work_position" placeholder="Web Developer" value="<?php echo $sessionUserPosition; ?>" />
             </div>
             <div class="form-group">
@@ -97,7 +97,7 @@ if (!isset($_SESSION['user_id'])) {
     </div>
     <div class="row">
         <div class="col">
-            <button type="submit" class="btn btn-default" name="updateUserBtn">Submit</button>
+            <button type="submit" class="btn btn-default" name="updateUserBtn"><span class="submit">Submit</span></button>
         </div>
     </div>
 </form>

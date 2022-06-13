@@ -140,7 +140,7 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['order_id'])) {
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-title">
-                                <h4 id='editOrder'>Edit Order</h4>
+                                <h4 class='edit-order'>Edit Order</h4>
 
                             </div>
                             <div class="card-body">
@@ -151,38 +151,38 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['order_id'])) {
                                             <div class="col-lg-8">
                                                 <div class="form-group">
                                                     <input name='order_id' type="hidden" value="<?php echo $getOrderDetails['order_id'] ?>" />
-                                                    <label id='orderNumber'>Order Number</label>
+                                                    <label class='order-number'>Order Number</label>
                                                     <input type="text" name="" class="form-control" placeholder="" value="<?php echo $getOrderDetails['order_number'] ?>" required disabled />
                                                 </div>
                                                 <div class="form-group">
-                                                    <label id='deviceName'>Device Name</label>
+                                                    <label class='device-name'>Device Name</label>
                                                     <input id="example-email" class="form-control" type="text" name="" placeholder="" value="<?php echo "{$getOrderDetails['product_name']} ({$getOrderDetails['product_model']})" ?>" required disabled />
                                                 </div>
                                                 <div class="form-group">
-                                                    <label id='brand'>Brand</label>
+                                                    <label class='brand'>Brand</label>
                                                     <input id="example-email" class="form-control" type="text" name="" placeholder="" value="<?php echo $getOrderDetails['product_brand'] ?>" required disabled />
                                                 </div>
                                                 <div class="form-group">
-                                                    <label id='color'>Color</label>
+                                                    <label class='color-variant'>Color</label>
                                                     <input id="example-email" class="form-control" type="text" name="" placeholder="" value="<?php echo $getOrderDetails['color'] ?>" required disabled />
                                                 </div>
                                                 <div class="form-group">
-                                                    <label id='customerName'>Customer Name</label>
+                                                    <label class='customer-name'>Customer Name</label>
                                                     <input id="example-email" class="form-control" type="text" name="" placeholder="" value="<?php echo "{$getOrderDetails['first_name']} {$getOrderDetails['last_name']}" ?>" required disabled />
                                                 </div>
                                                 <div class="form-group">
-                                                    <label><span id='customer'>Customer</span> <span id='address'>Address</span></label>
+                                                    <label><span class='address'>Address</span></label>
                                                     <textarea id="example-email" class="form-control" type="text" name="specs" style="height:178px" required disabled><?php echo $getOrderDetails['address'] ?></textarea>
                                                 </div>
 
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="form-group">
-                                                    <label id='quantity'>Quantity</label>
+                                                    <label class='quantity'>Quantity</label>
                                                     <input class="form-control" type="text" name="stock" value="<?php echo $getOrderDetails['quantity'] ?>" required disabled />
                                                 </div>
                                                 <div class="form-group">
-                                                    <label id='totalCost'>Total Cost</label>
+                                                    <label class='total-price'>Total Price</label>
                                                     <input class="form-control" type="text" name="price" value="<?php echo (filter_var($getOrderDetails['price'], FILTER_SANITIZE_NUMBER_INT) * intval($getOrderDetails['quantity']) . "MMK"); ?>" required disabled />
                                                 </div>
 
@@ -199,15 +199,14 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['order_id'])) {
                                             </div>
 
                                         </div>
-                                        <span class='hasChild'>
-                                            <?php if ($getOrderDetails['status'] != 1) { ?>
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <button type="submit" class="btn btn-default" name="updateOrderBtn"><span id='submit'></span></button>
-                                                    </div>
+
+                                        <?php if ($getOrderDetails['status'] != 1) { ?>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <button type="submit" class="btn btn-default" name="updateOrderBtn"><span class='submit'>Submit</span></button>
                                                 </div>
-                                            <?php } ?>
-                                        </span>
+                                            </div>
+                                        <?php } ?>
 
                                     </form>
                                 </div>
@@ -234,7 +233,7 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['order_id'])) {
     <script src="assets/js/lib/bootstrap.min.js"></script>
 
     <!-- Language init -->
-    <script type="text/javascript" src="assets/language/editOrder.js"></script>
+    <script type="text/javascript" src="assets/language/applyLanguage.js"></script>
     <script type="text/javascript" src="assets/language/sidebar.js"></script>
     <script type="text/javascript" src="assets/js/setLang.js"></script>
 

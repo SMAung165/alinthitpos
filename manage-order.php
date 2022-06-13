@@ -107,15 +107,15 @@ if (!isset($_SESSION['user_id'])) {
                       <thead>
                         <tr>
 
-                          <th><span class='customerName'></span></th>
-                          <th><span class='orderNumber'></span></th>
-                          <th><span class="deviceName"></span></th>
+                          <th><span class='customer-name'></span></th>
+                          <th><span class='order-number'></span></th>
+                          <th><span class="device-name"></span></th>
                           <th><span class="price"></span></th>
                           <th><span class='quantity'></span></th>
-                          <th><span class='totalPrice'></span></th>
-                          <th><span class="orderDate"></span></th>
-                          <th><span class="status"></span></th>
-                          <th><span class="paymentStatus"></span></th>
+                          <th><span class='total-price'></span></th>
+                          <th><span class="order-date"></span></th>
+                          <th><span class="overall-status"></span></th>
+                          <th><span class="payment-status"></span></th>
                           <th>Action</th>
 
                         </tr>
@@ -126,16 +126,15 @@ if (!isset($_SESSION['user_id'])) {
                       </tbody>
                       <tfoot>
                         <tr>
-
-                          <th><span class='customerName'></span></th>
-                          <th><span class='orderNumber'></span></th>
-                          <th><span class="deviceName"></span></th>
+                          <th><span class='customer-name'></span></th>
+                          <th><span class='order-number'></span></th>
+                          <th><span class="device-name"></span></th>
                           <th><span class="price"></span></th>
                           <th><span class='quantity'></span></th>
-                          <th><span class='totalPrice'></span></th>
-                          <th><span class="orderDate"></span></th>
-                          <th><span class="status"></span></th>
-                          <th><span class="paymentStatus"></span></th>
+                          <th><span class='total-price'></span></th>
+                          <th><span class="order-date"></span></th>
+                          <th><span class="overall-status"></span></th>
+                          <th><span class="payment-status"></span></th>
                           <th>Action</th>
                         </tr>
                       </tfoot>
@@ -166,7 +165,7 @@ if (!isset($_SESSION['user_id'])) {
   <script type="text/javascript" src="assets/js/lib/font-awesome/all.min.js"></script>
 
   <!-- Language init -->
-  <script type="text/javascript" src="assets/language/manageOrders.js"></script>
+  <script type="text/javascript" src="assets/language/applyLanguage.js"></script>
   <script type="text/javascript" src="assets/language/sidebar.js"></script>
   <script type="text/javascript" src="assets/js/setLang.js"></script>
 

@@ -1,7 +1,7 @@
 en = {
   alinthit: "အလင်းသစ်",
   dashboard: "Dashboard",
-  total_profit: "All Time Profit",
+  all_time_profit: "All Time Profit",
   mmk: "MMK",
   current_month_profit: "Current Month Profit",
   today_profit: "Today Profit",
@@ -34,6 +34,7 @@ en = {
   submit: "Submit",
 
   manage_devices: "Manage Devices",
+  edit_device: "Edit Device",
   image: "Image",
   action: "Action",
   details: "Details",
@@ -47,6 +48,7 @@ en = {
   appearance: "Appearance",
   recent_buyers: "Recent Buyers",
   customer_name: "Customer Name",
+  date: "Date",
 
   device: "Device",
   submit: "Submit",
@@ -54,6 +56,7 @@ en = {
   delete: "Delete",
 
   admin: "Admin",
+  admin_id: "Admin ID",
   admin_list: "Admin List",
   username: "Username",
   first_name: "Frist Name",
@@ -75,6 +78,7 @@ en = {
 
   manage_order: "Manage Order",
   customer: "Customer",
+  customer_id: "Customer ID",
   order_number: "Order No.",
   product_name: "Product Name",
   quantity: "Quantity",
@@ -118,6 +122,8 @@ en = {
   add_employee: "Add Employee",
   manage_salary: "Manage Salary",
   salary_month: "Salary Month",
+  salary_id: "Salary ID",
+  salary_payments: "Salary Payments",
   salary_status: "Salary Status",
   unpaid: "Unpaid",
   work: "Work",

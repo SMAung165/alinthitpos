@@ -1,7 +1,7 @@
 mm = {
   alinthit: "အလင်းသစ်",
   dashboard: "Dashboard",
-  total_profit: "စုစုပေါင်း အကျိုးအမြတ်",
+  all_time_profit: "စုစုပေါင်း အကျိုးအမြတ်",
   mmk: "ကျပ်",
   current_month_profit: "ယခုလအတွက်အမြတ်ငွေ",
   today_profit: "ယနေ့အမြတ်",
@@ -33,7 +33,8 @@ mm = {
   price_determined: "ရောင်း မည့် ဈေးနှုန်း",
   submit: "တင်ပြသည်",
 
-  manage_devices: "ဖုန်း စားရင်ပြင်ရန်",
+  manage_devices: "ဖုန်း စားရင်းပြင်ရန်",
+  edit_device: "ဖုန်း အချက်အလက် ပြင်ရန်။",
   image: "ပုံ",
   action: "လုပ်ဆောင်ရန်",
   details: "အသေးစိတ်များ",
@@ -41,12 +42,13 @@ mm = {
   device_warehouse_info: "Device Warehouse Info",
   price: "ဈေးနှုန်း",
   warehouse_stock: "Warehouse Stock",
-  data_entry: "ဒေတာထည့်သွင်းသည်",
+  data_entry: "ဒေတာထည့်သွင်းခြင်း",
   data_entry_date: "ဒေတာထည့်သောနေ့စွဲ",
   data_entry_time: "ဒေတာထည့်သောအချိန်",
   appearance: "အသွင်အပြင်",
   recent_buyers: "လက်တလောဝယ်ယူထားသူများ",
   customer_name: "ဝယ်ယူသူအမည်",
+  date: "နေ့စွဲ",
 
   device: "ဖုန်း ",
   submit: "တင်မည်",
@@ -54,6 +56,7 @@ mm = {
   delete: "ဖျက်သည်",
 
   admin: "အက်မင်",
+  admin_id: "အက်မင် ID",
   admin_list: "အက်မင်စာရင်း",
   username: "အကောင့်အမည်",
   first_name: "ရှေ့ နာမည်",
@@ -75,6 +78,7 @@ mm = {
 
   manage_order: "အော်ဒါ စီစဉ် ရန်",
   customer: "ဈေးဝယ်သူ",
+  customer_id: "ဈေးဝယ်သူ ID",
   order_number: "အော်ဒါ အမှတ်စဉ်",
   product_name: "ထုတ်ကုန်အမည်",
   quantity: "အရေအတွက်",
@@ -89,7 +93,7 @@ mm = {
   customer_info: "ဈေးဝယ်သူအချက်အလက်",
   order_info: "မှာယူမှုအချက်ကလက်များ",
   total_price: "ကျသင့်ငွေစုစုပေါင်း",
-  more_device_details: "More Device Details",
+  more_device_details: "အသေးစိတ် အချက်အလက်များ ကြည့်ရန်။",
 
   add_customer_and_order: "ဈေးဝယ်သူနှင့်မှာယူမှုများထပ်ထည့်ရန်",
   add_customer: "ဈေးဝယ်သူထပ်ထည့်ရန်",
@@ -118,6 +122,8 @@ mm = {
   add_employee: "ဝန်ထမ်းစာရင်း ထဲ ထည့်ရန်",
   manage_salary: "လစာ စရင်း စီမံရန်",
   salary_month: "လစာပေးရန် လ",
+  salary_id: "လစာ ID",
+  salary_payments: "လစာ ပေးချေမှုများ",
   salary_status: "လစာ အခြေအနေ",
   unpaid: "ပေး ရန်",
   work: "အလုပ်",

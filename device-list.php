@@ -88,16 +88,16 @@ if (!isset($_SESSION['user_id'])) {
                                         <table id="myDataTable-export" class="table table-striped table-bordered" style="text-align:center;width:100%;">
                                             <thead>
                                                 <tr>
-                                                    <th><span class="deviceId"></span></th>
-                                                    <th><span class='deviceName'></span></th>
-                                                    <th><span class='deviceModel'></span></th>
-                                                    <th><span class='deviceBrand'></span></th>
-                                                    <th><span class='colorVariant'></span></th>
-                                                    <th><span class='expensePerOne'></span></th>
-                                                    <th><span class='pricePerOne'></span></th>
-                                                    <th><span class='initialStock'></span></th>
-                                                    <th><span class='totalSold'></span></th>
-                                                    <th><span class='stockLeft'></span></th>
+                                                    <th><span class="device-id"></span></th>
+                                                    <th><span class='device-name'></span></th>
+                                                    <th><span class='model-number'></span></th>
+                                                    <th><span class='brand'></span></th>
+                                                    <th><span class='color-variant'></span></th>
+                                                    <th><span class='expense-per-one'></span></th>
+                                                    <th><span class='price-per-one'></span></th>
+                                                    <th><span class='initial-stock'></span></th>
+                                                    <th><span class='total-sold'></span></th>
+                                                    <th><span class='stock-left'></span></th>
                                                     <th><span class='profit'></span></th>
                                                 </tr>
                                             </thead>
@@ -106,16 +106,16 @@ if (!isset($_SESSION['user_id'])) {
                                             </tbody>
                                             <tfoot>
                                                 <tr>
-                                                    <th><span class="deviceId"></span></th>
-                                                    <th><span class='deviceName'></span></th>
-                                                    <th><span class='deviceModel'></span></th>
-                                                    <th><span class='deviceBrand'></span></th>
-                                                    <th><span class='colorVariant'></span></th>
-                                                    <th><span class='expensePerOne'></span></th>
-                                                    <th><span class='pricePerOne'></span></th>
-                                                    <th><span class='initialStock'></span></th>
-                                                    <th><span class='totalSold'></span></th>
-                                                    <th><span class='stockLeft'></span></th>
+                                                    <th><span class="device-id"></span></th>
+                                                    <th><span class='device-name'></span></th>
+                                                    <th><span class='model-number'></span></th>
+                                                    <th><span class='brand'></span></th>
+                                                    <th><span class='color-variant'></span></th>
+                                                    <th><span class='expense-per-one'></span></th>
+                                                    <th><span class='price-per-one'></span></th>
+                                                    <th><span class='initial-stock'></span></th>
+                                                    <th><span class='total-sold'></span></th>
+                                                    <th><span class='stock-left'></span></th>
                                                     <th><span class='profit'></span></th>
                                                 </tr>
                                             </tfoot>
@@ -161,7 +161,7 @@ if (!isset($_SESSION['user_id'])) {
 
 
     <!-- Language init -->
-    <script type="text/javascript" src="assets/language/deviceList.js"></script>
+    <script type="text/javascript" src="assets/language/applyLanguage.js"></script>
     <script type="text/javascript" src="assets/language/sidebar.js"></script>
     <script type="text/javascript" src="assets/js/setLang.js"></script>
 

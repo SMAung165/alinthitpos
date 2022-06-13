@@ -168,13 +168,13 @@ if (!isset($_SESSION['user_id'])) {
                                             <thead>
                                                 <tr>
                                                     <th>Action</th>
-                                                    <th><span class="salary">Salary</span> ID</th>
+                                                    <th><span class="salary-id">Salary ID</span></th>
                                                     <th><span class='employee-name'>Employee Name</span></th>
                                                     <th><span class='position'>Position</span></th>
-                                                    <th><span class='month'>Month</span></th>
+                                                    <th><span class='salary-month'>Month</span></th>
                                                     <th><span class='payment-date'>Payment Date</span></th>
                                                     <th><span class='basic-salary'>Basic Salary</span></th>
-                                                    <th><span class='bonus'>Bonus</span></th>
+                                                    <th><span class='salary-bonus'>Bonus</span></th>
                                                     <th><span class='total-salary'>Total Salary</span></th>
                                                     <th style="text-align:center;"><span class='salary-status'>Salary Status</span></th>
                                                 </tr>
@@ -186,10 +186,10 @@ if (!isset($_SESSION['user_id'])) {
                                             <tfoot>
                                                 <tr>
                                                     <th>Action</th>
-                                                    <th><span class="salary">Salary</span> ID</th>
+                                                    <th><span class="salary-id">Salary ID</span></th>
                                                     <th><span class='employee-name'>Employee Name</span></th>
                                                     <th><span class='position'>Position</span></th>
-                                                    <th><span class='month'>Month</span></th>
+                                                    <th><span class='salary-month'>Month</span></th>
                                                     <th><span class='payment-date'>Payment Date</span></th>
                                                     <th><span class='basic-salary'>Basic Salary</span></th>
                                                     <th><span class='bonus'>Bonus</span></th>
@@ -224,7 +224,7 @@ if (!isset($_SESSION['user_id'])) {
     <script type="text/javascript" src="assets/js/lib/font-awesome/all.min.js"></script>
 
     <!-- Language init -->
-    <script type="text/javascript" src="assets/language/manageSalary.js"></script>
+    <script type="text/javascript" src="assets/language/applyLanguage.js"></script>
     <script type="text/javascript" src="assets/language/sidebar.js"></script>
     <script type="text/javascript" src="assets/js/setLang.js"></script>
 

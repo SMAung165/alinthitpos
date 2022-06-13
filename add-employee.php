@@ -92,26 +92,26 @@ if (!isset($_SESSION['user_id'])) {
                                         <div class="row">
                                             <div class="col-lg-8">
                                                 <div class="form-group">
-                                                    <label id='firstName'>First Name*</label>
+                                                    <label><span class="firstname">First Name</span>*</label>
                                                     <input type="text" name="first_name" class="form-control" placeholder="e.g., John" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label id='lastName'>Last Name</label>
+                                                    <label class='lastname'>Last Name</label>
                                                     <input type="text" name="last_name" class="form-control" placeholder="Doe">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label id='email'>Email</label>
-                                                    <input id="example-email" class="form-control" type="text" name="email" placeholder="">
+                                                    <label class='email'>Email</label>
+                                                    <input class="form-control" type="text" name="email" placeholder="">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label id='phoneNumber'>Phone Number</label>
+                                                    <label><span class='phone-number'>Phone Number</span>*</label>
                                                     <input class="form-control" type="text" name="phone_number" placeholder="" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label id='address'>Address</label><textarea id="example-email" class="form-control" type="text" name="address" style="height:235px"></textarea>
+                                                    <label class='address'>Address</label><textarea class="form-control" type="text" name="address" style="height:235px"></textarea>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label id='workLocation'>Work Location</label>
+                                                    <label class='work-location'>Work Location</label>
                                                     <textarea style='height:132px' class="form-control" type="text" name="work_location"></textarea>
                                                 </div>
 
@@ -119,26 +119,26 @@ if (!isset($_SESSION['user_id'])) {
                                             <div class="col-lg-4">
 
                                                 <div class="form-group">
-                                                    <label id='gender'>Gender</label>
+                                                    <label class='gender'>Gender</label>
                                                     <select name='gender' class="form-control">
                                                         <option selected>Male</option>
                                                         <option>Female</option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label id='dateOfBirth'>Date of Birth</label>
+                                                    <label class='date-of-birth'>Date of Birth</label>
                                                     <input class="form-control" type="date" name="date_of_birth">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label id='dateHired'>Date Hired</label>
-                                                    <input class="form-control" type="date" name="date_hired">
+                                                    <label><span class='date-hired'>Date Hired</span>*</label>
+                                                    <input class="form-control" type="date" name="date_hired" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label id='position'>Position</label>
-                                                    <input class="form-control" type="text" name="position" value="" required placeholder="Web Developer">
+                                                    <label><span class='position'>Position</span>*</label>
+                                                    <input class="form-control" type="text" name="position" value="" placeholder="Web Developer" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label><span id='specialty'>Specialty</span> (<span id='skills'>Skills</span>)</label>
+                                                    <label><span class='specialty'>Specialty</span> (<span class='skills'>Skills</span>)</label>
                                                     <textarea class="form-control" type="text" name="specialty" value="" placeholder="HTML, CSS, JavaScript"></textarea>
                                                 </div>
 
@@ -162,7 +162,7 @@ if (!isset($_SESSION['user_id'])) {
                                         </div>
                                         <div class="row">
                                             <div class="col">
-                                                <button id='submit' type="submit" class="btn btn-default" name="add_employee_btn">Submit</button>
+                                                <button id='submit' type="submit" class="btn btn-default" name="add_employee_btn"><span class="submit">Submit</span></button>
                                             </div>
                                         </div>
                                     </form>
@@ -190,7 +190,7 @@ if (!isset($_SESSION['user_id'])) {
     <script src="assets/js/lib/bootstrap.min.js"></script>
 
     <!-- Language init -->
-    <script type="text/javascript" src="assets/language/addEmployee.js"></script>
+    <script type="text/javascript" src="assets/language/applyLanguage.js"></script>
     <script type="text/javascript" src="assets/language/sidebar.js"></script>
     <script type="text/javascript" src="assets/js/setLang.js"></script>
 

@@ -186,7 +186,7 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['user_id'])) {
                           <img class="img-fluid" src="<?php echo "{$getAdminData['profile_image']}" ?>" alt="" />
                         </div>
                         <div class="user-work">
-                          <h4 id='work'>Work</h4>
+                          <h4 class='work'>Work</h4>
                           <div class="work-content">
                             <h3><?php echo "{$getAdminData['position']}" ?></h3>
                             <p>Alin Thit Mobile</p>
@@ -205,18 +205,18 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['user_id'])) {
                         <div class="user-Location">
                           <a href="<?php echo "{$getAdminData['gmaps']}" ?>" target='blank'> <i class="ti-location-pin"></i> <?php echo "{$getAdminData['address']}" ?></a>
                         </div>
-                        <div class="user-job-title"><span class='text text-primary' id='admin'><?php echo "{$getAdminData['role']}" ?></span></div>
+                        <div class="user-job-title"><span class='text text-primary' class='admin'><?php echo "{$getAdminData['role']}" ?></span></div>
                         <div class="custom-tab user-profile-tab">
                           <div class="user-work" style="width: 100%;">
-                            <h4 id='about'>About</h4>
+                            <h4 class='about'>About</h4>
                           </div>
                           <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="1">
                               <div class="contact-information">
-                                <h4 id='contactInfo'>Contact information</h4>
+                                <h4 class='contact-info'>Contact information</h4>
                                 <div class="phone-content">
-                                  <span class="contact-title"><span class='phoneNumber'></span> : </span>
-                                  <span class="phone-number"><?php echo "{$getAdminData['phone_number']}" ?></span>
+                                  <span class="contact-title"><span class='phone-number'></span> : </span>
+                                  <span><?php echo "{$getAdminData['phone_number']}" ?></span>
                                 </div>
                                 <div class="address-content">
                                   <span class="contact-title"><span class="address"></span> : </span>
@@ -232,14 +232,14 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['user_id'])) {
                                 </div>
                               </div>
                               <div class="basic-information user-work" style="width: 100%;">
-                                <h4 id='basicInfo'>Basic information</h4>
+                                <h4 class='basic-info'>Basic information</h4>
                                 <div class="birthday-content">
-                                  <span class="contact-title"><span class='dateOfBirth'></span> : </span>
-                                  <span class="birth-date"><?php echo "{$getAdminData['date_of_birth']}" ?></span>
+                                  <span class="contact-title"><span class='date-of-birth'></span> : </span>
+                                  <spa><?php echo "{$getAdminData['date_of_birth']}" ?></span>
                                 </div>
                                 <div class="gender-content">
                                   <span class="contact-title"><span class="gender"></span> : </span>
-                                  <span class="gender"><?php echo "{$getAdminData['gender']}" ?></span>
+                                  <span><?php echo "{$getAdminData['gender']}" ?></span>
                                 </div>
                               </div>
                             </div>
@@ -267,7 +267,7 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['user_id'])) {
   <script src="assets/js/lib/bootstrap.min.js"></script>
 
   <!-- Language init -->
-  <script type="text/javascript" src="assets/language/adminProfile.js"></script>
+  <script type="text/javascript" src="assets/language/applyLanguage.js"></script>
   <script type="text/javascript" src="assets/language/sidebar.js"></script>
   <script type="text/javascript" src="assets/js/setLang.js"></script>
 

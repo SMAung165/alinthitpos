@@ -58,9 +58,6 @@ $orderQuery = function ($pageTitle, $deviceId) use ($link) {
                                 </form>
                             </li>";
             }
-
-
-
             echo "
                 <tr>
                     
@@ -145,10 +142,8 @@ $orderQuery = function ($pageTitle, $deviceId) use ($link) {
                         <td><span class='text-success font-weight-bold'>{$row['quantity']}</span></td>
                         <td class='color-primary'>{$totalPrice}</td>
                         <td>
-
-                                <input type='hidden' name='order_id' value='{$row['order_id']}'/>
-                                {$status}
-                            
+                            <input type='hidden' name='order_id' value='{$row['order_id']}'/>
+                            <center>{$status}</center>
                         </td>
                     </form>
                 </tr>

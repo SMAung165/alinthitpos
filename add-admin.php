@@ -86,7 +86,7 @@ if (!isset($_SESSION['user_id'])) {
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-title">
-                                <h4 class='addAdmin'>Add Admin</h4>
+                                <h4 class='add-admin'>Add Admin</h4>
                             </div>
                             <div class="card-body">
                                 <div class="basic-elements">
@@ -94,20 +94,20 @@ if (!isset($_SESSION['user_id'])) {
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <div class="form-group">
-                                                    <label><span id='username'></span>*</label>
+                                                    <label><span class='username'></span>*</label>
                                                     <input type="text" name="username" class="form-control" placeholder="johndoe123" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label><span id='firstname'></span>*</label>
-                                                    <input id="example-firstname" class="form-control" type="text" name="first_name" placeholder="John" name="example-email">
+                                                    <label><span class='firstname'></span>*</label>
+                                                    <input class="form-control" type="text" name="first_name" placeholder="John" name="example-email">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label><span id='lastname'></span></label>
-                                                    <input id="example-lastname" class="form-control" type="text" name="last_name" placeholder="Doe" name="example-email">
+                                                    <label><span class='lastname'></span></label>
+                                                    <input class="form-control" type="text" name="last_name" placeholder="Doe" name="example-email">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label><span id='email'></span>*</label>
-                                                    <input id="example-email" class="form-control" type="email" name="email" placeholder="example@gmail.com" name="example-email" required>
+                                                    <label><span class='email'></span>*</label>
+                                                    <input class="form-control" type="email" name="email" placeholder="example@gmail.com" name="example-email" required>
                                                 </div>
 
                                             </div>
@@ -117,18 +117,18 @@ if (!isset($_SESSION['user_id'])) {
                                                     <input class="form-control" type="password" name="password" value="" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label><span id='confirmPassword'></span>*</label>
+                                                    <label><span class='confirm-password'></span>*</label>
                                                     <input class="form-control" type="password" name="confirm_password" value="" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label><span id='adminRole'></span></label>
+                                                    <label><span class='admin-role'></span></label>
                                                     <select class="form-control" name="role">
                                                         <option>Admin</option>
                                                         <option selected>Sale Staff</option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label><span id='accountStatus'></span></label>
+                                                    <label><span class='account-status'></span></label>
                                                     <select class="form-control" name="active">
                                                         <option>Activate</option>
                                                         <option selected>Deactivate</option>
@@ -141,7 +141,7 @@ if (!isset($_SESSION['user_id'])) {
                                         </div>
                                         <div class="row">
                                             <div class="col">
-                                                <button type="submit" class="btn btn-default" name="registerBtn"><span id='submit'></span></button>
+                                                <button type="submit" class="btn btn-default" name="registerBtn"><span class='submit'></span></button>
                                             </div>
                                         </div>
                                     </form>
@@ -176,7 +176,7 @@ if (!isset($_SESSION['user_id'])) {
     <script src="assets/js/lib/bootstrap.min.js"></script>
 
     <!-- Language init -->
-    <script type="text/javascript" src="assets/language/addAdmin.js"></script>
+    <script type="text/javascript" src="assets/language/applyLanguage.js"></script>
     <script type="text/javascript" src="assets/language/sidebar.js"></script>
     <script type="text/javascript" src="assets/js/setLang.js"></script>
 

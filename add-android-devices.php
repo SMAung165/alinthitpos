@@ -80,7 +80,7 @@ if (!isset($_SESSION['user_id'])) {
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-title">
-                                <h4><span class='addDevices'></span></h4>
+                                <h4><span class='add-devices'></span></h4>
 
                             </div>
                             <div class="card-body">
@@ -91,19 +91,19 @@ if (!isset($_SESSION['user_id'])) {
                                             <div class="col-lg-8">
                                                 <input type="hidden" name="device_id" value="<?php echo $nextDeviceId; ?>" required readonly />
                                                 <div class="form-group">
-                                                    <label id='deviceName'>Device Name*</label>
+                                                    <label class='device-name'>Device Name*</label>
                                                     <input type="text" name="product_name" class="form-control" placeholder="Samsung Galaxy S10" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label id='modelNumber'>Model No.</label>
-                                                    <input id="example-email" class="form-control" type="text" name="product_model" placeholder="SM-G973U">
+                                                    <label class='model-number'>Model No.</label>
+                                                    <input class="form-control" type="text" name="product_model" placeholder="SM-G973U">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label id='brand'>Brand</label>
-                                                    <input id="example-email" class="form-control" type="text" name="product_brand" placeholder="Samsung">
+                                                    <label class='brand'>Brand</label>
+                                                    <input class="form-control" type="text" name="product_brand" placeholder="Samsung">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label id='specs'>Specifications</label><textarea id="example-email" class="form-control" type="text" name="specs" style="height:235px">
+                                                    <label class='specs'>Specifications</label><textarea id="example-email" class="form-control" type="text" name="specs" style="height:235px">
 Chipset:
 CPU:
 GPU:
@@ -119,7 +119,7 @@ Battery:</textarea>
                                                     <input class="form-control" type="text" name="resolution" value="" placeholder="720x1080">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label id='colorVariant'>Color Variant</label>
+                                                    <label class='color-variant'>Color Variant</label>
                                                     <input class="form-control" type="text" name="color" value="" placeholder="Blue">
                                                 </div>
 
@@ -127,23 +127,23 @@ Battery:</textarea>
                                             <div class="col-lg-4">
 
                                                 <div class="form-group">
-                                                    <label id='expense'>Expense*</label>
+                                                    <label class='expense'>Expense*</label>
                                                     <input class="form-control" type="text" name="expense" value="" required placeholder="300,000">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label id='priceDetermined'>Price Determined*</label>
+                                                    <label class='price-determined'>Price Determined*</label>
                                                     <input class="form-control" type="text" name="price" value="" required placeholder="350,000">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label id='initialStock'>Initial Stock*</label>
+                                                    <label class='initial-stock'>Initial Stock*</label>
                                                     <input class="form-control" type="text" name="initial_stock" value="" required placeholder="10">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label id='stockLeft'>Stock Left (Current Assets)</label>
+                                                    <label class='stock-left'>Stock Left (Current Assets)</label>
                                                     <input class="form-control" type="text" name="stock" value="" placeholder="9">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label id='totalSold'>Total Sold</label>
+                                                    <label class='total-sold'>Total Sold</label>
                                                     <input class="form-control" type="text" name="total_sold" value="" placeholder="1">
                                                 </div>
 
@@ -162,7 +162,7 @@ Battery:</textarea>
                                         </div>
                                         <div class="row">
                                             <div class="col">
-                                                <button id='submit' type="submit" class="btn btn-default" name="addDevicesBtn">Submit</button>
+                                                <button id='submit' type="submit" class="btn btn-default" name="addDevicesBtn"><span class="submit">Submit</span></button>
                                             </div>
                                         </div>
                                     </form>
@@ -197,7 +197,7 @@ Battery:</textarea>
     <script src="assets/js/lib/bootstrap.min.js"></script>
 
     <!-- Language init -->
-    <script type="text/javascript" src="assets/language/addDevice.js"></script>
+    <script type="text/javascript" src="assets/language/applyLanguage.js"></script>
     <script type="text/javascript" src="assets/language/sidebar.js"></script>
     <script type="text/javascript" src="assets/js/setLang.js"></script>
 

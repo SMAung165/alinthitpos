@@ -144,7 +144,7 @@ if (!isset($_SESSION['user_id'])) {
             <div class="col">
               <div class="card">
                 <div class="card-title">
-                  <h4 class="adminList">Admin List</h4>
+                  <h4 class="admin-list">Admin List</h4>
                 </div>
                 <div class="bootstrap-data-table-panel">
                   <div class="table-responsive">
@@ -152,14 +152,13 @@ if (!isset($_SESSION['user_id'])) {
                       <thead>
                         <tr>
                           <th style="text-align: center;"><span>Action</span></th>
-                          <th><span class="admin"></span> ID</th>
+                          <th><span class="admin-id"></span></th>
                           <th><span class='username'></span></th>
                           <th><span class='firstname'></span></th>
                           <th><span class="lastname"></span></th>
                           <th><span class='email'></span></th>
-                          <th><span class='role'></span></th>
-                          <th><span class='accountStatus'></span></th>
-
+                          <th><span class='admin-role'></span></th>
+                          <th><span class='account-status'></span></th>
                         </tr>
                       </thead>
 
@@ -169,14 +168,13 @@ if (!isset($_SESSION['user_id'])) {
                       <tfoot>
                         <tr>
                           <th><span>Action</span></th>
-                          <th><span class="admin"></span> ID</th>
+                          <th><span class="admin-id"></span></th>
                           <th><span class='username'></span></th>
                           <th><span class='firstname'></span></th>
                           <th><span class="lastname"></span></th>
                           <th><span class='email'></span></th>
-                          <th><span class='role'></span></th>
-                          <th><span class='accountStatus'></span></th>
-
+                          <th><span class='admin-role'></span></th>
+                          <th><span class='account-status'></span></th>
                         </tr>
                       </tfoot>
                     </table>
@@ -203,7 +201,7 @@ if (!isset($_SESSION['user_id'])) {
   <script type="text/javascript" src="assets/js/lib/font-awesome/all.min.js"></script>
 
   <!-- Language init -->
-  <script type="text/javascript" src="assets/language/adminList.js"></script>
+  <script type="text/javascript" src="assets/language/applyLanguage.js"></script>
   <script type="text/javascript" src="assets/language/sidebar.js"></script>
   <script type="text/javascript" src="assets/js/setLang.js"></script>
 

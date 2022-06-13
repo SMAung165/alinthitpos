@@ -158,13 +158,13 @@ if (!isset($_SESSION['user_id'])) {
                       <thead>
                         <tr>
                           <th><span class='image'></span></th>
-                          <th><span class='deviceId'></span></th>
-                          <th><span class='deviceName'></span></th>
-                          <th><span class='model'></span></th>
+                          <th><span class='device-id'></span></th>
+                          <th><span class='device-name'></span></th>
+                          <th><span class='model-number'></span></th>
                           <th><span class='brand'></span></th>
-                          <th><span class='colorVariant'></span></th>
+                          <th><span class='color-variant'></span></th>
                           <th><span class='price'></span></th>
-                          <th><span class='stock'></span></th>
+                          <th><span class='current-assets'></span></th>
                           <th>Action</th>
                         </tr>
                       </thead>
@@ -175,13 +175,13 @@ if (!isset($_SESSION['user_id'])) {
                       <tfoot>
                         <tr>
                           <th><span class='image'></span></th>
-                          <th><span class='deviceId'></span></th>
-                          <th><span class='deviceName'></span></th>
-                          <th><span class='model'></span></th>
+                          <th><span class='device-id'></span></th>
+                          <th><span class='device-name'></span></th>
+                          <th><span class='model-number'></span></th>
                           <th><span class='brand'></span></th>
-                          <th><span class='colorVariant'></span></th>
+                          <th><span class='color-variant'></span></th>
                           <th><span class='price'></span></th>
-                          <th><span class='stock'></span></th>
+                          <th><span class='current-assets'></span></th>
                           <th>Action</th>
                         </tr>
                       </tfoot>
@@ -209,7 +209,7 @@ if (!isset($_SESSION['user_id'])) {
   <script src="assets/js/lib/bootstrap.min.js"></script>
 
   <!-- Language init -->
-  <script type="text/javascript" src="assets/language/manageDevices.js"></script>
+  <script type="text/javascript" src="assets/language/applyLanguage.js"></script>
   <script type="text/javascript" src="assets/language/sidebar.js"></script>
   <script type="text/javascript" src="assets/js/setLang.js"></script>
 

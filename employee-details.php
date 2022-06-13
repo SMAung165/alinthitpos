@@ -107,19 +107,19 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['employee_id'])) {
                           <img class="img-fluid" src="<?php echo "{$queryEmployee['image']}" ?>" alt="" />
                         </div>
                         <div class="user-work">
-                          <h4 id='work'>Work</h4>
+                          <h4 class='work'>Work</h4>
                           <div class="work-content">
-                            <b id='workLocation'>Work Location</b> :
+                            <b class='work-location'>Work Location</b> :
                             <span><?php echo ($queryEmployee['work_location']) ?></span>
                             <br /><br />
-                            <b id='workPosition'>Work Position</b> :
+                            <b class='work-position'>Work Position</b> :
                             <span><?php echo "{$queryEmployee['position']}" ?></span>
                             <br /><br />
                             <p class="text text-info"><?php echo $queryEmployee['date_hired'] ?></p>
                           </div>
                         </div>
                         <div class="user-skill">
-                          <h4><span id='specialty'>Specialty</span> (<span id="skills">Skills</span>)</h4>
+                          <h4><span class='specialty'>Specialty</span> (<span class="skills">Skills</span>)</h4>
                           <ul>
                             <?php $outPutSessionUserSpecialty($queryEmployee['specialty']); ?>
                           </ul>
@@ -128,41 +128,41 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['employee_id'])) {
                       <div class="col-lg-9">
                         <div class="user-profile-name"><?php echo "{$queryEmployee['first_name']} {$queryEmployee['last_name']} " ?></div>
 
-                        <div class="user-job-title"><span class='text text-primary' id='admin'><?php echo "{$queryEmployee['role']}" ?></span></div>
+                        <div class="user-job-title"><span class='text text-primary' class='admin'><?php echo "{$queryEmployee['role']}" ?></span></div>
                         <div class="custom-tab user-profile-tab">
                           <div class="user-work" style="width: 100%;">
-                            <h4 id='about'>About</h4>
+                            <h4 class='about'>About</h4>
                           </div>
                           <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="1">
                               <div class="contact-information">
-                                <h4 id='contactInfo'>Contact information</h4>
+                                <h4 class='contact-info'>Contact information</h4>
                                 <div class="phone-content">
-                                  <span class="contact-title"><span id='phoneNumber'>Phone Number</span> : </span>
+                                  <span class="contact-title"><span class='phone-number'>Phone Number</span> : </span>
                                   <span class="phone-number"><?php echo "{$queryEmployee['phone_number']}" ?></span>
                                 </div>
                                 <div class="address-content">
-                                  <span class="contact-title"><span id="address">Address</span> : </span>
+                                  <span class="contact-title"><span class="address">Address</span> : </span>
                                   <span class="mail-address"><?php echo "{$queryEmployee['address']}" ?></span>
                                 </div>
                                 <div class="email-content">
-                                  <span class="contact-title"><span id="email">Email</span> : </span>
+                                  <span class="contact-title"><span class="email">Email</span> : </span>
                                   <span class="contact-email"><?php echo "{$queryEmployee['email']}" ?></span>
                                 </div>
                                 <div class="facebook-content">
-                                  <span class="contact-title"><span id="facebook">Facebook</span> : </span>
+                                  <span class="contact-title"><span class="facebook">Facebook</span> : </span>
                                   <span class="contact-facebook"><a class='text-secondary font-weight-bold' href="<?php echo "{$queryEmployee['facebook']}" ?>" target="blank"><?php echo "{$queryEmployee['first_name']} {$queryEmployee['last_name']} " ?></a></span>
                                 </div>
                               </div>
                               <div class="basic-information user-work" style="width: 100%;">
-                                <h4 id='basicInfo'>Basic information</h4>
+                                <h4 class='basic-info'>Basic information</h4>
                                 <div class="birthday-content">
-                                  <span class="contact-title"><span id='dateOfBirth'>Date of Birth</span> : </span>
+                                  <span class="contact-title"><span class='date-of-birth'>Date of Birth</span> : </span>
                                   <span class="birth-date"><?php echo "{$queryEmployee['date_of_birth']}" ?></span>
                                 </div>
                                 <div class="gender-content">
-                                  <span class="contact-title"><span id="gender">Gender</span> : </span>
-                                  <span class="gender"><?php echo "{$queryEmployee['gender']}" ?></span>
+                                  <span class="contact-title"><span class="gender">Gender</span> : </span>
+                                  <span><?php echo "{$queryEmployee['gender']}" ?></span>
                                 </div>
                               </div>
                             </div>
@@ -179,20 +179,20 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['employee_id'])) {
             <div class="col-lg-12">
               <div class="card">
                 <div class="card-title">
-                  <h4 id='salaryPayments'>Salary Payments</h4>
+                  <h4 class='salary-payments'>Salary Payments</h4>
                 </div>
                 <div class="card-body bootstrap-data-table-panel">
                   <div class="table-responsive">
                     <table id="myDataTable" class="display table table-borderd" style="text-align: center;width:100%;">
                       <thead>
                         <tr>
-                          <th id='employeeName'>Employee Name</th>
-                          <th id='month'>Month</th>
-                          <th id='basicSalary'>Basic Salary</th>
-                          <th id='salaryBonus'>Salary Bonus</th>
-                          <th id='totalSalary'>Total Salary</th>
-                          <th id='paymentDate'>Payment Date</th>
-                          <th style="text-align: center;" id='salaryStatus'>Salary Status</th>
+                          <th class='employee-name'>Employee Name</th>
+                          <th class='salary-month'>Month</th>
+                          <th class='basic-salary'>Basic Salary</th>
+                          <th class='salary-bonus'>Salary Bonus</th>
+                          <th class='total-salary'>Total Salary</th>
+                          <th class='payment-date'>Payment Date</th>
+                          <th style="text-align: center;" class='salary-status'>Salary Status</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -220,7 +220,7 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['employee_id'])) {
   <script src="assets/js/lib/bootstrap.min.js"></script>
 
   <!-- Language init -->
-  <script type="text/javascript" src="assets/language/employeeDetails.js"></script>
+  <script type="text/javascript" src="assets/language/applyLanguage.js"></script>
   <script type="text/javascript" src="assets/language/sidebar.js"></script>
   <script type="text/javascript" src="assets/js/setLang.js"></script>
 

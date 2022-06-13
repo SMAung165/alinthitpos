@@ -148,19 +148,19 @@ if (!isset($_SESSION['user_id'])) {
                         <div class=" col-lg-12">
                             <div class="card">
                                 <div class="card-title">
-                                    <h4 class='customerList'></h4>
+                                    <h4 class='customer-list'></h4>
                                 </div>
                                 <div class="bootstrap-data-table-panel">
                                     <div class="table-responsive">
                                         <table id="myDataTable" class="display table table-borderd table-hover" style="text-align:center;width:100%;padding-bottom:10px;">
                                             <thead>
                                                 <tr>
-                                                    <th><span class="customer"></span> ID</th>
+                                                    <th><span class="customer-id"></span></th>
                                                     <th><span class='firstname'></span></th>
                                                     <th><span class='lastname'></span></th>
                                                     <th><span class='email'></span></th>
                                                     <th><span class='address'></span></th>
-                                                    <th><span class="phoneNumber"></span></th>
+                                                    <th><span class="phone-number"></span></th>
                                                     <th>Action</th>
 
                                                 </tr>
@@ -170,12 +170,12 @@ if (!isset($_SESSION['user_id'])) {
                                             </tbody>
                                             <tfoot>
                                                 <tr>
-                                                    <th><span class="customer"></span> ID</th>
+                                                    <th><span class="customer-id"></span></th>
                                                     <th><span class='firstname'></span></th>
                                                     <th><span class='lastname'></span></th>
                                                     <th><span class='email'></span></th>
                                                     <th><span class='address'></span></th>
-                                                    <th><span class="phoneNumber"></span></th>
+                                                    <th><span class="phone-number"></span></th>
                                                     <th>Action</th>
                                                 </tr>
                                             </tfoot>
@@ -198,7 +198,7 @@ if (!isset($_SESSION['user_id'])) {
     <script src="assets/js/lib/preloader/pace.min.js"></script>
 
     <!-- Language init -->
-    <script type="text/javascript" src="assets/language/customerList.js"></script>
+    <script type="text/javascript" src="assets/language/applyLanguage.js"></script>
     <script type="text/javascript" src="assets/language/sidebar.js"></script>
     <script type="text/javascript" src="assets/js/setLang.js"></script>
 

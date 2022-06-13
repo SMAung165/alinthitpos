@@ -99,15 +99,15 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['order_id'])) {
                         <div class="user-work">
                           <h4><?php echo $getOrderDetails['product_name'] ?></h4>
                           <div class="">
-                            <p><b id='model'>Model</b> : <?php echo $getOrderDetails['product_model'] ?></p>
-                            <p><b id='brand'>Brand</b> : <?php echo $getOrderDetails['product_brand'] ?></p>
-                            <p><b id='price'>Price</b> : <?php echo number_format($getOrderDetails['price']) ?><span class="currency"> MMK</span></p>
-                            <p><b id='color'>Color</b> : <?php echo $getOrderDetails['color'] ?></p>
+                            <p><b class='model-number'>Model</b> : <?php echo $getOrderDetails['product_model'] ?></p>
+                            <p><b class='brand'>Brand</b> : <?php echo $getOrderDetails['product_brand'] ?></p>
+                            <p><b class='price'>Price</b> : <?php echo number_format($getOrderDetails['price']) ?><span class="currency"> MMK</span></p>
+                            <p><b class='color-variant'>Color</b> : <?php echo $getOrderDetails['color'] ?></p>
                           </div>
                           <form method="post" action="device-details.php">
                             <input type="hidden" name="product_id" value="<?php echo $getOrderDetails['product_id'] ?>" />
                             <button class="btn btn-secondary btn-addon" type="submit">
-                              <i class="ti-mobile"></i><span id='moreDeviceDetails'>More Device Details</span></button>
+                              <i class="ti-mobile"></i><span class='more-device-details'>More Device Details</span></button>
                             </button>
                           </form>
                         </div>
@@ -117,26 +117,26 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['order_id'])) {
                       <div class="col-lg-9">
                         <div class="custom-tab user-profile-tab">
                           <div class="user-work" style="width:100%">
-                            <h4 id='customerInfo'>Customer Info</h4>
+                            <h4 class='customer-info'>Customer Info</h4>
                           </div>
                           <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="1">
                               <div class="contact-information">
 
                                 <div class="birthday-content">
-                                  <span class="contact-title" id='customerName'>Name:</span>
+                                  <span class="contact-title customer-name">Name:</span>
                                   <span class="birth-date"><?php echo $getOrderDetails['first_name'] . ' ' . $getOrderDetails['last_name']; ?></span>
                                 </div>
                                 <div class="birthday-content">
-                                  <span class="contact-title" id='address'>Address:</span>
+                                  <span class="contact-title address">Address:</span>
                                   <span class="birth-date"><?php echo $getOrderDetails['address']; ?></span>
                                 </div>
                                 <div class="birthday-content">
-                                  <span class="contact-title" id='email'>Email:</span>
+                                  <span class="contact-title email">Email:</span>
                                   <span class="birth-date"><?php echo $getOrderDetails['email']; ?></span>
                                 </div>
                                 <div class="birthday-content">
-                                  <span class="contact-title" id='phoneNumber'>Phone Number:</span>
+                                  <span class="contact-title phone-number">Phone Number:</span>
                                   <span class="birth-date"><?php echo $getOrderDetails['phone_number']; ?></span>
                                 </div>
 
@@ -147,38 +147,38 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['order_id'])) {
 
                         <div class="custom-tab user-profile-tab">
                           <div class="user-work">
-                            <h4 id='orderInfo'>Order Info</h4>
+                            <h4 class='order-info'>Order Info</h4>
                           </div>
                           <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="1">
                               <div class="contact-information">
 
                                 <div class="birthday-content">
-                                  <span class="contact-title" id='orderNumber'>Order Number:</span>
+                                  <span class="contact-title order-number">Order Number:</span>
                                   <span class="birth-date"><?php echo $getOrderDetails['order_number']; ?></span>
                                 </div>
                                 <div class="birthday-content">
-                                  <span class="contact-title" id='orderDate'>Order Date:</span>
+                                  <span class="contact-title order-date">Order Date:</span>
                                   <span class="birth-date"><?php echo $getOrderDetails['order_date']; ?></span>
                                 </div>
                                 <div class="birthday-content">
-                                  <span class="contact-title" id='quantity'>Quantity:</span>
+                                  <span class="contact-title quantity">Quantity:</span>
                                   <span class="birth-date"><?php echo $getOrderDetails['quantity'] . ' PCS'; ?></span>
                                 </div>
                                 <div class="birthday-content">
-                                  <span class="contact-title" id='totalCost'>Total Cost:</span>
+                                  <span class="contact-title total-price">Total Cost:</span>
                                   <span class="birth-date"><?php
                                                             $totalPrice = number_format(($getOrderDetails['price'] * $getOrderDetails['quantity'])) . ' MMK';
                                                             echo $totalPrice;
                                                             ?></span>
                                 </div>
                                 <div class="birthday-content">
-                                  <span class="contact-title" id='overallStatus'>Overall Status:</span>
+                                  <span class="contact-title overall-status">Overall Status:</span>
                                   <span class="birth-date"><?php $orderStatus =  $orderStatus($getOrderDetails['order_id']);
                                                             echo $orderStatus['status']; ?></span>
                                 </div>
                                 <div class="birthday-content">
-                                  <span class="contact-title" id='paymentStatus'>Payment Status:</span>
+                                  <span class="contact-title payment-status">Payment Status:</span>
                                   <span class="birth-date"><?php echo $orderStatus['payment_status']; ?></span>
                                 </div>
                               </div>
@@ -212,7 +212,7 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['order_id'])) {
   <script src="assets/js/lib/bootstrap.min.js"></script>
 
   <!-- Language init -->
-  <script type="text/javascript" src="assets/language/orderDetails.js"></script>
+  <script type="text/javascript" src="assets/language/applyLanguage.js"></script>
   <script type="text/javascript" src="assets/language/sidebar.js"></script>
   <script type="text/javascript" src="assets/js/setLang.js"></script>
 

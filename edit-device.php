@@ -91,7 +91,7 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['product_id'])) {
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-title">
-                                <h4 id='editDevice'>Edit Device</h4>
+                                <h4 class='edit-device'>Edit Device</h4>
                             </div>
                             <div class="card-body">
 
@@ -102,27 +102,27 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['product_id'])) {
                                                 <div class="form-group">
                                                     <input name='product_id' type="hidden" value="<?php echo $deviceQuery['product_id'] ?>" />
                                                     <input name='device_id' type="hidden" value="<?php echo $deviceQuery['device_id'] ?>" />
-                                                    <label><span id='deviceName'></span>*</label>
+                                                    <label><span class='device-name'></span>*</label>
                                                     <input type="text" name="product_name" class="form-control" placeholder="" value="<?php echo $deviceQuery['product_name'] ?>" required />
                                                 </div>
                                                 <div class="form-group">
-                                                    <label><span id='modelNumber'></span>*</label>
+                                                    <label><span class='model-number'></span>*</label>
                                                     <input id="example-email" class="form-control" type="text" name="product_model" placeholder="" value="<?php echo $deviceQuery['product_model'] ?>" required />
                                                 </div>
                                                 <div class="form-group">
-                                                    <label><span id='brand'></span>*</label>
+                                                    <label><span class='brand'></span>*</label>
                                                     <input id="example-email" class="form-control" type="text" name="product_brand" placeholder="" value="<?php echo $deviceQuery['product_brand'] ?>" required />
                                                 </div>
                                                 <div class="form-group">
-                                                    <label><span id='specs'></span>*</label>
+                                                    <label><span class='specs'></span>*</label>
                                                     <textarea id="example-email" class="form-control" type="text" name="specs" style="height:235px" required><?php echo $deviceQuery['specs'] ?></textarea>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label><span id='colorVariant'></span></label>
+                                                    <label><span class='color-variant'></span></label>
                                                     <input class="form-control" type="text" name="color" value="<?php echo $deviceQuery['color'] ?>" />
                                                 </div>
                                                 <div class="form-group">
-                                                    <label><span id='device'>Device</span> Resolution</label>
+                                                    <label>Resolution</label>
                                                     <input class="form-control" type="text" name="resolution" value="<?php echo $deviceQuery['resolution'] ?>" />
                                                 </div>
 
@@ -130,23 +130,23 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['product_id'])) {
                                             <div class="col-lg-4">
 
                                                 <div class="form-group">
-                                                    <label><span id='expense'></span>*</label>
+                                                    <label><span class='expense'></span>*</label>
                                                     <input class="form-control" type="text" name="expense" value="<?php echo $deviceQuery['expense'] ?>" required />
                                                 </div>
                                                 <div class="form-group">
-                                                    <label><span id='price'></span>*</label>
+                                                    <label><span class='price'></span>*</label>
                                                     <input class="form-control" type="text" name="price" value="<?php echo $deviceQuery['price'] ?>" required />
                                                 </div>
                                                 <div class="form-group">
-                                                    <label><span id='initialStock'></span>*</label>
+                                                    <label><span class='initial-stock'></span>*</label>
                                                     <input class="form-control" type="text" name="initial_stock" value="<?php echo $deviceQuery['initial_stock'] ?>" required />
                                                 </div>
                                                 <div class="form-group">
-                                                    <label><span id='stockLeft'></span>*</label>
+                                                    <label><span class='stock-left'></span>*</label>
                                                     <input class="form-control" type="text" name="stock" value="<?php echo $deviceQuery['stock'] ?>" required />
                                                 </div>
                                                 <div class="form-group">
-                                                    <label><span id='totalSold'></span></label>
+                                                    <label><span class='total-sold'></span></label>
                                                     <input class="form-control" type="text" name="total_sold" value="<?php echo $deviceQuery['total_sold'] ?>" required />
                                                 </div>
 
@@ -169,7 +169,7 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['product_id'])) {
                                         </div>
                                         <div class="row">
                                             <div class="col">
-                                                <button type="submit" class="btn btn-default" name="updateDeviceBtn"><span id='submit'></span></button>
+                                                <button type="submit" class="btn btn-default" name="updateDeviceBtn"><span id='submit'>Submit</span></button>
                                             </div>
                                         </div>
                                     </form>
@@ -200,7 +200,7 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['product_id'])) {
     <script src="assets/js/lib/bootstrap.min.js"></script>
 
     <!-- Language init -->
-    <script type="text/javascript" src="assets/language/editDevice.js"></script>
+    <script type="text/javascript" src="assets/language/applyLanguage.js"></script>
     <script type="text/javascript" src="assets/language/sidebar.js"></script>
     <script type="text/javascript" src="assets/js/setLang.js"></script>
 

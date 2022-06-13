@@ -141,7 +141,7 @@ if (isset($_SESSION['user_id'])) {
     <?php require_once('widgets/errorInterface.php') ?>
 
     <!-- Language init -->
-    <script type="text/javascript" src="assets/language/adminLogin.js"></script>
+    <script type="text/javascript" src="assets/language/applyLanguage.js"></script>
     <script type="text/javascript" src="assets/js/setLang.js"></script>
 
 

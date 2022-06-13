@@ -118,74 +118,74 @@ if (!isset($_SESSION['user_id'])) {
                 <!-- /# row -->
                 <section id="main-content">
                     <div class="row custom-container">
-                        <div class="col-lg-5 col-md-6">
+                        <div class="col-lg-6 col-md-6">
                             <div class="card dash-item">
                                 <div class="stat-widget-one">
                                     <div class="stat-icon dib"><i class="ti-money color-success border-success"></i>
                                     </div>
                                     <div class="stat-content dib">
-                                        <div class="stat-text"><span id="totalProfit">All Time Profit</span></div>
+                                        <div class="stat-text"><span class="all-time-profit">All Time Profit</span></div>
                                         <div class="stat-digit"><?php $totalProfitCalc(false) ?> </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6">
+                        <div class="col-lg-6 col-md-6">
                             <div class="card dash-item">
                                 <div class="stat-widget-one">
                                     <div class="stat-icon dib"><i class="ti-money color-success border-success"></i>
                                     </div>
                                     <div class="stat-content dib">
-                                        <div class="stat-text"><span id="currentMonthProfit">Current Month Profit</span></div>
+                                        <div class="stat-text"><span class="current-month-profit">Current Month Profit</span></div>
                                         <div class="stat-digit"><?php echo number_format($monthCheckProfitCurrentMonth) . " <span class='currency'>MMK</span>"; ?> </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6">
+                        <div class="col-lg-6 col-md-6">
                             <div class="card dash-item">
                                 <div class="stat-widget-one">
                                     <div class="stat-icon dib">
                                         <i class="ti-stats-up color-primary border-primary"></i>
                                     </div>
                                     <div class="stat-content dib">
-                                        <div class="stat-text"><span id="todayProfit">Today Profit</span></div>
+                                        <div class="stat-text"><span class="today-profit">Today Profit</span></div>
                                         <div class="stat-digit"><?php echo number_format_short($getTodayProfit()) . " <span class='currency'>MMK</span>"; ?></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-5 col-md-6">
+                        <div class="col-lg-6 col-md-6">
                             <div class="card dash-item" onclick="window.location='manage-order.php'">
                                 <div class="stat-widget-one">
                                     <div class="stat-icon dib"><i class="ti-money color-danger border-danger"></i>
                                     </div>
                                     <div class="stat-content dib">
-                                        <div class="stat-text"><span id="pendingOrders">Pending Orders</span> ( <?php echo "{$expectToEarn()['count']}"; ?> )</div>
-                                        <div class="stat-digit"><span id="toEarn">To Earn</span> <?php echo  number_format($expectToEarn()['total_profit']) . ' <span class="currency">MMK</span>' ?></div>
+                                        <div class="stat-text"><span class="pending-orders">Pending Orders</span> ( <?php echo "{$expectToEarn()['count']}"; ?> )</div>
+                                        <div class="stat-digit"><span class="to-earn">To Earn</span> <?php echo  number_format($expectToEarn()['total_profit']) . ' <span class="currency">MMK</span>' ?></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6">
+                        <div class="col-lg-6 col-md-6">
                             <div class="card dash-item" onclick="window.location='device-list.php'">
                                 <div class="stat-widget-one">
                                     <div class="stat-icon dib"><i class="ti-mobile color-warning border-warning"></i>
                                     </div>
                                     <div class="stat-content dib">
-                                        <div class="stat-text"><span id="currentAssets">Current Assets</span></div>
+                                        <div class="stat-text"><span class="current-assets">Current Assets</span></div>
                                         <div class="stat-digit"><?php $totalDeviceSoldOrCurrentAsset('stock') ?></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6">
+                        <div class="col-lg-6 col-md-6">
                             <div class="card dash-item" onclick="window.location='device-list.php'">
                                 <div class="stat-widget-one">
                                     <div class="stat-icon dib"><i class="ti-mobile color-warning border-warning"></i>
                                     </div>
                                     <div class="stat-content dib">
-                                        <div class="stat-text"><span id="deviceSold">Device Sold</span></div>
+                                        <div class="stat-text"><span class="device-sold">Device Sold</span></div>
                                         <div class="stat-digit"><?php $totalDeviceSoldOrCurrentAsset('total_sold') ?></div>
                                     </div>
                                 </div>
@@ -198,7 +198,7 @@ if (!isset($_SESSION['user_id'])) {
                             <div class="card" style="background-color:transparent !important; border:none;box-shadow:none;">
                                 <div class="panel-heading">
                                     <div class="panel-title">
-                                        <h4 id='bestSeller'>Best Sellers</h4>
+                                        <h4 class='best-seller'>Best Sellers</h4>
                                     </div>
                                 </div>
                                 <div class="panel-body refresh">
@@ -209,7 +209,7 @@ if (!isset($_SESSION['user_id'])) {
                         </div>
                         <!-- /# column -->
                         <div class="col-lg-7 col-md-6">
-                            <div class="card">
+                            <div class="card" style="background-color:transparent !important; border:none;box-shadow:none;">
                                 <div class="card-body">
                                     <div class="year-calendar">
                                     </div>
@@ -225,7 +225,7 @@ if (!isset($_SESSION['user_id'])) {
                             <div class="card">
                                 <div class="panel-heading">
                                     <div class="panel-title">
-                                        <h4 id="monthlyProfit">Monthly Profit</h4>
+                                        <h4 class="monthly-profit">Monthly Profit</h4>
                                     </div>
                                 </div>
                                 <div class="panel-body refresh">
@@ -240,7 +240,7 @@ if (!isset($_SESSION['user_id'])) {
                             <div class="card">
                                 <div class="panel-heading">
                                     <div class="panel-title">
-                                        <h4 id='dailyProfit'>Daily Profit</h4>
+                                        <h4 class='daily-profit'>Daily Profit</h4>
                                     </div>
                                 </div>
                                 <div class="panel-body refresh">
@@ -253,7 +253,7 @@ if (!isset($_SESSION['user_id'])) {
                             <div class="card">
                                 <div class="panel-heading">
                                     <div class="panel-title">
-                                        <h4 id='mostDailyEarn'>Most Daily Earnings</h4>
+                                        <h4 class='most-daily-earn'>Most Daily Earnings</h4>
                                     </div>
                                 </div>
                                 <div class="panel-body refresh">
@@ -296,7 +296,7 @@ if (!isset($_SESSION['user_id'])) {
     <script type="text/javascript" src="assets/js/lib/font-awesome/all.min.js"></script>
 
     <!-- Language init -->
-    <script type="text/javascript" src="assets/language/dashboard.js"></script>
+    <script type="text/javascript" src="assets/language/applyLanguage.js"></script>
     <script type="text/javascript" src="assets/language/sidebar.js"></script>
     <script type="text/javascript" src="assets/js/setLang.js"></script>
 

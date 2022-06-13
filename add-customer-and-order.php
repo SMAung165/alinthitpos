@@ -154,7 +154,7 @@ if (!isset($_SESSION['user_id'])) {
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-title">
-                                <h4 id='addCustomer'>Add Customer</h4>
+                                <h4 class='add-customer'>Add Customer</h4>
 
                             </div>
                             <div class="card-body">
@@ -163,20 +163,20 @@ if (!isset($_SESSION['user_id'])) {
                                         <div class="row">
                                             <div class="col-lg-8">
                                                 <div class="form-group">
-                                                    <label><span id='firstname'></span>*</label>
+                                                    <label><span class='firstname'></span>*</label>
                                                     <input type="text" name="first_name" class="form-control" placeholder="" required />
                                                 </div>
                                                 <div class="form-group">
-                                                    <label><span id='lastname'></span></label>
+                                                    <label><span class='lastname'></span></label>
                                                     <input type="text" name="last_name" class="form-control" placeholder="" />
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label><span id='email'></span></label>
-                                                    <input id="example-email" class="form-control" type="text" name="email" placeholder="">
+                                                    <label><span class='email'></span></label>
+                                                    <input class="form-control" type="text" name="email" placeholder="">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label><span id='phoneNumber'></span></label>
+                                                    <label><span class='phone-number'></span></label>
                                                     <input type="text" name="phone_number" class="form-control" placeholder="" />
                                                 </div>
 
@@ -184,10 +184,10 @@ if (!isset($_SESSION['user_id'])) {
                                             <div class="col-lg-4">
 
                                                 <div class="form-group">
-                                                    <label><span id='address'></span></label><textarea id="example-email" class="form-control" type="text" name="address" style="height:228px"></textarea>
+                                                    <label><span class='address'></span></label><textarea id="example-email" class="form-control" type="text" name="address" style="height:228px"></textarea>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label><span class='customer'></span> ID</label>
+                                                    <label><span class='customer-id'></span></label>
                                                     <input class="form-control" type="text" name="customer_number" value="<?php echo $nextCustomerNumber ?>" readonly required />
                                                 </div>
                                             </div>
@@ -206,7 +206,7 @@ if (!isset($_SESSION['user_id'])) {
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-title">
-                                <h4 id='addOrder'>Add Order</h4>
+                                <h4 id='add-order'>Add Order</h4>
                             </div>
                             <div class="card-body">
                                 <div class="basic-elements">
@@ -243,7 +243,7 @@ if (!isset($_SESSION['user_id'])) {
     <script src="assets/js/lib/bootstrap.min.js"></script>
 
     <!-- Language init -->
-    <script type="text/javascript" src="assets/language/addCustomerAndOrder.js"></script>
+    <script type="text/javascript" src="assets/language/applyLanguage.js"></script>
     <script type="text/javascript" src="assets/language/sidebar.js"></script>
     <script type="text/javascript" src="assets/js/setLang.js"></script>
 

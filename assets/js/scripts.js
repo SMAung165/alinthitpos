@@ -164,23 +164,9 @@ function suggestionBox(inputId, parentId, liveQuery) {
 var breadcrumb = document.querySelector(".breadcrumb");
 var li = document.createElement("li");
 li.className = "breadcrumb-item";
-li.innerHTML = "<a href='index.php'>Alin Thit</a>";
+li.innerHTML = "<a href='index.php'>Alinn Thit</a>";
 
 breadcrumb.insertBefore(li, breadcrumb.children[0]);
 Array.from(breadcrumb.children).forEach((element) => {
   element.children[0].style.display = "inline";
 });
-
-// //Media Query
-// $(document).ready(function () {
-//   let isMobileDevice = window.matchMedia(
-//     "only screen and (max-width: 760px)"
-//   ).matches;
-//   if (isMobileDevice) {
-//     // The viewport is less than 768 pixels wide
-//     //Conditional script here
-//   } else {
-//     //The viewport is greater than 700 pixels wide
-//     document.querySelector("body").style.minWidth = "1300px";
-//   }
-// });

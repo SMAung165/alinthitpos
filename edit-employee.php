@@ -98,26 +98,26 @@ if (!isset($_SESSION['user_id'])) {
                                         <div class="row">
                                             <div class="col-lg-8">
                                                 <div class="form-group">
-                                                    <label id='firstName'>First Name*</label>
+                                                    <label><span class='firstname'>First Name</span>*</label>
                                                     <input type="text" name="first_name" class="form-control" placeholder="e.g., John" value='<?php echo "{$queryEmployee['first_name']}" ?>' required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label id='lastName'>Last Name</label>
+                                                    <label class='lastname'>Last Name</label>
                                                     <input type="text" name="last_name" class="form-control" value='<?php echo "{$queryEmployee['last_name']}" ?>' placeholder="Doe">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label id='email'>Email</label>
+                                                    <label class='email'>Email</label>
                                                     <input id="example-email" class="form-control" type="text" name="email" value='<?php echo "{$queryEmployee['email']}" ?>' placeholder="">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label id='phoneNumber'>Phone Number</label>
+                                                    <label><span class='phone-number'>Phone Number</span>*</label>
                                                     <input class="form-control" type="text" name="phone_number" value='<?php echo "{$queryEmployee['phone_number']}" ?>' placeholder="" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label id='address'>Address</label><textarea class="form-control" type="text" name="address" style="height:235px"><?php echo "{$queryEmployee['address']}" ?></textarea>
+                                                    <label class='address'>Address</label><textarea class="form-control" type="text" name="address" style="height:235px"><?php echo "{$queryEmployee['address']}" ?></textarea>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label id='workLocation'>Work Location</label>
+                                                    <label class='work-location'>Work Location</label>
                                                     <textarea style='height:132px' class="form-control" type="text" name="work_location"><?php echo "{$queryEmployee['work_location']}" ?></textarea>
                                                 </div>
 
@@ -125,7 +125,7 @@ if (!isset($_SESSION['user_id'])) {
                                             <div class="col-lg-4">
 
                                                 <div class="form-group">
-                                                    <label id='gender'>Gender</label>
+                                                    <label class='gender'>Gender</label>
                                                     <select name='gender' class="form-control">
 
                                                         <?php if ($queryEmployee['gender'] === 'Male') { ?>
@@ -138,19 +138,19 @@ if (!isset($_SESSION['user_id'])) {
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label id='dateOfBirth'>Date of Birth</label>
+                                                    <label class='date-of-birth'>Date of Birth</label>
                                                     <input class="form-control" type="date" name="date_of_birth" value="<?php echo "{$queryEmployee['date_of_birth']}" ?>">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label id='dateHired'>Date Hired</label>
-                                                    <input class="form-control" type="date" name="date_hired" value="<?php echo "{$queryEmployee['date_hired']}" ?>">
+                                                    <label><span class='date-hired'>Date Hired</span>*</label>
+                                                    <input class="form-control" type="date" name="date_hired" value="<?php echo "{$queryEmployee['date_hired']}" ?>" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label id='position'>Position</label>
-                                                    <input class="form-control" type="text" name="position" required placeholder="Web Developer" value="<?php echo "{$queryEmployee['position']}" ?>">
+                                                    <label><span class='position'>Position</span>*</label>
+                                                    <input class="form-control" type="text" name="position" placeholder="Web Developer" value="<?php echo "{$queryEmployee['position']}" ?>" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label><span id='specialty'>Specialty</span> (<span id='skills'>Skills</span>)</label>
+                                                    <label><span class='specialty'>Specialty</span> (<span class='skills'>Skills</span>)</label>
                                                     <textarea class="form-control" type="text" name="specialty" placeholder="HTML, CSS, JavaScript"><?php echo "{$queryEmployee['specialty']}" ?></textarea>
                                                 </div>
 
@@ -177,7 +177,7 @@ if (!isset($_SESSION['user_id'])) {
                                         </div>
                                         <div class="row">
                                             <div class="col">
-                                                <button id='submit' type="submit" class="btn btn-default" name="edit_employee_btn">Submit</button>
+                                                <button id='submit' type="submit" class="btn btn-default" name="edit_employee_btn"><span class="submit">Submit</span></button>
                                             </div>
                                         </div>
                                     </form>
@@ -212,7 +212,7 @@ if (!isset($_SESSION['user_id'])) {
     <script src="assets/js/lib/bootstrap.min.js"></script>
 
     <!-- Language init -->
-    <script type="text/javascript" src="assets/language/editEmployee.js"></script>
+    <script type="text/javascript" src="assets/language/applyLanguage.js"></script>
     <script type="text/javascript" src="assets/language/sidebar.js"></script>
     <script type="text/javascript" src="assets/js/setLang.js"></script>
 
