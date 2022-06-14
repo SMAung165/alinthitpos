@@ -760,7 +760,7 @@ function setLang() {
   }
 
   //English
-  else {
+  else if(localLanguage == "en"){
     if (document.querySelectorAll(".add-admin") != null) {
       document.querySelectorAll(".add-admin").forEach((element) => {
         element.textContent = en.add_admin;

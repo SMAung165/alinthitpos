@@ -38,7 +38,7 @@ if (isset($_POST['registerBtn'])) {
             $logs[] = 'Email must not contain spaces <br/><br/>';
         } else {
             if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-                if ($emailExist($_POST['email']) === false) {
+                if ($emailExist($_POST['email']) === true) {
                     $logs[] = "Email address is already registered <br/><br/>";
                 } else {
                     $isEmailValid = 'valid';

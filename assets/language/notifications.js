@@ -88,7 +88,7 @@ function notiLangSetter(langObj) {
 function setLangForNoti() {
   if (localLanguage == "mm") {
     notiLangSetter(mm);
-  } else {
+  } else if (localLanguage == "en") {
     notiLangSetter(en);
   }
 }

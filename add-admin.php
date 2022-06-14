@@ -130,8 +130,8 @@ if (!isset($_SESSION['user_id'])) {
                                                 <div class="form-group">
                                                     <label><span class='account-status'></span></label>
                                                     <select class="form-control" name="active">
-                                                        <option>Activate</option>
-                                                        <option selected>Deactivate</option>
+                                                        <option value="1">Activate</option>
+                                                        <option value="0" selected>Deactivate</option>
                                                     </select>
                                                 </div>
 
@@ -141,7 +141,7 @@ if (!isset($_SESSION['user_id'])) {
                                         </div>
                                         <div class="row">
                                             <div class="col">
-                                                <button type="submit" class="btn btn-default" name="registerBtn"><span class='submit'></span></button>
+                                                <button type="submit" class="btn btn-default" name="registerBtn"><span class='submit'>Submit</span></button>
                                             </div>
                                         </div>
                                     </form>
