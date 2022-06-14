@@ -198,7 +198,6 @@ Battery:</textarea>
 
     <!-- Language init -->
     <script type="text/javascript" src="assets/language/applyLanguage.js"></script>
-    <script type="text/javascript" src="assets/language/sidebar.js"></script>
     <script type="text/javascript" src="assets/js/setLang.js"></script>
 
     <!-- Script init -->

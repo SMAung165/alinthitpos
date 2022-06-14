@@ -86,6 +86,24 @@ function setLang() {
       });
     }
 
+    if (document.querySelectorAll(".device-list") != null) {
+      document.querySelectorAll(".device-list").forEach((element) => {
+        element.textContent = mm.device_list;
+      });
+    }
+
+    if (document.querySelectorAll(".manage-devices") != null) {
+      document.querySelectorAll(".manage-devices").forEach((element) => {
+        element.textContent = mm.manage_devices;
+      });
+    }
+
+    if (document.querySelectorAll(".devices") != null) {
+      document.querySelectorAll(".devices").forEach((element) => {
+        element.textContent = mm.devices;
+      });
+    }
+
     if (document.querySelectorAll(".quantity") != null) {
       document.querySelectorAll(".quantity").forEach((element) => {
         element.textContent = mm.quantity;
@@ -224,6 +242,18 @@ function setLang() {
       });
     }
 
+    if (document.querySelectorAll(".employees-and-salary") != null) {
+      document.querySelectorAll(".employees-and-salary").forEach((element) => {
+        element.textContent = mm.employees_and_salary;
+      });
+    }
+
+    if (document.querySelectorAll(".manage-salary") != null) {
+      document.querySelectorAll(".manage-salary").forEach((element) => {
+        element.textContent = mm.manage_salary;
+      });
+    }
+
     if (document.querySelectorAll(".add-employee") != null) {
       document.querySelectorAll(".add-employee").forEach((element) => {
         element.textContent = mm.add_employee;
@@ -324,6 +354,26 @@ function setLang() {
       document.querySelectorAll(".work-position").forEach((element) => {
         element.textContent = mm.work_position;
       });
+    }
+
+    if (document.querySelectorAll(".customer-and-order") != null) {
+      document.querySelectorAll(".customer-and-order").forEach((element) => {
+        element.textContent = mm.customer_and_order;
+      });
+    }
+
+    if (document.querySelectorAll(".manage-order") != null) {
+      document.querySelectorAll(".manage-order").forEach((element) => {
+        element.textContent = mm.manage_order;
+      });
+    }
+
+    if (document.querySelectorAll(".add-customer-and-order") != null) {
+      document
+        .querySelectorAll(".add-customer-and-order")
+        .forEach((element) => {
+          element.textContent = mm.add_customer_and_order;
+        });
     }
 
     if (document.querySelectorAll(".customer-list") != null) {
@@ -640,11 +690,72 @@ function setLang() {
       });
     }
 
+    if (document.querySelectorAll(".my-profile") != null) {
+      document.querySelectorAll(".my-profile").forEach((element) => {
+        element.textContent = mm.my_profile;
+      });
+    }
+
+    if (document.querySelectorAll(".change-password") != null) {
+      document.querySelectorAll(".change-password").forEach((element) => {
+        element.textContent = mm.change_password;
+      });
+    }
+
+    if (document.querySelectorAll(".reset-the-system") != null) {
+      document.querySelectorAll(".reset-the-system").forEach((element) => {
+        element.textContent = mm.reset_the_system;
+      });
+    }
+
+    if (document.querySelectorAll(".reset-profits") != null) {
+      document.querySelectorAll(".reset-profits").forEach((element) => {
+        element.textContent = mm.reset_profits;
+      });
+    }
+
+    if (document.querySelectorAll(".reset-warehouse-stocks") != null) {
+      document
+        .querySelectorAll(".reset-warehouse-stocks")
+        .forEach((element) => {
+          element.textContent = mm.reset_warehouse_stocks;
+        });
+    }
+
+    if (document.querySelectorAll(".reset-orders") != null) {
+      document.querySelectorAll(".reset-orders").forEach((element) => {
+        element.textContent = mm.reset_orders;
+      });
+    }
+
+    if (document.querySelectorAll(".reset-salary") != null) {
+      document.querySelectorAll(".reset-salary").forEach((element) => {
+        element.textContent = mm.reset_salary;
+      });
+    }
+
+    if (document.querySelectorAll(".enter-your-password") != null) {
+      document.querySelectorAll(".enter-your-password").forEach((element) => {
+        element.textContent = mm.enter_your_password;
+      });
+    }
+
     //Submit
     if (document.querySelectorAll(".submit") != null) {
       document.querySelectorAll(".submit").forEach((element) => {
         element.textContent = mm.submit;
       });
+    }
+
+    // set lang indicator
+    if (document.querySelectorAll(".active-lang-indicator") != null) {
+      document.querySelectorAll(
+        ".active-lang-indicator"
+      )[1].style.backgroundColor = "#79ff54";
+
+      document.querySelectorAll(
+        ".active-lang-indicator"
+      )[0].style.backgroundColor = "transparent";
     }
   }
 
@@ -731,6 +842,24 @@ function setLang() {
     if (document.querySelectorAll(".device-id") != null) {
       document.querySelectorAll(".device-id").forEach((element) => {
         element.textContent = en.device_id;
+      });
+    }
+
+    if (document.querySelectorAll(".device-list") != null) {
+      document.querySelectorAll(".device-list").forEach((element) => {
+        element.textContent = en.device_list;
+      });
+    }
+
+    if (document.querySelectorAll(".manage-devices") != null) {
+      document.querySelectorAll(".manage-devices").forEach((element) => {
+        element.textContent = en.manage_devices;
+      });
+    }
+
+    if (document.querySelectorAll(".devices") != null) {
+      document.querySelectorAll(".devices").forEach((element) => {
+        element.textContent = en.devices;
       });
     }
 
@@ -872,11 +1001,24 @@ function setLang() {
       });
     }
 
+    if (document.querySelectorAll(".employees-and-salary") != null) {
+      document.querySelectorAll(".employees-and-salary").forEach((element) => {
+        element.textContent = en.employees_and_salary;
+      });
+    }
+
+    if (document.querySelectorAll(".manage-salary") != null) {
+      document.querySelectorAll(".manage-salary").forEach((element) => {
+        element.textContent = en.manage_salary;
+      });
+    }
+
     if (document.querySelectorAll(".add-employee") != null) {
       document.querySelectorAll(".add-employee").forEach((element) => {
         element.textContent = en.add_employee;
       });
     }
+
     if (document.querySelectorAll(".work-location") != null) {
       document.querySelectorAll(".work-location").forEach((element) => {
         element.textContent = en.work_location;
@@ -972,6 +1114,26 @@ function setLang() {
       document.querySelectorAll(".work-position").forEach((element) => {
         element.textContent = en.work_position;
       });
+    }
+
+    if (document.querySelectorAll(".customer-and-order") != null) {
+      document.querySelectorAll(".customer-and-order").forEach((element) => {
+        element.textContent = en.customer_and_order;
+      });
+    }
+
+    if (document.querySelectorAll(".manage-order") != null) {
+      document.querySelectorAll(".manage-order").forEach((element) => {
+        element.textContent = en.manage_order;
+      });
+    }
+
+    if (document.querySelectorAll(".add-customer-and-order") != null) {
+      document
+        .querySelectorAll(".add-customer-and-order")
+        .forEach((element) => {
+          element.textContent = en.add_customer_and_order;
+        });
     }
 
     if (document.querySelectorAll(".customer-list") != null) {
@@ -1288,11 +1450,71 @@ function setLang() {
       });
     }
 
+    if (document.querySelectorAll(".my-profile") != null) {
+      document.querySelectorAll(".my-profile").forEach((element) => {
+        element.textContent = en.my_profile;
+      });
+    }
+
+    if (document.querySelectorAll(".change-password") != null) {
+      document.querySelectorAll(".change-password").forEach((element) => {
+        element.textContent = en.change_password;
+      });
+    }
+
+    if (document.querySelectorAll(".reset-the-system") != null) {
+      document.querySelectorAll(".reset-the-system").forEach((element) => {
+        element.textContent = en.reset_the_system;
+      });
+    }
+
+    if (document.querySelectorAll(".reset-profits") != null) {
+      document.querySelectorAll(".reset-profits").forEach((element) => {
+        element.textContent = en.reset_profits;
+      });
+    }
+
+    if (document.querySelectorAll(".reset-warehouse-stocks") != null) {
+      document
+        .querySelectorAll(".reset-warehouse-stocks")
+        .forEach((element) => {
+          element.textContent = en.reset_warehouse_stocks;
+        });
+    }
+
+    if (document.querySelectorAll(".reset-orders") != null) {
+      document.querySelectorAll(".reset-orders").forEach((element) => {
+        element.textContent = en.reset_orders;
+      });
+    }
+
+    if (document.querySelectorAll(".reset-salary") != null) {
+      document.querySelectorAll(".reset-salary").forEach((element) => {
+        element.textContent = en.reset_salary;
+      });
+    }
+
+    if (document.querySelectorAll(".enter-your-password") != null) {
+      document.querySelectorAll(".enter-your-password").forEach((element) => {
+        element.textContent = en.enter_your_password;
+      });
+    }
+
     //Submit
     if (document.querySelectorAll(".submit") != null) {
       document.querySelectorAll(".submit").forEach((element) => {
         element.textContent = en.submit;
       });
+    }
+
+    // set lang indicator
+    if (document.querySelectorAll(".active-lang-indicator") != null) {
+      document.querySelectorAll(
+        ".active-lang-indicator"
+      )[0].style.backgroundColor = "#79ff54";
+      document.querySelectorAll(
+        ".active-lang-indicator"
+      )[1].style.backgroundColor = "transparent";
     }
   }
 }

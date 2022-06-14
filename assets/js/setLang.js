@@ -15,7 +15,6 @@ function changeLanguage(lang) {
   localStorage.setItem("language", lang);
   localLanguage = localStorage.getItem("language");
   window.setTimeout(setLang, 0);
-  window.setTimeout(setLangSidebarAndIndicator, 0);
   window.setTimeout(setLangAttri, 0);
   if (
     document.querySelector("body").querySelector(".fixed-notification") !=
@@ -30,11 +29,6 @@ function changeLanguage(lang) {
 }
 
 setLang();
-
-//Only if sidebar exist
-if (document.querySelector("body").querySelector(".sidebar") != null) {
-  setLangSidebarAndIndicator();
-}
 
 //Only if these classes exist
 if (

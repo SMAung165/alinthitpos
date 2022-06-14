@@ -126,7 +126,7 @@ if (!isset($_SESSION['user_id'])) {
 
                     <?php require_once('widgets/errorInterface.php') ?>
                     <div class="row">
-                        <div class="col-lg-4 col-md-6">
+                        <div class="col-lg-6">
                             <div class="card">
                                 <div class="card-title">
                                     <h4 class='reset-the-system'>Reset The System</h4>
@@ -155,7 +155,7 @@ if (!isset($_SESSION['user_id'])) {
                             </div>
                             <!-- /# card -->
                         </div>
-                        <div class="col-lg-4 col-md-6">
+                        <div class="col-lg-6">
                             <div class="card">
                                 <div class="card-title">
                                     <h4 class='reset-profits'>Reset Profits</h4>
@@ -184,7 +184,7 @@ if (!isset($_SESSION['user_id'])) {
                             </div>
                             <!-- /# card -->
                         </div>
-                        <div class="col-lg-4 col-md-6">
+                        <div class="col-lg-6">
                             <div class="card">
                                 <div class="card-title">
                                     <h4 class='reset-warehouse-stocks'>Reset Warehouse Stocks</h4>
@@ -212,7 +212,7 @@ if (!isset($_SESSION['user_id'])) {
                             </div>
                             <!-- /# card -->
                         </div>
-                        <div class="col-lg-4 col-md-6">
+                        <div class="col-lg-6">
                             <div class="card">
                                 <div class="card-title">
                                     <h4 class='reset-orders'>Reset Orders</h4>
@@ -240,7 +240,7 @@ if (!isset($_SESSION['user_id'])) {
                             </div>
                             <!-- /# card -->
                         </div>
-                        <div class="col-lg-4 col-md-6">
+                        <div class="col-lg-6">
                             <div class="card">
                                 <div class="card-title">
                                     <h4 class='reset-salary'>Reset Salary</h4>
@@ -288,8 +288,7 @@ if (!isset($_SESSION['user_id'])) {
     <script src="assets/js/lib/preloader/pace.min.js"></script>
 
     <!-- Language init -->
-    <script type="text/javascript" src="assets/language/controlPanel.js"></script>
-    <script type="text/javascript" src="assets/language/sidebar.js"></script>
+    <script type="text/javascript" src="assets/language/applyLanguage.js"></script>
     <script type="text/javascript" src="assets/js/setLang.js"></script>
 
     <!-- scripit init-->

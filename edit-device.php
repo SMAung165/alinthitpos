@@ -201,7 +201,6 @@ if (!isset($_SESSION['user_id']) or !isset($_POST['product_id'])) {
 
     <!-- Language init -->
     <script type="text/javascript" src="assets/language/applyLanguage.js"></script>
-    <script type="text/javascript" src="assets/language/sidebar.js"></script>
     <script type="text/javascript" src="assets/js/setLang.js"></script>
 
     <!-- scripit init-->

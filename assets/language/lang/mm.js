@@ -143,6 +143,7 @@ mm = {
   new_password: "Password အသစ်",
   confirm_new_password: "Password အသစ်ကို အတည်ပြုပါ။",
   reset_the_system: "System ကို reset ချရန်",
+  reset_orders: "အော်ဒါ စာရင်း ကို reset ချရန်",
   reset_profits: "အမြတ်များစာရင်း ကို reset ချရန်",
   reset_warehouse_stocks: "ဖုန်းအရေအတွက်စာရင်း ကို reset ချရန်",
   reset_salary: "လစာစာရင်း ကို reset ချရန်",

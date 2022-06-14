@@ -143,6 +143,7 @@ en = {
   new_password: "New Password",
   confirm_new_password: "Confirm New Password",
   reset_the_system: "Reset The System",
+  reset_orders: "Reset Orders",
   reset_profits: "Reset Profits List",
   reset_warehouse_stocks: "Reset Warehouse Stocks List",
   reset_salary: "Reset Salary Logs",
